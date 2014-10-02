@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gml:FeatureCollection xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ompr="http://inspire.ec.europa.eu/schemas/ompr/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:aqd="http://dd.eionet.europa.eu/schemaset/id2011850eu-1.0" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:ad="urn:x-inspire:specification:gmlas:Addresses:3.0" xmlns:base2="http://inspire.ec.europa.eu/schemas/base2/1.0" xmlns:sam="http://www.opengis.net/sampling/2.0" xmlns:ef="http://inspire.ec.europa.eu/schemas/ef/3.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" xmlns:am="http://inspire.ec.europa.eu/schemas/am/3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:base="http://inspire.ec.europa.eu/schemas/base/3.3" xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="Measure" xsi:schemaLocation="http://dd.eionet.europa.eu/schemaset/id2011850eu-1.0 http://dd.eionet.europa.eu/schemas/id2011850eu-1.0/AirQualityReporting.xsd">
+    <gml:featureMember>
+        <aqd:AQD_ReportingHeader gml:id="HEADER_UK0001_K_NO2_annual_1_2011_UK_G3">
+            <aqd:change>true</aqd:change>
+            <aqd:changeDescription>The changes include ...</aqd:changeDescription>
+            <aqd:inspireId>
+                <base:Identifier>
+                    <base:localId>UK0001_K_NO2_annual_1_2011_UK_G3</base:localId>
+                    <base:namespace>http://uk-air.defra.gov.uk/e-reporting/aq/</base:namespace>
+                    <base:versionId>2014-06-19.15.55.238</base:versionId>
+                </base:Identifier>
+            </aqd:inspireId>
+            <aqd:reportingAuthority>
+                <base2:RelatedParty>
+                    <base2:individualName>
+                        <gco:CharacterString>Some name ...</gco:CharacterString>
+                    </base2:individualName>
+                    <base2:organisationName>
+                        <gco:CharacterString>Atmosphere and Local Environment Programme (ALE) Department for Environment, Food and Rural Affairs Area 5E Ergon House</gco:CharacterString>
+                    </base2:organisationName>
+                    <base2:contact>
+                        <base2:Contact>
+                            <base2:address>
+                                <ad:AddressRepresentation>
+                                    <ad:adminUnit>
+                                        <gn:GeographicalName>
+                                            <gn:language nilReason="unpopulated"/>
+                                            <gn:nativeness nilReason="unpopulated"/>
+                                            <gn:nameStatus nilReason="unpopulated"/>
+                                            <gn:sourceOfName nilReason="unpopulated"/>
+                                            <gn:pronunciation nilReason="unpopulated">
+                                                <gn:PronunciationOfName>
+                                                    <gn:pronunciationSoundLink nilReason="unpopulated"/>
+                                                    <gn:pronunciationIPA nilReason="unpopulated"/>
+                                                </gn:PronunciationOfName>
+                                            </gn:pronunciation>
+                                            <gn:spelling>
+                                                <gn:SpellingOfName>
+                                                    <gn:text></gn:text>
+                                                    <gn:script nilReason="unpopulated"/>
+                                                </gn:SpellingOfName>
+                                            </gn:spelling>
+                                        </gn:GeographicalName>
+                                    </ad:adminUnit>
+                                    <ad:locatorDesignator>London, 17 Smith Square, SW1P3JR</ad:locatorDesignator>
+                                </ad:AddressRepresentation>
+                            </base2:address>
+                            <base2:electronicMailAddress>some@email.uk</base2:electronicMailAddress>
+                            <base2:telephoneVoice>+44 (0) 000000 0000</base2:telephoneVoice>
+                            <base2:website>www.defra.gov.uk</base2:website>
+                        </base2:Contact>
+                    </base2:contact>
+                </base2:RelatedParty>
+            </aqd:reportingAuthority>
+            <aqd:reportingPeriod>
+                <gml:TimePeriod gml:id="REPORTING_START_DATE_5800bef4578d5e075b32e9c00b06eba3">
+                    <gml:beginPosition>2013-01-01T00:00:00.000Z</gml:beginPosition>
+                    <gml:endPosition>2014-01-01T00:00:00.000Z</gml:endPosition>
+                </gml:TimePeriod>
+            </aqd:reportingPeriod>
+            <aqd:content>
+                <aqd:AQD_Measures gml:id="UK0001_K_NO2_annual_1_2011_UK_G3">
+                    <aqd:inspireId>
+                        <base:Identifier>
+                            <base:localId>UK0001_K_NO2_annual_1_2011_UK_G3</base:localId>
+                            <base:namespace>http://uk-air.defra.gov.uk/e-reporting/aq/</base:namespace>
+                            <base:versionId>2014-06-19.15.55.238</base:versionId>
+                        </base:Identifier>
+                    </aqd:inspireId>
+                    <aqd:code>UKNotNI_A17</aqd:code>
+                    <aqd:name>Further electrification of the railway network</aqd:name>
+                    <aqd:description>Electrification of lines in England, Wales and Scotland including the Great Western main line from London to Cardiff. Enables replacement of diesel trains.</aqd:description>
+                    <aqd:classification xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-other"/>
+                    <aqd:measureType xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/measuretype/integrated"/>
+                    <aqd:administrativeLevel xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/administrativelevel/national"/>
+                    <aqd:timeScale xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/timescale/medium"/>
+                    <aqd:costs>
+                        <aqd:Costs>
+                            <aqd:estimatedImplementationCosts>704000000</aqd:estimatedImplementationCosts>
+                            <aqd:finalImplementationCosts>1000000000</aqd:finalImplementationCosts>
+                            <aqd:currency xlink:href="http://dd.eionet.europa.eu/vocabulary/common/currencies/GBP"/>
+                            <aqd:comment>Some comment ...</aqd:comment>
+                        </aqd:Costs>
+                    </aqd:costs>
+                    <aqd:sourceSectors xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/transport"/>
+                    <aqd:spatialScale xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/spatialscale/national"/>
+                    <aqd:plannedImplementation>
+                        <aqd:PlannedImplementation>
+                            <aqd:status xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/planning"/>
+                            <aqd:implementationPlannedTimePeriod>
+                                <gml:TimePeriod gml:id="PLANNED_IMPLEMENTATION_TIME_PERIOD_5800bef4578d5e075b32e9c00b06eba3">
+                                    <gml:beginPosition>2011-01-01T00:00:00.000Z</gml:beginPosition>
+                                    <gml:endPosition>2018-01-01T00:00:00.000Z</gml:endPosition>
+                                </gml:TimePeriod>
+                            </aqd:implementationPlannedTimePeriod>
+                            <aqd:implementationActualTimePeriod>
+                                <gml:TimePeriod gml:id="ACTUAL_IMPLEMENTATION_TIME_PERIOD_5800bef4578d5e075b32e9c00b06eba3">
+                                    <gml:beginPosition>2011-01-01T00:00:00.000Z</gml:beginPosition>
+                                    <gml:endPosition>2018-01-01T00:00:00.000Z</gml:endPosition>
+                                </gml:TimePeriod>
+                            </aqd:implementationActualTimePeriod>
+                            <aqd:plannedFullEffectDate>
+                                <gml:TimeInstant gml:id="PLANNED_FULL_EFFECT_DATE_5800bef4578d5e075b32e9c00b06eba3">
+                                    <gml:timePosition>2018-01-01</gml:timePosition>
+                                </gml:TimeInstant>
+                            </aqd:plannedFullEffectDate>
+                            <aqd:otherDates>No further information available</aqd:otherDates>
+                            <aqd:monitoringProgressIndicators>No idicators</aqd:monitoringProgressIndicators>
+                            <aqd:comment>Some comment ...</aqd:comment>
+                        </aqd:PlannedImplementation>
+                    </aqd:plannedImplementation>
+                    <aqd:reductionOfEmissions>
+                        <aqd:QuantityCommented>
+                            <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/emission/kt.year-1">0</aqd:quantity>
+                            <aqd:comment>Some comment ...</aqd:comment>
+                        </aqd:QuantityCommented>
+                    </aqd:reductionOfEmissions>
+                    <aqd:expectedImpact>
+                        <aqd:ExpectedImpact>
+                            <aqd:levelOfConcentration uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">0</aqd:levelOfConcentration>
+                            <aqd:numberOfExceedances>0</aqd:numberOfExceedances>
+                            <aqd:specificationOfHours xlink:href="http://dd.eionet.europa.eu/vocabulary/uom/time/day"/>
+                            <aqd:comment>Some comment ...</aqd:comment>
+                        </aqd:ExpectedImpact>
+                    </aqd:expectedImpact>
+                    <aqd:comment>The impact of this measure on NO2 concentrations has not been quantified.</aqd:comment>
+                    <aqd:exceedanceAffected xlink:href="http://uk-air.defra.gov.uk/e-reporting/aq/UK0001_I_NO2_annual_1_2011"/>
+                    <aqd:usedForScenario xlink:href="http://uk-air.defra.gov.uk/e-reporting/aq/UK0001_J_NO2_annual_1_2011"/>
+                </aqd:AQD_Measures>
+            </aqd:content>
+        </aqd:AQD_ReportingHeader>
+    </gml:featureMember>
+</gml:FeatureCollection>

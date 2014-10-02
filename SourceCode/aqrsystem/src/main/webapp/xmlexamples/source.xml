@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gml:FeatureCollection xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ompr="http://inspire.ec.europa.eu/schemas/ompr/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:aqd="http://dd.eionet.europa.eu/schemaset/id2011850eu-1.0" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:ad="urn:x-inspire:specification:gmlas:Addresses:3.0" xmlns:base2="http://inspire.ec.europa.eu/schemas/base2/1.0" xmlns:sam="http://www.opengis.net/sampling/2.0" xmlns:ef="http://inspire.ec.europa.eu/schemas/ef/3.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" xmlns:am="http://inspire.ec.europa.eu/schemas/am/3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:base="http://inspire.ec.europa.eu/schemas/base/3.3" xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="Source_Apportionment" xsi:schemaLocation="http://dd.eionet.europa.eu/schemaset/id2011850eu-1.0 http://dd.eionet.europa.eu/schemas/id2011850eu-1.0/AirQualityReporting.xsd">
+    <gml:featureMember>
+        <aqd:AQD_ReportingHeader gml:id="HEADER_UK0001_I_NO2_annual_1_2011">
+            <aqd:change>true</aqd:change>
+            <aqd:changeDescription>The changes include ...</aqd:changeDescription>
+            <aqd:inspireId>
+                <base:Identifier>
+                    <base:localId>UK0001_I_NO2_annual_1_2011</base:localId>
+                    <base:namespace>http://uk-air.defra.gov.uk/e-reporting/aq/</base:namespace>
+                    <base:versionId>2014-07-17.15.59.403</base:versionId>
+                </base:Identifier>
+            </aqd:inspireId>
+            <aqd:reportingAuthority>
+                <base2:RelatedParty>
+                    <base2:individualName>
+                        <gco:CharacterString>Some name ...</gco:CharacterString>
+                    </base2:individualName>
+                    <base2:organisationName>
+                        <gco:CharacterString>Atmosphere and Local Environment Programme (ALE) Department for Environment, Food and Rural Affairs Area 5E Ergon House</gco:CharacterString>
+                    </base2:organisationName>
+                    <base2:contact>
+                        <base2:Contact>
+                            <base2:address>
+                                <ad:AddressRepresentation>
+                                    <ad:adminUnit>
+                                        <gn:GeographicalName>
+                                            <gn:language nilReason="unpopulated"/>
+                                            <gn:nativeness nilReason="unpopulated"/>
+                                            <gn:nameStatus nilReason="unpopulated"/>
+                                            <gn:sourceOfName nilReason="unpopulated"/>
+                                            <gn:pronunciation nilReason="unpopulated">
+                                                <gn:PronunciationOfName>
+                                                    <gn:pronunciationSoundLink nilReason="unpopulated"/>
+                                                    <gn:pronunciationIPA nilReason="unpopulated"/>
+                                                </gn:PronunciationOfName>
+                                            </gn:pronunciation>
+                                            <gn:spelling>
+                                                <gn:SpellingOfName>
+                                                    <gn:text></gn:text>
+                                                    <gn:script nilReason="unpopulated"/>
+                                                </gn:SpellingOfName>
+                                            </gn:spelling>
+                                        </gn:GeographicalName>
+                                    </ad:adminUnit>
+                                    <ad:locatorDesignator>London, 17 Smith Square, SW1P3JR</ad:locatorDesignator>
+                                </ad:AddressRepresentation>
+                            </base2:address>
+                            <base2:electronicMailAddress>some@email.uk</base2:electronicMailAddress>
+                            <base2:telephoneVoice>+44 (0) 000000 0000</base2:telephoneVoice>
+                            <base2:website>www.defra.gov.uk</base2:website>
+                        </base2:Contact>
+                    </base2:contact>
+                </base2:RelatedParty>
+            </aqd:reportingAuthority>
+            <aqd:reportingPeriod>
+                <gml:TimePeriod gml:id="REPORTING_START_DATE_f00d99036586e651c9cce3380da526ef">
+                    <gml:beginPosition>2013-01-01T00:00:00.000Z</gml:beginPosition>
+                    <gml:endPosition>2014-01-01T00:00:00.000Z</gml:endPosition>
+                </gml:TimePeriod>
+            </aqd:reportingPeriod>
+            <aqd:content>
+                <aqd:AQD_SourceApportionment gml:id="UK0001_I_NO2_annual_1_2011">
+                    <aqd:inspireId>
+                        <base:Identifier>
+                            <base:localId>UK0001_I_NO2_annual_1_2011</base:localId>
+                            <base:namespace>http://uk-air.defra.gov.uk/e-reporting/aq/</base:namespace>
+                            <base:versionId>2014-07-17.15.59.403</base:versionId>
+                        </base:Identifier>
+                    </aqd:inspireId>
+                    <aqd:referenceYear>
+                        <gml:TimeInstant gml:id="REFERENCE_YEAR_f00d99036586e651c9cce3380da526ef">
+                            <gml:timePosition>2008</gml:timePosition>
+                        </gml:TimeInstant>
+                    </aqd:referenceYear>
+                    <aqd:regionalBackground>
+                        <aqd:RegionalBackground>
+                            <aqd:total>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">11.0</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:total>
+                            <aqd:fromWithinMS>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">6.9</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:fromWithinMS>
+                            <aqd:transboundary>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">4.1</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:transboundary>
+                            <aqd:natural>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:natural>
+                            <aqd:other>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:other>
+                        </aqd:RegionalBackground>
+                    </aqd:regionalBackground>
+                    <aqd:urbanBackground>
+                        <aqd:UrbanBackground>
+                            <aqd:total>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">89.9</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:total>
+                            <aqd:traffic>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">43.5</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:traffic>
+                            <aqd:heatAndPowerProduction>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">9.8</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:heatAndPowerProduction>
+                            <aqd:agriculture>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:agriculture>
+                            <aqd:commercialAndResidential>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">28.6</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:commercialAndResidential>
+                            <aqd:shipping>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">0.0</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:shipping>
+                            <aqd:offRoadMobileMachinery>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">6.8</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:offRoadMobileMachinery>
+                            <aqd:natural>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:natural>
+                            <aqd:transboundary>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:transboundary>
+                            <aqd:other>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">1.1</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:other>
+                        </aqd:UrbanBackground>
+                    </aqd:urbanBackground>
+                    <aqd:localIncrement>
+                        <aqd:LocalIncrement>
+                            <aqd:total>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">305.5</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:total>
+                            <aqd:traffic>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">305.5</aqd:quantity>
+                                </aqd:QuantityCommented>
+                            </aqd:traffic>
+                            <aqd:heatAndPowerProduction>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:heatAndPowerProduction>
+                            <aqd:agriculture>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:agriculture>
+                            <aqd:commercialAndResidential>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:commercialAndResidential>
+                            <aqd:shipping>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:shipping>
+                            <aqd:offRoadMobileMachinery>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:offRoadMobileMachinery>
+                            <aqd:natural>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:natural>
+                            <aqd:transboundary>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:transboundary>
+                            <aqd:other>
+                                <aqd:QuantityCommented>
+                                    <aqd:quantity uom="Unknown" nilReason="Unpopulated">0</aqd:quantity>
+                                    <aqd:comment>N/A</aqd:comment>
+                                </aqd:QuantityCommented>
+                            </aqd:other>
+                        </aqd:LocalIncrement>
+                    </aqd:localIncrement>
+                    <aqd:macroExceedanceSituation>
+                        <aqd:ExceedanceDescription>
+                            <aqd:exceedance>true</aqd:exceedance>
+                            <aqd:numericalExceedance>0.0</aqd:numericalExceedance>
+                            <aqd:numberExceedances>0</aqd:numberExceedances>
+                            <aqd:deductionAssessmentMethod>
+                                <aqd:AdjustmentMethod>
+                                    <aqd:assessmentMethod>
+                                        <aqd:AssessmentMethods>
+                                            <aqd:assessmentType xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/fixed"/>
+                                            <aqd:assessmentTypeDescription>Some description ...</aqd:assessmentTypeDescription>
+                                        </aqd:AssessmentMethods>
+                                    </aqd:assessmentMethod>
+                                    <aqd:adjustmentType xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/fullyCorrected"/>
+                                    <aqd:adjustmentSource xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/D2"/>
+                                    <aqd:adjustmentSource xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/E1"/>
+                                </aqd:AdjustmentMethod>
+                            </aqd:deductionAssessmentMethod>
+                            <aqd:exceedanceArea>
+                                <aqd:ExceedanceArea>
+                                    <aqd:areaClassification xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/rural"/>
+                                    <aqd:areaClassification xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/rural-nearcity"/>
+                                    <aqd:spatialExtent nilReason="unpopulated"/>
+                                    <aqd:surfaceArea uom="http://dd.eionet.europa.eu/vocabulary/uom/area/km2">1.1</aqd:surfaceArea>
+                                    <aqd:roadLength uom="http://dd.eionet.europa.eu/vocabulary/uom/length/km">1.3</aqd:roadLength>
+                                    <aqd:administrativeUnit nilReason="unpopulated"/>
+                                </aqd:ExceedanceArea>
+                            </aqd:exceedanceArea>
+                            <aqd:exceedanceExposure>
+                                <aqd:ExceedanceExposure>
+                                    <aqd:populationExposed>10000</aqd:populationExposed>
+                                    <aqd:ecosystemAreaExposed uom="http://dd.eionet.europa.eu/vocabulary/uom/area/km2">0.5</aqd:ecosystemAreaExposed>
+                                    <aqd:sensitivePopulation>5000</aqd:sensitivePopulation>
+                                    <aqd:infrastructureServices>2</aqd:infrastructureServices>
+                                    <aqd:referenceYear>
+                                        <gml:TimeInstant gml:id="EXCEEDANCE_EXPOSURE_REFERENCE_YEAR_bc3288dda0bdc4c044bd8a6fc7c1df62">
+                                            <gml:timePosition>2008</gml:timePosition>
+                                        </gml:TimeInstant>
+                                    </aqd:referenceYear>
+                                </aqd:ExceedanceExposure>
+                            </aqd:exceedanceExposure>
+                            <aqd:reason xlink:href="http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S1"/>
+                            <aqd:reasonOther>Some reasons ...</aqd:reasonOther>
+                            <aqd:comment>Some comments ...</aqd:comment>
+                        </aqd:ExceedanceDescription>
+                    </aqd:macroExceedanceSituation>
+                    <aqd:comment>This is NOx source apportionment given in µgm-3 NOx as NO2. This is the source apportionment for the location with the highest modelled NO2 concentration.</aqd:comment>
+                    <aqd:parentExceedanceSituation xlink:href="http://uk-air.defra.gov.uk/e-reporting/aq/GB_Attainment_1721"/>
+                    <aqd:usedInPlan xlink:href="http://uk-air.defra.gov.uk/e-reporting/aq/UK0001_H_NO2_2011"/>
+                </aqd:AQD_SourceApportionment>
+            </aqd:content>
+        </aqd:AQD_ReportingHeader>
+    </gml:featureMember>
+</gml:FeatureCollection>

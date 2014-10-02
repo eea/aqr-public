@@ -1,0 +1,206 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.europa.ec</groupId>
+    <artifactId>aqrsystem</artifactId>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
+    <name>aqrsystem</name>
+    
+    <scm> <!-- Required for automatic tagging with the current SVN version -->
+        <connection>scm:svn:https://webgate.ec.europa.eu/CITnet/svn/AQRTOOL</connection>
+        <developerConnection>scm:svn:https://webgate.ec.europa.eu/CITnet/svn/AQRTOOL/</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://webgate.ec.europa.eu/CITnet/svn/AQRTOOL/</url>
+    </scm>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            
+            <plugin> <!-- without this warnings are generated during the build -->
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+            
+            <plugin> <!-- enabling deployments to the staging server -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>tomcat-maven-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <url>${server.url}</url>
+                    <server>${server.name}</server>
+                    <path>/aqrsystem</path>
+                </configuration>
+            </plugin>
+            
+            <plugin> <!-- configuration of a plugin to execute SQL scripts -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sql-maven-plugin</artifactId>
+                <version>1.5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>${dependency.postgres.group.id}</groupId>
+                        <artifactId>${dependency.postgres.artifact.id}</artifactId>
+                        <version>${dependency.postgres.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <driver>${persistence.jdbc.driver}</driver>
+                    <url>${persistence.jdbc.url}</url>
+                    <username>${persistence.jdbc.username}</username>
+                    <password>${persistence.jdbc.password}</password>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <configuration>
+                            <autocommit>true</autocommit>
+                            <srcFiles>
+                                <!-- drop existing tables and create the database -->
+                                <srcFile>..\aqrsql\create_aqd.sql</srcFile>
+                                <!-- insert the codelist and additional inforations about the user and system -->
+                                <srcFile>..\aqrsql\insert_aqd.sql</srcFile>
+                                
+                                 <!--optional--> 
+                                <srcFile>..\aqrsql\UK_demos.sql</srcFile>
+                            </srcFiles>                        
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>        
+    </build>
+    
+    <repositories>
+        <repository>
+            <id>CITnet-nexus</id> <!-- the CITNet repository with the ECAS client jar -->
+            <url>https://webgate.ec.europa.eu/CITnet/nexus/content/repositories/ecas</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>${dependency.postgres.group.id}</groupId>
+            <artifactId>${dependency.postgres.artifact.id}</artifactId>
+            <version>${dependency.postgres.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>eu.europa.ec</groupId>
+            <artifactId>aqrmodel</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>eu.europa.ec.digit.iam.ecas.client</groupId>
+            <artifactId>ecas-tomcat-5.5</artifactId>
+            <version>3.6.3</version>
+            <scope>provided</scope> 
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.stripes</groupId>
+            <artifactId>stripes</artifactId>
+            <version>1.5.7</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.stripesstuff</groupId>
+            <artifactId>stripesstuff</artifactId>
+            <version>0.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.2.5.1</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <persistence.unitname>custom_persistence_unitname</persistence.unitname>
+        <persistence.transactiontpye>RESOURCE_LOCAL</persistence.transactiontpye>
+        <persistence.jdbc.driver>org.postgresql.Driver</persistence.jdbc.driver>
+        <eclipselink.ddl-generation>create-tables</eclipselink.ddl-generation>
+        <dependency.postgres.group.id>org.postgresql</dependency.postgres.group.id>
+        <dependency.postgres.artifact.id>postgresql</dependency.postgres.artifact.id>
+        <dependency.postgres.version>9.3-1100-jdbc4</dependency.postgres.version>
+        <netbeans.hint.license>aq-license</netbeans.hint.license>
+    </properties>
+    
+    <profiles>
+        <profile>
+            <id>profile_name</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>custom_value_name</value>
+                </property>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Database configurations -->
+                <persistence.jdbc.url>jdbc:postgresql://IP:PORT/DB_name</persistence.jdbc.url>
+                <persistence.jdbc.username>username</persistence.jdbc.username>
+                <persistence.jdbc.password>password</persistence.jdbc.password>
+                
+               <!-- Loggers configurations -->
+			   <log.file.name>login_file_path</log.file.name>
+
+            </properties>
+        </profile>
+ 
+    </profiles>
+</project>

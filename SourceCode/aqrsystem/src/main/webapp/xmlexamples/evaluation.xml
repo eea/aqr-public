@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gml:FeatureCollection xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" xmlns:om="http://www.opengis.net/om/2.0" xmlns:ompr="http://inspire.ec.europa.eu/schemas/ompr/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:aqd="http://dd.eionet.europa.eu/schemaset/id2011850eu-1.0" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:ad="urn:x-inspire:specification:gmlas:Addresses:3.0" xmlns:base2="http://inspire.ec.europa.eu/schemas/base2/1.0" xmlns:sam="http://www.opengis.net/sampling/2.0" xmlns:ef="http://inspire.ec.europa.eu/schemas/ef/3.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" xmlns:am="http://inspire.ec.europa.eu/schemas/am/3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:base="http://inspire.ec.europa.eu/schemas/base/3.3" xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="Evaluation_Scenario" xsi:schemaLocation="http://dd.eionet.europa.eu/schemaset/id2011850eu-1.0 http://dd.eionet.europa.eu/schemas/id2011850eu-1.0/AirQualityReporting.xsd">
+    <gml:featureMember>
+        <aqd:AQD_ReportingHeader gml:id="HEADER_UK0001_J_NO2_annual_1_2011">
+            <aqd:change>true</aqd:change>
+            <aqd:changeDescription>The changes include ...</aqd:changeDescription>
+            <aqd:inspireId>
+                <base:Identifier>
+                    <base:localId>UK0001_J_NO2_annual_1_2011</base:localId>
+                    <base:namespace>http://uk-air.defra.gov.uk/e-reporting/aq/</base:namespace>
+                    <base:versionId>2014-06-25.16.25.29</base:versionId>
+                </base:Identifier>
+            </aqd:inspireId>
+            <aqd:reportingAuthority>
+                <base2:RelatedParty>
+                    <base2:individualName>
+                        <gco:CharacterString>Some name ...</gco:CharacterString>
+                    </base2:individualName>
+                    <base2:organisationName>
+                        <gco:CharacterString>Defra (Department for Environment, Food and Rural Affairs)</gco:CharacterString>
+                    </base2:organisationName>
+                    <base2:contact>
+                        <base2:Contact>
+                            <base2:address>
+                                <ad:AddressRepresentation>
+                                    <ad:adminUnit>
+                                        <gn:GeographicalName>
+                                            <gn:language nilReason="unpopulated"/>
+                                            <gn:nativeness nilReason="unpopulated"/>
+                                            <gn:nameStatus nilReason="unpopulated"/>
+                                            <gn:sourceOfName nilReason="unpopulated"/>
+                                            <gn:pronunciation nilReason="unpopulated">
+                                                <gn:PronunciationOfName>
+                                                    <gn:pronunciationSoundLink nilReason="unpopulated"/>
+                                                    <gn:pronunciationIPA nilReason="unpopulated"/>
+                                                </gn:PronunciationOfName>
+                                            </gn:pronunciation>
+                                            <gn:spelling>
+                                                <gn:SpellingOfName>
+                                                    <gn:text></gn:text>
+                                                    <gn:script nilReason="unpopulated"/>
+                                                </gn:SpellingOfName>
+                                            </gn:spelling>
+                                        </gn:GeographicalName>
+                                    </ad:adminUnit>
+                                    <ad:locatorDesignator>Atmosphere and Local Environment Programme (ALE) Department for Environment, Food and Rural Affairs Area 5E Ergon House, 17 Smith Square, London, SW1P 3JR</ad:locatorDesignator>
+                                </ad:AddressRepresentation>
+                            </base2:address>
+                            <base2:electronicMailAddress>some@email.uk</base2:electronicMailAddress>
+                            <base2:telephoneVoice>+44 (0) 000000 0000</base2:telephoneVoice>
+                            <base2:website>http://www.defra.gov.uk/</base2:website>
+                        </base2:Contact>
+                    </base2:contact>
+                </base2:RelatedParty>
+            </aqd:reportingAuthority>
+            <aqd:reportingPeriod>
+                <gml:TimePeriod gml:id="REPORTING_START_DATE_d1ca53d7caa621fb8147b1d324b48c94">
+                    <gml:beginPosition>2008-01-01T00:00:00.000Z</gml:beginPosition>
+                    <gml:endPosition>2015-12-31T00:00:00.000Z</gml:endPosition>
+                </gml:TimePeriod>
+            </aqd:reportingPeriod>
+            <aqd:content>
+                <aqd:AQD_EvaluationScenario gml:id="UK0001_J_NO2_annual_1_2011">
+                    <aqd:inspireId>
+                        <base:Identifier>
+                            <base:localId>UK0001_J_NO2_annual_1_2011</base:localId>
+                            <base:namespace>http://uk-air.defra.gov.uk/e-reporting/aq/</base:namespace>
+                            <base:versionId>2014-06-25.16.25.29</base:versionId>
+                        </base:Identifier>
+                    </aqd:inspireId>
+                    <aqd:codeOfScenario>UK0001_NO2_annual_1_2011</aqd:codeOfScenario>
+                    <aqd:publication>
+                        <aqd:Publication>
+                            <aqd:description>Air quality plan for the Zone</aqd:description>
+                            <aqd:title>Air Quality Plan for the achievement of EU air quality limit values for nitrogen dioxide (NO2) in Greater London Urban Area (UK0001)</aqd:title>
+                            <aqd:author>Defra (Department for Environment, Food and Rural Affairs)</aqd:author>
+                            <aqd:publicationDate>
+                                <gml:TimeInstant gml:id="PUBLICATION_DATE_c9de20a141a7b2c55c51830dbde0e318">
+                                    <gml:timePosition>2011</gml:timePosition>
+                                </gml:TimeInstant>
+                            </aqd:publicationDate>
+                            <aqd:publisher>Published by Defra</aqd:publisher>
+                            <aqd:webLink>http://uk-air.defra.gov.uk/library/no2ten/</aqd:webLink>
+                        </aqd:Publication>
+                    </aqd:publication>
+                    <aqd:attainmentYear>
+                        <gml:TimeInstant gml:id="ATTAINMENT_YEAR_d1ca53d7caa621fb8147b1d324b48c94">
+                            <gml:timePosition>2008</gml:timePosition>
+                        </gml:TimeInstant>
+                    </aqd:attainmentYear>
+                    <aqd:startYear>
+                        <gml:TimeInstant gml:id="START_YEAR_d1ca53d7caa621fb8147b1d324b48c94">
+                            <gml:timePosition>2008</gml:timePosition>
+                        </gml:TimeInstant>
+                    </aqd:startYear>
+                    <aqd:baselineScenario>
+                        <aqd:Scenario>
+                            <aqd:description>Baseline emissions projections, starting from the 2008 reference year. The road transport projections used road transport emission factors published in 2009 by the Department for Transport and road transport activity projections from Department for Transport (DfT AF (09), published in May 2010). The emission factors are based on a combination of measurements from UK test programmes combined with data from European sources including ARTEMIS. The projections for non-road traffic sources were calculated by the NAEI based on the Updated Energy Projections 37 from the Department of Energy and Climate Change.</aqd:description>
+                            <aqd:totalEmissions uom="http://dd.eionet.europa.eu/vocabulary/uom/emission/kt.year-1">838</aqd:totalEmissions>
+                            <aqd:expectedConcentration uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">114.8</aqd:expectedConcentration>
+                            <aqd:comment>Baseline total emissions in J.2.3 are the UK total</aqd:comment>
+                            <aqd:measuresApplied xlink:href="http://uk-air.defra.gov.uk/e-reporting/aq/UK0001_K_NO2_annual_1_2011_UK_G3"/>
+                        </aqd:Scenario>
+                    </aqd:baselineScenario>
+                    <aqd:projectionScenario>
+                        <aqd:Scenario>
+                            <aqd:description>Emissions projections (based on the baseline described in J.2.2) that also include the impact of the LEZ measure.</aqd:description>
+                            <aqd:totalEmissions uom="http://dd.eionet.europa.eu/vocabulary/uom/emission/kt.year-1">0</aqd:totalEmissions>
+                            <aqd:expectedConcentration uom="http://dd.eionet.europa.eu/vocabulary/uom/concentration/ug.m-3">93.6</aqd:expectedConcentration>
+                            <aqd:comment>N/A</aqd:comment>
+                            <aqd:measuresApplied xlink:href="http://uk-air.defra.gov.uk/e-reporting/aq/UK0001_K_NO2_annual_1_2011_UK_G3"/>
+                        </aqd:Scenario>
+                    </aqd:projectionScenario>
+                    <aqd:usedInPlan xlink:href="http://uk-air.defra.gov.uk/e-reporting/aq/UK0001_H_NO2_2011"/>
+                    <aqd:sourceApportionment xlink:href="http://uk-air.defra.gov.uk/e-reporting/aq/UK0001_I_NO2_annual_1_2011"/>
+                </aqd:AQD_EvaluationScenario>
+            </aqd:content>
+        </aqd:AQD_ReportingHeader>
+    </gml:featureMember>
+</gml:FeatureCollection>
