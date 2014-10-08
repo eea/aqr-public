@@ -3162,6 +3162,7 @@ INSERT INTO country VALUES ('33', 'Spain');
 INSERT INTO country VALUES ('34', 'Sweden');
 INSERT INTO country VALUES ('35', 'Turkey');
 INSERT INTO country VALUES ('36', 'United Kingdom');
+INSERT INTO country VALUES ('37', 'Norway');
 
 /*userrole*/
 INSERT INTO userrole VALUES ('0', 'superuser', 'EEA Administrator');
