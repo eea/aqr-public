@@ -80,5 +80,4 @@ public class FlowGXML implements XMLSaveableObject {
         context.getMessages().add(new LocalizableMessage("import.message.attainments", counter));
 
     }
-
 }

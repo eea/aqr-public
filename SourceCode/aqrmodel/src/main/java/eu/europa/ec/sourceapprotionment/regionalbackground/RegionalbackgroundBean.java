@@ -24,34 +24,27 @@ import java.io.Serializable;
 public class RegionalbackgroundBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private String uuid;
-
     private String total;
     private String totalcomment;
     private boolean total_nil;
     private String total_nilreason;
-
     private String fromwithinms;
     private String fromwithinmscomment;
     private boolean fromwithinms_nil;
     private String fromwithinms_nilreason;
-
     private String transboundary;
     private String transboundarycomment;
     private boolean transboundary_nil;
     private String transboundary_nilreason;
-
     private String naturalregionalbackground;
     private String naturalregionalbackgroundcomment;
     private boolean naturalregionalbackground_nil;
     private String naturalregionalbackground_nilreason;
-
     private String other;
     private String othercomment;
     private boolean other_nil;
     private String other_nilreason;
-
     private String unitmisure;
     private String unitmisurecomment;
     private boolean unitmisure_nil;
@@ -271,5 +264,4 @@ public class RegionalbackgroundBean implements Serializable {
     public void setUnitmisure_nilreason(String unitmisure_nilreason) {
         this.unitmisure_nilreason = unitmisure_nilreason;
     }
-
 }

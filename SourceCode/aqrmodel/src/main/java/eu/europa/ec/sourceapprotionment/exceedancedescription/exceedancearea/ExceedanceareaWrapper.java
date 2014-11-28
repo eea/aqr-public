@@ -56,5 +56,4 @@ public class ExceedanceareaWrapper implements Serializable {
 
         return exceedanceareaBean;
     }
-
 }

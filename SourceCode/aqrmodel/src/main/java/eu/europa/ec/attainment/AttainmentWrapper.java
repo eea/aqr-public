@@ -54,7 +54,7 @@ public class AttainmentWrapper {
 
         attainmentBean.setDatecreation(attainment.getDatecreation());
         attainmentBean.setDatelastupdate(attainment.getDatelastupdate());
-        
+
         attainmentBean.setUserBean(UserWrapper.convertUserInUserBean(attainment.getUsers()));
 
         if (user != null) {
@@ -123,5 +123,4 @@ public class AttainmentWrapper {
         //EnvironmentalobjectiveBean
         return attainment;
     }
-
 }

@@ -24,7 +24,6 @@ import java.io.Serializable;
 public class AreaclassificationBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private String uuid;
     private String areaclassificationvalue;
     private String uri;
@@ -91,5 +90,4 @@ public class AreaclassificationBean implements Serializable {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

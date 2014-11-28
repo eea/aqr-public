@@ -52,7 +52,6 @@ public class Environmentalobjective implements Serializable {
     private String objectivetypevalue;
     @Column(name = "reportingmetricvalue")
     private String reportingmetricvalue;
-
     @JoinColumn(name = "protectiontarget", referencedColumnName = "uuid")
     @ManyToOne
     private Protectiontarget protectiontarget;
@@ -120,5 +119,4 @@ public class Environmentalobjective implements Serializable {
     public void setProtectiontarget(Protectiontarget protectiontarget) {
         this.protectiontarget = protectiontarget;
     }
-
 }

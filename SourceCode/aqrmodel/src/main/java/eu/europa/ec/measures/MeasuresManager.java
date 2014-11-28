@@ -79,6 +79,7 @@ import eu.europa.ec.util.EntityManagerCustom;
 import eu.europa.ec.util.StringUtils;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -285,8 +286,8 @@ public class MeasuresManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userSourceapportionment = (Users) q.getSingleResult();
         Country country = userSourceapportionment.getCountry();
         Userrole userrole = userSourceapportionment.getUserrole();
@@ -581,8 +582,8 @@ public class MeasuresManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -633,7 +634,8 @@ public class MeasuresManager {
         Relatedparty provider = relatedpartyWrapper.createDraftProviderFromUser(measuresUuid, user);
         measures.setProvider(provider);
 
-        measures.setChanges(false);
+        measures.setChanges(true);
+        measures.setDescriptionofchanges("");
         measures.setReportingstartdate("");
         measures.setReportingenddate("");
 
@@ -746,8 +748,8 @@ public class MeasuresManager {
         Measures cloneMeasures = new Measures();
         emc.beginTransaction(em);
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
 
         q = em.createNamedQuery("Measures.findByUuid");
@@ -974,8 +976,8 @@ public class MeasuresManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userMeasures = (Users) q.getSingleResult();
         Country country = userMeasures.getCountry();
         Userrole userrole = userMeasures.getUserrole();
@@ -1019,8 +1021,8 @@ public class MeasuresManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userMeasure = (Users) q.getSingleResult();
 
         q = em.createNamedQuery("Measures.findByUuid");
@@ -1040,8 +1042,8 @@ public class MeasuresManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userMeasure = (Users) q.getSingleResult();
         Country country = userMeasure.getCountry();
 
@@ -1086,8 +1088,9 @@ public class MeasuresManager {
         q.setParameter("uuid", measuresBean.getUuid());
         Measures measures = (Measures) q.getSingleResult();
 
-        q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", measures.getUsers().getEmail());
+        String userEmail = measures.getUsers().getEmail();
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -1195,8 +1198,7 @@ public class MeasuresManager {
                 Classification classification = (Classification) q.getSingleResult();
 
                 MeasuresClassification measuresClassification = new MeasuresClassification();
-                String measuresClassificationUuid = StringUtils.createUUID(measures.getUuid() + classification.getUuid() + dateFormatUtil.getToday(), MeasuresClassification.class
-                );
+                String measuresClassificationUuid = StringUtils.createUUID(measures.getUuid() + classification.getUuid() + dateFormatUtil.getToday(), MeasuresClassification.class);
                 measuresClassification.setUuid(measuresClassificationUuid);
                 measuresClassification.setMeasures(measures);
                 measuresClassification.setClassification(classification);
@@ -1238,8 +1240,7 @@ public class MeasuresManager {
                 Administrationlevel administrationlevel = (Administrationlevel) q.getSingleResult();
 
                 MeasuresAdministrationlevel measuresAdministrationlevel = new MeasuresAdministrationlevel();
-                String measuresClassificationUuid = StringUtils.createUUID(measures.getUuid() + administrationlevel.getUuid() + dateFormatUtil.getToday(), MeasuresAdministrationlevel.class
-                );
+                String measuresClassificationUuid = StringUtils.createUUID(measures.getUuid() + administrationlevel.getUuid() + dateFormatUtil.getToday(), MeasuresAdministrationlevel.class);
                 measuresAdministrationlevel.setUuid(measuresClassificationUuid);
                 measuresAdministrationlevel.setMeasures(measures);
                 measuresAdministrationlevel.setAdministractionlevel(administrationlevel);
@@ -1281,8 +1282,7 @@ public class MeasuresManager {
                 Sourcesector sourcesector = (Sourcesector) q.getSingleResult();
 
                 MeasuresSourcesector measuresSourcesector = new MeasuresSourcesector();
-                String measuresClassificationUuid = StringUtils.createUUID(measures.getUuid() + sourcesector.getUuid() + dateFormatUtil.getToday(), MeasuresAdministrationlevel.class
-                );
+                String measuresClassificationUuid = StringUtils.createUUID(measures.getUuid() + sourcesector.getUuid() + dateFormatUtil.getToday(), MeasuresAdministrationlevel.class);
                 measuresSourcesector.setUuid(measuresClassificationUuid);
                 measuresSourcesector.setMeasures(measures);
                 measuresSourcesector.setSourcesector(sourcesector);
@@ -1311,8 +1311,7 @@ public class MeasuresManager {
                 Spatialscale spatialscale = (Spatialscale) q.getSingleResult();
 
                 MeasuresSpatialscale measuresSpatialscale = new MeasuresSpatialscale();
-                String measuresClassificationUuid = StringUtils.createUUID(measures.getUuid() + spatialscale.getUuid() + dateFormatUtil.getToday(), MeasuresSpatialscale.class
-                );
+                String measuresClassificationUuid = StringUtils.createUUID(measures.getUuid() + spatialscale.getUuid() + dateFormatUtil.getToday(), MeasuresSpatialscale.class);
                 measuresSpatialscale.setUuid(measuresClassificationUuid);
                 measuresSpatialscale.setMeasures(measures);
                 measuresSpatialscale.setSpatialscale(spatialscale);
@@ -1421,8 +1420,7 @@ public class MeasuresManager {
             Expectedimpact expectedimpact = measures.getExpectedimpact();
             if (expectedimpact == null) {
                 expectedimpact = new Expectedimpact();
-                String expectedimpactUuid = StringUtils.createUUID(measures.getUuid() + dateFormatUtil.getToday(), Expectedimpact.class
-                );
+                String expectedimpactUuid = StringUtils.createUUID(measures.getUuid() + dateFormatUtil.getToday(), Expectedimpact.class);
                 expectedimpact.setUuid(expectedimpactUuid);
             }
 
@@ -1594,8 +1592,7 @@ public class MeasuresManager {
         Costs costs = measures.getCosts();
         if (costs == null) {
             costs = new Costs();
-            String costsUuid = StringUtils.createUUID(measures.getUuid() + dateFormatUtil.getToday(), Costs.class
-            );
+            String costsUuid = StringUtils.createUUID(measures.getUuid() + dateFormatUtil.getToday(), Costs.class);
             costs.setUuid(costsUuid);
         }
 
@@ -1686,8 +1683,7 @@ public class MeasuresManager {
         Expectedimpact expectedimpact = measures.getExpectedimpact();
         if (expectedimpact == null) {
             expectedimpact = new Expectedimpact();
-            String costsUuid = StringUtils.createUUID(measures.getUuid() + dateFormatUtil.getToday(), Expectedimpact.class
-            );
+            String costsUuid = StringUtils.createUUID(measures.getUuid() + dateFormatUtil.getToday(), Expectedimpact.class);
             expectedimpact.setUuid(costsUuid);
         }
 
@@ -1774,8 +1770,8 @@ public class MeasuresManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userSourceapportionment = (Users) q.getSingleResult();
 
         q = em.createNamedQuery("Sourceapportionment.findByCompletedAndUser");
@@ -1801,8 +1797,8 @@ public class MeasuresManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userEvaluationscenario = (Users) q.getSingleResult();
 
         q = em.createNamedQuery("Evaluationscenario.findByCompletedAndUser");
@@ -1816,5 +1812,47 @@ public class MeasuresManager {
 
         em.close();
         return evaluationscenarioBeanList;
+    }
+
+    /**
+     *
+     * @param userEmail
+     * @return a list of all the completed measures for the user's country
+     */
+    public List<MeasuresBean> getAllCompletedMeasuresByUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
+        List<MeasuresBean> measuresBeanList = new ArrayList<MeasuresBean>();
+
+        EntityManagerCustom emc = new EntityManagerCustom();
+        EntityManager em = emc.getEntityManager();
+
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
+        Users userAttainment = (Users) q.getSingleResult();
+        Country country = userAttainment.getCountry();
+
+        q = em.createNamedQuery("Users.findByCountry");
+        q.setParameter("country", country);
+
+        List<Users> userList = q.getResultList();
+
+        for (Iterator<Users> it = userList.iterator(); it.hasNext();) {
+            Users user = it.next();
+            q = em.createNamedQuery("Measures.findAllByUserInInterval");
+            q.setParameter("users", user);
+            q.setParameter("fromDate", new java.sql.Date(fromDate.getTime()));
+            q.setParameter("toDate", new java.sql.Date(toDate.getTime()));
+            List<Measures> measuresList = (List<Measures>) q.getResultList();
+
+            for (Measures measures : measuresList) {
+                if (completed && measures.getCompleted()) {
+                    measuresBeanList.add(MeasuresWrapper.convertMeasuresInMeasuresBean(measures, user));
+                } else if (!completed) {
+                    measuresBeanList.add(MeasuresWrapper.convertMeasuresInMeasuresBean(measures, user));
+                }
+            }
+        }
+
+        em.close();
+        return measuresBeanList;
     }
 }

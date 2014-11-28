@@ -50,21 +50,17 @@ public class Expectedimpact implements Serializable {
 
     @OneToMany(mappedBy = "expectedimpact")
     private List<Measures> measuresList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Column(name = "levelofconcentration")
     private String levelofconcentration;
     @Column(name = "numberofexceedence")
     private String numberofexceedence;
-
     @Column(name = "comment")
     private String comment;
-
     @JoinColumn(name = "specificationofhours", referencedColumnName = "uuid")
     @ManyToOne
     private Specificationofhours specificationofhours;
@@ -149,5 +145,4 @@ public class Expectedimpact implements Serializable {
     public void setMeasuresList(List<Measures> measuresList) {
         this.measuresList = measuresList;
     }
-
 }

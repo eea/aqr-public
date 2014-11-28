@@ -2,28 +2,28 @@
 <%@include file="/WEB-INF/jsp/common/taglibs.jsp" %>
 <s:layout-render name="/WEB-INF/jsp/common/layout_with_menu.jsp">
     <s:layout-component name="content">
-        <h2>${res['source.label.edit']}</h2>
-        
+        <h2 class="sourceapp">${res['source.label.edit']}</h2>
+
         <fieldset>
-            <legend>${res['description.label.edit']}</legend>
+            <legend class="sourceapp">${res['description.label.edit']}</legend>
             <p>${res['source.description.model']}</p>
             <p align="right">${res['fields.marked']}</p>
         </fieldset>  
-        
+
         <s:form class="${actionBean.source.editable ? 'protected' : ''}" beanclass="eu.europa.ec.aqrsystem.action.EditApportionmentActionBean">
             <div><s:hidden name="source.uuid"/></div>
             <div><s:hidden name="source.editable"/></div>
             <div><s:hidden name="sourceId"/></div>
 
             <fieldset>
-                <legend>${res['source.legend.inspireid']}</legend>
+                <legend class="sourceapp">${res['source.legend.inspireid']}</legend>
                 <cust:field key="source.inspireidLocalid"/>
                 <cust:readOnlyField key="source.inspireidNamespace" value="${actionBean.source.inspireidNamespace}" hiddenField="true"/>
                 <cust:readOnlyField key="source.inspireidVersionid" value="${actionBean.source.inspireidVersionid}" hiddenField="true"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['source.legend.providerBean']}</legend>
+                <legend class="sourceapp">${res['source.legend.providerBean']}</legend>
                 <cust:field key="source.providerBean.organisationname"/>
                 <cust:field key="source.providerBean.website"/>
                 <cust:field key="source.providerBean.individualname"/>
@@ -33,24 +33,25 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['source.legend.change']}</legend>
-                <cust:label key="source.changes" optional="true"/><s:checkbox name="source.changes"/><br/>
+                <legend class="sourceapp">${res['source.legend.change']}</legend>
+                <s:hidden name="source.changes"/>
+                <%--<cust:label key="source.changes" optional="true"/><s:checkbox name="source.changes"/><br/>--%>
                 <cust:textArea key="source.descriptionofchanges"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['source.legend.reportingperiod']}</legend>
+                <legend class="sourceapp">${res['source.legend.reportingperiod']}</legend>
                 <cust:field key="source.reportingstartdate" cssclass="datepicker"/>
                 <cust:field key="source.reportingenddate" cssclass="datepicker"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['source.legend.referenceyearTimeperiod']}</legend>
+                <legend class="sourceapp">${res['source.legend.referenceyearTimeperiod']}</legend>
                 <cust:field key="source.referenceyearTimeperiod" optional="true"/>
             </fieldset>
 
             <fieldset class="tab">
-                <legend>${res['source.legend.regionalbackgroundBean']}</legend>		
+                <legend class="sourceapp">${res['source.legend.regionalbackgroundBean']}</legend>		
                 <div class="tabs">
                     <ul>
                         <li><a href="#tab-rb-1">${res['source.regionalbackgroundBean.label.total']}</a></li>
@@ -83,7 +84,7 @@
             </fieldset>
 
             <fieldset class="tab">
-                <legend>${res['source.legend.urbanbackgroundBean']}</legend>		
+                <legend class="sourceapp">${res['source.legend.urbanbackgroundBean']}</legend>		
                 <div class="tabs">
                     <ul>
                         <li><a href="#tab-ub-1">${res['source.urbanbackgroundBean.label.total']}</a></li>
@@ -141,7 +142,7 @@
             </fieldset>	
 
             <fieldset class="tab">
-                <legend>${res['source.legend.localincrementBean']}</legend>		
+                <legend class="sourceapp">${res['source.legend.localincrementBean']}</legend>		
                 <div class="tabs">
                     <ul>
                         <li><a href="#tab-li-1">${res['source.localincrementBean.label.total']}</a></li>
@@ -199,14 +200,14 @@
             </fieldset>	
 
             <fieldset>
-                <legend>${res['source.legend.exceedancedescription']}</legend>
+                <legend class="sourceapp">${res['source.legend.exceedancedescription']}</legend>
                 <cust:label key="source.exceedancedescriptionBean.exceedance"/><s:checkbox name="source.exceedancedescriptionBean.exceedance"/><br/>
                 <cust:field key="source.exceedancedescriptionBean.numericalexceedance" optional="true"/>
                 <cust:field key="source.exceedancedescriptionBean.numberexceedances" optional="true"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['source.exceedancedescriptionBean.legend.deductionassessmentmethodBean']}</legend>
+                <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.deductionassessmentmethodBean']}</legend>
                 <security:allowed event="save">
                     <s:link beanclass="eu.europa.ec.aqrsystem.action.AssessmentActionBean" event="form" id="new-ass-btn" class="ftm insert btn">
                         <s:param name="sourceId" value="${actionBean.sourceId}"/>
@@ -243,7 +244,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['source.exceedancedescriptionBean.legend.exceedanceareaBean']}</legend>
+                <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedanceareaBean']}</legend>
 
                 <cust:label key="source.exceedancedescriptionBean.exceedanceareaBean.areaclassificationList_uri"/>
                 <s:select name="source.exceedancedescriptionBean.exceedanceareaBean.areaclassificationList_uri" multiple="true" class="multiple">
@@ -258,7 +259,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['source.exceedancedescriptionBean.legend.exceedenceexposureBean']}</legend>
+                <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedenceexposureBean']}</legend>
                 <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.exposedpopulation" optional="true"/>
                 <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.exposedarea" optional="true"/>
                 <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.sensitiveresidentpopulation" optional="true"/>
@@ -267,7 +268,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['source.exceedancedescriptionBean.legend.exceedancedescription.continuation']}</legend>
+                <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedancedescription.continuation']}</legend>
 
                 <cust:label key="source.exceedancedescriptionBean.reasonvalueList_uri" optional="true"/>
                 <s:select name="source.exceedancedescriptionBean.reasonvalueList_uri" multiple="true" class="multiple">
@@ -279,12 +280,12 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['source.legend.comment']}</legend>
+                <legend class="sourceapp">${res['source.legend.comment']}</legend>
                 <cust:textArea key="source.comment" optional="true"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['common.linkedresource.plural']}</legend>
+                <legend class="sourceapp">${res['common.linkedresource.plural']}</legend>
                 <cust:label key="source.planBean.uuid"/>
                 <s:select name="source.planBean.uuid">
                     <s:option value="">None</s:option>
@@ -299,7 +300,7 @@
 
             <br/>
             <security:allowed event="save">
-                <s:submit class="ftm save btn" name="save" value="${res['common.save']}"/>
+                <s:submit class="ftm save sourceapp btn" name="save" value="${res['common.save']}"/>
             </security:allowed>
         </s:form>
     </s:layout-component>

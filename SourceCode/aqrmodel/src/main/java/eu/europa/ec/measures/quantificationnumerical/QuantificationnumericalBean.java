@@ -74,5 +74,4 @@ public class QuantificationnumericalBean {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

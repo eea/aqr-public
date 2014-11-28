@@ -77,6 +77,7 @@ import eu.europa.ec.util.EntityManagerCustom;
 import eu.europa.ec.util.StringUtils;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -99,8 +100,8 @@ public class SourceapportionmentManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -130,7 +131,8 @@ public class SourceapportionmentManager {
         sourceapportionment.setDatecreation(new Date());
         sourceapportionment.setDatelastupdate(new Date());
 
-        sourceapportionment.setChanges(false);
+        sourceapportionment.setChanges(true);
+        sourceapportionment.setDescriptionofchanges("");
         sourceapportionment.setReportingstartdate("");
         sourceapportionment.setReportingenddate("");
 
@@ -176,8 +178,8 @@ public class SourceapportionmentManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userSourceapportionment = (Users) q.getSingleResult();
         Country country = userSourceapportionment.getCountry();
         Userrole userrole = userSourceapportionment.getUserrole();
@@ -222,8 +224,8 @@ public class SourceapportionmentManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userSourceapportionment = (Users) q.getSingleResult();
 
         q = em.createNamedQuery("Sourceapportionment.findByUuid");
@@ -334,8 +336,8 @@ public class SourceapportionmentManager {
         Sourceapportionment cloneSourceapportionment = new Sourceapportionment();
         emc.beginTransaction(em);
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
 
         q = em.createNamedQuery("Sourceapportionment.findByUuid");
@@ -884,8 +886,9 @@ public class SourceapportionmentManager {
         q.setParameter("uuid", sourceapportionmentBean.getUuid());
         Sourceapportionment sourceapportionment = (Sourceapportionment) q.getSingleResult();
 
-        q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", sourceapportionment.getUsers().getEmail());
+        String userEmail = sourceapportionment.getUsers().getEmail();
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -1677,7 +1680,6 @@ public class SourceapportionmentManager {
                 /**
                  * delete all the other links for that plan
                  */
-
                 for (String reasonvalueUri : reasonvalueList_uriList) {
                     q = em.createNamedQuery("Reasonvalue.findByUri");
                     q.setParameter("uri", reasonvalueUri);
@@ -1685,8 +1687,7 @@ public class SourceapportionmentManager {
                     Reasonvalue reasonvalue = (Reasonvalue) q.getSingleResult();
 
                     ExceedancedescriptionReasonvalue exceedancedescriptionReasonvalue = new ExceedancedescriptionReasonvalue();
-                    String exceedancedescriptionReasonvalueUuid = StringUtils.createUUID(reasonvalue.getUuid() + exceedancedescription.getUuid() + dateFormatUtil.getToday(), ExceedancedescriptionReasonvalue.class
-                    );
+                    String exceedancedescriptionReasonvalueUuid = StringUtils.createUUID(reasonvalue.getUuid() + exceedancedescription.getUuid() + dateFormatUtil.getToday(), ExceedancedescriptionReasonvalue.class);
                     exceedancedescriptionReasonvalue.setUuid(exceedancedescriptionReasonvalueUuid);
                     exceedancedescriptionReasonvalue.setExceedancedescription(exceedancedescription);
                     exceedancedescriptionReasonvalue.setReasonvalue(reasonvalue);
@@ -1728,7 +1729,6 @@ public class SourceapportionmentManager {
                     /**
                      * delete all the other links for that plan
                      */
-
                     for (String adjustmentsourceUri : adjustmentsourceList_uri) {
                         q = em.createNamedQuery("Adjustmentsource.findByUri");
                         q.setParameter("uri", adjustmentsourceUri);
@@ -1736,8 +1736,7 @@ public class SourceapportionmentManager {
                         Adjustmentsource adjustmentsource = (Adjustmentsource) q.getSingleResult();
 
                         DeductionassessmentmethodAdjustmentsource deductionassessmentmethodAdjustmentsource = new DeductionassessmentmethodAdjustmentsource();
-                        String deductionassessmentmethodAdjustmentsourceUuid = StringUtils.createUUID(adjustmentsource.getUuid() + deductionassessmentmethod.getUuid() + dateFormatUtil.getToday(), DeductionassessmentmethodAdjustmentsource.class
-                        );
+                        String deductionassessmentmethodAdjustmentsourceUuid = StringUtils.createUUID(adjustmentsource.getUuid() + deductionassessmentmethod.getUuid() + dateFormatUtil.getToday(), DeductionassessmentmethodAdjustmentsource.class);
                         deductionassessmentmethodAdjustmentsource.setUuid(deductionassessmentmethodAdjustmentsourceUuid);
                         deductionassessmentmethodAdjustmentsource.setAdjustmentsource(adjustmentsource);
                         deductionassessmentmethodAdjustmentsource.setDeductionassessmentmethod(deductionassessmentmethod);
@@ -1816,8 +1815,7 @@ public class SourceapportionmentManager {
                         Areaclassification areaclassification = (Areaclassification) q.getSingleResult();
 
                         ExceedenceareaAreaclassification exceedenceareaAreaclassification = new ExceedenceareaAreaclassification();
-                        String exceedenceareaAreaclassificationUuid = StringUtils.createUUID(areaclassification.getUuid() + exceedancearea.getUuid() + dateFormatUtil.getToday(), ExceedenceareaAreaclassification.class
-                        );
+                        String exceedenceareaAreaclassificationUuid = StringUtils.createUUID(areaclassification.getUuid() + exceedancearea.getUuid() + dateFormatUtil.getToday(), ExceedenceareaAreaclassification.class);
                         exceedenceareaAreaclassification.setUuid(exceedenceareaAreaclassificationUuid);
                         exceedenceareaAreaclassification.setExceedancearea(exceedancearea);
                         exceedenceareaAreaclassification.setAreaclassification(areaclassification);
@@ -1917,8 +1915,8 @@ public class SourceapportionmentManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userSourceapportionment = (Users) q.getSingleResult();
         Country country = userSourceapportionment.getCountry();
 
@@ -2159,8 +2157,9 @@ public class SourceapportionmentManager {
         q.setParameter("uuid", sourceapportionmentID);
         Sourceapportionment sourceapportionment = (Sourceapportionment) q.getSingleResult();
 
-        q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", sourceapportionment.getUsers().getEmail());
+        String userEmail = sourceapportionment.getUsers().getEmail();
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -2183,4 +2182,46 @@ public class SourceapportionmentManager {
         return attainmentBeanList;
     }
 
+    /**
+     *
+     * @param userEmail
+     * @return a list of all the completed sourceapportionment for the user's
+     * country
+     */
+    public List<SourceapportionmentBean> getAllCompletedsourceApportionmentByUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
+        List<SourceapportionmentBean> sourceapportionmentBeanList = new ArrayList<SourceapportionmentBean>();
+
+        EntityManagerCustom emc = new EntityManagerCustom();
+        EntityManager em = emc.getEntityManager();
+
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
+        Users userAttainment = (Users) q.getSingleResult();
+        Country country = userAttainment.getCountry();
+
+        q = em.createNamedQuery("Users.findByCountry");
+        q.setParameter("country", country);
+
+        List<Users> userList = q.getResultList();
+
+        for (Iterator<Users> it = userList.iterator(); it.hasNext();) {
+            Users user = it.next();
+            q = em.createNamedQuery("Sourceapportionment.findAllByUserInInterval");
+            q.setParameter("users", user);
+            q.setParameter("fromDate", new java.sql.Date(fromDate.getTime()));
+            q.setParameter("toDate", new java.sql.Date(toDate.getTime()));
+            List<Sourceapportionment> sourceapportionmentList = (List<Sourceapportionment>) q.getResultList();
+
+            for (Sourceapportionment sourceapportionment : sourceapportionmentList) {
+                if (completed && sourceapportionment.getCompleted()) {
+                    sourceapportionmentBeanList.add(SourceapportionmentWrapper.convertSourceapportionmentInSourceapportionmentBean(sourceapportionment, user));
+                } else if (!completed) {
+                    sourceapportionmentBeanList.add(SourceapportionmentWrapper.convertSourceapportionmentInSourceapportionmentBean(sourceapportionment, user));
+                }
+            }
+        }
+
+        em.close();
+        return sourceapportionmentBeanList;
+    }
 }

@@ -72,5 +72,4 @@ public class EntityManagerCustom {
             em.getTransaction().rollback();
         }
     }
-
 }

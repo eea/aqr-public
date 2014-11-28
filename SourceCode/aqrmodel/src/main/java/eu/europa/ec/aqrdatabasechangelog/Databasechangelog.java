@@ -188,5 +188,4 @@ public class Databasechangelog implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Databasechangelog[ databasechangelogPK=" + databasechangelogPK + " ]";
     }
-
 }

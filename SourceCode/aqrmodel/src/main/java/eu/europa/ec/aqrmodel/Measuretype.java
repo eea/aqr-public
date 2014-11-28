@@ -151,5 +151,4 @@ public class Measuretype implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Measuretype[ uuid=" + uuid + " ]";
     }
-
 }

@@ -60,7 +60,6 @@ public class Statusplannedimplementation implements Serializable {
     private String definition;
     @Column(name = "notation")
     private String notation;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusplannedimplementation")
     private List<Plannedimplementation> plannedimplementationList;
 
@@ -150,5 +149,4 @@ public class Statusplannedimplementation implements Serializable {
     public void setPlannedimplementationList(List<Plannedimplementation> plannedimplementationList) {
         this.plannedimplementationList = plannedimplementationList;
     }
-
 }

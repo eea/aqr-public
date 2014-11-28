@@ -45,16 +45,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class AttainmentPlan implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "plan", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Plan plan;
-
     @JoinColumn(name = "attainment", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Attainment attainment;
@@ -114,5 +111,4 @@ public class AttainmentPlan implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrcrosstablesmodel.AttainmentPlan[ uuid=" + uuid + " ]";
     }
-
 }

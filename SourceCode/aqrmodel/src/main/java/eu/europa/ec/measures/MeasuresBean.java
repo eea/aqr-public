@@ -24,6 +24,7 @@ import eu.europa.ec.measures.expectedimpact.ExpectedimpactBean;
 import eu.europa.ec.measures.cost.CostsBean;
 import eu.europa.ec.common.HeaderInterface;
 import eu.europa.ec.common.relatedparty.RelatedpartyBean;
+import eu.europa.ec.user.UserBean;
 import java.util.Date;
 import java.util.List;
 
@@ -36,26 +37,21 @@ public class MeasuresBean implements HeaderInterface {
     private String inspireidLocalid;
     private String inspireidNamespace;
     private String inspireidVersionid;
-
     /**
      * code
      */
     private String code;
     private String name;
     private String description;
-
     private boolean completed;
     private boolean editable;
     private RelatedpartyBean providerBean;
-
     private boolean changes;
     private String descriptionofchanges;
     private String reportingstartdate;
     private String reportingenddate;
-
     private Date datecreation;
     private Date datelastupdate;
-
     /**
      * Classification
      */
@@ -64,7 +60,6 @@ public class MeasuresBean implements HeaderInterface {
      * Type Measuretype
      */
     private String measuretype_uri;
-
     /**
      * Administrative level
      */
@@ -73,7 +68,6 @@ public class MeasuresBean implements HeaderInterface {
      * Time scale
      */
     private String timescale_uri;
-
     /**
      * Cost
      */
@@ -90,17 +84,14 @@ public class MeasuresBean implements HeaderInterface {
      * Planned Implementation
      */
     private PlannedimplementationBean plannedimplementationBean;
-
     /**
      * Reduction of emissions
      */
     private String reductionofemission;
     private boolean reductionofemission_nil;
     private String reductionofemission_nilreason;
-
     private String quantificationnumerical_uri;
     private String comment;
-
     /**
      * Expect Impact
      */
@@ -109,7 +100,6 @@ public class MeasuresBean implements HeaderInterface {
      * Comment
      */
     private String commentForClarification;
-
     /**
      * Exceedance situation/Sourceapportionment list
      */
@@ -118,6 +108,7 @@ public class MeasuresBean implements HeaderInterface {
      * Evaluation scenario list
      */
     private List<String> evaluationscenarioBeanList;
+    private UserBean userBean;
 
     public MeasuresBean() {
     }
@@ -419,4 +410,11 @@ public class MeasuresBean implements HeaderInterface {
         this.evaluationscenarioBeanList = evaluationscenarioBeanList;
     }
 
+    public void setUserBean(UserBean userBean) {
+        this.userBean = userBean;
+    }
+
+    public UserBean getUserBean() {
+        return userBean;
+    }
 }

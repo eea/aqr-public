@@ -28,6 +28,8 @@ import eu.europa.ec.attainment.AttainmentBean;
 import eu.europa.ec.sourceapprotionment.SourceapportionmentBean;
 import eu.europa.ec.aqrsystem.utils.ValidationMasks;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.annotation.security.RolesAllowed;
@@ -81,6 +83,9 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
         }
 
         sourceId = source.getUuid();
+
+        addGlobalInformationError();
+
         List<String> nonCompletedFields = updateCompleteness(source, res);
         context.getMessages().add(new LocalizableMessage("source.update.message", HtmlUtil.encode(source.getInspireidLocalid())));
 
@@ -118,7 +123,7 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
             result.add(res.getString("source.providerBean.electronicmailaddress"));
         }
 
-        if (source.isChanges() && !isDefined(source.getDescriptionofchanges())) {
+        if (!isDefined(source.getDescriptionofchanges())) {
             result.add(res.getString("source.descriptionofchanges"));
         }
 
@@ -227,21 +232,16 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
      */
     @ValidateNestedProperties({
         @Validate(field = "inspireidLocalid", required = true, maxlength = 100, mask = ValidationMasks.inspireId, on = "save"),
-
         @Validate(field = "providerBean.organisationname", required = false, maxlength = 200, on = "save"),
         @Validate(field = "providerBean.website", required = false, maxlength = 250, mask = ValidationMasks.url, on = "save"),
         @Validate(field = "providerBean.individualname", required = false, maxlength = 250, on = "save"),
         @Validate(field = "providerBean.address", required = false, maxlength = 200, on = "save"),
         @Validate(field = "providerBean.telephonevoice", required = false, maxlength = 50, on = "save"),
         @Validate(field = "providerBean.electronicmailaddress", required = false, maxlength = 250, converter = EmailTypeConverter.class, on = "save"),
-
         @Validate(field = "descriptionofchanges", required = false, maxlength = 250, on = "save"),
-
         @Validate(field = "reportingstartdate", required = false, maxlength = 10, mask = ValidationMasks.date, on = "save"),
         @Validate(field = "reportingenddate", required = false, maxlength = 10, mask = ValidationMasks.date, on = "save"),
-
         @Validate(field = "referenceyearTimeperiod", required = false, maxlength = 4, mask = ValidationMasks.year, on = "save"),
-
         @Validate(field = "regionalbackgroundBean.total", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "regionalbackgroundBean.totalcomment", required = false, maxlength = 500, on = "save"),
         @Validate(field = "regionalbackgroundBean.fromwithinms", required = false, mask = ValidationMasks.number, on = "save"),
@@ -252,7 +252,6 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
         @Validate(field = "regionalbackgroundBean.naturalregionalbackgroundcomment", required = false, maxlength = 500, on = "save"),
         @Validate(field = "regionalbackgroundBean.other", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "regionalbackgroundBean.othercomment", required = false, maxlength = 500, on = "save"),
-
         @Validate(field = "urbanbackgroundBean.total", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "urbanbackgroundBean.totalcomment", required = false, maxlength = 500, on = "save"),
         @Validate(field = "urbanbackgroundBean.traffic", required = false, mask = ValidationMasks.number, on = "save"),
@@ -273,7 +272,6 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
         @Validate(field = "urbanbackgroundBean.transboundarycomment", required = false, maxlength = 500, on = "save"),
         @Validate(field = "urbanbackgroundBean.other", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "urbanbackgroundBean.othercomment", required = false, maxlength = 500, on = "save"),
-
         @Validate(field = "localincrementBean.total", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "localincrementBean.totalcomment", required = false, maxlength = 500, on = "save"),
         @Validate(field = "localincrementBean.traffic", required = false, mask = ValidationMasks.number, on = "save"),
@@ -294,31 +292,25 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
         @Validate(field = "localincrementBean.transboundarycomment", required = false, maxlength = 500, on = "save"),
         @Validate(field = "localincrementBean.other", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "localincrementBean.othercomment", required = false, maxlength = 500, on = "save"),
-
         @Validate(field = "exceedancedescriptionBean.numericalexceedance", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "exceedancedescriptionBean.numberexceedances", required = false, mask = ValidationMasks.integer, on = "save"),
-
         @Validate(field = "exceedancedescriptionBean.exceedanceareaBean.areaestimate", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "exceedancedescriptionBean.exceedanceareaBean.roadlenghtestimate", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "exceedancedescriptionBean.exceedanceareaBean.stationused", required = false, mask = ValidationMasks.listOfInspiereIdTags, on = "save"),
         @Validate(field = "exceedancedescriptionBean.exceedanceareaBean.modelused", required = false, mask = ValidationMasks.listOfInspiereIdTags, on = "save"),
-
         @Validate(field = "exceedancedescriptionBean.exceedenceexposureBean.exposedpopulation", required = false, mask = ValidationMasks.integer, on = "save"),
         @Validate(field = "exceedancedescriptionBean.exceedenceexposureBean.exposedarea", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "exceedancedescriptionBean.exceedenceexposureBean.sensitiveresidentpopulation", required = false, mask = ValidationMasks.integer, on = "save"),
         @Validate(field = "exceedancedescriptionBean.exceedenceexposureBean.relevantinfrastructure", required = false, mask = ValidationMasks.integer, on = "save"),
         @Validate(field = "exceedancedescriptionBean.exceedenceexposureBean.referenceyear", required = false, maxlength = 4, mask = ValidationMasks.year, on = "save"),
-
         @Validate(field = "exceedancedescriptionBean.otherreason", required = false, maxlength = 250, on = "save"),
         @Validate(field = "exceedancedescriptionBean.comment", required = false, on = "save"),
-
         @Validate(field = "comment", required = false, on = "save")
     })
     @Override
     public SourceapportionmentBean getSource() {
         return super.getSource();
     }
-
     /**
      * The list of possible values for field exceedancedescriptionBean.
      * deductionassessmentmethodBean.adjustmenttypeBean.
@@ -335,7 +327,6 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
         }
         return possibleAdjustmentTypes;
     }
-
     /**
      * The list of possible values for field exceedancedescriptionBean.
      * deductionassessmentmethodBean.adjustmentsourceBeans.
@@ -352,7 +343,6 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
         }
         return possibleAdjustmentSources;
     }
-
     /**
      * The list of possible values for field exceedancedescriptionBean.
      * exceedanceareaBean.areaclassificationBeanList.
@@ -369,7 +359,6 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
         }
         return possibleClassifications;
     }
-
     /**
      * The list of possible values for field exceedancedescriptionBean.
      * reasonvalueBeanList.
@@ -392,4 +381,157 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
         return sourceManager.getAllAttainmentBeanByUser(sourceId);
     }
 
+    private void addGlobalInformationError() throws NumberFormatException {
+        /**
+         * reporting date
+         */
+        String reportingDateStart = source.getReportingstartdate();
+        String reportingDateEnd = source.getReportingenddate();
+        if (reportingDateStart != null && reportingDateEnd != null) {
+            String[] startArray = reportingDateStart.split("-");
+            String[] endArray = reportingDateEnd.split("-");
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date startDate = new Date(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date endDate = new Date(Integer.parseInt(endArray[0]), Integer.parseInt(endArray[1]), Integer.parseInt(endArray[2]));
+
+            if (startDate.after(endDate)) {
+                context.getValidationErrors().addGlobalError(new LocalizableError("apportionment.error.reportingdatestart.after.reportingdateend", HtmlUtil.encode(reportingDateStart), HtmlUtil.encode(reportingDateEnd)));
+            }
+        }
+
+        /**
+         * RegionalbackgroundBean
+         */
+        double partialTotalRegional = 0;
+        if (source.getRegionalbackgroundBean().getFromwithinms() != null) {
+            double fromwithinms = Double.parseDouble(source.getRegionalbackgroundBean().getFromwithinms());
+            partialTotalRegional += fromwithinms;
+        }
+        if (source.getRegionalbackgroundBean().getTransboundary() != null) {
+            double transboundary = Double.parseDouble(source.getRegionalbackgroundBean().getTransboundary());
+            partialTotalRegional += transboundary;
+        }
+        if (source.getRegionalbackgroundBean().getNaturalregionalbackground() != null) {
+            double natural = Double.parseDouble(source.getRegionalbackgroundBean().getNaturalregionalbackground());
+            partialTotalRegional += natural;
+        }
+        if (source.getRegionalbackgroundBean().getOther() != null) {
+            double other = Double.parseDouble(source.getRegionalbackgroundBean().getOther());
+            partialTotalRegional += other;
+        }
+
+        if (source.getRegionalbackgroundBean().getTotal() != null) {
+            double totalRegional = Double.parseDouble(source.getRegionalbackgroundBean().getTotal());
+            if (totalRegional != partialTotalRegional) {
+                context.getValidationErrors().addGlobalError(new LocalizableError("plan.regionalbackground.total.differ", HtmlUtil.encode(source.getLocalincrementBean().getTotal()), HtmlUtil.encode(String.valueOf(partialTotalRegional))));
+            }
+        } else if (partialTotalRegional > 0) {
+            context.getValidationErrors().addGlobalError(new LocalizableError("plan.regionalbackground.total.differ", HtmlUtil.encode(source.getLocalincrementBean().getTotal()), HtmlUtil.encode(String.valueOf(partialTotalRegional))));
+        }
+
+        /**
+         * UrbanbackgroundBean
+         */
+        double partialUrbanTotal = 0;
+
+        if (source.getUrbanbackgroundBean().getTraffic() != null) {
+            double traffic = Double.parseDouble(source.getUrbanbackgroundBean().getTraffic());
+            partialUrbanTotal += traffic;
+        }
+        if (source.getUrbanbackgroundBean().getHeatandpowerproduction() != null) {
+            double industry = Double.parseDouble(source.getUrbanbackgroundBean().getHeatandpowerproduction());
+            partialUrbanTotal += industry;
+        }
+        if (source.getUrbanbackgroundBean().getAgriculture() != null) {
+            double agriculture = Double.parseDouble(source.getUrbanbackgroundBean().getAgriculture());
+            partialUrbanTotal += agriculture;
+        }
+        if (source.getUrbanbackgroundBean().getCommercialandresidential() != null) {
+            double commercialAndResidual = Double.parseDouble(source.getUrbanbackgroundBean().getCommercialandresidential());
+            partialUrbanTotal += commercialAndResidual;
+        }
+        if (source.getUrbanbackgroundBean().getShipping() != null) {
+            double shipping = Double.parseDouble(source.getUrbanbackgroundBean().getShipping());
+            partialUrbanTotal += shipping;
+        }
+        if (source.getUrbanbackgroundBean().getOffroadmobilemachinery() != null) {
+            double offRoad = Double.parseDouble(source.getUrbanbackgroundBean().getOffroadmobilemachinery());
+            partialUrbanTotal += offRoad;
+        }
+        if (source.getUrbanbackgroundBean().getNaturalurbanbackground() != null) {
+            double natural = Double.parseDouble(source.getUrbanbackgroundBean().getNaturalurbanbackground());
+            partialUrbanTotal += natural;
+        }
+        if (source.getUrbanbackgroundBean().getTransboundary() != null) {
+            double transboundary = Double.parseDouble(source.getUrbanbackgroundBean().getTransboundary());
+            partialUrbanTotal += transboundary;
+        }
+        if (source.getUrbanbackgroundBean().getOther() != null) {
+            double other = Double.parseDouble(source.getUrbanbackgroundBean().getOther());
+            partialUrbanTotal += other;
+        }
+
+        if (source.getUrbanbackgroundBean().getTotal() != null) {
+            double totalUrban = Double.parseDouble(source.getUrbanbackgroundBean().getTotal());
+            if (totalUrban != partialUrbanTotal) {
+                context.getValidationErrors().addGlobalError(new LocalizableError("plan.urbanbackground.total.differ", HtmlUtil.encode(source.getUrbanbackgroundBean().getTotal()), HtmlUtil.encode(String.valueOf(partialUrbanTotal))));
+            }
+        } else if (partialUrbanTotal > 0) {
+            context.getValidationErrors().addGlobalError(new LocalizableError("plan.urbanbackground.total.differ", HtmlUtil.encode(source.getUrbanbackgroundBean().getTotal()), HtmlUtil.encode(String.valueOf(partialUrbanTotal))));
+        }
+
+        /**
+         * LocalincrementBean
+         */
+        double partialTotalLocal = 0;
+
+        if (source.getLocalincrementBean().getTraffic() != null) {
+            double traffic = Double.parseDouble(source.getLocalincrementBean().getTraffic());
+            partialTotalLocal += traffic;
+        }
+        if (source.getLocalincrementBean().getHeatandpowerproduction() != null) {
+            double industry = Double.parseDouble(source.getLocalincrementBean().getHeatandpowerproduction());
+            partialTotalLocal += industry;
+        }
+        if (source.getLocalincrementBean().getAgriculture() != null) {
+            double agriculture = Double.parseDouble(source.getLocalincrementBean().getAgriculture());
+            partialTotalLocal += agriculture;
+        }
+        if (source.getLocalincrementBean().getCommercialandresidential() != null) {
+            double commercialAndResidual = Double.parseDouble(source.getLocalincrementBean().getCommercialandresidential());
+            partialTotalLocal += commercialAndResidual;
+        }
+        if (source.getLocalincrementBean().getShipping() != null) {
+            double shipping = Double.parseDouble(source.getLocalincrementBean().getShipping());
+            partialTotalLocal += shipping;
+        }
+        if (source.getLocalincrementBean().getOffroadmobilemachinery() != null) {
+            double offRoad = Double.parseDouble(source.getLocalincrementBean().getOffroadmobilemachinery());
+            partialTotalLocal += offRoad;
+        }
+        if (source.getLocalincrementBean().getNaturallocalincrement() != null) {
+            double natural = Double.parseDouble(source.getLocalincrementBean().getNaturallocalincrement());
+            partialTotalLocal += natural;
+        }
+        if (source.getLocalincrementBean().getTransboundary() != null) {
+            double transboundary = Double.parseDouble(source.getLocalincrementBean().getTransboundary());
+            partialTotalLocal += transboundary;
+        }
+        if (source.getLocalincrementBean().getOther() != null) {
+            double other = Double.parseDouble(source.getLocalincrementBean().getOther());
+            partialTotalLocal += other;
+        }
+
+        if (source.getLocalincrementBean().getTotal() != null) {
+            double totalLocal = Double.parseDouble(source.getLocalincrementBean().getTotal());
+            if (totalLocal != partialTotalLocal) {
+                context.getValidationErrors().addGlobalError(new LocalizableError("plan.localincrement.total.differ", HtmlUtil.encode(source.getLocalincrementBean().getTotal()), HtmlUtil.encode(String.valueOf(partialTotalLocal))));
+            }
+        } else if (partialTotalLocal > 0) {
+            context.getValidationErrors().addGlobalError(new LocalizableError("plan.localincrement.total.differ", HtmlUtil.encode(source.getLocalincrementBean().getTotal()), HtmlUtil.encode(String.valueOf(partialTotalLocal))));
+        }
+
+    }
 }

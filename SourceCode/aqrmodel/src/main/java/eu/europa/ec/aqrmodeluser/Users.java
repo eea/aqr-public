@@ -52,7 +52,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Users.findByUuid", query = "SELECT u FROM Users u WHERE u.uuid = :uuid"),
     @NamedQuery(name = "Users.findByLastmodified", query = "SELECT u FROM Users u WHERE u.lastmodified = :lastmodified"),
     @NamedQuery(name = "Users.findByDatecreation", query = "SELECT u FROM Users u WHERE u.datecreation = :datecreation"),
-    @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email"),
+    @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email LIKE :email"),
     @NamedQuery(name = "Users.findByCountry", query = "SELECT u FROM Users u WHERE u.country = :country"),
     @NamedQuery(name = "Users.findByUserrole", query = "SELECT u FROM Users u WHERE u.userrole = :userrole"),
     @NamedQuery(name = "Users.findByCountryAndUserrole", query = "SELECT u FROM Users u WHERE u.country = :country AND u.userrole = :userrole")
@@ -67,24 +67,20 @@ public class Users implements Serializable {
     @Basic(optional = false)
     @Column(name = "email")
     private String email;
-
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
     @Basic(optional = false)
     @Column(name = "surname")
     private String surname;
-
     @Column(name = "enable")
     private Boolean enable;
-
     @Column(name = "datecreation")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datecreation;
     @Column(name = "lastmodified")
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastmodified;
-
     @JoinColumn(name = "userrole", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Userrole userrole;
@@ -94,7 +90,6 @@ public class Users implements Serializable {
     @JoinColumn(name = "country", referencedColumnName = "uuid")
     @ManyToOne
     private Country country;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
     private List<Sourceapportionment> sourceapportionmentList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
@@ -262,5 +257,4 @@ public class Users implements Serializable {
     public void setEnable(Boolean enable) {
         this.enable = enable;
     }
-
 }

@@ -150,5 +150,4 @@ public class Sourcesector implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Sourcesector[ uuid=" + uuid + " ]";
     }
-
 }

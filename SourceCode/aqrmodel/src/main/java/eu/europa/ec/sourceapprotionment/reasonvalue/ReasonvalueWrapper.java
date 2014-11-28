@@ -52,5 +52,4 @@ public class ReasonvalueWrapper implements Serializable {
 
         return reasonvalueBean;
     }
-
 }

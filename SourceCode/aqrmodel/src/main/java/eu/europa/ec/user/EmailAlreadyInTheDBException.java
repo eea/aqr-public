@@ -33,5 +33,4 @@ public class EmailAlreadyInTheDBException extends CustomException {
     public EmailAlreadyInTheDBException() {
         new EmailAlreadyInTheDBException(MESSAGE);
     }
-
 }

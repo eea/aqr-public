@@ -34,5 +34,4 @@ public class DeleteAttainmentException extends CustomException {
     public DeleteAttainmentException() {
         new DeleteAttainmentException(MESSAGE);
     }
-
 }

@@ -25,57 +25,46 @@ public class LocalincrementBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private String uuid;
-
     private String total;
     private String totalcomment;
     private boolean total_nil;
     private String total_nilreason;
-
     private String traffic;
     private String trafficcomment;
     private boolean traffic_nil;
     private String traffic_nilreason;
-
     private String heatandpowerproduction;
     private String heatandpowerproductioncomment;
     private boolean heatandpowerproduction_nil;
     private String heatandpowerproduction_nilreason;
-
     private String agriculture;
     private String agriculturecomment;
     private boolean agriculture_nil;
     private String agriculture_nilreason;
-
     private String commercialandresidential;
     private String commercialandresidentialcomment;
     private boolean commercialandresidential_nil;
     private String commercialandresidential_nilreason;
-
     private String shipping;
     private String shippingcomment;
     private boolean shipping_nil;
     private String shipping_nilreason;
-
     private String offroadmobilemachinery;
     private String offroadmobilemachinerycomment;
     private boolean offroadmobilemachinery_nil;
     private String offroadmobilemachinery_nilreason;
-
     private String naturallocalincrement;
     private String naturallocalincrementcomment;
     private boolean naturallocalincrement_nil;
     private String naturallocalincrement_nilreason;
-
     private String transboundary;
     private String transboundarycomment;
     private boolean transboundary_nil;
     private String transboundary_nilreason;
-
     private String other;
     private String othercomment;
     private boolean other_nil;
     private String other_nilreason;
-
     private String unitmisure;
     private String unitmisurecomment;
     private boolean unitmisure_nil;
@@ -460,5 +449,4 @@ public class LocalincrementBean implements Serializable {
     public void setUnitmisure_nilreason(String unitmisure_nilreason) {
         this.unitmisure_nilreason = unitmisure_nilreason;
     }
-
 }

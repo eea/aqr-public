@@ -82,5 +82,4 @@ public class AdjustmenttypeBean implements Serializable {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

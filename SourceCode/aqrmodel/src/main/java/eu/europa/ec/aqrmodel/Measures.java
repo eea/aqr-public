@@ -62,6 +62,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Measures.findByDatecreation", query = "SELECT m FROM Measures m WHERE m.datecreation = :datecreation"),
     @NamedQuery(name = "Measures.findByDatelastupdate", query = "SELECT m FROM Measures m WHERE m.datelastupdate = :datelastupdate"),
     @NamedQuery(name = "Measures.findAllByUser", query = "SELECT p FROM Measures p WHERE p.users = :users"),
+    @NamedQuery(name = "Measures.findAllByUserInInterval", query = "SELECT p FROM Measures p WHERE p.users = :users AND ((p.datecreation >= :fromDate AND p.datecreation <= :toDate) OR (p.datelastupdate >= :fromDate AND p.datelastupdate <= :toDate)) ORDER BY p.datecreation ASC"),
     @NamedQuery(name = "Measures.deleteByUuid", query = "DELETE FROM Measures m WHERE m.uuid = :uuid")
 })
 public class Measures implements Serializable {
@@ -71,7 +72,6 @@ public class Measures implements Serializable {
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "inspireid_localid")
     private String inspireidLocalid;
@@ -84,7 +84,6 @@ public class Measures implements Serializable {
     @JoinColumn(name = "provider", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Relatedparty provider;
-
     @Column(name = "completed")
     private Boolean completed;
     @Basic(optional = false)
@@ -96,10 +95,8 @@ public class Measures implements Serializable {
     @Basic(optional = false)
     @Column(name = "description")
     private String description;
-
     @Column(name = "commentforclarification")
     private String commentforclarification;
-
     @Basic(optional = false)
     @Column(name = "datecreation")
     @Temporal(TemporalType.TIMESTAMP)
@@ -107,7 +104,6 @@ public class Measures implements Serializable {
     @Column(name = "datelastupdate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datelastupdate;
-
     @Basic(optional = false)
     @Column(name = "changes")
     private boolean changes;
@@ -119,39 +115,31 @@ public class Measures implements Serializable {
     @Basic(optional = false)
     @Column(name = "reportingenddate")
     private String reportingenddate;
-
     @Column(name = "reductionofemission")
     private String reductionofemission;
     @Column(name = "reductionofemission_nil")
     private Boolean reductionofemissionNil;
     @Column(name = "reductionofemission_nilreason")
     private String reductionofemissionNilreason;
-
     @JoinColumn(name = "quantificationnumerical", referencedColumnName = "uuid")
     private Quantificationnumerical quantificationnumerical;
     @Column(name = "comment")
     private String comment;
-
     @JoinColumn(name = "timescale", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Timescale timescale;
-
     @JoinColumn(name = "plannedimplementation", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Plannedimplementation plannedimplementation;
-
     @JoinColumn(name = "measuretype", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Measuretype measuretype;
-
     @JoinColumn(name = "expectedimpact", referencedColumnName = "uuid")
     @ManyToOne
     private Expectedimpact expectedimpact;
-
     @JoinColumn(name = "costs", referencedColumnName = "uuid")
     @ManyToOne
     private Costs costs;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "measures")
     private List<MeasuresScenario> measuresScenarioList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "measures")
@@ -491,5 +479,4 @@ public class Measures implements Serializable {
     public void setReductionofemissionNilreason(String reductionofemissionNilreason) {
         this.reductionofemissionNilreason = reductionofemissionNilreason;
     }
-
 }

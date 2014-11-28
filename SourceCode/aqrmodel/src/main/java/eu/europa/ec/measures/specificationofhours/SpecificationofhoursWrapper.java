@@ -34,5 +34,4 @@ public class SpecificationofhoursWrapper {
 
         return specificationofhoursBean;
     }
-
 }

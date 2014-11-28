@@ -174,5 +174,4 @@ public class Pollutant implements Serializable {
     public void setPlanPollutantProtectiontargetList(List<PlanPollutantProtectiontarget> planPollutantProtectiontargetList) {
         this.planPollutantProtectiontargetList = planPollutantProtectiontargetList;
     }
-
 }

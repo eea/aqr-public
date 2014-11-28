@@ -68,5 +68,4 @@ public class AssesmentmethodsWrapper implements Serializable {
 
         return assesmenttypeBean;
     }
-
 }

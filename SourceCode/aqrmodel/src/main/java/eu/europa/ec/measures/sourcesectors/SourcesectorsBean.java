@@ -79,5 +79,4 @@ public class SourcesectorsBean {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

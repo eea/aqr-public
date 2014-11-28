@@ -78,5 +78,4 @@ public class PollutantBean {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

@@ -126,5 +126,4 @@ public class Country implements Serializable {
     public void setSystemconfigurationList(List<Systemconfiguration> systemconfigurationList) {
         this.systemconfigurationList = systemconfigurationList;
     }
-
 }

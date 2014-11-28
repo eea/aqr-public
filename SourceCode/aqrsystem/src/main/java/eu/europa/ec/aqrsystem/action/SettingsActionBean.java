@@ -67,7 +67,6 @@ public class SettingsActionBean extends BaseSettingsActionBean {
     public Resolution showTab() {
         return new ForwardResolution(MAIN_VIEW);
     }
-
     /**
      * Namespace of the system
      */
@@ -137,9 +136,8 @@ public class SettingsActionBean extends BaseSettingsActionBean {
         context.getMessages().add(new LocalizableMessage("currentUser.providerBean.save.message"));
         return new ForwardResolution(MAIN_VIEW);
     }
-
-    
     private static final org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(SettingsActionBean.class);
+
     /**
      * The action for importing a new plan
      *
@@ -252,31 +250,60 @@ public class SettingsActionBean extends BaseSettingsActionBean {
                         break;
                     }
                     if (k == 0) {
-                        positionsVersionIdEnd =  -1;
+                        positionsVersionIdEnd = -1;
                     }
-                    
-//                    for (int j = 0; j < positionsBaseStart.size(); j++) {
-                        AttainmentBean attainmentBean = new AttainmentBean();
 
-                        CharSequence charSequenceLocalID = inputStreamString.subSequence(positionsBaseStart.get(0) + queryBaseStartPattern.length(), positionsBaseEnd.get(0));
-                        String localId = charSequenceLocalID.toString();
-                        attainmentBean.setInspireidLocalid(localId);
 
-                        if (positionsNamespaceStart.get(0) != null && positionsNamespaceEnd.get(0) != null) {
-                            CharSequence charSequenceNamspace = inputStreamString.subSequence(positionsNamespaceStart.get(0) + queryNamespaceStartPattern.length(), positionsNamespaceEnd.get(0));
-                            String namespace = charSequenceNamspace.toString();
-                            attainmentBean.setInspireidNamespace(namespace);
+                    AttainmentBean attainmentBean = new AttainmentBean();
+
+                    CharSequence charSequenceLocalID = inputStreamString.subSequence(positionsBaseStart.get(0) + queryBaseStartPattern.length(), positionsBaseEnd.get(0));
+                    String localId = charSequenceLocalID.toString();
+                    attainmentBean.setInspireidLocalid(localId);
+
+                    if (positionsNamespaceStart.get(0) != null && positionsNamespaceEnd.get(0) != null) {
+                        CharSequence charSequenceNamspace = inputStreamString.subSequence(positionsNamespaceStart.get(0) + queryNamespaceStartPattern.length(), positionsNamespaceEnd.get(0));
+                        String inspireNamespace = charSequenceNamspace.toString();
+                        attainmentBean.setInspireidNamespace(inspireNamespace);
+                    }
+
+                    if (positionsVersionIdStart != -1 && positionsVersionIdEnd != -1) {
+                        CharSequence charSequenceVersionId = inputStreamString.subSequence(positionsVersionIdStart + queryVersionIdStartPattern.length(), positionsVersionIdEnd);
+                        String versionId = charSequenceVersionId.toString();
+                        attainmentBean.setInspireidVersionid(versionId);
+                    }
+
+
+                    try {
+                        ArrayList<Integer> positionsExceedanceStart = new ArrayList();
+                        String queryExceedanceStartPattern = "<aqd:exceedance>";
+                        Pattern patternExceedanceStart = Pattern.compile(queryExceedanceStartPattern);
+                        Matcher matcherExceedanceStart = patternExceedanceStart.matcher(attainmentarray.get(i));
+                        while (matcherExceedanceStart.find()) {
+                            positionsExceedanceStart.add(positionsStartAttainment.get(i) + matcherExceedanceStart.start());
+                            break;
                         }
 
-                        if (positionsVersionIdStart != -1 && positionsVersionIdEnd != -1) {
-                            CharSequence charSequenceVersionId = inputStreamString.subSequence(positionsVersionIdStart + queryVersionIdStartPattern.length(), positionsVersionIdEnd);
-                            String versionId = charSequenceVersionId.toString();
-                            attainmentBean.setInspireidVersionid(versionId);
+                        ArrayList<Integer> positionsExceedanceEnd = new ArrayList();
+                        String queryExceedanceEndPattern = "</aqd:exceedance>";
+                        Pattern patternExceedanceEnd = Pattern.compile(queryExceedanceEndPattern);
+                        Matcher matcherExceedanceEnd = patternExceedanceEnd.matcher(attainmentarray.get(i));
+                        while (matcherExceedanceEnd.find()) {
+                            positionsExceedanceEnd.add(positionsStartAttainment.get(i) + matcherExceedanceEnd.start());
+                            break;
                         }
-
-                        localIdArray.add(attainmentBean);
-//                    }
+                        CharSequence charSequenceExceedance = inputStreamString.subSequence(positionsExceedanceStart.get(0) + queryExceedanceStartPattern.length(), positionsExceedanceEnd.get(0));
+                        String exceedance = charSequenceExceedance.toString();
+                        if (exceedance.equals("true")) {
+                            localIdArray.add(attainmentBean);
+                        }
+                    } catch (Exception ex) {
+                        /**
+                         * No addition of attainment in case the
+                         * <aqd:exceedance></aqd:exceedance> is missing
+                         */
+                    }
                 }
+
 
                 JAXBContext jc = JAXBContext.newInstance(FlowGXML.class);
                 Unmarshaller u = jc.createUnmarshaller();
@@ -289,13 +316,11 @@ public class SettingsActionBean extends BaseSettingsActionBean {
 
         return new RedirectResolution(getClass());
     }
-
     /**
      * This variable is here just to prevent Stripes warnings related to the
      * name of the select with attainments.
      */
     public final String attainments = null;
-
     /**
      * The location of the table content view.
      */
@@ -335,5 +360,4 @@ public class SettingsActionBean extends BaseSettingsActionBean {
     public AttainmentBean getAttainment() {
         return super.getAttainment();
     }
-
 }

@@ -39,7 +39,6 @@ public class BasePlanActionBean extends BaseActionBean {
         super.setCommonVariables();
         currentSection = MenuViewHelper.Section.Plan;
     }
-
     /**
      * The uuid of the selected plan.
      */
@@ -58,7 +57,6 @@ public class BasePlanActionBean extends BaseActionBean {
     public String getPlanId() {
         return planId;
     }
-
     /**
      * The current plan.
      */
@@ -81,5 +79,14 @@ public class BasePlanActionBean extends BaseActionBean {
      */
     public void setPlan(PlanBean plan) {
         this.plan = plan;
+    }
+    protected String dateStart;
+
+    public String getDateStart() {
+        return "2014-10-21 15:38:25.958";
+    }
+
+    public void setDateStart(String dateStart) {
+        this.dateStart = dateStart;
     }
 }

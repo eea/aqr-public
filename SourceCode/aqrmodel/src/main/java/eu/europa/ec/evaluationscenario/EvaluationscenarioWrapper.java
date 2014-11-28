@@ -29,6 +29,7 @@ import eu.europa.ec.aqrmodel.Relatedparty;
 import eu.europa.ec.aqrmodel.Scenario;
 import eu.europa.ec.aqrmodel.Sourceapportionment;
 import eu.europa.ec.aqrmodeluser.Users;
+import eu.europa.ec.user.UserWrapper;
 
 public class EvaluationscenarioWrapper {
 
@@ -93,7 +94,8 @@ public class EvaluationscenarioWrapper {
             evaluationscenarioBean.setEditable(false);
         }
 
+        evaluationscenarioBean.setUserBean(UserWrapper.convertUserInUserBean(evaluationscenario.getUsers()));
+
         return evaluationscenarioBean;
     }
-
 }

@@ -25,7 +25,6 @@ import java.io.Serializable;
 public class AssesmentmethodsBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private String uuid;
     private AssesmenttypeBean assesmenttypeBean;
     private String assesmenttypedescription;
@@ -69,5 +68,4 @@ public class AssesmentmethodsBean implements Serializable {
     public void setAssesmenttypeBean(AssesmenttypeBean assesmenttypeBean) {
         this.assesmenttypeBean = assesmenttypeBean;
     }
-
 }

@@ -3240,3 +3240,4 @@ INSERT INTO systemconfiguration VALUES ('32', 'http://airqualityreporting.es/e-r
 INSERT INTO systemconfiguration VALUES ('33', 'http://airqualityreporting.se/e-reporting/aq/', '34');
 INSERT INTO systemconfiguration VALUES ('34', 'http://airqualityreporting.tr/e-reporting/aq/', '35');
 INSERT INTO systemconfiguration VALUES ('35', 'http://uk-air.defra.gov.uk/e-reporting/aq/', '36');
+INSERT INTO systemconfiguration VALUES ('36', 'http://uk-air.defra.gov.no/e-reporting/aq/', '37');

@@ -33,5 +33,4 @@ public class PlanINSPIRELocalIDAlreadyExistingException extends CustomException 
     public PlanINSPIRELocalIDAlreadyExistingException() {
         new PlanINSPIRELocalIDAlreadyExistingException(MESSAGE);
     }
-
 }

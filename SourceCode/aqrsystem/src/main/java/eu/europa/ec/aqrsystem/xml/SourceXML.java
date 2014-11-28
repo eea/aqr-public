@@ -25,7 +25,12 @@ import eu.europa.ec.sourceapprotionment.SourceapportionmentManager;
 import eu.europa.ec.aqrsystem.action.EditApportionmentActionBean;
 import eu.europa.ec.aqrsystem.xml.gml.FeatureMember;
 import eu.europa.ec.attainment.AttainmentBean;
+import eu.europa.ec.common.HeaderInterface;
+import eu.europa.ec.common.relatedparty.RelatedpartyBean;
+import eu.europa.ec.user.UserBean;
+import eu.europa.ec.user.UserManager;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -49,25 +54,134 @@ public class SourceXML implements XMLSaveableObject {
 
     @XmlAttribute(namespace = Namespaces.gml)
     protected String id;
-
     @XmlElement(namespace = Namespaces.gml)
     protected List<FeatureMember> featureMember = new ArrayList<FeatureMember>();
 
     /**
      * Populating the object using the data from the SourceapportionmentBean
      *
-     * @param p
+     * @param s
      * @param userEmail
      * @return
      */
-    public SourceXML populate(SourceapportionmentBean p, String userEmail) {
+    public SourceXML populate(SourceapportionmentBean s, String userEmail) {
         id = "Source_Apportionment";
+
         FeatureMember header = new FeatureMember();
         FeatureMember source = new FeatureMember();
-        header.populateHeader(p);
-        source.populate(p, userEmail);
+
+        header.populateHeader(s);
+        source.populate(s, userEmail);
+
         featureMember.add(header);
         featureMember.add(source);
+
+        return this;
+    }
+
+    public SourceXML populateMultiple(final List<SourceapportionmentBean> sourceapportionmentBeans, final Date fromDate, final Date toDate, final String userEmail) {
+        id = "Source_Apportionment";
+
+        final UserManager userManager = new UserManager();
+        final UserBean user = userManager.getUserByEmail(userEmail);
+
+        HeaderInterface defaultHeader = new HeaderInterface() {
+            @Override
+            public String getUuid() {
+                return user.getUuid();
+            }
+
+            @Override
+            public void setUuid(String uuid) {
+            }
+
+            @Override
+            public String getInspireidLocalid() {
+                return new Date().toString();
+            }
+
+            @Override
+            public void setInspireidLocalid(String inspireidLocalid) {
+            }
+
+            @Override
+            public String getInspireidNamespace() {
+                return userManager.getNamespaceByUserEmail(userEmail);
+            }
+
+            @Override
+            public void setInspireidNamespace(String inspireidNamespace) {
+            }
+
+            @Override
+            public String getInspireidVersionid() {
+                return new Date().toString();
+            }
+
+            @Override
+            public void setInspireidVersionid(String inspireidVersionid) {
+            }
+
+            @Override
+            public boolean isChanges() {
+                return true;
+            }
+
+            @Override
+            public void setChanges(boolean changes) {
+            }
+
+            @Override
+            public String getDescriptionofchanges() {
+                if (!sourceapportionmentBeans.isEmpty()) {
+                    return sourceapportionmentBeans.get(0).getDescriptionofchanges();
+                } else {
+                    return "";
+                }
+            }
+
+            @Override
+            public void setDescriptionofchanges(String descriptionofchanges) {
+            }
+
+            @Override
+            public String getReportingstartdate() {
+                return fromDate.toString();
+            }
+
+            @Override
+            public void setReportingstartdate(String reportingstartdate) {
+            }
+
+            @Override
+            public String getReportingenddate() {
+                return toDate.toString();
+            }
+
+            @Override
+            public void setReportingenddate(String reportingenddate) {
+            }
+
+            @Override
+            public RelatedpartyBean getProviderBean() {
+                return user.getProviderBean();
+            }
+
+            @Override
+            public void setProviderBean(RelatedpartyBean providerBean) {
+            }
+        };
+
+        FeatureMember header = new FeatureMember();
+        header.populateHeader(defaultHeader);
+        featureMember.add(header);
+
+        for (SourceapportionmentBean s : sourceapportionmentBeans) {
+            FeatureMember source = new FeatureMember();
+            source.populate(s, userEmail);
+            featureMember.add(source);
+        }
+
         return this;
     }
 
@@ -102,8 +216,8 @@ public class SourceXML implements XMLSaveableObject {
             context.getValidationErrors().addGlobalError(new LocalizableError("import.error.plan.nosource"));
         }
     }
-    
-     @Override
+
+    @Override
     public void save(String userEmail, ActionBeanContext context, ResourceBundle res, ArrayList<AttainmentBean> localId) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

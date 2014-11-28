@@ -35,7 +35,9 @@ import eu.europa.ec.util.EntityManagerCustom;
 import eu.europa.ec.util.StringUtils;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -63,8 +65,8 @@ public class UserManager {
         Plan plan = ((List<Plan>) q.getResultList()).get(0);
         Users userPlan = plan.getUsers();
 
-        q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
 
         return userPlan.equals(user);
@@ -80,8 +82,8 @@ public class UserManager {
         EntityManager em = emc.getEntityManager();
 
         try {
-            Query q = em.createNamedQuery("Users.findByEmail");
-            q.setParameter("email", userEmail);
+            String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+            Query q = em.createQuery(query);
             Users user = (Users) q.getSingleResult();
 
             return UserWrapper.convertUserInUserBean(user);
@@ -119,14 +121,14 @@ public class UserManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
         /**
-         * check if the email exist
+         * check if the userEmail exist
          */
-        String email = userBean.getEmail();
+        String userEmail = userBean.getEmail();
 
         Users user = new Users();
         if (userBean.getUuid() == null) {
-            Query q = em.createNamedQuery("Users.findByEmail");
-            q.setParameter("email", email);
+            String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+            Query q = em.createQuery(query);
             Users result = null;
             try {
                 result = (Users) q.getSingleResult();
@@ -138,9 +140,9 @@ public class UserManager {
                     throw new EmailAlreadyInTheDBException();
                 } else {
                     user = new Users();
-                    String userUuid = StringUtils.createUUID(email + dateFormatUtil.getToday(), Users.class);
+                    String userUuid = StringUtils.createUUID(userEmail + dateFormatUtil.getToday(), Users.class);
                     user.setUuid(userUuid);
-
+                    user.setDatecreation(new Date());
                 }
             }
         } else {
@@ -148,8 +150,8 @@ public class UserManager {
             q.setParameter("uuid", userBean.getUuid());
             user = (Users) q.getSingleResult();
 
-            q = em.createNamedQuery("Users.findByEmail");
-            q.setParameter("email", email);
+            String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+            q = em.createQuery(query);
             List<Users> usersWithEmail = q.getResultList();
             for (Users users : usersWithEmail) {
                 try {
@@ -168,8 +170,8 @@ public class UserManager {
             user.setEnable(Boolean.FALSE);
         }
 
-        if (email != null) {
-            user.setEmail(email);
+        if (userEmail != null) {
+            user.setEmail(userEmail);
         } else {
             user.setEmail("");
         }
@@ -345,15 +347,26 @@ public class UserManager {
      * @return all the Countries
      */
     public List<CountryBean> getAllCountries() {
-        List<CountryBean> countryBeanList = new ArrayList<CountryBean>();
-
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
         Query q = em.createNamedQuery("Country.findAll");
         List<Country> countryList = q.getResultList();
+
+        HashMap<String, Country> hash = new HashMap<String, Country>();
+        String[] countryName = new String[countryList.size()];
+        int k = 0;
         for (Country country : countryList) {
-            countryBeanList.add(UserWrapper.convertCountryInCountryBean(country));
+            hash.put(country.getCountryname(), country);
+            countryName[k] = country.getCountryname();
+            k++;
+        }
+
+        Arrays.sort(countryName);
+
+        List<CountryBean> countryBeanList = new ArrayList<CountryBean>();
+        for (String country : countryName) {
+            countryBeanList.add(UserWrapper.convertCountryInCountryBean(hash.get(country)));
         }
 
         return countryBeanList;
@@ -390,8 +403,8 @@ public class UserManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
 
         List<UserBean> userBeanList = new ArrayList<UserBean>();
@@ -427,8 +440,8 @@ public class UserManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -448,8 +461,8 @@ public class UserManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -475,8 +488,8 @@ public class UserManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 

@@ -40,12 +40,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Areaclassification implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "uri")
     private String uri;
@@ -128,5 +126,4 @@ public class Areaclassification implements Serializable {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

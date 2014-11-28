@@ -19,11 +19,18 @@
  */
 package eu.europa.ec.aqrsystem.action;
 
+import static eu.europa.ec.aqrsystem.action.BaseActionBean.planManager;
 import eu.europa.ec.plan.DeletePlanException;
 import eu.europa.ec.aqrsystem.xml.PlanXML;
 import eu.europa.ec.aqrsystem.xml.XMLManager;
+import eu.europa.ec.plan.PlanBean;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.xml.bind.JAXBException;
 import net.sourceforge.stripes.action.DefaultHandler;
@@ -116,7 +123,6 @@ public class PlanActionBean extends BasePlanActionBean {
         planManager.clonePlanByPlanIDAndUser(planId, email);
         return ajaxSuccess();
     }
-
     /**
      * The location of the table content view.
      */
@@ -129,5 +135,84 @@ public class PlanActionBean extends BasePlanActionBean {
      */
     public Resolution table() {
         return new ForwardResolution(TABLE_CONTENT);
+    }
+    /**
+     * Location of the dialog view.
+     */
+    private static final String DIALOG_VIEW = "WEB-INF/jsp/plan/exportallDialogContent.jsp";
+
+    /**
+     * The main edit cost form.
+     *
+     * @return A standard Stripes object.
+     */
+    public Resolution form() {
+        return new ForwardResolution(DIALOG_VIEW);
+    }
+
+    /**
+     * Exporting the content of all the plans to an XML file.
+     *
+     * @return Default Stripes object.
+     * @throws javax.xml.bind.JAXBException
+     * @throws java.io.UnsupportedEncodingException
+     */
+    public Resolution exportall() throws JAXBException, UnsupportedEncodingException, IOException {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(toDate);
+        calendar.add(Calendar.DATE, 1);
+        Date nextDateToDate = calendar.getTime(); 
+        
+        List<PlanBean> planBeanList = planManager.getAllCompletedPlansByUser(email, completed, fromDate, nextDateToDate);
+        return XMLManager.export(PlanXML.class, new PlanXML().populateMultiple(planBeanList, fromDate, toDate, email), "Plan_Multiple_" + new Date().toString() + ".xml");
+    }
+    protected boolean completed;
+    protected String radio;
+
+    public void setRadio(String radio) {
+        this.radio = radio;
+        if (radio.equals("all")) {
+            completed = false;
+        } else {
+            completed = true;
+        }
+    }
+
+    public String getRadio() {
+        return radio;
+    }
+    protected String from;
+    protected String to;
+    protected Date fromDate;
+    protected Date toDate;
+
+    public void setFrom(String from) {
+        this.from = from;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            Date date = formatter.parse(from);
+            this.fromDate = date;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            Date date = formatter.parse(to);
+            this.toDate = date;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getTo() {
+        return to;
     }
 }

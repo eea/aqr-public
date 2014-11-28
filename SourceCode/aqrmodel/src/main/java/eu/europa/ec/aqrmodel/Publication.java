@@ -80,7 +80,6 @@ public class Publication implements Serializable {
     private String publisher;
     @Column(name = "weblink")
     private String weblink;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "publication")
     private List<EvaluationscenarioPublication> evaluationscenarioPublicationList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "publication")
@@ -209,5 +208,4 @@ public class Publication implements Serializable {
     public void setPlanPublicationList(List<PlanPublication> planPublicationList) {
         this.planPublicationList = planPublicationList;
     }
-
 }

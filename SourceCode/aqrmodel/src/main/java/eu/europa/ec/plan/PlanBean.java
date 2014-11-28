@@ -21,6 +21,7 @@ package eu.europa.ec.plan;
 
 import eu.europa.ec.common.relatedparty.RelatedpartyBean;
 import eu.europa.ec.common.HeaderInterface;
+import eu.europa.ec.user.UserBean;
 import java.util.Date;
 import java.util.List;
 
@@ -30,10 +31,8 @@ public class PlanBean implements HeaderInterface {
     private String inspireidLocalid;
     private String inspireidNamespace;
     private String inspireidVersionid;
-
     private String code;
     private String name;
-
     private String firstexceedanceyearId;
     private String firstexceedanceyearTimeposition;
     private String adoptiondateId;
@@ -42,25 +41,20 @@ public class PlanBean implements HeaderInterface {
     private String referenceaqplan;
     private String referenceimplementation;
     private String comment;
-
     private Date datecreation;
     private Date datelastupdate;
-
     private String preferredLabel;
     private String link;
-
     private boolean completed;
     private boolean editable;
-
     private RelatedpartyBean providerBean;
     private RelatedpartyBean relatedpartyBean;
-
     private boolean changes;
     private String descriptionofchanges;
     private String reportingstartdate;
     private String reportingenddate;
-
     private List<String> attainmentBeanList;
+    private UserBean userBean;
 
     public PlanBean() {
     }
@@ -303,4 +297,11 @@ public class PlanBean implements HeaderInterface {
         this.editable = editable;
     }
 
+    public UserBean getUserBean() {
+        return userBean;
+    }
+
+    public void setUserBean(UserBean userBean) {
+        this.userBean = userBean;
+    }
 }

@@ -51,7 +51,6 @@ public class CostActionBean extends BaseMeasureActionBean {
     public Resolution form() {
         return new ForwardResolution(DIALOG_VIEW);
     }
-
     /**
      * Location of the partial cost view.
      */
@@ -92,7 +91,6 @@ public class CostActionBean extends BaseMeasureActionBean {
         measuresManager.deleteCostByMeasureID(measureId);
         return ajaxSuccess();
     }
-
     /**
      * The list of possible values for field measure.costsBean.currency_uri.
      */
@@ -108,7 +106,6 @@ public class CostActionBean extends BaseMeasureActionBean {
         }
         return possibleCurrencies;
     }
-
     /**
      * The cost processed.
      */

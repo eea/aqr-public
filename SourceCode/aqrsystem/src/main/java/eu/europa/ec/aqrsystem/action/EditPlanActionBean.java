@@ -26,6 +26,8 @@ import eu.europa.ec.aqrmodel.Statusplan;
 import static eu.europa.ec.aqrsystem.action.BaseActionBean.planManager;
 import eu.europa.ec.aqrsystem.utils.ValidationMasks;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.annotation.security.RolesAllowed;
@@ -77,6 +79,8 @@ public class EditPlanActionBean extends BasePlanActionBean {
             context.getValidationErrors().addGlobalError(new LocalizableError("plan.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));
         }
         planId = plan.getUuid();
+        addGlobalInformationError();
+
         List<String> nonCompletedFields = updateCompleteness(plan, res);
         context.getMessages().add(new LocalizableMessage("plan.update.message", HtmlUtil.encode(plan.getInspireidLocalid())));
 
@@ -114,7 +118,7 @@ public class EditPlanActionBean extends BasePlanActionBean {
             result.add(res.getString("plan.providerBean.electronicmailaddress"));
         }
 
-        if (plan.isChanges() && !isDefined(plan.getDescriptionofchanges())) {
+        if (!isDefined(plan.getDescriptionofchanges())) {
             result.add(res.getString("plan.descriptionofchanges"));
         }
 
@@ -189,29 +193,23 @@ public class EditPlanActionBean extends BasePlanActionBean {
      */
     @ValidateNestedProperties({
         @Validate(field = "inspireidLocalid", required = true, maxlength = 100, mask = ValidationMasks.inspireId, on = "save"),
-
         @Validate(field = "providerBean.organisationname", required = false, maxlength = 200, on = "save"),
         @Validate(field = "providerBean.website", required = false, maxlength = 250, mask = ValidationMasks.url, on = "save"),
         @Validate(field = "providerBean.individualname", required = false, maxlength = 250, on = "save"),
         @Validate(field = "providerBean.address", required = false, maxlength = 200, on = "save"),
         @Validate(field = "providerBean.telephonevoice", required = false, maxlength = 50, on = "save"),
         @Validate(field = "providerBean.electronicmailaddress", required = false, maxlength = 250, converter = EmailTypeConverter.class, on = "save"),
-
         @Validate(field = "descriptionofchanges", required = false, maxlength = 250, on = "save"),
-
         @Validate(field = "reportingstartdate", required = false, maxlength = 10, mask = ValidationMasks.date, on = "save"),
         @Validate(field = "reportingenddate", required = false, maxlength = 10, mask = ValidationMasks.date, on = "save"),
-
         @Validate(field = "code", required = false, maxlength = 200, on = "save"),
         @Validate(field = "name", required = false, maxlength = 200, on = "save"),
-
         @Validate(field = "relatedpartyBean.organisationname", required = false, maxlength = 200, on = "save"),
         @Validate(field = "relatedpartyBean.website", required = false, maxlength = 250, mask = ValidationMasks.url, on = "save"),
         @Validate(field = "relatedpartyBean.individualname", required = false, maxlength = 250, on = "save"),
         @Validate(field = "relatedpartyBean.address", required = false, maxlength = 200, on = "save"),
         @Validate(field = "relatedpartyBean.telephonevoice", required = false, maxlength = 50, on = "save"),
         @Validate(field = "relatedpartyBean.electronicmailaddress", required = false, maxlength = 250, converter = EmailTypeConverter.class, on = "save"),
-
         @Validate(field = "firstexceedanceyearTimeposition", required = false, maxlength = 4, mask = ValidationMasks.year, on = "save"),
         @Validate(field = "adoptiondateTimeposition", required = false, maxlength = 10, mask = ValidationMasks.date, on = "save"),
         @Validate(field = "timetable", required = false, maxlength = 300, on = "save"),
@@ -223,7 +221,6 @@ public class EditPlanActionBean extends BasePlanActionBean {
     public PlanBean getPlan() {
         return super.getPlan();
     }
-
     /**
      * The list of possible values for field plan.statusplan.
      */
@@ -243,5 +240,23 @@ public class EditPlanActionBean extends BasePlanActionBean {
     @Override
     public List<AttainmentBean> getExistingAttainments() {
         return planManager.getAllAttainmentBeanByUser(planId);
+    }
+
+    private void addGlobalInformationError() throws NumberFormatException {
+        String reportingDateStart = plan.getReportingstartdate();
+        String reportingDateEnd = plan.getReportingenddate();
+        if (reportingDateStart != null && reportingDateEnd != null) {
+            String[] startArray = reportingDateStart.split("-");
+            String[] endArray = reportingDateEnd.split("-");
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date startDate = new Date(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date endDate = new Date(Integer.parseInt(endArray[0]), Integer.parseInt(endArray[1]), Integer.parseInt(endArray[2]));
+
+            if (startDate.after(endDate)) {
+                context.getValidationErrors().addGlobalError(new LocalizableError("plan.error.reportingdatestart.after.reportingdateend", HtmlUtil.encode(reportingDateStart), HtmlUtil.encode(reportingDateEnd)));
+            }
+        }
     }
 }

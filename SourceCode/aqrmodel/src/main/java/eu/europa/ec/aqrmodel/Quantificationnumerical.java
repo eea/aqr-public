@@ -140,5 +140,4 @@ public class Quantificationnumerical implements Serializable {
     public void setMeasuresList(List<Measures> measuresList) {
         this.measuresList = measuresList;
     }
-
 }

@@ -65,5 +65,4 @@ public class DeductionassessmentmethodWrapper implements Serializable {
 
         return deductionassessmentmethodBean;
     }
-
 }

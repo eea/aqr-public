@@ -65,12 +65,10 @@ public class BaseActionBean extends BaseUtils implements ActionBean {
 
         email = CustomSecurityManager.getEmail(context);
     }
-
     /**
      * The email address of the currently logged in user.
      */
     protected String email;
-
     /**
      * The object with the values from StripesResources.
      */
@@ -84,7 +82,6 @@ public class BaseActionBean extends BaseUtils implements ActionBean {
     public ResourceBundle getRes() {
         return res;
     }
-
     /**
      * The ActionBean context required for each ActionBean object.
      */
@@ -109,7 +106,6 @@ public class BaseActionBean extends BaseUtils implements ActionBean {
     public void setContext(ActionBeanContext ctx) {
         this.context = ctx;
     }
-
     /**
      * The active tab.
      */
@@ -123,7 +119,6 @@ public class BaseActionBean extends BaseUtils implements ActionBean {
     public MenuViewHelper.Section getCurrentSection() {
         return currentSection;
     }
-
     /**
      * The message sent to an AJAX caller on success.
      */
@@ -137,7 +132,6 @@ public class BaseActionBean extends BaseUtils implements ActionBean {
     protected Resolution ajaxSuccess() {
         return new StreamingResolution("text/plain", SUCCESS_AJAX_MESSAGE);
     }
-
     /**
      * The header of the message sent to an AJAX caller on error.
      */
@@ -153,32 +147,26 @@ public class BaseActionBean extends BaseUtils implements ActionBean {
     protected Resolution ajaxError(String key) {
         return new StreamingResolution("text/plain", ERROR_AJAX_MESSAGE + getErrorMessage(key));
     }
-
     /**
      * The object for communication with the DB.
      */
     protected static final SourceapportionmentManager sourceManager = new SourceapportionmentManager();
-
     /**
      * The object for communication with the DB.
      */
     protected static final EvaluationScenarioManager evaluationManager = new EvaluationScenarioManager();
-
     /**
      * The object for communication with the DB.
      */
     protected static final PlanManager planManager = new PlanManager();
-
     /**
      * The object for communication with the DB.
      */
     protected static final MeasuresManager measuresManager = new MeasuresManager();
-    
     /**
      * The object for communication with the DB.
      */
     protected static final AttainmentManager attainmentManager = new AttainmentManager();
-
     /**
      * The object for communication with the DB.
      */
@@ -203,7 +191,6 @@ public class BaseActionBean extends BaseUtils implements ActionBean {
             context.getMessages().add(new SimpleMessage(res.getString(resourceObject + ".complete")));
         }
     }
-
     /**
      * An xml file uploaded by a user in a form
      */
@@ -226,7 +213,6 @@ public class BaseActionBean extends BaseUtils implements ActionBean {
     public void setXmlFile(FileBean xmlFile) {
         this.xmlFile = xmlFile;
     }
-
     protected LocalizableError errorMessage;
 
     public LocalizableError getErrorMessage() {

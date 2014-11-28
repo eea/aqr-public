@@ -79,5 +79,4 @@ public class StatusplannedimplementationBean {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

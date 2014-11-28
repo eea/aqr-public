@@ -80,7 +80,6 @@ public class PublicationActionBean extends BasePlanActionBean {
         EditPlanActionBean.updateCompleteness(planManager.getPlanByID(planId, email), res);
         return ajaxSuccess();
     }
-
     /**
      * Location of the table content view.
      */
@@ -89,7 +88,6 @@ public class PublicationActionBean extends BasePlanActionBean {
      * Location of the dialog view.
      */
     private static final String DIALOG_VIEW = "WEB-INF/jsp/plan/publicationDialogContent.jsp";
-
     /**
      * Publication of the plan
      */
@@ -106,7 +104,6 @@ public class PublicationActionBean extends BasePlanActionBean {
         }
         return publications;
     }
-
     /**
      * The currently selected publication's id.
      */
@@ -125,7 +122,6 @@ public class PublicationActionBean extends BasePlanActionBean {
     public String getPublicationId() {
         return publicationId;
     }
-
     /**
      * The publication processed.
      */

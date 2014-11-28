@@ -2,7 +2,8 @@
 @import url("jquery-ui-1.10.1.min.css");
 @import url("jquery.tagit.css");
 body {
-    font: 14px Lucida Grande,Lucida Sans,Verdana,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-family: Arial,open-sans,sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -14,7 +15,8 @@ fieldset{
 }
 textarea{
     margin-bottom:8px;
-    font: 12px Lucida Grande,Lucida Sans,Verdana,Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-family: Arial,open-sans,sans-serif;
     width:640px
 }
 a {
@@ -58,13 +60,13 @@ header {
     color: #fff;
     display: inline;
     float: left;
-    font-family: Verdana,Tahoma,Sans-Serif;
+    font-family: Arial,open-sans,sans-serif;
     font-size: 11px;
     font-weight: bold;
     left: 2px;
     margin-left: 40px;
     position: relative;
-    top: 147px;
+    top: 149px;
 }
 #breadctxt a:link, #breadctxt a:active{
     border-bottom: medium none;
@@ -84,7 +86,8 @@ header {
 }
 #topright {
     float: right;
-    font: 10px Verdana,Helvetica,Arial,sans-serif;
+    font-family: Arial,open-sans,sans-serif;
+    font-size: 10px;
     height: auto;
     width: auto;
 }
@@ -243,6 +246,9 @@ table tr td{
 .edit {
     background-position: 3px 0
 }
+.view {
+    background-position: -17px -48px
+}
 .clone {
     background-position: 0 -18px
 }
@@ -278,15 +284,60 @@ table tr td{
     height:24px;
     line-height:32px;
     margin-right:10px;
-    background-position: 5px -92px
+    background-position: 5px -92px;
+}
+.login {
+    height:24px;
+    line-height:32px;
+    margin-right:10px;
+    /*background-position: -18px -89px;*/
+    background: transparent url(../img/main/key.png) no-repeat 0 0;
+    background-position: 4px 8px;
 }
 .insertfromfile {
     height:24px;
     line-height:32px;
     background-position: 5px -121px
 }
+.exportall {
+    height:24px;
+    line-height:32px;
+    margin-right:10px;
+    background-position: -17px -65px;
+    border: 1px solid #074B8C;
+
+    display: inline-block;
+    padding: 5px;
+    padding-top: 0px;
+    padding-left: 25px;
+    border: 1px solid #074B8C;
+    text-decoration: none;
+    font-weight: bold;
+}
+.exportall:hover{
+    text-decoration: none;
+}
+.exportallcancel {
+    height:24px;
+    line-height:32px;
+    margin-right:10px;
+    background-position: 7px -175px;
+    border: 1px solid #074B8C;
+
+    display: inline-block;
+    padding: 5px;
+    padding-top: 0px;
+    padding-left: 25px;
+    border: 1px solid #074B8C;
+    text-decoration: none;
+    font-weight: bold;
+}
+.exportallcancel:hover{
+    text-decoration: none;
+}
+
 .generatexml {
-    background-position: 0 -155px;
+    background-position: -23px -155px;
 }
 .save {
     height:24px;
@@ -294,6 +345,13 @@ table tr td{
     margin-right:10px;
     float:right;
     background-position: -16px 7px
+}
+.export {
+    height:24px;
+    line-height:32px;
+    margin-right:10px;
+    float:right;
+    background-position: -17px -65px;
 }
 .ok {
     height:24px;
@@ -457,6 +515,55 @@ h4#resc{
     color:#fff
 }
 
+/** .mainmenu li a.plan:link, .mainmenu li a.plan:visited {
+    display:inline-block;
+    padding:5px;
+    border:1px solid #074B8C;
+    text-decoration:none;
+    font-weight:bold
+}
+.mainmenu li a.plan:hover, .mainmenu li a.plan:focus, .mainmenu li a.plan:active{
+    background-color:#074B8C;
+    color:#fff
+}
+
+.mainmenu li a.sourceapp:link, .mainmenu li a.sourceapp:visited {
+    display:inline-block;
+    padding:5px;
+    border:1px solid #074B8C;
+    text-decoration:none;
+    font-weight:bold
+}
+.mainmenu li a.sourceapp:hover, .mainmenu li a.sourceapp:focus, .mainmenu li a.sourceapp:active{
+    background-color:#074B8C;
+    color:#fff
+}
+
+.mainmenu li a.evsc:link, .mainmenu li a.evsc:visited {
+    display:inline-block;
+    padding:5px;
+    border:1px solid #074B8C;
+    text-decoration:none;
+    font-weight:bold
+}
+.mainmenu li a.evsc:hover, .mainmenu li a.evsc:focus, .mainmenu li a.evsc:active{
+    background-color:#074B8C;
+    color:#fff
+}
+
+.mainmenu li a.measures:link, .mainmenu li a.measures:visited {
+    display:inline-block;
+    padding:5px;
+    border:1px solid #074B8C;
+    text-decoration:none;
+    font-weight:bold
+}
+.mainmenu li a.measures:hover, .mainmenu li a.measures:focus, .mainmenu li a.measures:active{
+    background-color:#074B8C;
+    color:#fff
+}
+*/
+
 /* Elements */
 .sbox{
     display:inline-block;
@@ -483,15 +590,89 @@ a.btn:hover{
     background-color:#074B8C;
     color:#fff
 }
+/** a.btn.plan:hover{
+    background-color:#074B8C;
+    color:#fff
+}
+a.btn.plan:link{
+    display:inline-block;
+    padding:5px;
+    padding-top:0px;
+    padding-left:25px;
+    border:1px solid #074B8C;
+    text-decoration:none;
+    font-weight:bold
+}
+a.btn.sourceapp:hover{
+    background-color:#074B8C;
+    color:#fff
+}
+a.btn.sourceapp:link{
+    display:inline-block;
+    padding:5px;
+    padding-top:0px;
+    padding-left:25px;
+    border:1px solid #074B8C;
+    text-decoration:none;
+    font-weight:bold
+}
+a.btn.evsc:hover{
+    background-color:#074B8C;
+    color:#fff
+}
+a.btn.evsc:link{
+    display:inline-block;
+    padding:5px;
+    padding-top:0px;
+    padding-left:25px;
+    border:1px solid #074B8C;
+    text-decoration:none;
+    font-weight:bold
+}
+a.btn.measures:hover{
+    background-color:#074B8C;
+    color:#fff
+}
+a.btn.measures:link{
+    display:inline-block;
+    padding:5px;
+    padding-top:0px;
+    padding-left:25px;
+    border:1px solid #074B8C;
+    text-decoration:none;
+    font-weight:bold
+}
+*/
+
 /* Content label */
 .container fieldset{
     margin-bottom:10px
 }
 .container legend, .container div.legend, .dialog legend, .dialog div.legend {
     font-weight:bold;
-    color:#074B8C;
+    /*color:#074B8C;*/
     padding:0 5px
 }
+
+/*.settings{
+    color:#074B8C;
+}
+.plan{
+    color:#074B8C;
+    border-bottom-color: #19BC9C
+}
+.sourceapp{
+    color:#074B8C;
+    border-bottom-color: #3DBFD9
+}
+.evsc{
+    color:#074B8C;
+    border-bottom-color: #6DC962
+}
+.measures{
+    color:#074B8C;
+    border-bottom-color: #F27F6B
+}*/
 .container label{
     display:inline-block;
     width:250px;
@@ -535,7 +716,7 @@ fieldset.tab{
 }
 .ui-tabs .ui-tabs-nav li a {
     padding:2px;
-    font-size:11px
+    font-size:12px
 }
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
     background-image:none;
@@ -639,7 +820,7 @@ ul.errors {
 ul.errors li {
     background-color: #FFD8D8;
     border: 1px solid;
-    border-color: rgb(39, 121, 170);
+    border-color: #FFB2C4;
     color: black;
     padding: 15px;
     margin: 3px;
@@ -661,7 +842,7 @@ input.save {
     padding-left: 25px;
     padding-right: 5px;
     padding-top: 0px;    
-    font-family: 'Lucida Grande', 'Lucida Sans', Verdana, Helvetica, Arial, sans-serif;
+    font-family: Arial,open-sans,sans-serif;
     font-size: 14px;
     font-style: normal;
     font-variant: normal;
@@ -674,6 +855,125 @@ input.save:hover {
     background-color:#074B8C;
     color:#fff
 }
+input.export {
+    width: auto;
+    margin: 0px;
+    margin-right: 10px;
+    border: 1px solid;
+    border-color: rgb(7, 75, 140);
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 5px;
+    padding-top: 0px;    
+    font-family: Arial,open-sans,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    color: rgb(7, 75, 140);
+    height: 31px;
+    background-attachment: scroll;
+}
+input.export:hover {
+    background-color:#074B8C;
+    color:#fff
+}
+/*insertfromfile*/
+/*
+input.save.plan {
+    width: auto;
+    margin: 0px;
+    margin-right: 10px;
+    border: 1px solid;
+    border-color: rgb(7, 75, 140);
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 5px;
+    padding-top: 0px;    
+    font-family: Arial,open-sans,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    color: rgb(7, 75, 140);
+    height: 31px;
+    background-attachment: scroll;
+}
+input.save.sourceapp {
+    width: auto;
+    margin: 0px;
+    margin-right: 10px;
+    border: 1px solid;
+    border-color: rgb(7, 75, 140);
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 5px;
+    padding-top: 0px;    
+    font-family: Arial,open-sans,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    color: rgb(7, 75, 140);
+    height: 31px;
+    background-attachment: scroll;
+}
+input.save.evsc {
+    width: auto;
+    margin: 0px;
+    margin-right: 10px;
+    border: 1px solid;
+    border-color: rgb(7, 75, 140);
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 5px;
+    padding-top: 0px;    
+    font-family: Arial,open-sans,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    color: rgb(7, 75, 140);
+    height: 31px;
+    background-attachment: scroll;
+}
+input.save.measures {
+    width: auto;
+    margin: 0px;
+    margin-right: 10px;
+    border: 1px solid;
+    border-color: rgb(7, 75, 140);
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 5px;
+    padding-top: 0px;    
+    font-family: Arial,open-sans,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    color: rgb(7, 75, 140);
+    height: 31px;
+    background-attachment: scroll;
+}
+input.save.plan:hover {
+    background-color:#074B8C;
+    color:#fff
+}
+input.save.sourceapp:hover {
+   background-color:#074B8C;
+    color:#fff
+}
+input.save.evsc:hover {
+    background-color:#074B8C;
+    color:#fff
+}
+input.save.measures:hover {
+    background-color:#074B8C;
+    color:#fff
+}
+*/
+
 .hidden {
     visibility:hidden;
 }

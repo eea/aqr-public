@@ -44,7 +44,6 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Exceedanceexposure implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
@@ -150,5 +149,4 @@ public class Exceedanceexposure implements Serializable {
     public void setExceedancedescriptionList(List<Exceedancedescription> exceedancedescriptionList) {
         this.exceedancedescriptionList = exceedancedescriptionList;
     }
-
 }

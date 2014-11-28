@@ -47,16 +47,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ExceedancedescriptionReasonvalue implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "reasonvalue", referencedColumnName = "uuid")
     @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private Reasonvalue reasonvalue;
-
     @JoinColumn(name = "exceedancedescription", referencedColumnName = "uuid")
     @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private Exceedancedescription exceedancedescription;
@@ -116,5 +113,4 @@ public class ExceedancedescriptionReasonvalue implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrcrosstablesmodel.ExceedancedescriptionReasonvalue[ uuid=" + uuid + " ]";
     }
-
 }

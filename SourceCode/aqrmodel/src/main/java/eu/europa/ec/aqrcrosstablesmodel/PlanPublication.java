@@ -47,21 +47,17 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "PlanPublication.deleteByPublication", query = "DELETE FROM PlanPublication p WHERE p.publication = :publication"),
     @NamedQuery(name = "PlanPublication.deleteByPlan", query = "DELETE FROM PlanPublication p WHERE p.plan = :plan"),
     @NamedQuery(name = "PlanPublication.deleteByPlanAndPublication", query = "DELETE FROM PlanPublication p WHERE p.plan = :plan AND p.publication = :publication")
-
 })
 public class PlanPublication implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "publication", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Publication publication;
-
     @JoinColumn(name = "plan", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Plan plan;
@@ -121,5 +117,4 @@ public class PlanPublication implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrcrosstablesmodel.PlanPublication[ uuid=" + uuid + " ]";
     }
-
 }

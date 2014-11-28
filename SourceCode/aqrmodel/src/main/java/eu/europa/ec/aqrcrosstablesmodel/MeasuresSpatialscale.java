@@ -46,16 +46,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class MeasuresSpatialscale implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "spatialscale", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Spatialscale spatialscale;
-
     @JoinColumn(name = "measures", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Measures measures;
@@ -115,5 +112,4 @@ public class MeasuresSpatialscale implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrcrosstablesmodel.MeasuresSpatialscale[ uuid=" + uuid + " ]";
     }
-
 }

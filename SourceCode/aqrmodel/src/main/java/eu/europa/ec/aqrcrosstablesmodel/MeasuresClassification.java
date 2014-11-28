@@ -46,16 +46,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class MeasuresClassification implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "measures", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Measures measures;
-
     @JoinColumn(name = "classification", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Classification classification;
@@ -115,5 +112,4 @@ public class MeasuresClassification implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrcrosstablesmodel.MeasuresClassification[ uuid=" + uuid + " ]";
     }
-
 }

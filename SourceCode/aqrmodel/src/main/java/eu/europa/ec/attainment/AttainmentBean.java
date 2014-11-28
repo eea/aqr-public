@@ -28,32 +28,24 @@ import java.util.Date;
 public class AttainmentBean implements HeaderInterface {
 
     private static final long serialVersionUID = 1L;
-
     private String uuid;
-
     private String inspireidLocalid;
     private String inspireidNamespace;
     private String inspireidVersionid;
-
     private String comment;
     private boolean editable;
     private RelatedpartyBean providerBean;
-
     private String validityperiodId;
     private Date validityperiodBeginposition;
     private Date validityperiodEndposition;
-
     private Date datecreation;
     private Date datelastupdate;
-
     private boolean changes;
     private String descriptionofchanges;
     private String reportingstartdate;
     private String reportingenddate;
-
     private PollutantBean pollutantBean;
     private EnvironmentalobjectiveBean environmentalobjectBean;
-
     private UserBean userBean;
 
     public AttainmentBean() {
@@ -240,5 +232,4 @@ public class AttainmentBean implements HeaderInterface {
     public void setUserBean(UserBean userBean) {
         this.userBean = userBean;
     }
-
 }

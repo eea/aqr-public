@@ -34,5 +34,4 @@ public class SpatialscaleWrapper {
 
         return spatialscaleBean;
     }
-
 }

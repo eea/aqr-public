@@ -63,5 +63,4 @@ public class SystemconfigurationBean implements Serializable {
     public void setCountry(Country country) {
         this.country = country;
     }
-
 }

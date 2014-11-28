@@ -79,5 +79,4 @@ public class MeasuretypeBean {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

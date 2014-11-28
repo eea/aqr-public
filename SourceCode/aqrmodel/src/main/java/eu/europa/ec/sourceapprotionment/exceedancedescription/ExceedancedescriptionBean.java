@@ -30,19 +30,14 @@ public class ExceedancedescriptionBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private String uuid;
-
     private Boolean exceedance;
     private String numericalexceedance;
     private String numberexceedances;
-
     private String otherreason;
     private String comment;
-
     private Date datecreation;
     private Date datelastupdate;
-
     private List<String> reasonvalueList_uri;
-
     private DeductionassessmentmethodBean deductionassessmentmethodBean;
     private ExceedanceareaBean exceedanceareaBean;
     private ExceedanceexposureBean exceedenceexposureBean;
@@ -154,5 +149,4 @@ public class ExceedancedescriptionBean implements Serializable {
     public void setReasonvalueList_uri(List<String> reasonvalueList_uri) {
         this.reasonvalueList_uri = reasonvalueList_uri;
     }
-
 }

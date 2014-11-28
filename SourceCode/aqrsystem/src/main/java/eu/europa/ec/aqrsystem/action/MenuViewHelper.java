@@ -46,7 +46,6 @@ public class MenuViewHelper extends BaseActionBean {
     public void setCurrentSection(Section currentSection) {
         this.currentSection = currentSection;
     }
-
     /**
      * Location of the menu partial JSP.
      */
@@ -67,13 +66,12 @@ public class MenuViewHelper extends BaseActionBean {
      */
     public enum Section {
 
-        Home("menu.home", HomeActionBean.class),
-        Plan("menu.plan", PlanActionBean.class),
-        Apportionment("menu.source-apportionment", ApportionmentActionBean.class),
-        Evaluation("menu.evaluation-scenario", EvaluationActionBean.class),
-        Measures("menu.measures", MeasureActionBean.class),
-        Settings("menu.settings", SettingsActionBean.class);
-
+        Home("home", HomeActionBean.class),
+        Plan("plan", PlanActionBean.class),
+        Apportionment("sourceapp", ApportionmentActionBean.class),
+        Evaluation("evsc", EvaluationActionBean.class),
+        Measures("measures", MeasureActionBean.class),
+        Settings("settings", SettingsActionBean.class);
         /**
          * The resource key for the menu label.
          */

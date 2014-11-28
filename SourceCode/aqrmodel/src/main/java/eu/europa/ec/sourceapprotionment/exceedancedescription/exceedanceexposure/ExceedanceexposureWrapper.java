@@ -44,5 +44,4 @@ public class ExceedanceexposureWrapper implements Serializable {
 
         return exceedanceexposureBean;
     }
-
 }

@@ -65,7 +65,6 @@ public class Attainment implements Serializable {
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "inspireid_localid")
     private String inspireidLocalid;
@@ -75,10 +74,8 @@ public class Attainment implements Serializable {
     @Basic(optional = false)
     @Column(name = "inspireid_versionid")
     private String inspireidVersionid;
-
     @Column(name = "comment")
     private String comment;
-
     @Column(name = "validityperiod_id")
     private String validityperiodId;
     @Column(name = "validityperiod_beginposition")
@@ -87,7 +84,6 @@ public class Attainment implements Serializable {
     @Column(name = "validityperiod_endposition")
     @Temporal(TemporalType.TIMESTAMP)
     private Date validityperiodEndposition;
-
     @Basic(optional = false)
     @Column(name = "datecreation")
     @Temporal(TemporalType.TIMESTAMP)
@@ -95,7 +91,6 @@ public class Attainment implements Serializable {
     @Column(name = "datelastupdate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datelastupdate;
-
     @OneToMany(mappedBy = "attainment")
     private List<Sourceapportionment> sourceapportionmentList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "attainment")
@@ -271,5 +266,4 @@ public class Attainment implements Serializable {
     public void setEnvironmentalobject(Environmentalobjective environmentalobject) {
         this.environmentalobject = environmentalobject;
     }
-
 }

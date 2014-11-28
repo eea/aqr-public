@@ -59,17 +59,16 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Evaluationscenario.findByDatecreation", query = "SELECT e FROM Evaluationscenario e WHERE e.datecreation = :datecreation"),
     @NamedQuery(name = "Evaluationscenario.findByDatelastupdate", query = "SELECT e FROM Evaluationscenario e WHERE e.datelastupdate = :datelastupdate"),
     @NamedQuery(name = "Evaluationscenario.findAllByUser", query = "SELECT p FROM Evaluationscenario p WHERE p.users = :users"),
+    @NamedQuery(name = "Evaluationscenario.findAllByUserInInterval", query = "SELECT p FROM Evaluationscenario p WHERE p.users = :users AND ((p.datecreation >= :fromDate AND p.datecreation <= :toDate) OR (p.datelastupdate >= :fromDate AND p.datelastupdate <= :toDate)) ORDER BY p.datecreation ASC"),
     @NamedQuery(name = "Evaluationscenario.deleteByUuid", query = "DELETE FROM Evaluationscenario m WHERE m.uuid = :uuid")
 })
 public class Evaluationscenario implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "inspireid_localid")
     private String inspireidLocalid;
@@ -79,32 +78,26 @@ public class Evaluationscenario implements Serializable {
     @Basic(optional = false)
     @Column(name = "inspireid_versionid")
     private String inspireidVersionid;
-
     @JoinColumn(name = "provider", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Relatedparty provider;
-
     @Basic(optional = false)
     @Column(name = "codeofscenario")
     private String codeofscenario;
-
     @Basic(optional = false)
     @Column(name = "attainmentyear_id")
     private String attainmentyearId;
     @Basic(optional = false)
     @Column(name = "attainmentyear_periodtime")
     private String attainmentyearPeriodtime;
-
     @Basic(optional = false)
     @Column(name = "startyear_id")
     private String startyearId;
     @Basic(optional = false)
     @Column(name = "startyear_periodtime")
     private String startyearPeriodtime;
-
     @Column(name = "completed")
     private Boolean completed;
-
     @Basic(optional = false)
     @Column(name = "datecreation")
     @Temporal(TemporalType.TIMESTAMP)
@@ -112,7 +105,6 @@ public class Evaluationscenario implements Serializable {
     @Column(name = "datelastupdate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datelastupdate;
-
     @Basic(optional = false)
     @Column(name = "changes")
     private boolean changes;
@@ -124,14 +116,12 @@ public class Evaluationscenario implements Serializable {
     @Basic(optional = false)
     @Column(name = "reportingenddate")
     private String reportingenddate;
-
     @JoinColumn(name = "baselinescenario", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Scenario baselinescenario;
     @JoinColumn(name = "projectionscenario", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Scenario projectionscenario;
-
     @JoinColumn(name = "sourceapportionment", referencedColumnName = "uuid")
     @ManyToOne
     private Sourceapportionment sourceapportionment;
@@ -384,5 +374,4 @@ public class Evaluationscenario implements Serializable {
     public void setEvaluationscenarioPublicationList(List<EvaluationscenarioPublication> evaluationscenarioPublicationList) {
         this.evaluationscenarioPublicationList = evaluationscenarioPublicationList;
     }
-
 }

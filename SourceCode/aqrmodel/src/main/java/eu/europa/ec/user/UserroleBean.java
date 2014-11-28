@@ -58,5 +58,4 @@ public class UserroleBean implements Serializable {
     public void setLabel(String label) {
         this.label = label;
     }
-
 }

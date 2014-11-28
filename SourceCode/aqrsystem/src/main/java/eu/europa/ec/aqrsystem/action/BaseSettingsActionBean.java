@@ -41,7 +41,6 @@ public class BaseSettingsActionBean extends BaseActionBean {
         super.setCommonVariables();
         currentSection = MenuViewHelper.Section.Settings;
     }
-
     /**
      * The sub-tab actually selected
      */
@@ -64,7 +63,6 @@ public class BaseSettingsActionBean extends BaseActionBean {
     public void setActiveTab(String activeTab) {
         this.activeTab = activeTab;
     }
-
     /**
      * User bean
      */
@@ -88,7 +86,6 @@ public class BaseSettingsActionBean extends BaseActionBean {
     public void setCurrentUser(UserBean currentUser) {
         this.currentUser = currentUser;
     }
-
     /**
      * The uuid of the selected attainment.
      */
@@ -107,8 +104,7 @@ public class BaseSettingsActionBean extends BaseActionBean {
     public void setAttainmentId(String attainmentId) {
         this.attainmentId = attainmentId;
     }
-    
-     /**
+    /**
      * The current plan.
      */
     protected AttainmentBean attainment;
@@ -131,5 +127,4 @@ public class BaseSettingsActionBean extends BaseActionBean {
     public void setAttainment(AttainmentBean attainment) {
         this.attainment = attainment;
     }
-
 }

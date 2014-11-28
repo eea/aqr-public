@@ -25,7 +25,6 @@ public class ExpectedimpactBean {
     private String levelofconcentration;
     private String numberofexceedence;
     private String comment;
-
     private String specificationofhours_uri;
     private String specificationofhours_label;
 
@@ -83,5 +82,4 @@ public class ExpectedimpactBean {
     public void setSpecificationofhours_label(String specificationofhours_label) {
         this.specificationofhours_label = specificationofhours_label;
     }
-
 }

@@ -80,7 +80,6 @@ public class PublicationForEvaluationActionBean extends BaseEvaluationActionBean
         EditEvaluationActionBean.updateCompleteness(evaluationManager.getEvaluationscenarioByID(evaluationId, email), res);
         return ajaxSuccess();
     }
-
     /**
      * Location of the table content view.
      */
@@ -89,7 +88,6 @@ public class PublicationForEvaluationActionBean extends BaseEvaluationActionBean
      * Location of the dialog view.
      */
     private static final String DIALOG_VIEW = "WEB-INF/jsp/evaluation/publicationDialogContent.jsp";
-
     /**
      * Publications of the scenario
      */
@@ -106,7 +104,6 @@ public class PublicationForEvaluationActionBean extends BaseEvaluationActionBean
         }
         return publications;
     }
-
     /**
      * The currently selected publication's id.
      */
@@ -125,7 +122,6 @@ public class PublicationForEvaluationActionBean extends BaseEvaluationActionBean
     public String getPublicationId() {
         return publicationId;
     }
-
     /**
      * The publication processed.
      */

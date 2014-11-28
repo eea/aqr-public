@@ -24,41 +24,34 @@ import eu.europa.ec.evaluationscenario.scenario.ScenarioBean;
 import eu.europa.ec.sourceapprotionment.SourceapportionmentBean;
 import eu.europa.ec.plan.PlanBean;
 import eu.europa.ec.common.relatedparty.RelatedpartyBean;
+import eu.europa.ec.user.UserBean;
 import java.util.Date;
 
 public class EvaluationscenarioBean implements HeaderInterface {
 
     private String uuid;
-
     private String inspireidLocalid;
     private String inspireidNamespace;
     private String inspireidVersionid;
-
     private String codeofscenario;
-
     private String attainmentyearId;
     private String attainmentyearPeriodtime;
-
     private String startyearId;
     private String startyearPeriodtime;
-
     private boolean completed;
     private boolean editable;
     private RelatedpartyBean providerBean;
-
     private boolean changes;
     private String descriptionofchanges;
     private String reportingstartdate;
     private String reportingenddate;
-
     private Date datecreation;
     private Date datelastupdate;
-
     private ScenarioBean baselinescenario;
     private ScenarioBean projectionscenario;
-
     private SourceapportionmentBean sourceapportionment;
     private PlanBean plan;
+    private UserBean userBean;
 
     public EvaluationscenarioBean() {
     }
@@ -274,4 +267,11 @@ public class EvaluationscenarioBean implements HeaderInterface {
         return editable;
     }
 
+    public UserBean getUserBean() {
+        return userBean;
+    }
+
+    public void setUserBean(UserBean userBean) {
+        this.userBean = userBean;
+    }
 }

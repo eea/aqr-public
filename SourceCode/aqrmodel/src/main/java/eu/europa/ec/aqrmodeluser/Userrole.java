@@ -50,7 +50,6 @@ public class Userrole implements Serializable {
     private String rolename;
     @Column(name = "label")
     private String label;
-
     @OneToMany(mappedBy = "userrole")
     private List<Users> usersList;
 
@@ -118,5 +117,4 @@ public class Userrole implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodeluser.Userrole[ uuid=" + uuid + " ]";
     }
-
 }

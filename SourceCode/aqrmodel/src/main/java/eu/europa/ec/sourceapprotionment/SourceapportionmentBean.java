@@ -27,43 +27,35 @@ import eu.europa.ec.common.relatedparty.RelatedpartyBean;
 import eu.europa.ec.attainment.AttainmentBean;
 import eu.europa.ec.sourceapprotionment.exceedancedescription.ExceedancedescriptionBean;
 import eu.europa.ec.common.HeaderInterface;
+import eu.europa.ec.user.UserBean;
 import java.util.Date;
 
 public class SourceapportionmentBean implements HeaderInterface {
 
     private static final long serialVersionUID = 1L;
-
     private String uuid;
-
     private String inspireidLocalid;
     private String inspireidNamespace;
     private String inspireidVersionid;
-
     private String referenceyearId;
     private String referenceyearTimeperiod;
-
     private String comment;
     private boolean completed;
-
     private boolean editable;
     private RelatedpartyBean providerBean;
-
     private Date datecreation;
     private Date datelastupdate;
-
     private boolean changes;
     private String descriptionofchanges;
     private String reportingstartdate;
     private String reportingenddate;
-
     private UrbanbackgroundBean urbanbackgroundBean;
     private RegionalbackgroundBean regionalbackgroundBean;
     private LocalincrementBean localincrementBean;
-
     private ExceedancedescriptionBean exceedancedescriptionBean;
-
     private PlanBean planBean;
     private AttainmentBean attainmentBean;
+    private UserBean userBean;
 
     public SourceapportionmentBean() {
     }
@@ -274,4 +266,11 @@ public class SourceapportionmentBean implements HeaderInterface {
         this.reportingenddate = reportingenddate;
     }
 
+    public UserBean getUserBean() {
+        return userBean;
+    }
+
+    public void setUserBean(UserBean userBean) {
+        this.userBean = userBean;
+    }
 }

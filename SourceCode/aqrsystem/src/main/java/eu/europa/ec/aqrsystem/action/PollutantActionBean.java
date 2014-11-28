@@ -88,7 +88,6 @@ public class PollutantActionBean extends BasePlanActionBean {
         EditPlanActionBean.updateCompleteness(planManager.getPlanByID(planId, email), res);
         return ajaxSuccess();
     }
-
     /**
      * Location of the table content view.
      */
@@ -101,7 +100,6 @@ public class PollutantActionBean extends BasePlanActionBean {
      * Location of the targets dialog view fragment.
      */
     private static final String TARGETS_DIALOG_VIEW_FRAGMENT = "WEB-INF/jsp/plan/targetsDialogFragment.jsp";
-
     /**
      * The list of possible pollutants.
      */
@@ -126,7 +124,6 @@ public class PollutantActionBean extends BasePlanActionBean {
         }
         return planManager.getAllProtectiontargetByPollutantID(pollutantId);
     }
-
     /**
      * The currently selected pollutant's id.
      */
@@ -145,7 +142,6 @@ public class PollutantActionBean extends BasePlanActionBean {
     public String getPollutantId() {
         return pollutantId;
     }
-
     /**
      * The pollutant processed.
      */
@@ -169,7 +165,6 @@ public class PollutantActionBean extends BasePlanActionBean {
     public void setPollutant(PollutantBean pollutant) {
         this.pollutant = pollutant;
     }
-
     /**
      * Pollutants of the plan
      */
@@ -186,7 +181,6 @@ public class PollutantActionBean extends BasePlanActionBean {
         }
         return pollutants;
     }
-
     /**
      * The list of targets for the considered pollutant.
      */
@@ -201,7 +195,6 @@ public class PollutantActionBean extends BasePlanActionBean {
         }
         return targets;
     }
-
     /**
      * A list of target Ids for the plan and pollutant.
      */

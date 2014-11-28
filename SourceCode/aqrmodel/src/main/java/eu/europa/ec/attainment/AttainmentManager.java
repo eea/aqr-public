@@ -22,7 +22,6 @@ package eu.europa.ec.attainment;
 import eu.europa.ec.aqrmodel.Attainment;
 import eu.europa.ec.aqrmodeluser.Country;
 import eu.europa.ec.aqrmodeluser.Users;
-import eu.europa.ec.user.UserBean;
 import eu.europa.ec.util.EntityManagerCustom;
 import java.util.ArrayList;
 import javax.persistence.EntityManager;
@@ -62,8 +61,8 @@ public class AttainmentManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userEvaluationscenario = (Users) q.getSingleResult();
         Country country = userEvaluationscenario.getCountry();
 
@@ -103,8 +102,8 @@ public class AttainmentManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -174,7 +173,7 @@ public class AttainmentManager {
      * @param attainmenID
      * @throws eu.europa.ec.attainment.DeleteAttainmentException
      */
-    public void deleteAttainmentByAttaimentID(String attainmenID) throws DeleteAttainmentException{
+    public void deleteAttainmentByAttaimentID(String attainmenID) throws DeleteAttainmentException {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
@@ -186,29 +185,29 @@ public class AttainmentManager {
         q.setParameter("uuid", attainment.getUuid());
 
         emc.beginTransaction(em);
-        
+
         try {
             q.executeUpdate();
         } catch (Exception ex) {
             throw new DeleteAttainmentException();
         }
-        
+
         emc.commitAndCloseTransaction(em);
     }
 
     /**
      *
-     * @param email
+     * @param userEmail
      * @return a list of all the uploaded AttainmentBean
      */
-    public List<AttainmentBean> getAllAttainmentBeanByUser(String email) {
+    public List<AttainmentBean> getAllAttainmentBeanByUser(String userEmail) {
         List<AttainmentBean> attainmentBeanList = new ArrayList<AttainmentBean>();
 
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
-        
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", email);
+
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -230,5 +229,4 @@ public class AttainmentManager {
         em.close();
         return attainmentBeanList;
     }
-
 }

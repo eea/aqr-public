@@ -24,12 +24,9 @@ import java.io.Serializable;
 public class ExceedanceexposureBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private String uuid;
-
     private String exposedpopulation;
     private String exposedarea;
-
     private String sensitiveresidentpopulation;
     private String relevantinfrastructure;
     private String referenceyear;
@@ -88,5 +85,4 @@ public class ExceedanceexposureBean implements Serializable {
     public void setReferenceyear(String referenceyear) {
         this.referenceyear = referenceyear;
     }
-
 }

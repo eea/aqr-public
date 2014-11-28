@@ -9,12 +9,31 @@
     <packaging>war</packaging>
     <name>aqrsystem</name>
     
-    <scm> <!-- Required for automatic tagging with the current SVN version -->
+    <ciManagement>
+        <system>hudson</system>
+        <url>http://geoportal-dev.jrc.it/hudson/job/AQRSystem/</url>
+    </ciManagement>
+
+    <!-- GitHub Software Configuration Management -->
+    <scm>
+        <connection>scm:git:https://epuread:Em@nuel@@webgate.ec.europa.eu/CITnet/stash/projects/AQRTOOL/repos/aqrtool.git</connection>
+        <developerConnection>scm:git:https://epuread:Em@nuel@@webgate.ec.europa.eu/CITnet/stash/projects/AQRTOOL/repos/aqrtool.git</developerConnection>
+        <url>https://epuread:Em@nuel@@webgate.ec.europa.eu/CITnet/stash/projects/AQRTOOL/repos/aqrtool/browse</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>dev.release</id>
+            <url>file:${project.build.directory}/repository/</url>
+        </repository>
+    </distributionManagement>
+
+    <!--    <scm>  Required for automatic tagging with the current SVN version 
         <connection>scm:svn:https://webgate.ec.europa.eu/CITnet/svn/AQRTOOL</connection>
         <developerConnection>scm:svn:https://webgate.ec.europa.eu/CITnet/svn/AQRTOOL/</developerConnection>
         <tag>HEAD</tag>
         <url>https://webgate.ec.europa.eu/CITnet/svn/AQRTOOL/</url>
-    </scm>
+    </scm>-->
     
     <build>
         <plugins>
@@ -73,7 +92,7 @@
                                 <!-- insert the codelist and additional inforations about the user and system -->
                                 <srcFile>..\aqrsql\insert_aqd.sql</srcFile>
                                 
-                                 <!--optional--> 
+                                <!--optional--> 
                                 <srcFile>..\aqrsql\UK_demos.sql</srcFile>
                             </srcFiles>                        
                         </configuration>
@@ -170,7 +189,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <persistence.unitname>custom_persistence_unitname</persistence.unitname>
+        <persistence.unitname>Aqrsystem</persistence.unitname>
         <persistence.transactiontpye>RESOURCE_LOCAL</persistence.transactiontpye>
         <persistence.jdbc.driver>org.postgresql.Driver</persistence.jdbc.driver>
         <eclipselink.ddl-generation>create-tables</eclipselink.ddl-generation>
@@ -178,29 +197,139 @@
         <dependency.postgres.artifact.id>postgresql</dependency.postgres.artifact.id>
         <dependency.postgres.version>9.3-1100-jdbc4</dependency.postgres.version>
         <netbeans.hint.license>aq-license</netbeans.hint.license>
+        <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
     </properties>
     
     <profiles>
         <profile>
-            <id>profile_name</id>
+            <id>dev-eepure</id>
             <activation>
                 <property>
                     <name>env</name>
-                    <value>custom_value_name</value>
+                    <value>deveepure</value>
                 </property>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <!-- Database configurations -->
-                <persistence.jdbc.url>jdbc:postgresql://IP:PORT/DB_name</persistence.jdbc.url>
-                <persistence.jdbc.username>username</persistence.jdbc.username>
-                <persistence.jdbc.password>password</persistence.jdbc.password>
+                <persistence.jdbc.url>jdbc:postgresql://139.191.148.60:5432/aqrsystemdev</persistence.jdbc.url>
+                <persistence.jdbc.username>inspirergd</persistence.jdbc.username>
+                <persistence.jdbc.password>inspirergd</persistence.jdbc.password>
                 
-               <!-- Loggers configurations -->
-			   <log.file.name>login_file_path</log.file.name>
-
+                <!-- Loggers configurations -->
+                <log.file.name>C:/aqrsystem-temp/logs/aqrsystem.log</log.file.name>
+                <!--                <log.file.dir.unit-test>C:/aqrsystem-temp/unit-test/logs/aqrsystem.log</log.file.dir.unit-test>
+                <model.log.file.dir>C:/aqrsystem-temp/logs/model.log</model.log.file.dir>-->
             </properties>
         </profile>
- 
+        
+        <profile>
+            <id>cyrallu</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>devcyrallu</value>
+                </property>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <log.file.name>E:/log/log.log</log.file.name>
+                <persistence.jdbc.url>jdbc:postgresql://localhost:5432/aqrsystem</persistence.jdbc.url>
+                <persistence.jdbc.username>postgres</persistence.jdbc.username>
+                <persistence.jdbc.password>admin</persistence.jdbc.password>
+            </properties>
+        </profile>
+        
+        <profile>
+            <id>staging-server</id>
+            <properties>
+                <server.url>http://vap-airq.jrc.it:8080/manager</server.url>
+                <server.name>StagingServer</server.name>
+            </properties>
+            
+            <build>
+                <plugins> <!-- The plugins must be in the profile. Otherwise they break Hudson -->
+                    
+                    <!--GIT-->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                        <version>2.1</version>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-scm-plugin</artifactId>
+                        <version>1.9.2</version>
+                        <configuration>
+                            <tag>${project.artifactId}-${project.version}</tag>
+                        </configuration>
+                    </plugin>
+                   
+                </plugins>
+            </build>
+        </profile>
+        
+        <profile>
+            <id>production-server</id>
+            <properties>
+                <server.url>http://localhost:8081/manager</server.url>
+                <server.name>ProductionServer</server.name>
+            </properties>
+            <build>
+                <plugins> <!-- The plugins must be in the profile. Otherwise they break Hudson -->
+<!--                    <plugin>  Required for automatic tagging with the current SVN version 
+                        <groupId>com.google.code.maven-replacer-plugin</groupId>
+                        <artifactId>replacer</artifactId>
+                        <version>1.5.2</version>
+                        <executions>
+                            <execution>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>replace</goal>
+                                </goals>                   
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <includes>
+                                <file>target/classes/ecas-config.properties</file>
+                            </includes>
+                            <replacements>
+                                otherwise uncomment the line 52 and 58 in the ecas-config.properties
+                                <replacement>  configuration needed due to the usage of the reverse proxy 
+                                    <token>#edu.yale.its.tp.cas.client.filter.serverName</token>
+                                    <value>edu.yale.its.tp.cas.client.filter.serverName</value>
+                                </replacement>         
+                                <replacement>
+                                    <token>#eu.cec.digit.ecas.client.filter.serverPort</token>
+                                    <value>eu.cec.digit.ecas.client.filter.serverPort</value>
+                                </replacement>         
+                            </replacements>
+                        </configuration>
+                    </plugin>-->
+                </plugins>
+            </build>
+        </profile>
+        
+        <profile>
+            <id>hudson</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>hudson</value>
+                </property>
+            </activation>
+            <properties>
+                <log.file.name>whatever</log.file.name>
+                <persistence.jdbc.url>jdbc:postgresql://vap-airq.jrc.it:5432/aqrsystem_ci</persistence.jdbc.url>
+                <persistence.jdbc.username>aqrsystem</persistence.jdbc.username>
+                <persistence.jdbc.password>Our?team123</persistence.jdbc.password>
+            </properties>
+            <repositories>
+                <repository> <!-- an internal repository with the ECAS library (ecas-tomcat-5.5 v3.6.3) so that we do not need authentication. If you need to update the library ask Angelo Quaglia -->
+                    <id>internal</id>
+                    <name>Archiva Managed Internal Repository</name>
+                    <url>http://vap-sdisvn.jrc.it/archiva/repository/internal/</url>
+                </repository>
+            </repositories>
+        </profile>
     </profiles>
 </project>

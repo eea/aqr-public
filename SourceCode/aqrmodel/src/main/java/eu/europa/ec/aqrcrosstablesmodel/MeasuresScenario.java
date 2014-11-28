@@ -46,16 +46,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class MeasuresScenario implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "scenario", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Scenario scenario;
-
     @JoinColumn(name = "measures", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Measures measures;
@@ -115,5 +112,4 @@ public class MeasuresScenario implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrcrosstablesmodel.MeasuresScenario[ uuid=" + uuid + " ]";
     }
-
 }

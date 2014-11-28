@@ -45,16 +45,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class SourceapportionmentMeasures implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "sourceapportionment", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Sourceapportionment sourceapportionment;
-
     @JoinColumn(name = "measures", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Measures measures;
@@ -114,5 +111,4 @@ public class SourceapportionmentMeasures implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.SourceapportionmentMeasures[ uuid=" + uuid + " ]";
     }
-
 }

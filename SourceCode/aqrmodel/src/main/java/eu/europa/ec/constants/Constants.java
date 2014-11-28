@@ -25,7 +25,6 @@ public class Constants {
      * The name of this module
      */
     public static final String MODULE_NAME = "aqrmodel";
-
     /**
      * Persistence unit name property key
      */

@@ -79,5 +79,4 @@ public class CurrenciesBean {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

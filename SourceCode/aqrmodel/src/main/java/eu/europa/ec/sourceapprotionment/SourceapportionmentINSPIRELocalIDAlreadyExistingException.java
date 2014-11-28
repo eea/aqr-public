@@ -33,5 +33,4 @@ public class SourceapportionmentINSPIRELocalIDAlreadyExistingException extends C
     public SourceapportionmentINSPIRELocalIDAlreadyExistingException() {
         new SourceapportionmentINSPIRELocalIDAlreadyExistingException(MESSAGE);
     }
-
 }

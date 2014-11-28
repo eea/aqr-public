@@ -50,7 +50,6 @@ public class AssessmentActionBean extends BaseApportionmentActionBean {
     public Resolution table() {
         return new ForwardResolution(TABLE_CONTENT_VIEW);
     }
-
     /**
      * Location of the dialog view.
      */
@@ -90,7 +89,6 @@ public class AssessmentActionBean extends BaseApportionmentActionBean {
         EditApportionmentActionBean.updateCompleteness(sourceManager.getSourceapportionmentByID(sourceId, email), res);
         return ajaxSuccess();
     }
-
     /**
      * The currently selected assessment's id.
      */
@@ -109,7 +107,6 @@ public class AssessmentActionBean extends BaseApportionmentActionBean {
     public String getAssessmentId() {
         return assessmentId;
     }
-
     /**
      * The assessment processed.
      */
@@ -137,7 +134,6 @@ public class AssessmentActionBean extends BaseApportionmentActionBean {
     public void setAssessment(AssesmentmethodsBean assessment) {
         this.assessment = assessment;
     }
-
     /**
      * Assessments of the source apportionment
      */
@@ -154,7 +150,6 @@ public class AssessmentActionBean extends BaseApportionmentActionBean {
         }
         return assessments;
     }
-
     /**
      * The list of possible values for field source.exceedancedescriptionBean.
      * deductionassessmentmethodBean.assesmenttypeBean.

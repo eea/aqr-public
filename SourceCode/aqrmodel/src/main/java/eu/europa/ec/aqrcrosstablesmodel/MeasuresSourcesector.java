@@ -46,16 +46,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class MeasuresSourcesector implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "sourcesector", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Sourcesector sourcesector;
-
     @JoinColumn(name = "measures", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Measures measures;
@@ -115,5 +112,4 @@ public class MeasuresSourcesector implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrcrosstablesmodel.MeasuresSourcesector[ uuid=" + uuid + " ]";
     }
-
 }

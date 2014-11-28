@@ -25,18 +25,13 @@ import java.util.List;
 public class ExceedanceareaBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private String uuid;
-
     private String area;
     private String areaestimate;
-
     private String roadlenghtestimate;
     private String administrativeunits;
-
     private String modelused;
     private String stationused;
-
     public List<String> areaclassificationList_uri;
 
     public ExceedanceareaBean() {
@@ -109,5 +104,4 @@ public class ExceedanceareaBean implements Serializable {
     public void setStationused(String stationused) {
         this.stationused = stationused;
     }
-
 }

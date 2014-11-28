@@ -42,21 +42,17 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "EvaluationscenarioPublication.findByEvaluationscenario", query = "SELECT e FROM EvaluationscenarioPublication e WHERE e.evaluationscenario = :evaluationscenario"),
     @NamedQuery(name = "EvaluationscenarioPublication.deleteByPublication", query = "DELETE FROM EvaluationscenarioPublication p WHERE p.publication = :publication"),
     @NamedQuery(name = "EvaluationScenarioPublication.deleteByEvaluationscenarioAndPublication", query = "DELETE FROM EvaluationscenarioPublication p WHERE p.publication = :publication AND p.evaluationscenario = :evaluationscenario")
-
 })
 public class EvaluationscenarioPublication implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "publication", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Publication publication;
-
     @JoinColumn(name = "evaluationscenario", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Evaluationscenario evaluationscenario;
@@ -116,5 +112,4 @@ public class EvaluationscenarioPublication implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrcrosstablesmodel.EvaluationscenarioPublication[ uuid=" + uuid + " ]";
     }
-
 }

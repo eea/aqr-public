@@ -5,6 +5,7 @@
     <thead>
         <tr>
             <th>${res['common.name']}</th>
+            <th>${res['common.user']}</th>
             <th>${res['common.created']}</th>
             <th>${res['common.lastmodified']}</th>
             <th>${res['common.status']}</th>
@@ -20,11 +21,21 @@
                         ${fn:escapeXml(measure.inspireidLocalid)}
                     </s:link>
                 </td>
+                <td>${fn:escapeXml(measure.userBean.name)} ${fn:escapeXml(measure.userBean.surname)}</td>
                 <td><fmt:formatDate value="${measure.datecreation}" pattern="yy/MM/dd HH:mm z"/></td>
                 <td><fmt:formatDate value="${measure.datelastupdate}" pattern="yy/MM/dd HH:mm z"/></td>
                 <td>${measure.completed ? res['common.complete'] : res['common.draft'] }</td>
                 <td>
-                    <cust:emptyLink cssclass="ftm edit" beanclass="eu.europa.ec.aqrsystem.action.EditMeasureActionBean" event="edit" title="${res['common.edit']}" idName="measureId" idValue="${measure.uuid}"/>
+                    <c:choose>
+                        <c:when test="${measure.editable}">
+                            <cust:emptyLink cssclass="ftm edit" beanclass="eu.europa.ec.aqrsystem.action.EditMeasureActionBean" event="edit" title="${res['common.editdetail']}" idName="measureId" idValue="${measure.uuid}"/>
+                        </c:when>
+
+                        <c:otherwise>
+                            <cust:emptyLink cssclass="ftm view" beanclass="eu.europa.ec.aqrsystem.action.EditMeasureActionBean" event="edit" title="${res['common.viewdetail']}" idName="measureId" idValue="${measure.uuid}"/>
+                        </c:otherwise>
+                    </c:choose>
+
                     <security:allowed event="cloneItem">
                         <s:link beanclass="eu.europa.ec.aqrsystem.action.MeasureActionBean" event="cloneItem" class="ftm clone ajax-operation" title="${res['common.clone']}">
                             <s:param name="measureId" value="${measure.uuid}"/>

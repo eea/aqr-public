@@ -50,6 +50,7 @@ import eu.europa.ec.util.StringUtils;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,8 +76,8 @@ public class PlanManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -121,7 +122,8 @@ public class PlanManager {
 
         plan.setCompleted(false);
 
-        plan.setChanges(false);
+        plan.setChanges(true);
+        plan.setDescriptionofchanges("");
         plan.setReportingstartdate("");
         plan.setReportingenddate("");
 
@@ -144,8 +146,8 @@ public class PlanManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userPlan = (Users) q.getSingleResult();
         Country country = userPlan.getCountry();
         Userrole userrole = userPlan.getUserrole();
@@ -190,8 +192,8 @@ public class PlanManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userPlan = (Users) q.getSingleResult();
 
         q = em.createNamedQuery("Plan.findByUuid");
@@ -211,8 +213,8 @@ public class PlanManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userPlan = (Users) q.getSingleResult();
         Country country = userPlan.getCountry();
 
@@ -311,8 +313,8 @@ public class PlanManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userWhichClone = (Users) q.getSingleResult();
 
         q = em.createNamedQuery("Plan.findByUuid");
@@ -403,8 +405,7 @@ public class PlanManager {
         Systemconfiguration systemconfiguration = (Systemconfiguration) q.getSingleResult();
 
         Plan clonePlan = new Plan();
-        String clonePlanUuid = StringUtils.createUUID(userWhichClone.getEmail() + new Date().getTime(), PlanManager.class
-        );
+        String clonePlanUuid = StringUtils.createUUID(userWhichClone.getEmail() + new Date().getTime(), PlanManager.class);
         clonePlan.setUuid(clonePlanUuid);
 
         clonePlan.setInspireidLocalid("Clone_" + dateFormatUtil.getToday());
@@ -530,8 +531,9 @@ public class PlanManager {
         q.setParameter("uuid", planBean.getUuid());
         Plan plan = (Plan) q.getSingleResult();
 
-        q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", plan.getUsers().getEmail());
+        String userEmail = plan.getUsers().getEmail();
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -721,8 +723,7 @@ public class PlanManager {
                 Attainment attainment = (Attainment) q.getSingleResult();
 
                 AttainmentPlan attainmentPlan = new AttainmentPlan();
-                String attainmentPlanUuid = StringUtils.createUUID(attainment.getUuid() + plan.getUuid() + dateFormatUtil.getToday(), AttainmentPlan.class
-                );
+                String attainmentPlanUuid = StringUtils.createUUID(attainment.getUuid() + plan.getUuid() + dateFormatUtil.getToday(), AttainmentPlan.class);
                 attainmentPlan.setUuid(attainmentPlanUuid);
                 attainmentPlan.setPlan(plan);
                 attainmentPlan.setAttainment(attainment);
@@ -1134,8 +1135,7 @@ public class PlanManager {
         Publication publication;
 
         if (publicationBean.getUuid() == null) {
-            String publicationUuid = StringUtils.createUUID(planID + dateFormatUtil.getToday(), Publication.class
-            );
+            String publicationUuid = StringUtils.createUUID(planID + dateFormatUtil.getToday(), Publication.class);
             publication = new Publication();
 
             publication.setUuid(publicationUuid);
@@ -1351,8 +1351,8 @@ public class PlanManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userAttainment = (Users) q.getSingleResult();
         Country country = userAttainment.getCountry();
 
@@ -1390,8 +1390,9 @@ public class PlanManager {
         q.setParameter("uuid", planID);
         Plan plan = (Plan) q.getSingleResult();
 
-        q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", plan.getUsers().getEmail());
+        String userEmail = plan.getUsers().getEmail();
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -1412,5 +1413,82 @@ public class PlanManager {
 
         em.close();
         return attainmentBeanList;
+    }
+
+    /**
+     *
+     * @param userEmail
+     * @return a list of all the completed plans for the user's country
+     */
+    public List<PlanBean> getAllCompletedPlansByUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
+        List<PlanBean> planBeanList = new ArrayList<PlanBean>();
+
+        EntityManagerCustom emc = new EntityManagerCustom();
+        EntityManager em = emc.getEntityManager();
+
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
+        Users userAttainment = (Users) q.getSingleResult();
+        Country country = userAttainment.getCountry();
+
+        q = em.createNamedQuery("Users.findByCountry");
+        q.setParameter("country", country);
+
+        List<Users> userList = q.getResultList();
+
+        for (Iterator<Users> it = userList.iterator(); it.hasNext();) {
+            Users user = it.next();
+            q = em.createNamedQuery("Plan.findAllByUserInInterval");
+            q.setParameter("users", user);
+            q.setParameter("fromDate", new java.sql.Date(fromDate.getTime()));
+            q.setParameter("toDate", new java.sql.Date(toDate.getTime()));
+            List<Plan> planList = (List<Plan>) q.getResultList();
+
+            for (Plan plan : planList) {
+                if (completed && plan.getCompleted()) {
+                    planBeanList.add(PlanWrapper.convertPlanInPlanBean(plan, user));
+                } else if (!completed) {
+                    planBeanList.add(PlanWrapper.convertPlanInPlanBean(plan, user));
+                }
+            }
+        }
+
+        em.close();
+        return planBeanList;
+    }
+    
+    public List<PlanBean> getAllCompletedPlansByUser(String userEmail, boolean completed) {
+        List<PlanBean> planBeanList = new ArrayList<PlanBean>();
+
+        EntityManagerCustom emc = new EntityManagerCustom();
+        EntityManager em = emc.getEntityManager();
+
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
+        Users userAttainment = (Users) q.getSingleResult();
+        Country country = userAttainment.getCountry();
+
+        q = em.createNamedQuery("Users.findByCountry");
+        q.setParameter("country", country);
+
+        List<Users> userList = q.getResultList();
+
+        for (Iterator<Users> it = userList.iterator(); it.hasNext();) {
+            Users user = it.next();
+            q = em.createNamedQuery("Plan.findAllByUser");
+            q.setParameter("users", user);
+            List<Plan> planList = (List<Plan>) q.getResultList();
+
+            for (Plan plan : planList) {
+//                if (completed && plan.getCompleted()) {
+//                    planBeanList.add(PlanWrapper.convertPlanInPlanBean(plan, user));
+//                } else if (!completed) {
+                    planBeanList.add(PlanWrapper.convertPlanInPlanBean(plan, user));
+//                }
+            }
+        }
+
+        em.close();
+        return planBeanList;
     }
 }

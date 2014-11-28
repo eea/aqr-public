@@ -79,5 +79,4 @@ public class SpecificationofhoursBean {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

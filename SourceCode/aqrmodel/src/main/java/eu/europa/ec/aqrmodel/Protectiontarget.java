@@ -49,7 +49,6 @@ public class Protectiontarget implements Serializable {
 
     @OneToMany(mappedBy = "protectiontarget")
     private List<Environmentalobjective> environmentalobjectiveList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -174,5 +173,4 @@ public class Protectiontarget implements Serializable {
     public void setEnvironmentalobjectiveList(List<Environmentalobjective> environmentalobjectiveList) {
         this.environmentalobjectiveList = environmentalobjectiveList;
     }
-
 }

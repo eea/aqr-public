@@ -54,20 +54,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class PlanPollutantProtectiontarget implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "protectiontarget", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Protectiontarget protectiontarget;
-
     @JoinColumn(name = "pollutant", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Pollutant pollutant;
-
     @JoinColumn(name = "plan", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Plan plan;
@@ -135,5 +131,4 @@ public class PlanPollutantProtectiontarget implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrcrosstablesmodel.PlanPollutantProtectiontarget[ uuid=" + uuid + " ]";
     }
-
 }

@@ -66,7 +66,6 @@ public class Localincrement implements Serializable {
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "total")
     private String total;
@@ -76,7 +75,6 @@ public class Localincrement implements Serializable {
     private Boolean totalNil;
     @Column(name = "total_nilreason")
     private String totalNilreason;
-
     @Basic(optional = false)
     @Column(name = "traffic")
     private String traffic;
@@ -86,7 +84,6 @@ public class Localincrement implements Serializable {
     private Boolean trafficNil;
     @Column(name = "traffic_nilreason")
     private String trafficNilreason;
-
     @Basic(optional = false)
     @Column(name = "heatandpowerproduction")
     private String heatandpowerproduction;
@@ -96,7 +93,6 @@ public class Localincrement implements Serializable {
     private Boolean heatandpowerproductionNil;
     @Column(name = "heatandpowerproduction_nilreason")
     private String heatandpowerproductionNilreason;
-
     @Basic(optional = false)
     @Column(name = "agriculture")
     private String agriculture;
@@ -106,7 +102,6 @@ public class Localincrement implements Serializable {
     private Boolean agricultureNil;
     @Column(name = "agriculture_nilreason")
     private String agricultureNilreason;
-
     @Basic(optional = false)
     @Column(name = "commercialandresidential")
     private String commercialandresidential;
@@ -116,7 +111,6 @@ public class Localincrement implements Serializable {
     private Boolean commercialandresidentialNil;
     @Column(name = "commercialandresidential_nilreason")
     private String commercialandresidentialNilreason;
-
     @Basic(optional = false)
     @Column(name = "shipping")
     private String shipping;
@@ -126,7 +120,6 @@ public class Localincrement implements Serializable {
     private Boolean shippingNil;
     @Column(name = "shipping_nilreason")
     private String shippingNilreason;
-
     @Basic(optional = false)
     @Column(name = "offroadmobilemachinery")
     private String offroadmobilemachinery;
@@ -136,7 +129,6 @@ public class Localincrement implements Serializable {
     private Boolean offroadmobilemachineryNil;
     @Column(name = "offroadmobilemachinery_nilreason")
     private String offroadmobilemachineryNilreason;
-
     @Basic(optional = false)
     @Column(name = "naturallocalincrement")
     private String naturallocalincrement;
@@ -146,7 +138,6 @@ public class Localincrement implements Serializable {
     private Boolean naturallocalincrementNil;
     @Column(name = "naturallocalincrement_nilreason")
     private String naturallocalincrementNilreason;
-
     @Basic(optional = false)
     @Column(name = "transboundary")
     private String transboundary;
@@ -156,7 +147,6 @@ public class Localincrement implements Serializable {
     private Boolean transboundaryNil;
     @Column(name = "transboundary_nilreason")
     private String transboundaryNilreason;
-
     @Column(name = "other")
     private String other;
     @Column(name = "othercomment")
@@ -165,7 +155,6 @@ public class Localincrement implements Serializable {
     private Boolean otherNil;
     @Column(name = "other_nilreason")
     private String otherNilreason;
-
     @Column(name = "unitmisure")
     private String unitmisure;
     @Column(name = "unitmisurecomment")
@@ -566,5 +555,4 @@ public class Localincrement implements Serializable {
     public void setUnitmisureNilreason(String unitmisureNilreason) {
         this.unitmisureNilreason = unitmisureNilreason;
     }
-
 }

@@ -27,10 +27,8 @@ public class DeductionassessmentmethodBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private String uuid;
-
     private String adjustmenttype_uri;
     private List<String> adjustmentsourceList_uri;
-
     private List<AssesmentmethodsBean> assesmentmethodsBeanList;
 
     public DeductionassessmentmethodBean() {
@@ -71,5 +69,4 @@ public class DeductionassessmentmethodBean implements Serializable {
     public void setAssesmentmethodsBeanList(List<AssesmentmethodsBean> assesmentmethodsBeanList) {
         this.assesmentmethodsBeanList = assesmentmethodsBeanList;
     }
-
 }

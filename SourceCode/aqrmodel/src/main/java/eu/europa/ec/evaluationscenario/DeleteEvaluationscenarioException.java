@@ -33,5 +33,4 @@ public class DeleteEvaluationscenarioException extends CustomException {
     public DeleteEvaluationscenarioException() {
         new DeleteEvaluationscenarioException(MESSAGE);
     }
-
 }

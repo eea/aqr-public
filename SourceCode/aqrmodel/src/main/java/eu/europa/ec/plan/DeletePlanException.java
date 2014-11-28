@@ -33,5 +33,4 @@ public class DeletePlanException extends CustomException {
     public DeletePlanException() {
         new DeletePlanException(MESSAGE);
     }
-
 }

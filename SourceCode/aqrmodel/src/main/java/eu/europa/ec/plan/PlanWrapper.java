@@ -23,6 +23,7 @@ import eu.europa.ec.common.relatedparty.RelatedpartyWrapper;
 import eu.europa.ec.aqrmodel.Plan;
 import eu.europa.ec.aqrmodel.Relatedparty;
 import eu.europa.ec.aqrmodeluser.Users;
+import eu.europa.ec.user.UserWrapper;
 
 public class PlanWrapper {
 
@@ -92,6 +93,8 @@ public class PlanWrapper {
         } else {
             planBean.setEditable(false);
         }
+
+        planBean.setUserBean(UserWrapper.convertUserInUserBean(plan.getUsers()));
 
         return planBean;
     }

@@ -47,7 +47,6 @@ public class Deductionassessmentmethod implements Serializable {
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "adjustmenttype", referencedColumnName = "uuid")
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Adjustmenttype adjustmenttype;
@@ -99,5 +98,4 @@ public class Deductionassessmentmethod implements Serializable {
     public void setAdjustmenttype(Adjustmenttype adjustmenttype) {
         this.adjustmenttype = adjustmenttype;
     }
-
 }

@@ -54,34 +54,28 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Relatedparty implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "individualname")
     private String individualname;
     @Basic(optional = false)
     @Column(name = "organisationname")
     private String organisationname;
-
     @Basic(optional = false)
     @Column(name = "website")
     private String website;
-
     @Basic(optional = false)
     @Column(name = "address")
     private String address;
-
     @Basic(optional = false)
     @Column(name = "electronicmailaddress")
     private String electronicmailaddress;
     @Basic(optional = false)
     @Column(name = "telephonevoice")
     private String telephonevoice;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "competentauthority")
     private List<Plan> planList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "provider")
@@ -230,5 +224,4 @@ public class Relatedparty implements Serializable {
     public void setUsersList(List<Users> usersList) {
         this.usersList = usersList;
     }
-
 }

@@ -33,5 +33,4 @@ public class DeleteSourceapportionmentException extends CustomException {
     public DeleteSourceapportionmentException() {
         new DeleteSourceapportionmentException(MESSAGE);
     }
-
 }

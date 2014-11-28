@@ -150,5 +150,4 @@ public class Spatialscale implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Spatialscale[ uuid=" + uuid + " ]";
     }
-
 }

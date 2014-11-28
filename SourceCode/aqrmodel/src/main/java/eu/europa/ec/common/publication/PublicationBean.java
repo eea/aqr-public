@@ -110,5 +110,4 @@ public class PublicationBean {
     public void setWeblink(String weblink) {
         this.weblink = weblink;
     }
-
 }

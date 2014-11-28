@@ -25,7 +25,13 @@ import eu.europa.ec.measures.MeasuresManager;
 import eu.europa.ec.aqrsystem.action.EditMeasureActionBean;
 import eu.europa.ec.aqrsystem.xml.gml.FeatureMember;
 import eu.europa.ec.attainment.AttainmentBean;
+import eu.europa.ec.common.HeaderInterface;
+import eu.europa.ec.common.relatedparty.RelatedpartyBean;
+import eu.europa.ec.plan.PlanBean;
+import eu.europa.ec.user.UserBean;
+import eu.europa.ec.user.UserManager;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -48,7 +54,6 @@ public class MeasuresXML implements XMLSaveableObject {
 
     @XmlAttribute(namespace = Namespaces.gml)
     protected String id;
-
     @XmlElement(namespace = Namespaces.gml)
     protected List<FeatureMember> featureMember = new ArrayList<FeatureMember>();
 
@@ -61,12 +66,121 @@ public class MeasuresXML implements XMLSaveableObject {
      */
     public MeasuresXML populate(MeasuresBean m, String userEmail) {
         id = "Measure";
+
         FeatureMember header = new FeatureMember();
         FeatureMember measure = new FeatureMember();
+
         header.populateHeader(m);
         measure.populate(m, userEmail);
+
         featureMember.add(header);
         featureMember.add(measure);
+        return this;
+    }
+
+    public MeasuresXML populateMultiple(final List<MeasuresBean> measuresBean, final Date fromDate, final Date toDate, final String userEmail) {
+        id = "Measure";
+
+        final UserManager userManager = new UserManager();
+        final UserBean user = userManager.getUserByEmail(userEmail);
+
+        HeaderInterface defaultHeader = new HeaderInterface() {
+            @Override
+            public String getUuid() {
+                return user.getUuid();
+            }
+
+            @Override
+            public void setUuid(String uuid) {
+            }
+
+            @Override
+            public String getInspireidLocalid() {
+                return new Date().toString();
+            }
+
+            @Override
+            public void setInspireidLocalid(String inspireidLocalid) {
+            }
+
+            @Override
+            public String getInspireidNamespace() {
+                return userManager.getNamespaceByUserEmail(userEmail);
+            }
+
+            @Override
+            public void setInspireidNamespace(String inspireidNamespace) {
+            }
+
+            @Override
+            public String getInspireidVersionid() {
+                return new Date().toString();
+            }
+
+            @Override
+            public void setInspireidVersionid(String inspireidVersionid) {
+            }
+
+            @Override
+            public boolean isChanges() {
+                return true;
+            }
+
+            @Override
+            public void setChanges(boolean changes) {
+            }
+
+            @Override
+            public String getDescriptionofchanges() {
+                if (!measuresBean.isEmpty()) {
+                    return measuresBean.get(0).getDescriptionofchanges();
+                } else {
+                    return "";
+                }
+            }
+
+            @Override
+            public void setDescriptionofchanges(String descriptionofchanges) {
+            }
+
+            @Override
+            public String getReportingstartdate() {
+                return fromDate.toString();
+            }
+
+            @Override
+            public void setReportingstartdate(String reportingstartdate) {
+            }
+
+            @Override
+            public String getReportingenddate() {
+                return toDate.toString();
+            }
+
+            @Override
+            public void setReportingenddate(String reportingenddate) {
+            }
+
+            @Override
+            public RelatedpartyBean getProviderBean() {
+                return user.getProviderBean();
+            }
+
+            @Override
+            public void setProviderBean(RelatedpartyBean providerBean) {
+            }
+        };
+
+        FeatureMember header = new FeatureMember();
+        header.populateHeader(defaultHeader);
+        featureMember.add(header);
+
+        for (MeasuresBean m : measuresBean) {
+            FeatureMember measure = new FeatureMember();
+            measure.populate(m, userEmail);
+            featureMember.add(measure);
+        }
+
         return this;
     }
 
@@ -101,9 +215,8 @@ public class MeasuresXML implements XMLSaveableObject {
             context.getValidationErrors().addGlobalError(new LocalizableError("import.error.measure.nomeasure"));
         }
     }
-    
-     @Override
+
+    @Override
     public void save(String userEmail, ActionBeanContext context, ResourceBundle res, ArrayList<AttainmentBean> localId) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

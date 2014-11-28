@@ -5,6 +5,7 @@
     <thead>
         <tr>
             <th>${res['common.name']}</th>
+            <th>${res['common.user']}</th>
             <th>${res['common.created']}</th>
             <th>${res['common.lastmodified']}</th>
             <th>${res['common.status']}</th>
@@ -20,11 +21,21 @@
                         ${fn:escapeXml(evaluation.inspireidLocalid)}
                     </s:link>
                 </td>
+                <td>${fn:escapeXml(evaluation.userBean.name)} ${fn:escapeXml(evaluation.userBean.surname)}</td>
                 <td><fmt:formatDate value="${evaluation.datecreation}" pattern="yy/MM/dd HH:mm z"/></td>
                 <td><fmt:formatDate value="${evaluation.datelastupdate}" pattern="yy/MM/dd HH:mm z"/></td>
                 <td>${evaluation.completed ? res['common.complete'] : res['common.draft'] }</td>
                 <td>
-                    <cust:emptyLink cssclass="ftm edit" beanclass="eu.europa.ec.aqrsystem.action.EditEvaluationActionBean" event="edit" title="${res['common.edit']}" idName="evaluationId" idValue="${evaluation.uuid}"/>
+                    <c:choose>
+                        <c:when test="${evaluation.editable}">
+                            <cust:emptyLink cssclass="ftm edit" beanclass="eu.europa.ec.aqrsystem.action.EditEvaluationActionBean" event="edit" title="${res['common.editdetail']}" idName="evaluationId" idValue="${evaluation.uuid}"/>
+                        </c:when>
+
+                        <c:otherwise>
+                            <cust:emptyLink cssclass="ftm view" beanclass="eu.europa.ec.aqrsystem.action.EditEvaluationActionBean" event="edit" title="${res['common.viewdetail']}" idName="evaluationId" idValue="${evaluation.uuid}"/>
+                        </c:otherwise>
+                    </c:choose>
+
                     <security:allowed event="cloneItem">
                         <s:link beanclass="eu.europa.ec.aqrsystem.action.EvaluationActionBean" event="cloneItem" class="ftm clone ajax-operation" title="${res['common.clone']}">
                             <s:param name="evaluationId" value="${evaluation.uuid}"/>

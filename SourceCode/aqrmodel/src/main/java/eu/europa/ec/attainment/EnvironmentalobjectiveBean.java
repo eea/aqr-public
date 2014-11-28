@@ -25,11 +25,9 @@ import java.io.Serializable;
 public class EnvironmentalobjectiveBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private String uuid;
     private String objectivetypevalue;
     private String reportingmetricvalue;
-
     private ProtectiontargetBean protectiontargetBean;
 
     public EnvironmentalobjectiveBean() {
@@ -70,5 +68,4 @@ public class EnvironmentalobjectiveBean implements Serializable {
     public void setProtectiontargetBean(ProtectiontargetBean protectiontargetBean) {
         this.protectiontargetBean = protectiontargetBean;
     }
-
 }

@@ -48,7 +48,6 @@ public class Assesmentmethods implements Serializable {
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Column(name = "assesmenttypedescription")
     private String assesmenttypedescription;
     @Column(name = "metadata")
@@ -120,5 +119,4 @@ public class Assesmentmethods implements Serializable {
     public void setAssesmenttype(Assesmenttype assesmenttype) {
         this.assesmenttype = assesmenttype;
     }
-
 }

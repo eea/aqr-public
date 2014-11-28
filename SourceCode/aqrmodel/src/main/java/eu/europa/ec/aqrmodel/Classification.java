@@ -150,5 +150,4 @@ public class Classification implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Classification[ uuid=" + uuid + " ]";
     }
-
 }

@@ -40,7 +40,6 @@ public class BaseMeasureActionBean extends BaseActionBean {
         super.setCommonVariables();
         currentSection = MenuViewHelper.Section.Measures;
     }
-
     /**
      * The uuid of the selected measure.
      */
@@ -59,7 +58,6 @@ public class BaseMeasureActionBean extends BaseActionBean {
     public String getMeasureId() {
         return measureId;
     }
-
     /**
      * The current measure.
      */

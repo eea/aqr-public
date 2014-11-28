@@ -25,7 +25,12 @@ import eu.europa.ec.evaluationscenario.EvaluationScenarioManager;
 import eu.europa.ec.aqrsystem.action.EditEvaluationActionBean;
 import eu.europa.ec.aqrsystem.xml.gml.FeatureMember;
 import eu.europa.ec.attainment.AttainmentBean;
+import eu.europa.ec.common.HeaderInterface;
+import eu.europa.ec.common.relatedparty.RelatedpartyBean;
+import eu.europa.ec.user.UserBean;
+import eu.europa.ec.user.UserManager;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -49,25 +54,134 @@ public class EvaluationXML implements XMLSaveableObject {
 
     @XmlAttribute(namespace = Namespaces.gml)
     protected String id;
-
     @XmlElement(namespace = Namespaces.gml)
     protected List<FeatureMember> featureMember = new ArrayList<FeatureMember>();
 
     /**
      * Populating the object using the data from a evaluation bean.
      *
-     * @param p
+     * @param ev
      * @param userEmail
      * @return
      */
-    public EvaluationXML populate(EvaluationscenarioBean p, String userEmail) {
+    public EvaluationXML populate(EvaluationscenarioBean ev, String userEmail) {
         id = "Evaluation_Scenario";
+
         FeatureMember header = new FeatureMember();
         FeatureMember scenario = new FeatureMember();
-        header.populateHeader(p);
-        scenario.populate(p, userEmail);
+
+        header.populateHeader(ev);
+        scenario.populate(ev, userEmail);
+
         featureMember.add(header);
         featureMember.add(scenario);
+
+        return this;
+    }
+
+    public EvaluationXML populateMultiple(final List<EvaluationscenarioBean> evaluationscenarioBeans, final Date fromDate, final Date toDate, final String userEmail) {
+        id = "Evaluation_Scenario";
+
+        final UserManager userManager = new UserManager();
+        final UserBean user = userManager.getUserByEmail(userEmail);
+
+        HeaderInterface defaultHeader = new HeaderInterface() {
+            @Override
+            public String getUuid() {
+                return user.getUuid();
+            }
+
+            @Override
+            public void setUuid(String uuid) {
+            }
+
+            @Override
+            public String getInspireidLocalid() {
+                return new Date().toString();
+            }
+
+            @Override
+            public void setInspireidLocalid(String inspireidLocalid) {
+            }
+
+            @Override
+            public String getInspireidNamespace() {
+                return userManager.getNamespaceByUserEmail(userEmail);
+            }
+
+            @Override
+            public void setInspireidNamespace(String inspireidNamespace) {
+            }
+
+            @Override
+            public String getInspireidVersionid() {
+                return new Date().toString();
+            }
+
+            @Override
+            public void setInspireidVersionid(String inspireidVersionid) {
+            }
+
+            @Override
+            public boolean isChanges() {
+                return true;
+            }
+
+            @Override
+            public void setChanges(boolean changes) {
+            }
+
+            @Override
+            public String getDescriptionofchanges() {
+                if (!evaluationscenarioBeans.isEmpty()) {
+                    return evaluationscenarioBeans.get(0).getDescriptionofchanges();
+                } else {
+                    return "";
+                }
+            }
+
+            @Override
+            public void setDescriptionofchanges(String descriptionofchanges) {
+            }
+
+            @Override
+            public String getReportingstartdate() {
+                return fromDate.toString();
+            }
+
+            @Override
+            public void setReportingstartdate(String reportingstartdate) {
+            }
+
+            @Override
+            public String getReportingenddate() {
+                return toDate.toString();
+            }
+
+            @Override
+            public void setReportingenddate(String reportingenddate) {
+            }
+
+            @Override
+            public RelatedpartyBean getProviderBean() {
+                return user.getProviderBean();
+            }
+
+            @Override
+            public void setProviderBean(RelatedpartyBean providerBean) {
+            }
+        };
+
+        FeatureMember header = new FeatureMember();
+        header.populateHeader(defaultHeader);
+        featureMember.add(header);
+
+        for (EvaluationscenarioBean ev : evaluationscenarioBeans) {
+            FeatureMember scenario = new FeatureMember();
+            scenario.populate(ev, userEmail);
+            featureMember.add(scenario);
+        }
+
         return this;
     }
 
@@ -107,6 +221,4 @@ public class EvaluationXML implements XMLSaveableObject {
     public void save(String userEmail, ActionBeanContext context, ResourceBundle res, ArrayList<AttainmentBean> localId) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
 }

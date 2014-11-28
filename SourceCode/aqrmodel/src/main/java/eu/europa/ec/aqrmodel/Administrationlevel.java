@@ -150,5 +150,4 @@ public class Administrationlevel implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Administrationlevel[ uuid=" + uuid + " ]";
     }
-
 }

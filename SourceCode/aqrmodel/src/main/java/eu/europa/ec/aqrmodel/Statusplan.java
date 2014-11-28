@@ -49,7 +49,6 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Statusplan implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
@@ -60,7 +59,6 @@ public class Statusplan implements Serializable {
     @Basic(optional = false)
     @Column(name = "link")
     private String link;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "statusplan")
     private List<Plan> planList;
 
@@ -134,5 +132,4 @@ public class Statusplan implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Statusplan[ uuid=" + uuid + " ]";
     }
-
 }

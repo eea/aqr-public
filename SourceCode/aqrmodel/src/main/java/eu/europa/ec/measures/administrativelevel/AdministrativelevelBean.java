@@ -79,5 +79,4 @@ public class AdministrativelevelBean {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

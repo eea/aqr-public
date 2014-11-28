@@ -102,5 +102,4 @@ public class DatabasechangelogPK implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.DatabasechangelogPK[ id=" + id + ", author=" + author + ", filename=" + filename + " ]";
     }
-
 }

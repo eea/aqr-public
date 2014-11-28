@@ -58,13 +58,11 @@ public class Plannedimplementation implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "plannedimplementation")
     private List<Measures> measuresList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "implementationplannedtimeperiod_id")
     private String implementationplannedtimeperiodId;
@@ -74,14 +72,12 @@ public class Plannedimplementation implements Serializable {
     @Basic(optional = false)
     @Column(name = "implementationplannedtimeperiod_endposition")
     private String implementationplannedtimeperiodEndposition;
-
     @Column(name = "implementationactualtimeperiod_id")
     private String implementationactualtimeperiodId;
     @Column(name = "implementationactualtimeperiod_beginposition")
     private String implementationactualtimeperiodBeginposition;
     @Column(name = "implementationactualtimeperiod_endposition")
     private String implementationactualtimeperiodEndposition;
-
     @Basic(optional = false)
     @Column(name = "plannedfulleffectdate_id")
     private String plannedfulleffectdateId;
@@ -92,10 +88,8 @@ public class Plannedimplementation implements Serializable {
     private Boolean plannedfulleffectdateTimepositionNil;
     @Column(name = "plannedfulleffectdate_timeposition_nilreason")
     private String plannedfulleffectdateTimepositionNilreason;
-
     @Column(name = "otherdate")
     private String otherdate;
-
     @Basic(optional = false)
     @Column(name = "monitoringprogressindicators")
     private String monitoringprogressindicators;
@@ -103,10 +97,8 @@ public class Plannedimplementation implements Serializable {
     private Boolean monitoringprogressindicatorsNil;
     @Column(name = "monitoringprogressindicators_nilreason")
     private String monitoringprogressindicatorsNilreason;
-
     @Column(name = "comment")
     private String comment;
-
     @JoinColumn(name = "statusplannedimplementation", referencedColumnName = "uuid")
     @ManyToOne
     private Statusplannedimplementation statusplannedimplementation;
@@ -297,5 +289,4 @@ public class Plannedimplementation implements Serializable {
     public void setMonitoringprogressindicatorsNilreason(String monitoringprogressindicatorsNilreason) {
         this.monitoringprogressindicatorsNilreason = monitoringprogressindicatorsNilreason;
     }
-
 }

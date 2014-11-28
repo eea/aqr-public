@@ -24,9 +24,7 @@ import java.io.Serializable;
 public class AdjustmentsourceBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private String uuid;
-
     private String uri;
     private String label;
     private String definition;
@@ -84,5 +82,4 @@ public class AdjustmentsourceBean implements Serializable {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

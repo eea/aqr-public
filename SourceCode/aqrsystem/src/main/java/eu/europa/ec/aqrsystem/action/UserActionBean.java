@@ -52,7 +52,6 @@ public class UserActionBean extends BaseSettingsActionBean {
     public Resolution table() {
         return new ForwardResolution(TABLE_CONTENT);
     }
-
     /**
      * Location of the dialog view.
      */
@@ -66,7 +65,6 @@ public class UserActionBean extends BaseSettingsActionBean {
     public Resolution form() {
         return new ForwardResolution(DIALOG_VIEW);
     }
-
     /**
      * The ID of the currently selected user
      */
@@ -89,7 +87,6 @@ public class UserActionBean extends BaseSettingsActionBean {
     public void setUserId(String userId) {
         this.userId = userId;
     }
-
     /**
      * The edited user
      */
@@ -118,7 +115,6 @@ public class UserActionBean extends BaseSettingsActionBean {
     public void setUser(UserBean user) {
         this.user = user;
     }
-
     /**
      * The db ID of the superuser
      */
@@ -163,7 +159,6 @@ public class UserActionBean extends BaseSettingsActionBean {
 
         return ajaxSuccess();
     }
-
     /**
      * Informs whether when enable() is clicked it should enable the user
      */
@@ -185,7 +180,6 @@ public class UserActionBean extends BaseSettingsActionBean {
         userManager.enableUser(userId, enable);
         return ajaxSuccess();
     }
-
     /**
      * A list of users of the system.
      */
@@ -200,7 +194,6 @@ public class UserActionBean extends BaseSettingsActionBean {
         }
         return existingUsers;
     }
-
     /**
      * A list of possible users roles.
      */
@@ -212,7 +205,6 @@ public class UserActionBean extends BaseSettingsActionBean {
     public List<UserroleBean> getPossibleRoles() {
         return possibleRoles;
     }
-
     /**
      * A list of possible countries.
      */

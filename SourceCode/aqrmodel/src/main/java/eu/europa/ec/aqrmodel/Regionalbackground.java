@@ -52,12 +52,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Regionalbackground implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "total")
     private String total;
@@ -67,7 +65,6 @@ public class Regionalbackground implements Serializable {
     private Boolean totalNil;
     @Column(name = "total_nilreason")
     private String totalNilreason;
-
     @Basic(optional = false)
     @Column(name = "fromwithinms")
     private String fromwithinms;
@@ -77,7 +74,6 @@ public class Regionalbackground implements Serializable {
     private Boolean fromwithinmsNil;
     @Column(name = "fromwithinms_nilreason")
     private String fromwithinmsNilreason;
-
     @Basic(optional = false)
     @Column(name = "transboundary")
     private String transboundary;
@@ -87,7 +83,6 @@ public class Regionalbackground implements Serializable {
     private Boolean transboundaryNil;
     @Column(name = "transboundary_nilreason")
     private String transboundaryNilreason;
-
     @Basic(optional = false)
     @Column(name = "naturalregionalbackground")
     private String naturalregionalbackground;
@@ -97,7 +92,6 @@ public class Regionalbackground implements Serializable {
     private Boolean naturalregionalbackgroundNil;
     @Column(name = "naturalregionalbackground_nilreason")
     private String naturalregionalbackgroundNilreason;
-
     @Column(name = "other")
     private String other;
     @Column(name = "othercomment")
@@ -106,7 +100,6 @@ public class Regionalbackground implements Serializable {
     private Boolean otherNil;
     @Column(name = "other_nilreason")
     private String otherNilreason;
-
     @Column(name = "unitmisure")
     private String unitmisure;
     @Column(name = "unitmisurecomment")
@@ -347,5 +340,4 @@ public class Regionalbackground implements Serializable {
     public void setUnitmisureNilreason(String unitmisureNilreason) {
         this.unitmisureNilreason = unitmisureNilreason;
     }
-
 }

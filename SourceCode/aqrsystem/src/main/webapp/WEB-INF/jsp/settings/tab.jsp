@@ -18,7 +18,7 @@
                     <s:form beanclass="eu.europa.ec.aqrsystem.action.SettingsActionBean">
                         <input type="hidden" name="activeTab" value="tab-attainments"/>
                         <fieldset>
-                            <legend>${res['attainments']}</legend>
+                            <legend class="settings">${res['attainments']}</legend>
                             <s:url var="loadTableURL" beanclass="eu.europa.ec.aqrsystem.action.SettingsActionBean" event="table"/>
                             <cust:ajaxtable>
                                 <jsp:attribute name="tableId">attainmentGUI</jsp:attribute>
@@ -66,7 +66,7 @@
                     <s:form beanclass="eu.europa.ec.aqrsystem.action.SettingsActionBean">
                         <input type="hidden" name="activeTab" value="tab-namespace"/>
                         <fieldset>
-                            <legend>${res['namespace']}</legend>
+                            <legend class="settings">${res['namespace']}</legend>
                             <cust:field key="namespace"/>
                         </fieldset>
                         <s:submit class="ftm save btn" name="saveNamespace" value="${res['common.save']}"/>
@@ -80,7 +80,7 @@
                     <s:form beanclass="eu.europa.ec.aqrsystem.action.SettingsActionBean">
                         <input type="hidden" name="activeTab" value="tab-provider"/>
                         <fieldset>
-                            <legend>${res['currentUser.providerBean.legend']}</legend>
+                            <legend class="settings">${res['currentUser.providerBean.legend']}</legend>
                             <cust:field key="currentUser.providerBean.organisationname"/>
                             <cust:field key="currentUser.providerBean.website"/>
                             <cust:field key="currentUser.providerBean.individualname"/>

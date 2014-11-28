@@ -28,6 +28,8 @@ import eu.europa.ec.attainment.AttainmentWrapper;
 import eu.europa.ec.sourceapprotionment.exceedancedescription.ExceedancedescriptionWrapper;
 import eu.europa.ec.aqrmodel.Sourceapportionment;
 import eu.europa.ec.aqrmodeluser.Users;
+import eu.europa.ec.user.UserBean;
+import eu.europa.ec.user.UserWrapper;
 
 public class SourceapportionmentWrapper {
 
@@ -84,9 +86,9 @@ public class SourceapportionmentWrapper {
         } else {
             sourceapportionmentBean.setAttainmentBean(null);
         }
+        sourceapportionmentBean.setUserBean(UserWrapper.convertUserInUserBean(sourceapportionment.getUsers()));
 
         return sourceapportionmentBean;
 
     }
-
 }

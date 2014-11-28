@@ -75,5 +75,4 @@ public class ScenarioWrapper {
 
         return measuresBeanList;
     }
-
 }

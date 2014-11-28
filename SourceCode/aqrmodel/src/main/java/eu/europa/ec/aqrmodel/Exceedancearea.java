@@ -44,27 +44,21 @@ public class Exceedancearea implements Serializable {
 
     @OneToMany(mappedBy = "exceedancearea")
     private List<Exceedancedescription> exceedancedescriptionList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Column(name = "area")
     private String area;
-
     @Column(name = "areaestimate")
     private String areaestimate;
     @Column(name = "roadlenghtestimate")
     private String roadlenghtestimate;
-
     @Column(name = "administrativeunits")
     private String administrativeunits;
-
     @Column(name = "modelused")
     private String modelused;
-
     @Column(name = "stationused")
     private String stationused;
 
@@ -139,5 +133,4 @@ public class Exceedancearea implements Serializable {
     public void setExceedancedescriptionList(List<Exceedancedescription> exceedancedescriptionList) {
         this.exceedancedescriptionList = exceedancedescriptionList;
     }
-
 }

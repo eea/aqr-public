@@ -2,10 +2,10 @@
 <%@include file="/WEB-INF/jsp/common/taglibs.jsp" %>
 <s:layout-render name="/WEB-INF/jsp/common/layout_with_menu.jsp">
     <s:layout-component name="content">
-        <h2>${res['plan.label.edit']}</h2>
+        <h2 class="plan">${res['plan.label.edit']}</h2>
 
         <fieldset>
-            <legend>${res['description.label.edit']}</legend>
+            <legend class="plan">${res['description.label.edit']}</legend>
             <p>${res['plan.description.model']}</p>
             <p align="right">${res['fields.marked']}</p>
         </fieldset>  
@@ -15,14 +15,14 @@
             <div><s:hidden name="plan.editable"/></div>
             <div><s:hidden name="planId"/></div>
             <fieldset>
-                <legend>${res['plan.legend.inspireid']}</legend>
+                <legend class="plan">${res['plan.legend.inspireid']}</legend>
                 <cust:field key="plan.inspireidLocalid"/>
                 <cust:readOnlyField key="plan.inspireidNamespace" value="${actionBean.plan.inspireidNamespace}" hiddenField="true"/>
                 <cust:readOnlyField key="plan.inspireidVersionid" value="${actionBean.plan.inspireidVersionid}" hiddenField="true"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.provider']}</legend>
+                <legend class="plan">${res['plan.legend.provider']}</legend>
                 <cust:field key="plan.providerBean.organisationname"/>
                 <cust:field key="plan.providerBean.website"/>
                 <cust:field key="plan.providerBean.individualname"/>
@@ -32,29 +32,30 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.change']}</legend>
-                <cust:label key="plan.changes" optional="true"/><s:checkbox name="plan.changes"/><br/>
+                <legend class="plan">${res['plan.legend.change']}</legend>
+                <s:hidden name="plan.changes"/>
+                <%-- <cust:label key="plan.changes" optional="true"/><s:checkbox name="plan.changes"/><br/> --%>
                 <cust:textArea key="plan.descriptionofchanges"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.reportingperiod']}</legend>
+                <legend class="plan">${res['plan.legend.reportingperiod']}</legend>
                 <cust:field key="plan.reportingstartdate" cssclass="datepicker"/>
                 <cust:field key="plan.reportingenddate" cssclass="datepicker"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.code']}</legend>					
+                <legend class="plan">${res['plan.legend.code']}</legend>					
                 <cust:field key="plan.code"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.name']}</legend>	
+                <legend class="plan">${res['plan.legend.name']}</legend>	
                 <cust:field key="plan.name"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.competentauthority']}</legend>
+                <legend class="plan">${res['plan.legend.competentauthority']}</legend>
                 <cust:field key="plan.relatedpartyBean.organisationname"/>
                 <cust:field key="plan.relatedpartyBean.website"/>
                 <cust:field key="plan.relatedpartyBean.individualname"/>
@@ -64,12 +65,12 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.firstexceedanceyearTimeposition']}</legend>					
+                <legend class="plan">${res['plan.legend.firstexceedanceyearTimeposition']}</legend>					
                 <cust:field key="plan.firstexceedanceyearTimeposition"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.status']}</legend>					
+                <legend class="plan">${res['plan.legend.status']}</legend>					
                 <cust:label key="plan.link"/>
                 <s:select name="plan.link">
                     <s:option value="">None</s:option>
@@ -79,13 +80,13 @@
             </fieldset>
 
             <fieldset>
-                <legend class="required">${res['plan.legend.pollutantcovered']}</legend>	
-                <security:allowed event="save">
-                    <s:link beanclass="eu.europa.ec.aqrsystem.action.PollutantActionBean" event="form" id="new-pol-btn" class="ftm insert btn">
-                        <s:param name="planId" value="${actionBean.planId}"/>
-                        ${res['plan.button.addnewpollutant']}
-                    </s:link>
-                </security:allowed>
+                <legend class="plan" class="required">${res['plan.legend.pollutantcovered']} <font color="red">*</font></legend>	
+                    <security:allowed event="save">
+                        <s:link beanclass="eu.europa.ec.aqrsystem.action.PollutantActionBean" event="form" id="new-pol-btn" class="ftm insert btn plan">
+                            <s:param name="planId" value="${actionBean.planId}"/>
+                            ${res['plan.button.addnewpollutant']}
+                        </s:link>
+                    </security:allowed>
 
                 <s:url var="loadTableURL" beanclass="eu.europa.ec.aqrsystem.action.PollutantActionBean" event="table">
                     <s:param name="planId" value="${actionBean.plan.uuid}"/>
@@ -103,29 +104,29 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.dateofofficialadoption']}</legend>					
+                <legend class="plan">${res['plan.legend.dateofofficialadoption']}</legend>					
                 <cust:field cssclass="datepicker" key="plan.adoptiondateTimeposition" optional="true"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.timetableofimplementation']}</legend>					
+                <legend class="plan">${res['plan.legend.timetableofimplementation']}</legend>					
                 <cust:field key="plan.timetable"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.referencetoairqualityplan']}</legend>					
+                <legend class="plan">${res['plan.legend.referencetoairqualityplan']}</legend>					
                 <cust:field key="plan.referenceaqplan"/>
             </fieldset>
             <fieldset>
-                <legend>${res['plan.legend.referencetoimplementation']}</legend>					
+                <legend class="plan">${res['plan.legend.referencetoimplementation']}</legend>					
                 <cust:field key="plan.referenceimplementation"/>
             </fieldset>
 
             <fieldset>
-                <legend class="required">${res['plan.legend.relevantpublication']}</legend>
+                <legend class="plan" class="required">${res['plan.legend.relevantpublication']} <font color="red">*</font></legend>
 
                 <security:allowed event="save">
-                    <s:link beanclass="eu.europa.ec.aqrsystem.action.PublicationActionBean" event="form" id="new-pub-btn" class="ftm insert btn">
+                    <s:link beanclass="eu.europa.ec.aqrsystem.action.PublicationActionBean" event="form" id="new-pub-btn" class="ftm insert btn plan">
                         <s:param name="planId" value="${actionBean.planId}"/>
                         ${res['plan.button.addnewpublication']}
                     </s:link>
@@ -147,12 +148,14 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['plan.legend.comment']}</legend>
+                <legend class="plan">${res['plan.legend.comment']}</legend>
                 <cust:textArea key="plan.comment" optional="true"/>
+                <label style="font-size:11px;color:red;width: 600px;float: right;display: compact">[Please provide here the link to exceedance("G") already submitted to EEA.
+                    <b>Temporary solution</b> for 2014-2015 only.]</label>
             </fieldset>	
 
             <fieldset>
-                <legend>${res['common.linkedresource.plural']}</legend>
+                <legend class="plan">${res['common.linkedresource.plural']}</legend>
                 <cust:label key="plan.attainmentBeanList"/>
                 <s:select class="multi" multiple="true" name="plan.attainmentBeanList" size="12">
                     <s:options-collection collection="${actionBean.existingAttainments}" value="uuid" label="inspireidLocalid" sort="inspireidLocalid"/>
@@ -162,9 +165,9 @@
             <br/>
 
             <security:allowed event="save">
-                <s:submit class="ftm save btn" name="save" value="${res['common.save']}"/>
+                <s:submit class="ftm save plan btn" name="save" value="${res['common.save']}"/>
             </security:allowed>
         </s:form>
-            
+
     </s:layout-component>
 </s:layout-render>

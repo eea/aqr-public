@@ -45,6 +45,7 @@ import eu.europa.ec.aqrmodeluser.Users;
 import eu.europa.ec.measures.cost.CostWrapper;
 import eu.europa.ec.measures.expectedimpact.ExpectedimpactWrapper;
 import eu.europa.ec.measures.plannedimplementation.PlannedimplementationWrapper;
+import eu.europa.ec.user.UserWrapper;
 import eu.europa.ec.util.EntityManagerCustom;
 import java.util.ArrayList;
 import javax.persistence.EntityManager;
@@ -238,7 +239,8 @@ public class MeasuresWrapper {
             measuresBean.setEditable(false);
         }
 
+        measuresBean.setUserBean(UserWrapper.convertUserInUserBean(measures.getUsers()));
+
         return measuresBean;
     }
-
 }

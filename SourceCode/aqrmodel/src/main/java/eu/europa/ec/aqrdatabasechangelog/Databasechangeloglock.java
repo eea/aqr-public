@@ -125,5 +125,4 @@ public class Databasechangeloglock implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Databasechangeloglock[ id=" + id + " ]";
     }
-
 }

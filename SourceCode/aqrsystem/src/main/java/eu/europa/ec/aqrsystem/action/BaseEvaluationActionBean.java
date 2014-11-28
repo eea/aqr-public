@@ -40,7 +40,6 @@ public class BaseEvaluationActionBean extends BaseActionBean {
         super.setCommonVariables();
         currentSection = MenuViewHelper.Section.Evaluation;
     }
-
     /**
      * The uuid of the selected evaluation scenario.
      */
@@ -59,7 +58,6 @@ public class BaseEvaluationActionBean extends BaseActionBean {
     public String getEvaluationId() {
         return evaluationId;
     }
-
     /**
      * The current evaluation scenario.
      */

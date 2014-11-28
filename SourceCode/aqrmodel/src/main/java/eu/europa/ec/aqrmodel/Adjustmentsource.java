@@ -150,5 +150,4 @@ public class Adjustmentsource implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Adjustmentsource[ uuid=" + uuid + " ]";
     }
-
 }

@@ -48,12 +48,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Exceedancedescription implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "exceedance")
     private Boolean exceedance;
@@ -61,10 +59,8 @@ public class Exceedancedescription implements Serializable {
     private String numericalexceedance;
     @Column(name = "numberexceedances")
     private String numberexceedances;
-
     @Column(name = "otherreason")
     private String otherreason;
-
     @Basic(optional = false)
     @Column(name = "datecreation")
     @Temporal(TemporalType.TIMESTAMP)
@@ -72,10 +68,8 @@ public class Exceedancedescription implements Serializable {
     @Column(name = "datelastupdate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datelastupdate;
-
     @Column(name = "comment")
     private String comment;
-
     @JoinColumn(name = "exceedanceexposure", referencedColumnName = "uuid")
     @ManyToOne
     private Exceedanceexposure exceedanceexposure;
@@ -205,5 +199,4 @@ public class Exceedancedescription implements Serializable {
     public void setDeductionassessmentmethod(Deductionassessmentmethod deductionassessmentmethod) {
         this.deductionassessmentmethod = deductionassessmentmethod;
     }
-
 }

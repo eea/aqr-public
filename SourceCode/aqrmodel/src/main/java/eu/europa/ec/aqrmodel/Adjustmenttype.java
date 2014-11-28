@@ -148,5 +148,4 @@ public class Adjustmenttype implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Adjustmenttype[ uuid=" + uuid + " ]";
     }
-
 }

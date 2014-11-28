@@ -55,13 +55,11 @@ public class Scenario implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "scenario")
     private List<MeasuresScenario> measuresScenarioList;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "inspireid_localid")
     private String inspireidLocalid;
@@ -71,23 +69,19 @@ public class Scenario implements Serializable {
     @Basic(optional = false)
     @Column(name = "inspireid_versionid")
     private String inspireidVersionid;
-
     @Basic(optional = false)
     @Column(name = "description")
     private String description;
-
     @Column(name = "expectedexceedence")
     private String expectedexceedence;
     @Basic(optional = false)
     @Column(name = "comment")
     private String comment;
-
     @Basic(optional = false)
     @Column(name = "totalemissions")
     private String totalemissions;
     @Column(name = "expectedconcentration")
     private String expectedconcentration;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "baselinescenario")
     private List<Evaluationscenario> evaluationscenarioList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectionscenario")
@@ -233,5 +227,4 @@ public class Scenario implements Serializable {
     public void setMeasuresScenarioList(List<MeasuresScenario> measuresScenarioList) {
         this.measuresScenarioList = measuresScenarioList;
     }
-
 }

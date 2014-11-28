@@ -33,5 +33,4 @@ public class MeasuresINSPIRELocalIDAlreadyExistingException extends CustomExcept
     public MeasuresINSPIRELocalIDAlreadyExistingException() {
         new MeasuresINSPIRELocalIDAlreadyExistingException(MESSAGE);
     }
-
 }

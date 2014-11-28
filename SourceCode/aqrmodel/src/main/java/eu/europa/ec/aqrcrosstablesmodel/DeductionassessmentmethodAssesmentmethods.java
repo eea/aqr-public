@@ -48,16 +48,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class DeductionassessmentmethodAssesmentmethods implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "deductionassessmentmethod", referencedColumnName = "uuid")
     @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private Deductionassessmentmethod deductionassessmentmethod;
-
     @JoinColumn(name = "assesmentmethods", referencedColumnName = "uuid")
     @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     private Assesmentmethods assesmentmethods;
@@ -117,5 +114,4 @@ public class DeductionassessmentmethodAssesmentmethods implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.DeductionassessmentmethodAssesmentmethods[ uuid=" + uuid + " ]";
     }
-
 }

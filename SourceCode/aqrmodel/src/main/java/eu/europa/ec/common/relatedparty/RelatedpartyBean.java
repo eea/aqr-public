@@ -22,16 +22,11 @@ package eu.europa.ec.common.relatedparty;
 public class RelatedpartyBean {
 
     private static final long serialVersionUID = 1L;
-
     private String uuid;
-
     private String individualname;
     private String organisationname;
-
     private String website;
-
     private String address;
-
     private String electronicmailaddress;
     private String telephonevoice;
 
@@ -102,5 +97,4 @@ public class RelatedpartyBean {
     public void setAddress(String address) {
         this.address = address;
     }
-
 }

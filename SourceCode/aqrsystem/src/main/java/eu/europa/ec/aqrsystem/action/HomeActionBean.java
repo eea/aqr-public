@@ -49,7 +49,6 @@ public class HomeActionBean extends BaseActionBean {
     public Resolution showTab() {
         return new ForwardResolution(MAIN_VIEW);
     }
-
     private Statistics statistics;
 
     /**
@@ -75,7 +74,6 @@ public class HomeActionBean extends BaseActionBean {
          * The number of completed plans.
          */
         private int planComplete = 0;
-
         /**
          * The number of source apportionment drafts.
          */
@@ -84,7 +82,6 @@ public class HomeActionBean extends BaseActionBean {
          * The number of completed source apportionments.
          */
         private int sourceComplete = 0;
-
         /**
          * The number of evaluation scenario drafts.
          */
@@ -93,7 +90,6 @@ public class HomeActionBean extends BaseActionBean {
          * The number of completed evaluation scenarios.
          */
         private int scenarioComplete = 0;
-
         /**
          * The number of measure drafts.
          */

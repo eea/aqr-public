@@ -64,6 +64,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Plan.findByDatecreation", query = "SELECT p FROM Plan p WHERE p.datecreation = :datecreation"),
     @NamedQuery(name = "Plan.findByDatelastupdate", query = "SELECT p FROM Plan p WHERE p.datelastupdate = :datelastupdate"),
     @NamedQuery(name = "Plan.findAllByUser", query = "SELECT p FROM Plan p WHERE p.users = :users"),
+    @NamedQuery(name = "Plan.findAllByUserInInterval", query = "SELECT p FROM Plan p WHERE p.users = :users AND ((p.datecreation >= :fromDate AND p.datecreation <= :toDate) OR (p.datelastupdate >= :fromDate AND p.datelastupdate <= :toDate)) ORDER BY p.datecreation ASC"),
     @NamedQuery(name = "Plan.deleteByUuid", query = "DELETE FROM Plan p WHERE p.uuid = :uuid")
 })
 public class Plan implements Serializable {
@@ -73,7 +74,6 @@ public class Plan implements Serializable {
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "inspireid_localid")
     private String inspireidLocalid;
@@ -83,37 +83,31 @@ public class Plan implements Serializable {
     @Basic(optional = false)
     @Column(name = "inspireid_versionid")
     private String inspireidVersionid;
-
     @Basic(optional = false)
     @Column(name = "code")
     private String code;
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
-
     @JoinColumn(name = "provider", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Relatedparty provider;
     @JoinColumn(name = "competentauthority", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Relatedparty competentauthority;
-
     @JoinColumn(name = "users", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Users users;
-
     @Basic(optional = false)
     @Column(name = "firstexceedanceyear_id")
     private String firstexceedanceyearId;
     @Basic(optional = false)
     @Column(name = "firstexceedanceyear_timeposition")
     private String firstexceedanceyearTimeposition;
-
     @Column(name = "adoptiondate_id")
     private String adoptiondateId;
     @Column(name = "adoptiondate_timeposition")
     private String adoptiondateTimeposition;
-
     @Basic(optional = false)
     @Column(name = "timetable")
     private String timetable;
@@ -123,7 +117,6 @@ public class Plan implements Serializable {
     @Basic(optional = false)
     @Column(name = "referenceimplementation")
     private String referenceimplementation;
-
     @Basic(optional = false)
     @Column(name = "comment")
     private String comment;
@@ -131,7 +124,6 @@ public class Plan implements Serializable {
     private Statusplan statusplan;
     @Column(name = "completed")
     private Boolean completed;
-
     @Basic(optional = false)
     @Column(name = "changes")
     private boolean changes;
@@ -143,7 +135,6 @@ public class Plan implements Serializable {
     @Basic(optional = false)
     @Column(name = "reportingenddate")
     private String reportingenddate;
-
     @Basic(optional = false)
     @Column(name = "datecreation")
     @Temporal(TemporalType.TIMESTAMP)
@@ -151,7 +142,6 @@ public class Plan implements Serializable {
     @Column(name = "datelastupdate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datelastupdate;
-
     @OneToMany(mappedBy = "plan")
     private List<Sourceapportionment> sourceapportionmentList;
     @OneToMany(mappedBy = "plan")
@@ -457,5 +447,4 @@ public class Plan implements Serializable {
     public void setPlanPublicationList(List<PlanPublication> planPublicationList) {
         this.planPublicationList = planPublicationList;
     }
-
 }

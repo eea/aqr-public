@@ -5,7 +5,7 @@
         <h2>${res['home.statisctics.label']}</h2>
 
         <div class="sbox">
-            <h3><s:link beanclass="eu.europa.ec.aqrsystem.action.PlanActionBean">${res['home.statistics.plans']}</s:link></h3>
+            <h3><s:link beanclass="eu.europa.ec.aqrsystem.action.PlanActionBean" class="plan">${res['home.statistics.plans']}</s:link></h3>
                 <ul>
                     <li>${res['home.draft']}: ${actionBean.statistics.planDrafts}</li>	
                 <li>${res['home.complete']}: ${actionBean.statistics.planComplete}</li>		
@@ -13,7 +13,7 @@
         </div>
 
         <div class="sbox">
-            <h3><s:link beanclass="eu.europa.ec.aqrsystem.action.ApportionmentActionBean">${res['home.statistics.sources']}</s:link></h3>
+            <h3><s:link beanclass="eu.europa.ec.aqrsystem.action.ApportionmentActionBean" class="sourceapp">${res['home.statistics.sources']}</s:link></h3>
                 <ul>
                     <li>${res['home.draft']}: ${actionBean.statistics.sourceDrafts}</li>	
                 <li>${res['home.complete']}: ${actionBean.statistics.sourceComplete}</li>		
@@ -21,7 +21,7 @@
         </div>
 
         <div class="sbox">
-            <h3><s:link beanclass="eu.europa.ec.aqrsystem.action.EvaluationActionBean">${res['home.statistics.scenarios']}</s:link></h3>
+            <h3><s:link beanclass="eu.europa.ec.aqrsystem.action.EvaluationActionBean" class = "evsc">${res['home.statistics.scenarios']}</s:link></h3>
                 <ul>
                     <li>${res['home.draft']}: ${actionBean.statistics.scenarioDrafts}</li>	
                 <li>${res['home.complete']}: ${actionBean.statistics.scenarioComplete}</li>		
@@ -29,7 +29,7 @@
         </div>
 
         <div class="sbox">
-            <h3><s:link beanclass="eu.europa.ec.aqrsystem.action.MeasureActionBean">${res['home.statistics.measures']}</s:link></h3>
+            <h3><s:link beanclass="eu.europa.ec.aqrsystem.action.MeasureActionBean" class = "measures">${res['home.statistics.measures']}</s:link></h3>
                 <ul>
                     <li>${res['home.draft']}: ${actionBean.statistics.measureDrafts}</li>	
                 <li>${res['home.complete']}: ${actionBean.statistics.measureComplete}</li>	

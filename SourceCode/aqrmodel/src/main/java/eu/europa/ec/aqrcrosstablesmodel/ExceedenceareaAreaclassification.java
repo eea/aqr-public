@@ -45,16 +45,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ExceedenceareaAreaclassification implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "exceedancearea", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Exceedancearea exceedancearea;
-
     @JoinColumn(name = "areaclassification", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Areaclassification areaclassification;
@@ -114,5 +111,4 @@ public class ExceedenceareaAreaclassification implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrcrosstablesmodel.ExceedenceareaAreaclassification[ uuid=" + uuid + " ]";
     }
-
 }

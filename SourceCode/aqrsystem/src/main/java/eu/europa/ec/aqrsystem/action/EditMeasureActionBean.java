@@ -32,6 +32,8 @@ import eu.europa.ec.measures.MeasuresINSPIRELocalIDAlreadyExistingException;
 import eu.europa.ec.measures.MeasuresBean;
 import eu.europa.ec.aqrsystem.utils.ValidationMasks;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.annotation.security.RolesAllowed;
@@ -82,6 +84,7 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
             String oldLocalId = measuresManager.getMeasureByID(measure.getUuid(), email).getInspireidLocalid();
             context.getValidationErrors().addGlobalError(new LocalizableError("measure.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));
         }
+        addGlobalInformationError();
 
         List<String> nonCompletedFields = updateCompleteness(measure, res);
         context.getMessages().add(new LocalizableMessage("measure.update.message", HtmlUtil.encode(measure.getInspireidLocalid())));
@@ -120,7 +123,7 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
             result.add(res.getString("measure.providerBean.electronicmailaddress"));
         }
 
-        if (measure.isChanges() && !isDefined(measure.getDescriptionofchanges())) {
+        if (!isDefined(measure.getDescriptionofchanges())) {
             result.add(res.getString("measure.descriptionofchanges"));
         }
 
@@ -192,23 +195,18 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
      */
     @ValidateNestedProperties({
         @Validate(field = "inspireidLocalid", required = true, maxlength = 100, mask = ValidationMasks.inspireId, on = "save"),
-
         @Validate(field = "providerBean.organisationname", required = false, maxlength = 200, on = "save"),
         @Validate(field = "providerBean.website", required = false, maxlength = 250, mask = ValidationMasks.url, on = "save"),
         @Validate(field = "providerBean.individualname", required = false, maxlength = 250, on = "save"),
         @Validate(field = "providerBean.address", required = false, maxlength = 200, on = "save"),
         @Validate(field = "providerBean.telephonevoice", required = false, maxlength = 50, on = "save"),
         @Validate(field = "providerBean.electronicmailaddress", required = false, maxlength = 250, converter = EmailTypeConverter.class, on = "save"),
-
         @Validate(field = "descriptionofchanges", required = false, maxlength = 250, on = "save"),
-
         @Validate(field = "reportingstartdate", required = false, maxlength = 10, mask = ValidationMasks.date, on = "save"),
         @Validate(field = "reportingenddate", required = false, maxlength = 10, mask = ValidationMasks.date, on = "save"),
-
         @Validate(field = "code", required = false, maxlength = 200, on = "save"),
         @Validate(field = "name", required = false, maxlength = 200, on = "save"),
         @Validate(field = "description", required = false, on = "save"),
-
         @Validate(field = "plannedimplementationBean.implementationplannedtimeperiodBeginposition", maxlength = 10, mask = ValidationMasks.date, required = false, on = "save"),
         @Validate(field = "plannedimplementationBean.implementationplannedtimeperiodEndposition", maxlength = 10, mask = ValidationMasks.date, required = false, on = "save"),
         @Validate(field = "plannedimplementationBean.implementationactualtimeperiodBeginposition", maxlength = 10, mask = ValidationMasks.date, required = false, on = "save"),
@@ -217,21 +215,17 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
         @Validate(field = "plannedimplementationBean.otherdate", maxlength = 250, required = false, on = "save"),
         @Validate(field = "plannedimplementationBean.monitoringprogressindicators", maxlength = 250, required = false, on = "save"),
         @Validate(field = "plannedimplementationBean.comment", required = false, on = "save"),
-
         @Validate(field = "reductionofemission", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "comment", required = false, on = "save"),
-
         @Validate(field = "expectedimpactBean.levelofconcentration", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "expectedimpactBean.numberofexceedence", required = false, mask = ValidationMasks.integer, on = "save"),
         @Validate(field = "expectedimpactBean.comment", required = false, on = "save"),
-
         @Validate(field = "commentForClarification", required = false, on = "save")
     })
     @Override
     public MeasuresBean getMeasure() {
         return super.getMeasure();
     }
-
     /**
      * The list of possible values for field measure.measuretype_uri.
      */
@@ -246,7 +240,6 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
         }
         return possibleTypes;
     }
-
     /**
      * The list of possible values for field measure.classification_uri.
      */
@@ -261,7 +254,6 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
         }
         return possibleClassifications;
     }
-
     /**
      * The list of possible values for field administrationlevel_uri.
      */
@@ -277,7 +269,6 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
         }
         return possibleAdminLevels;
     }
-
     /**
      * The list of possible values for field measure.timescale_uri.
      */
@@ -292,7 +283,6 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
         }
         return possibleTimeScales;
     }
-
     /**
      * The list of possible values for field measure.sourcesector_uri.
      */
@@ -307,7 +297,6 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
         }
         return possibleSourceSectors;
     }
-
     /**
      * The list of possible values for field measure.spatialscale_uri.
      */
@@ -322,7 +311,6 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
         }
         return possibleSpatialScales;
     }
-
     /**
      * The list of possible values for field
      * measure.plannedimplementationBean.statusplannedimplementation_uri.
@@ -339,7 +327,6 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
         }
         return possibleImplementationStatuses;
     }
-
     /**
      * The list of possible values for field
      * measure.quantificationnumerical_uri.
@@ -356,7 +343,6 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
         }
         return possibleQuantificationNummericals;
     }
-
     /**
      * The list of possible values for field impact.specificationofhours_uri.
      */
@@ -371,5 +357,65 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
             possibleSpecificationOfHours = measuresManager.getAllSpecificationofhoursBean();
         }
         return possibleSpecificationOfHours;
+    }
+
+    private void addGlobalInformationError() throws NumberFormatException {
+        /**
+         * reporting date
+         */
+        String reportingDateStart = measure.getReportingstartdate();
+        String reportingDateEnd = measure.getReportingenddate();
+        if (reportingDateStart != null && reportingDateEnd != null) {
+            String[] startArray = reportingDateStart.split("-");
+            String[] endArray = reportingDateEnd.split("-");
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date startDate = new Date(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date endDate = new Date(Integer.parseInt(endArray[0]), Integer.parseInt(endArray[1]), Integer.parseInt(endArray[2]));
+
+            if (startDate.after(endDate)) {
+                context.getValidationErrors().addGlobalError(new LocalizableError("measures.error.reportingdatestart.after.reportingdateend", HtmlUtil.encode(reportingDateStart), HtmlUtil.encode(reportingDateEnd)));
+            }
+        }
+
+        /**
+         * Implementation planned time period
+         */
+        String plannedImplementationPlannedBeginPosition = measure.getPlannedimplementationBean().getImplementationplannedtimeperiodBeginposition();
+        String plannedImplementationPlannedEndPosition = measure.getPlannedimplementationBean().getImplementationplannedtimeperiodEndposition();
+        if (plannedImplementationPlannedBeginPosition != null && plannedImplementationPlannedEndPosition != null) {
+            String[] startArray = plannedImplementationPlannedBeginPosition.split("-");
+            String[] endArray = plannedImplementationPlannedEndPosition.split("-");
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date startDate = new Date(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date endDate = new Date(Integer.parseInt(endArray[0]), Integer.parseInt(endArray[1]), Integer.parseInt(endArray[2]));
+
+            if (startDate.after(endDate)) {
+                context.getValidationErrors().addGlobalError(new LocalizableError("measures.error.implementationplannedtimeperiod.beginposition.after.endposition", HtmlUtil.encode(plannedImplementationPlannedBeginPosition), HtmlUtil.encode(plannedImplementationPlannedEndPosition)));
+            }
+        }
+
+        /**
+         * Implementation actual time period
+         */
+        String plannedImplementationActualBeginPosition = measure.getPlannedimplementationBean().getImplementationactualtimeperiodBeginposition();
+        String plannedImplementationActualEndPosition = measure.getPlannedimplementationBean().getImplementationactualtimeperiodEndposition();
+        if (plannedImplementationActualBeginPosition != null && plannedImplementationActualEndPosition != null) {
+            String[] startArray = plannedImplementationActualBeginPosition.split("-");
+            String[] endArray = plannedImplementationActualEndPosition.split("-");
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date startDate = new Date(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date endDate = new Date(Integer.parseInt(endArray[0]), Integer.parseInt(endArray[1]), Integer.parseInt(endArray[2]));
+
+            if (startDate.after(endDate)) {
+                context.getValidationErrors().addGlobalError(new LocalizableError("measures.error.implementationactualtimeperiod.beginposition.after.endposition", HtmlUtil.encode(plannedImplementationActualBeginPosition), HtmlUtil.encode(plannedImplementationActualEndPosition)));
+            }
+        }
+
     }
 }

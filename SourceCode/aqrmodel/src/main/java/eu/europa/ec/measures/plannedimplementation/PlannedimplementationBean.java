@@ -25,23 +25,18 @@ public class PlannedimplementationBean {
     private String implementationplannedtimeperiodId;
     private String implementationplannedtimeperiodBeginposition;
     private String implementationplannedtimeperiodEndposition;
-
     private String implementationactualtimeperiodId;
     private String implementationactualtimeperiodBeginposition;
     private String implementationactualtimeperiodEndposition;
-
     private String plannedfulleffectdateId;
     private String plannedfulleffectdateTimeposition;
     private boolean plannedfulleffectdateTimeposition_nil;
     private String plannedfulleffectdateTimeposition_nilreason;
-
     private String otherdate;
     private String monitoringprogressindicators;
     private boolean monitoringprogressindicators_nil;
     private String monitoringprogressindicators_nilreason;
-
     private String comment;
-
     private String statusplannedimplementation_uri;
     private String statusplannedimplementation_label;
 
@@ -191,5 +186,4 @@ public class PlannedimplementationBean {
     public void setMonitoringprogressindicators_nilreason(String monitoringprogressindicators_nilreason) {
         this.monitoringprogressindicators_nilreason = monitoringprogressindicators_nilreason;
     }
-
 }

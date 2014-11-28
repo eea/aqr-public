@@ -33,5 +33,4 @@ public class EvaluationscenarioINSPIRELocalIDAlreadyExistingException extends Cu
     public EvaluationscenarioINSPIRELocalIDAlreadyExistingException() {
         new EvaluationscenarioINSPIRELocalIDAlreadyExistingException(MESSAGE);
     }
-
 }

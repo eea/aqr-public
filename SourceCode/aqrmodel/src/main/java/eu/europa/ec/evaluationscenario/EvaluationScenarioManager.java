@@ -43,6 +43,7 @@ import eu.europa.ec.util.EntityManagerCustom;
 import eu.europa.ec.util.StringUtils;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -64,8 +65,8 @@ public class EvaluationScenarioManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -89,7 +90,8 @@ public class EvaluationScenarioManager {
         evaluationscenario.setStartyearId("");
         evaluationscenario.setStartyearPeriodtime("");
 
-        evaluationscenario.setChanges(false);
+        evaluationscenario.setChanges(true);
+        evaluationscenario.setDescriptionofchanges("");
         evaluationscenario.setReportingstartdate("");
         evaluationscenario.setReportingenddate("");
 
@@ -144,8 +146,8 @@ public class EvaluationScenarioManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userEvaluationscenario = (Users) q.getSingleResult();
         Country country = userEvaluationscenario.getCountry();
         Userrole userrole = userEvaluationscenario.getUserrole();
@@ -192,8 +194,8 @@ public class EvaluationScenarioManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userWhichClone = (Users) q.getSingleResult();
 
         q = em.createNamedQuery("Evaluationscenario.findByUuid");
@@ -377,8 +379,9 @@ public class EvaluationScenarioManager {
         q.setParameter("uuid", evaluationscenarioBean.getUuid());
         Evaluationscenario evaluationscenario = ((List<Evaluationscenario>) q.getResultList()).get(0);
 
-        q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", evaluationscenario.getUsers().getEmail());
+        String userEmail = evaluationscenario.getUsers().getEmail();
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        q = em.createQuery(query);
         Users user = (Users) q.getSingleResult();
         Country country = user.getCountry();
 
@@ -635,8 +638,8 @@ public class EvaluationScenarioManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userEvaluationscenario = (Users) q.getSingleResult();
 
         q = em.createNamedQuery("Evaluationscenario.findByUuid");
@@ -657,8 +660,8 @@ public class EvaluationScenarioManager {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
-        Query q = em.createNamedQuery("Users.findByEmail");
-        q.setParameter("email", userEmail);
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
         Users userEvaluationscenario = (Users) q.getSingleResult();
         Country country = userEvaluationscenario.getCountry();
 
@@ -720,8 +723,7 @@ public class EvaluationScenarioManager {
         Publication publication;
 
         if (publicationBean.getUuid() == null) {
-            String publicationUuid = StringUtils.createUUID(evaluationscenarioID + dateFormatUtil.getToday(), Publication.class
-            );
+            String publicationUuid = StringUtils.createUUID(evaluationscenarioID + dateFormatUtil.getToday(), Publication.class);
             publication = new Publication();
 
             publication.setUuid(publicationUuid);
@@ -773,8 +775,7 @@ public class EvaluationScenarioManager {
             em.persist(publication);
 
             EvaluationscenarioPublication evaluationscenarioPublication = new EvaluationscenarioPublication();
-            String planPublicationUuid = StringUtils.createUUID(evaluationscenario.getUuid() + publication.getUuid() + dateFormatUtil.getToday(), EvaluationscenarioPublication.class
-            );
+            String planPublicationUuid = StringUtils.createUUID(evaluationscenario.getUuid() + publication.getUuid() + dateFormatUtil.getToday(), EvaluationscenarioPublication.class);
             evaluationscenarioPublication.setUuid(planPublicationUuid);
 
             evaluationscenarioPublication.setEvaluationscenario(evaluationscenario);
@@ -820,8 +821,7 @@ public class EvaluationScenarioManager {
     private Scenario cloneScenario(Scenario scenario) throws Exception {
         Scenario cloneScenario = new Scenario();
 
-        String cloneBaselinescenarioUuid = StringUtils.createUUID(scenario.getUuid() + dateFormatUtil.getToday(), Scenario.class
-        );
+        String cloneBaselinescenarioUuid = StringUtils.createUUID(scenario.getUuid() + dateFormatUtil.getToday(), Scenario.class);
         cloneScenario.setUuid(cloneBaselinescenarioUuid);
 
         cloneScenario.setInspireidLocalid(scenario.getInspireidLocalid());
@@ -876,8 +876,7 @@ public class EvaluationScenarioManager {
             Measures measures = (Measures) q.getSingleResult();
 
             MeasuresScenario measuresScenario = new MeasuresScenario();
-            String measuresScenarioUuid = StringUtils.createUUID(measuresID + scenarioID, MeasuresScenario.class
-            );
+            String measuresScenarioUuid = StringUtils.createUUID(measuresID + scenarioID, MeasuresScenario.class);
             measuresScenario.setUuid(measuresScenarioUuid);
 
             measuresScenario.setMeasures(measures);
@@ -888,4 +887,46 @@ public class EvaluationScenarioManager {
         }
     }
 
+    /**
+     *
+     * @param userEmail
+     * @return a list of all the completed Evaluationscenario for the user's
+     * country
+     */
+    public List<EvaluationscenarioBean> getAllCompletedEvaluationscenarioByUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
+        List<EvaluationscenarioBean> evaluationscenarioBeanList = new ArrayList<EvaluationscenarioBean>();
+
+        EntityManagerCustom emc = new EntityManagerCustom();
+        EntityManager em = emc.getEntityManager();
+
+        String query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + userEmail + "')";
+        Query q = em.createQuery(query);
+        Users userAttainment = (Users) q.getSingleResult();
+        Country country = userAttainment.getCountry();
+
+        q = em.createNamedQuery("Users.findByCountry");
+        q.setParameter("country", country);
+
+        List<Users> userList = q.getResultList();
+
+        for (Iterator<Users> it = userList.iterator(); it.hasNext();) {
+            Users user = it.next();
+            q = em.createNamedQuery("Evaluationscenario.findAllByUserInInterval");
+            q.setParameter("users", user);
+            q.setParameter("fromDate", new java.sql.Date(fromDate.getTime()));
+            q.setParameter("toDate", new java.sql.Date(toDate.getTime()));
+            List<Evaluationscenario> evaluationscenarioList = (List<Evaluationscenario>) q.getResultList();
+
+            for (Evaluationscenario evaluationscenario : evaluationscenarioList) {
+                if (completed && evaluationscenario.getCompleted()) {
+                    evaluationscenarioBeanList.add(EvaluationscenarioWrapper.convertEvaluationscenarioInEvaluationscenarioBean(evaluationscenario, user));
+                } else if (!completed) {
+                    evaluationscenarioBeanList.add(EvaluationscenarioWrapper.convertEvaluationscenarioInEvaluationscenarioBean(evaluationscenario, user));
+                }
+            }
+        }
+
+        em.close();
+        return evaluationscenarioBeanList;
+    }
 }

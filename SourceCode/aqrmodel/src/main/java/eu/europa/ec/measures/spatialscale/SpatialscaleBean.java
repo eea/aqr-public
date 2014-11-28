@@ -79,5 +79,4 @@ public class SpatialscaleBean {
     public void setNotation(String notation) {
         this.notation = notation;
     }
-
 }

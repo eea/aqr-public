@@ -53,7 +53,6 @@ public class LocalisationActionBean extends BaseActionBean {
         }
         return new RedirectResolution(currentURL, false);
     }
-
     /**
      * Location of the select language partial JSP.
      */
@@ -67,12 +66,10 @@ public class LocalisationActionBean extends BaseActionBean {
     public Resolution showSelect() {
         return new ForwardResolution(LANGUAGE_SELECT);
     }
-
     /**
      * The localisation manager of the system.
      */
     protected CustomLocalePicker lp = new CustomLocalePicker();
-
     /**
      * The currently selected locale.
      */

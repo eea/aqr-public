@@ -54,5 +54,4 @@ public class CountryBean implements Serializable {
     public void setCountryname(String countryname) {
         this.countryname = countryname;
     }
-
 }

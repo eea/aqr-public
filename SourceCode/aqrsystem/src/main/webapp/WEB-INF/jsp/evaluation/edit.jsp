@@ -2,10 +2,10 @@
 <%@include file="/WEB-INF/jsp/common/taglibs.jsp" %>
 <s:layout-render name="/WEB-INF/jsp/common/layout_with_menu.jsp">
     <s:layout-component name="content">
-        <h2>${res['evaluation.label.edit']}</h2>
+        <h2 class="evsc">${res['evaluation.label.edit']}</h2>
 
         <fieldset>
-            <legend>${res['description.label.edit']}</legend>
+            <legend class="evsc">${res['description.label.edit']}</legend>
             <p>${res['evaluation.description.model']}</p>
             <p align="right">${res['fields.marked']}</p>
         </fieldset>  
@@ -16,14 +16,14 @@
             <div><s:hidden name="evaluationId"/></div>
 
             <fieldset>
-                <legend>${res['evaluation.legend.inspireid']}</legend>
+                <legend class="evsc">${res['evaluation.legend.inspireid']}</legend>
                 <cust:field key="evaluation.inspireidLocalid"/>
                 <cust:readOnlyField key="evaluation.inspireidNamespace" value="${actionBean.evaluation.inspireidNamespace}" hiddenField="true"/>
                 <cust:readOnlyField key="evaluation.inspireidVersionid" value="${actionBean.evaluation.inspireidVersionid}" hiddenField="true"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['evaluation.legend.providerBean']}</legend>
+                <legend class="evsc">${res['evaluation.legend.providerBean']}</legend>
                 <cust:field key="evaluation.providerBean.organisationname"/>
                 <cust:field key="evaluation.providerBean.website"/>
                 <cust:field key="evaluation.providerBean.individualname"/>
@@ -33,30 +33,31 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['evaluation.legend.change']}</legend>
-                <cust:label key="evaluation.changes" optional="true"/><s:checkbox name="evaluation.changes"/><br/>
+                <legend class="evsc">${res['evaluation.legend.change']}</legend>
+                <s:hidden name="evaluation.changes"/>
+                <%--<cust:label key="evaluation.changes" optional="true"/><s:checkbox name="evaluation.changes"/><br/>--%>
                 <cust:textArea key="evaluation.descriptionofchanges"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['evaluation.legend.reportingperiod']}</legend>
+                <legend class="evsc">${res['evaluation.legend.reportingperiod']}</legend>
                 <cust:field key="evaluation.reportingstartdate" cssclass="datepicker"/>
                 <cust:field key="evaluation.reportingenddate" cssclass="datepicker"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['evaluation.legend.codeofscenario']}</legend>					
+                <legend class="evsc">${res['evaluation.legend.codeofscenario']}</legend>					
                 <cust:field key="evaluation.codeofscenario"/>
             </fieldset>
 
             <fieldset>
-                <legend class="required">${res['evaluation.legend.relevantpublication']}</legend>
-                <security:allowed event="save">
-                    <s:link beanclass="eu.europa.ec.aqrsystem.action.PublicationForEvaluationActionBean" event="form" id="new-pub-btn" class="ftm insert btn">
-                        <s:param name="evaluationId" value="${actionBean.evaluationId}"/>
-                        ${res['evaluation.button.addnewpublication']}
-                    </s:link>
-                </security:allowed>
+                <legend class="evsc" class="required">${res['evaluation.legend.relevantpublication']} <font color="red">*</font></legend>
+                    <security:allowed event="save">
+                        <s:link beanclass="eu.europa.ec.aqrsystem.action.PublicationForEvaluationActionBean" event="form" id="new-pub-btn" class="ftm insert btn evsc">
+                            <s:param name="evaluationId" value="${actionBean.evaluationId}"/>
+                            ${res['evaluation.button.addnewpublication']}
+                        </s:link>
+                    </security:allowed>
 
                 <s:url var="loadTableURL" beanclass="eu.europa.ec.aqrsystem.action.PublicationForEvaluationActionBean" event="table">
                     <s:param name="evaluationId" value="${actionBean.evaluation.uuid}"/>
@@ -74,17 +75,17 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['evaluation.legend.attainmentyearPeriodtime']}</legend>					
+                <legend class="evsc">${res['evaluation.legend.attainmentyearPeriodtime']}</legend>					
                 <cust:field key="evaluation.attainmentyearPeriodtime"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['evaluation.legend.startyearPeriodtime']}</legend>					
+                <legend class="evsc">${res['evaluation.legend.startyearPeriodtime']}</legend>					
                 <cust:field key="evaluation.startyearPeriodtime"/>
             </fieldset>
 
             <fieldset>
-                <legend>${res['evaluation.legend.baselinescenario']}</legend>
+                <legend class="evsc">${res['evaluation.legend.baselinescenario']}</legend>
                 <div><s:hidden name="evaluation.baselinescenario.uuid"/></div>
 
                 <cust:textArea key="evaluation.baselinescenario.description"/>
@@ -99,7 +100,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['evaluation.legend.projectionscenario']}</legend>
+                <legend class="evsc">${res['evaluation.legend.projectionscenario']}</legend>
                 <div><s:hidden name="evaluation.projectionscenario.uuid"/></div>
 
                 <cust:textArea key="evaluation.projectionscenario.description"/>
@@ -114,7 +115,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>${res['common.linkedresource.plural']}</legend>
+                <legend class="evsc">${res['common.linkedresource.plural']}</legend>
                 <cust:label key="evaluation.plan.uuid" optional="true"/>
                 <s:select name="evaluation.plan.uuid">
                     <s:option value="">None</s:option>
@@ -129,9 +130,9 @@
 
             <br/>
             <security:allowed event="save">
-                <s:submit class="ftm save btn" name="save" value="${res['common.save']}"/>
+                <s:submit class="ftm save evsc btn" name="save" value="${res['common.save']}"/>
             </security:allowed>
-            
+
         </s:form>
     </s:layout-component>
 </s:layout-render>

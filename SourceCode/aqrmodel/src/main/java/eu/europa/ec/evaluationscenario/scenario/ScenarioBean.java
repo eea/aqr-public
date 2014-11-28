@@ -25,19 +25,14 @@ public class ScenarioBean {
 
     private static final long serialVersionUID = 1L;
     private String uuid;
-
     private String inspireidLocalid;
     private String inspireidNamespace;
     private String inspireidVersionid;
-
     private String description;
-
     private String expectedexceedence;
     private String comment;
-
     private String totalemissions;
     private String expectedconcentration;
-
     private List<String> measuresUuid;
 
     public ScenarioBean() {
@@ -136,5 +131,4 @@ public class ScenarioBean {
     public void setMeasuresUuid(List<String> measuresUuid) {
         this.measuresUuid = measuresUuid;
     }
-
 }

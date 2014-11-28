@@ -148,5 +148,4 @@ public class Specificationofhours implements Serializable {
     public void setExpectedimpactList(List<Expectedimpact> expectedimpactList) {
         this.expectedimpactList = expectedimpactList;
     }
-
 }

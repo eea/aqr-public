@@ -114,5 +114,4 @@ public class Systemconfiguration implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodeluser.Systemconfiguration[ uuid=" + uuid + " ]";
     }
-
 }

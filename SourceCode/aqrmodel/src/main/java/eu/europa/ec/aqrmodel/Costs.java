@@ -59,13 +59,10 @@ public class Costs implements Serializable {
     private Boolean extimatedimplementationcostsNil;
     @Column(name = "extimatedimplementationcosts_nilreason")
     private String extimatedimplementationcostsNilreason;
-
     @Column(name = "finalimplementationcosts")
     private String finalimplementationcosts;
-
     @Column(name = "comment")
     private String comment;
-
     @JoinColumn(name = "currency", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Currency currency;
@@ -173,5 +170,4 @@ public class Costs implements Serializable {
     public void setExtimatedimplementationcostsNilreason(String extimatedimplementationcostsNilreason) {
         this.extimatedimplementationcostsNilreason = extimatedimplementationcostsNilreason;
     }
-
 }

@@ -23,6 +23,8 @@ import eu.europa.ec.evaluationscenario.EvaluationscenarioINSPIRELocalIDAlreadyEx
 import eu.europa.ec.evaluationscenario.EvaluationscenarioBean;
 import eu.europa.ec.aqrsystem.utils.ValidationMasks;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.annotation.security.RolesAllowed;
@@ -73,6 +75,7 @@ public class EditEvaluationActionBean extends BaseEvaluationActionBean {
             String oldLocalId = evaluationManager.getEvaluationscenarioByID(evaluation.getUuid(), email).getInspireidLocalid();
             context.getValidationErrors().addGlobalError(new LocalizableError("evaluation.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));
         }
+        addGlobalInformationError();
 
         List<String> nonCompletedFields = updateCompleteness(evaluation, res);
         context.getMessages().add(new LocalizableMessage("evaluation.update.message", HtmlUtil.encode(evaluation.getInspireidLocalid())));
@@ -110,7 +113,7 @@ public class EditEvaluationActionBean extends BaseEvaluationActionBean {
             result.add(res.getString("evaluation.providerBean.electronicmailaddress"));
         }
 
-        if (evaluation.isChanges() && !isDefined(evaluation.getDescriptionofchanges())) {
+        if (!isDefined(evaluation.getDescriptionofchanges())) {
             result.add(res.getString("evaluation.descriptionofchanges"));
         }
 
@@ -167,29 +170,23 @@ public class EditEvaluationActionBean extends BaseEvaluationActionBean {
      */
     @ValidateNestedProperties({
         @Validate(field = "inspireidLocalid", required = true, maxlength = 100, mask = ValidationMasks.inspireId, on = "save"),
-
         @Validate(field = "providerBean.organisationname", required = false, maxlength = 200, on = "save"),
         @Validate(field = "providerBean.website", required = false, maxlength = 250, mask = ValidationMasks.url, on = "save"),
         @Validate(field = "providerBean.individualname", required = false, maxlength = 250, on = "save"),
         @Validate(field = "providerBean.address", required = false, maxlength = 200, on = "save"),
         @Validate(field = "providerBean.telephonevoice", required = false, maxlength = 50, on = "save"),
         @Validate(field = "providerBean.electronicmailaddress", required = false, maxlength = 250, converter = EmailTypeConverter.class, on = "save"),
-
         @Validate(field = "descriptionofchanges", required = false, maxlength = 250, on = "save"),
-
         @Validate(field = "reportingstartdate", required = false, maxlength = 10, mask = ValidationMasks.date, on = "save"),
         @Validate(field = "reportingenddate", required = false, maxlength = 10, mask = ValidationMasks.date, on = "save"),
-
         @Validate(field = "codeOfScenario", required = false, maxlength = 200, on = "save"),
         @Validate(field = "attainmentyearPeriodtime", required = false, maxlength = 4, mask = ValidationMasks.year, on = "save"),
         @Validate(field = "startyearPeriodtime", required = false, maxlength = 4, mask = ValidationMasks.year, on = "save"),
-
         @Validate(field = "baselinescenario.description", required = false, maxlength = 1000, on = "save"),
         @Validate(field = "baselinescenario.totalemissions", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "baselinescenario.expectedconcentration", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "baselinescenario.expectedexceedence", required = false, mask = ValidationMasks.integer, on = "save"),
         @Validate(field = "baselinescenario.comment", required = false, on = "save"),
-
         @Validate(field = "projectionscenario.description", required = false, maxlength = 1000, on = "save"),
         @Validate(field = "projectionscenario.totalemissions", required = false, mask = ValidationMasks.number, on = "save"),
         @Validate(field = "projectionscenario.expectedconcentration", required = false, mask = ValidationMasks.number, on = "save"),
@@ -201,4 +198,26 @@ public class EditEvaluationActionBean extends BaseEvaluationActionBean {
         return super.getEvaluation();
     }
 
+    private void addGlobalInformationError() throws NumberFormatException {
+        /**
+         * reporting date
+         */
+        String reportingDateStart = evaluation.getReportingstartdate();
+        String reportingDateEnd = evaluation.getReportingenddate();
+        if (reportingDateStart != null && reportingDateEnd != null) {
+            String[] startArray = reportingDateStart.split("-");
+            String[] endArray = reportingDateEnd.split("-");
+
+            Calendar cal = Calendar.getInstance();
+            cal.set(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date startDate = new Date(Integer.parseInt(startArray[0]), Integer.parseInt(startArray[1]), Integer.parseInt(startArray[2]));
+            Date endDate = new Date(Integer.parseInt(endArray[0]), Integer.parseInt(endArray[1]), Integer.parseInt(endArray[2]));
+
+            if (startDate.after(endDate)) {
+                context.getValidationErrors().addGlobalError(new LocalizableError("evaluation.error.reportingdatestart.after.reportingdateend", HtmlUtil.encode(reportingDateStart), HtmlUtil.encode(reportingDateEnd)));
+            }
+        }
+
+
+    }
 }

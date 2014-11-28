@@ -19,27 +19,26 @@
  */
 @XmlSchema(
         xmlns = {
-            @XmlNs(namespaceURI = Namespaces.xsi, prefix = "xsi"),
-            @XmlNs(namespaceURI = Namespaces.aqd, prefix = "aqd"),
-            @XmlNs(namespaceURI = Namespaces.base, prefix = "base"),
-            @XmlNs(namespaceURI = Namespaces.base2, prefix = "base2"),
-            @XmlNs(namespaceURI = Namespaces.ef, prefix = "ef"),
-            @XmlNs(namespaceURI = Namespaces.gml, prefix = "gml"),
-            @XmlNs(namespaceURI = Namespaces.ompr, prefix = "ompr"),
-            @XmlNs(namespaceURI = Namespaces.sam, prefix = "sam"),
-            @XmlNs(namespaceURI = Namespaces.sams, prefix = "sams"),
-            @XmlNs(namespaceURI = Namespaces.xlink, prefix = "xlink"),
-            @XmlNs(namespaceURI = Namespaces.gmd, prefix = "gmd"),
-            @XmlNs(namespaceURI = Namespaces.gco, prefix = "gco"),
-            @XmlNs(namespaceURI = Namespaces.om, prefix = "om"),
-            @XmlNs(namespaceURI = Namespaces.swe, prefix = "swe"),
-            @XmlNs(namespaceURI = Namespaces.am, prefix = "am"),
-            @XmlNs(namespaceURI = Namespaces.ad, prefix = "ad"),
-            @XmlNs(namespaceURI = Namespaces.gn, prefix = "gn")
-        },
+    @XmlNs(namespaceURI = Namespaces.xsi, prefix = "xsi"),
+    @XmlNs(namespaceURI = Namespaces.aqd, prefix = "aqd"),
+    @XmlNs(namespaceURI = Namespaces.base, prefix = "base"),
+    @XmlNs(namespaceURI = Namespaces.base2, prefix = "base2"),
+    @XmlNs(namespaceURI = Namespaces.ef, prefix = "ef"),
+    @XmlNs(namespaceURI = Namespaces.gml, prefix = "gml"),
+    @XmlNs(namespaceURI = Namespaces.ompr, prefix = "ompr"),
+    @XmlNs(namespaceURI = Namespaces.sam, prefix = "sam"),
+    @XmlNs(namespaceURI = Namespaces.sams, prefix = "sams"),
+    @XmlNs(namespaceURI = Namespaces.xlink, prefix = "xlink"),
+    @XmlNs(namespaceURI = Namespaces.gmd, prefix = "gmd"),
+    @XmlNs(namespaceURI = Namespaces.gco, prefix = "gco"),
+    @XmlNs(namespaceURI = Namespaces.om, prefix = "om"),
+    @XmlNs(namespaceURI = Namespaces.swe, prefix = "swe"),
+    @XmlNs(namespaceURI = Namespaces.am, prefix = "am"),
+    @XmlNs(namespaceURI = Namespaces.ad, prefix = "ad"),
+    @XmlNs(namespaceURI = Namespaces.gn, prefix = "gn")
+},
         elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
         attributeFormDefault = javax.xml.bind.annotation.XmlNsForm.UNQUALIFIED)
-
 package eu.europa.ec.aqrsystem.xml;
 
 import javax.xml.bind.annotation.XmlNs;

@@ -22,14 +22,11 @@ package eu.europa.ec.measures.cost;
 public class CostsBean {
 
     private String uuid;
-
     private String extimatedimplementationcosts;
     private boolean extimatedimplementationcosts_nil;
     private String extimatedimplementationcosts_nilreason;
-
     private String finalimplementationcosts;
     private String comment;
-
     private String currency_uri;
     private String currency_label;
 
@@ -108,5 +105,4 @@ public class CostsBean {
     public void setExtimatedimplementationcosts_nilreason(String extimatedimplementationcosts_nilreason) {
         this.extimatedimplementationcosts_nilreason = extimatedimplementationcosts_nilreason;
     }
-
 }

@@ -57,6 +57,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Sourceapportionment.findByDatecreation", query = "SELECT s FROM Sourceapportionment s WHERE s.datecreation = :datecreation"),
     @NamedQuery(name = "Sourceapportionment.findByDatelastupdate", query = "SELECT s FROM Sourceapportionment s WHERE s.datelastupdate = :datelastupdate"),
     @NamedQuery(name = "Sourceapportionment.findAllByUser", query = "SELECT s FROM Sourceapportionment s WHERE s.users = :users"),
+    @NamedQuery(name = "Sourceapportionment.findAllByUserInInterval", query = "SELECT p FROM Sourceapportionment p WHERE p.users = :users AND ((p.datecreation >= :fromDate AND p.datecreation <= :toDate) OR (p.datelastupdate >= :fromDate AND p.datelastupdate <= :toDate)) ORDER BY p.datecreation ASC"),
     @NamedQuery(name = "Sourceapportionment.deleteByUuid", query = "DELETE FROM Sourceapportionment s WHERE s.uuid = :uuid")
 })
 public class Sourceapportionment implements Serializable {
@@ -66,7 +67,6 @@ public class Sourceapportionment implements Serializable {
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @Basic(optional = false)
     @Column(name = "inspireid_localid")
     private String inspireidLocalid;
@@ -76,25 +76,20 @@ public class Sourceapportionment implements Serializable {
     @Basic(optional = false)
     @Column(name = "inspireid_versionid")
     private String inspireidVersionid;
-
     @JoinColumn(name = "provider", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Relatedparty provider;
-
     @Column(name = "referenceyear_id")
     private String referenceyearId;
     @Column(name = "referenceyear_timeperiod")
     private String referenceyearTimeperiod;
-
     @Column(name = "comment")
     private String comment;
     @Column(name = "completed")
     private Boolean completed;
-
     @JoinColumn(name = "users", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Users users;
-
     @Basic(optional = false)
     @Column(name = "datecreation")
     @Temporal(TemporalType.TIMESTAMP)
@@ -102,7 +97,6 @@ public class Sourceapportionment implements Serializable {
     @Column(name = "datelastupdate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datelastupdate;
-
     @Basic(optional = false)
     @Column(name = "changes")
     private boolean changes;
@@ -114,7 +108,6 @@ public class Sourceapportionment implements Serializable {
     @Basic(optional = false)
     @Column(name = "reportingenddate")
     private String reportingenddate;
-
     @JoinColumn(name = "urbanbackground", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Urbanbackground urbanbackground;
@@ -371,5 +364,4 @@ public class Sourceapportionment implements Serializable {
     public void setSourceapportionmentMeasuresList(List<SourceapportionmentMeasures> sourceapportionmentMeasuresList) {
         this.sourceapportionmentMeasuresList = sourceapportionmentMeasuresList;
     }
-
 }

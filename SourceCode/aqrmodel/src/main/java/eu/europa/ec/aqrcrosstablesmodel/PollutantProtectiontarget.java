@@ -44,16 +44,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class PollutantProtectiontarget implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
     @Basic(optional = false)
     @Column(name = "uuid")
     private String uuid;
-
     @JoinColumn(name = "protectiontarget", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Protectiontarget protectiontarget;
-
     @JoinColumn(name = "pollutant", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Pollutant pollutant;
@@ -113,5 +110,4 @@ public class PollutantProtectiontarget implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrbean.PollutantProtectiontarget[ uuid=" + uuid + " ]";
     }
-
 }

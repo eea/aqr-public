@@ -74,6 +74,21 @@ public class XMLManager {
         return new StreamingResolution("application/octet-stream", xml.toString("UTF-8")).setFilename(fileName);
     }
 
+    public static ByteArrayOutputStream exportXML(Class exportedClass, Object exportedObject, String fileName) throws JAXBException, IOException {
+        Marshaller marshaller = JAXBContext.newInstance(exportedClass).createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        marshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
+        marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, Namespaces.aqd + " " + Namespaces.aqdSchemaLocation);
+
+        ByteArrayOutputStream xml = new ByteArrayOutputStream();
+        xml.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>".getBytes());
+        marshaller.marshal(exportedObject, xml);
+
+        System.out.println(xml);
+
+        return xml;
+    }
+
     /**
      * Getting the filename of the exported file for a plan
      *
@@ -102,7 +117,6 @@ public class XMLManager {
         }
         return result;
     }
-
     /**
      * Location of the schema file
      */

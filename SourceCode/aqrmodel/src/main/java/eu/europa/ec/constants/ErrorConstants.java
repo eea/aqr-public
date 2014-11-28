@@ -25,15 +25,12 @@ public class ErrorConstants {
     public static final String DELETE_SOURCEAPPORTIONMENT_EXCEPTION = "This sourceapportionment is refered by onother items in the system. Please cancel that items, and than retry to cancel this sourceapportionment.";
     public static final String DELETE_PLAN_EXCEPTION = "This plan is refered by onother items in the system. Please cancel that items, and than retry to cancel this plan.";
     public static final String DELETE_ATTAINMENT_EXCEPTION = "This attainment is refered by onother items in the system. Please cancel that items, and than retry to cancel this attainment.";
-
     public static final String ALREADY_EXIST_PLAN_EXCEPTION = "The INSPIRE Local ID of the plan that you want to rename is already existing in the database.";
     public static final String ALREADY_EXIST_EVALUATIONSCENARIO_EXCEPTION = "The INSPIRE Local ID of the evaluation scenario that you want to rename is already existing in the database.";
     public static final String ALREADY_EXIST_MEASURES_EXCEPTION = "The INSPIRE Local ID of the measures that you want to rename is already existing in the database.";
     public static final String ALREADY_EXIST_SOURCEAPPROTIONMENT_EXCEPTION = "The INSPIRE Local ID of the source apportionment that you want to rename is already existing in the database.";
-
     /**
      * USER
      */
     public static final String EMAIL_ALREADY_IN_DB = "Email already in the Database";
-
 }

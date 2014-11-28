@@ -28,15 +28,11 @@ public class UserBean {
     private static final long serialVersionUID = 1L;
     private String uuid;
     private String email;
-
     private String name;
     private String surname;
-
     private boolean enable;
-
     private Date datecreation;
     private Date lastmodified;
-
     private UserroleBean userroleBean;
     private RelatedpartyBean providerBean;
     private CountryBean countryBean;
@@ -123,5 +119,4 @@ public class UserBean {
     public boolean isEnable() {
         return enable;
     }
-
 }

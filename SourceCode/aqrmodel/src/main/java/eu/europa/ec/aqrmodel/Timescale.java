@@ -151,5 +151,4 @@ public class Timescale implements Serializable {
     public String toString() {
         return "eu.europa.ec.aqrmodel.Timescale[ uuid=" + uuid + " ]";
     }
-
 }

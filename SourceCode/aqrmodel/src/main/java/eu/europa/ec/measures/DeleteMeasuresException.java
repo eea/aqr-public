@@ -33,5 +33,4 @@ public class DeleteMeasuresException extends CustomException {
     public DeleteMeasuresException() {
         new DeleteMeasuresException(MESSAGE);
     }
-
 }

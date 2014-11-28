@@ -40,7 +40,6 @@ public class BaseApportionmentActionBean extends BaseActionBean {
         super.setCommonVariables();
         currentSection = MenuViewHelper.Section.Apportionment;
     }
-
     /**
      * The uuid of the selected source.
      */
@@ -59,7 +58,6 @@ public class BaseApportionmentActionBean extends BaseActionBean {
     public String getSourceId() {
         return sourceId;
     }
-
     /**
      * The current source apportionment.
      */
