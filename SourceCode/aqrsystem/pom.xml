@@ -111,6 +111,16 @@
     
     <repositories>
         <repository>
+            <id>project-local</id>
+            <name>Internal Repository</name>
+            <layout>default</layout>
+            <url>file:///${basedir}/3rdparty</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
             <id>CITnet-nexus</id> <!-- the CITNet repository with the ECAS client jar -->
             <url>https://webgate.ec.europa.eu/CITnet/nexus/content/repositories/ecas</url>
         </repository>
