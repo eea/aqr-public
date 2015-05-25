@@ -96,26 +96,7 @@
                 <div class="dxbox help">
                     <span><a target="_blank" href="UserManual.pdf">${res['common.usermanual']}</a></span>
                 </div>
-            </div>
-            <!-- Piwik -->
-            <script type="text/javascript">
-                var _paq = _paq || [];
-                _paq.push(['trackPageView']);
-                _paq.push(['enableLinkTracking']);
-                (function() {
-                    var u = (("https:" == document.location.protocol) ? "https" : "http") + "://inspire-regadmin.jrc.ec.europa.eu/piwik/";
-                    _paq.push(['setTrackerUrl', u + 'piwik.php']);
-                    _paq.push(['setSiteId', 5]);
-                    var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-                    g.type = 'text/javascript';
-                    g.defer = true;
-                    g.async = true;
-                    g.src = u + 'piwik.js';
-                    s.parentNode.insertBefore(g, s);
-                })();
-            </script>
-            <noscript><p><img src="http://inspire-regadmin.jrc.ec.europa.eu/piwik/piwik.php?idsite=5" style="border:0;" alt="" /></p></noscript>
-            <!-- End Piwik Code -->                
+            </div>             
         </body>
     </html>
 </s:layout-definition>
