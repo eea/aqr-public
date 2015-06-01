@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<!--        <action>
+            <actionName>CUSTOM-recreate_db</actionName>
+            <displayName>Recreate_DB</displayName>
+            <goals>
+                <goal>sql:execute</goal>
+            </goals>
+        </action>-->
+        <action>
+            <actionName>CUSTOM-staging_redeploy</actionName>
+            <displayName>Redeploy</displayName>
+            <goals>
+                <goal>tomcat:redeploy</goal>
+            </goals>
+        </action>
+    </actions>
