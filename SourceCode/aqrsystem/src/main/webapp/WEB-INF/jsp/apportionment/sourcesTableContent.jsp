@@ -7,6 +7,7 @@
             <th>${res['common.name']}</th>
             <th>${res['common.user']}</th>
             <th>${res['common.created']}</th>
+            <th>${res['common.userLastUpdate']}</th>
             <th>${res['common.lastmodified']}</th>
             <th>${res['common.status']}</th>
             <th>${res['common.command']}</th>
@@ -22,8 +23,9 @@
                     </s:link>
                 </td>
                 <td>${fn:escapeXml(source.userBean.name)} ${fn:escapeXml(source.userBean.surname)}</td>
-                <td><fmt:formatDate value="${source.datecreation}" pattern="yy/MM/dd HH:mm z"/></td>
-                <td><fmt:formatDate value="${source.datelastupdate}" pattern="yy/MM/dd HH:mm z"/></td>
+                <td><fmt:formatDate value="${source.datecreation}" pattern="dd/MM/yyyy HH:mm z"/></td>
+                <td>${fn:escapeXml(source.userLastUpdateBean.name)} ${fn:escapeXml(source.userLastUpdateBean.surname)}</td>
+                <td><fmt:formatDate value="${source.datelastupdate}" pattern="dd/MM/yyyy HH:mm z"/></td>
                 <td>${source.completed ? res['common.complete'] : res['common.draft'] }</td>
                 <td>
                     <c:choose>

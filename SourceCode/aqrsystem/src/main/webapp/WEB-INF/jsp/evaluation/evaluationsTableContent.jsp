@@ -7,6 +7,7 @@
             <th>${res['common.name']}</th>
             <th>${res['common.user']}</th>
             <th>${res['common.created']}</th>
+            <th>${res['common.userLastUpdate']}</th>
             <th>${res['common.lastmodified']}</th>
             <th>${res['common.status']}</th>
             <th>${res['common.command']}</th>
@@ -22,8 +23,9 @@
                     </s:link>
                 </td>
                 <td>${fn:escapeXml(evaluation.userBean.name)} ${fn:escapeXml(evaluation.userBean.surname)}</td>
-                <td><fmt:formatDate value="${evaluation.datecreation}" pattern="yy/MM/dd HH:mm z"/></td>
-                <td><fmt:formatDate value="${evaluation.datelastupdate}" pattern="yy/MM/dd HH:mm z"/></td>
+                <td><fmt:formatDate value="${evaluation.datecreation}" pattern="dd/MM/yyyy HH:mm z"/></td>
+                <td>${fn:escapeXml(evaluation.userLastUpdateBean.name)} ${fn:escapeXml(evaluation.userLastUpdateBean.surname)}</td>
+                <td><fmt:formatDate value="${evaluation.datelastupdate}" pattern="dd/MM/yyyy HH:mm z"/></td>
                 <td>${evaluation.completed ? res['common.complete'] : res['common.draft'] }</td>
                 <td>
                     <c:choose>

@@ -145,14 +145,47 @@ public class EvaluationActionBean extends BaseEvaluationActionBean {
      * @throws javax.xml.bind.JAXBException
      * @throws java.io.UnsupportedEncodingException
      */
+    @RolesAllowed({"administrator", "user"})
     public Resolution exportall() throws JAXBException, UnsupportedEncodingException, IOException {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(toDate);
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        Date toDateDB = null;
+        try {
+            Date date = formatter.parse(to);
+            toDateDB = date;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        calendar.setTime(toDateDB);
         calendar.add(Calendar.DATE, 1);
         Date nextDateToDate = calendar.getTime();
 
-        List<EvaluationscenarioBean> evaluationActionBeanList = evaluationManager.getAllCompletedEvaluationscenarioByUser(email, completed, fromDate, nextDateToDate);
-        return XMLManager.export(EvaluationXML.class, new EvaluationXML().populateMultiple(evaluationActionBeanList, fromDate, toDate, email), "Evaluation_Multiple_" + new Date().toString() + ".xml");
+        Date fromDateDB = null;
+        try {
+            Date date = formatter.parse(from);
+            fromDateDB = date;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        String[] fromArray = from.split("-");
+        String dayFrom = fromArray[0];
+        String monthFrom = fromArray[1];
+        String yearFrom = fromArray[2];
+
+        String fromReverse = yearFrom + "-" + monthFrom + "-" + dayFrom;
+
+        String[] toArray = to.split("-");
+        String dayTo = toArray[0];
+        String monthTo = toArray[1];
+        String yearTo = toArray[2];
+
+        String toReverse = yearTo + "-" + monthTo + "-" + dayTo;
+
+        List<EvaluationscenarioBean> evaluationActionBeanList = evaluationManager.getAllCompletedEvaluationscenarioByCountryOfTheActualUser(email, completed, fromDateDB, nextDateToDate);
+        return XMLManager.export(EvaluationXML.class, new EvaluationXML().populateMultiple(evaluationActionBeanList, fromReverse, toReverse, email), "Evaluation_Multiple_" + new Date().toString() + ".xml");
     }
     protected boolean completed;
     protected String radio;
@@ -171,18 +204,11 @@ public class EvaluationActionBean extends BaseEvaluationActionBean {
     }
     protected String from;
     protected String to;
-    protected Date fromDate;
-    protected Date toDate;
+    protected String fromDate;
+    protected String toDate;
 
     public void setFrom(String from) {
         this.from = from;
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        try {
-            Date date = formatter.parse(from);
-            this.fromDate = date;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
     }
 
     public String getFrom() {
@@ -191,13 +217,6 @@ public class EvaluationActionBean extends BaseEvaluationActionBean {
 
     public void setTo(String to) {
         this.to = to;
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        try {
-            Date date = formatter.parse(to);
-            this.toDate = date;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
     }
 
     public String getTo() {

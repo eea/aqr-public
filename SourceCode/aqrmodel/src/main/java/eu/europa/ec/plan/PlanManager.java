@@ -102,6 +102,8 @@ public class PlanManager {
         Relatedparty relatedparty = relatedpartyWrapper.createDraftProviderFromUser(planUuid + new Date().toString(), user);
 
         plan.setUsers(user);
+        plan.setUserlastupdate(user);
+
         plan.setProvider(provider);
         plan.setCompetentauthority(relatedparty);
         /**
@@ -165,7 +167,7 @@ public class PlanManager {
 
                 List<Plan> results = (List<Plan>) q.getResultList();
                 for (Plan plan : results) {
-                    planBeanList.add(PlanWrapper.convertPlanInPlanBean(plan, userPlan));
+                    planBeanList.add(PlanWrapper.convertPlanInPlanBeanTableView(plan, userPlan));
                 }
             }
         } else {
@@ -173,7 +175,7 @@ public class PlanManager {
 
             List<Plan> results = (List<Plan>) q.getResultList();
             for (Plan plan : results) {
-                planBeanList.add(PlanWrapper.convertPlanInPlanBean(plan, userPlan));
+                planBeanList.add(PlanWrapper.convertPlanInPlanBeanTableView(plan, userPlan));
             }
         }
 
@@ -417,6 +419,7 @@ public class PlanManager {
         clonePlan.setCompleted(plan.getCompleted());
 
         clonePlan.setUsers(userWhichClone);
+        clonePlan.setUserlastupdate(userWhichClone);
 
         clonePlan.setFirstexceedanceyearId(plan.getFirstexceedanceyearId());
         clonePlan.setFirstexceedanceyearTimeposition(plan.getFirstexceedanceyearTimeposition());
@@ -523,7 +526,7 @@ public class PlanManager {
      * eu.europa.ec.aqrexception.PlanINSPIRELocalIDAlreadyExistingException
      * @throws java.lang.Exception
      */
-    public void savePlanDraft(PlanBean planBean) throws PlanINSPIRELocalIDAlreadyExistingException, Exception {
+    public void savePlanDraft(PlanBean planBean, String emailUserEdit) throws PlanINSPIRELocalIDAlreadyExistingException, Exception {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
@@ -561,6 +564,10 @@ public class PlanManager {
             }
         } else {
             plan.setInspireidLocalid("");
+        }
+        
+        if (planINSPIRELocalIDAlreadyExisting) {
+            throw new PlanINSPIRELocalIDAlreadyExistingException();
         }
 
         if (planBean.getInspireidNamespace() != null) {
@@ -735,6 +742,11 @@ public class PlanManager {
             q.executeUpdate();
         }
 
+        query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + emailUserEdit + "')";
+        q = em.createQuery(query);
+        Users useredit = (Users) q.getSingleResult();
+        plan.setUserlastupdate(useredit);
+
         /**
          * commit the related party
          */
@@ -742,10 +754,6 @@ public class PlanManager {
         em.merge(provider);
         em.merge(plan);
         emc.commitAndCloseTransaction(em);
-
-        if (planINSPIRELocalIDAlreadyExisting) {
-            throw new PlanINSPIRELocalIDAlreadyExistingException();
-        }
     }
 
     /**
@@ -1420,7 +1428,7 @@ public class PlanManager {
      * @param userEmail
      * @return a list of all the completed plans for the user's country
      */
-    public List<PlanBean> getAllCompletedPlansByUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
+    public List<PlanBean> getAllCompletedPlansByCountryOfTheActualUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
         List<PlanBean> planBeanList = new ArrayList<PlanBean>();
 
         EntityManagerCustom emc = new EntityManagerCustom();
@@ -1456,7 +1464,7 @@ public class PlanManager {
         em.close();
         return planBeanList;
     }
-    
+
     public List<PlanBean> getAllCompletedPlansByUser(String userEmail, boolean completed) {
         List<PlanBean> planBeanList = new ArrayList<PlanBean>();
 
@@ -1483,7 +1491,7 @@ public class PlanManager {
 //                if (completed && plan.getCompleted()) {
 //                    planBeanList.add(PlanWrapper.convertPlanInPlanBean(plan, user));
 //                } else if (!completed) {
-                    planBeanList.add(PlanWrapper.convertPlanInPlanBean(plan, user));
+                planBeanList.add(PlanWrapper.convertPlanInPlanBean(plan, user));
 //                }
             }
         }

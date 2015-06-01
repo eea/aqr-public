@@ -79,7 +79,7 @@ public class SourceXML implements XMLSaveableObject {
         return this;
     }
 
-    public SourceXML populateMultiple(final List<SourceapportionmentBean> sourceapportionmentBeans, final Date fromDate, final Date toDate, final String userEmail) {
+    public SourceXML populateMultiple(final List<SourceapportionmentBean> sourceapportionmentBeans, final String fromDate, final String toDate, final String userEmail) {
         id = "Source_Apportionment";
 
         final UserManager userManager = new UserManager();
@@ -146,7 +146,7 @@ public class SourceXML implements XMLSaveableObject {
 
             @Override
             public String getReportingstartdate() {
-                return fromDate.toString();
+                return fromDate;
             }
 
             @Override
@@ -155,7 +155,7 @@ public class SourceXML implements XMLSaveableObject {
 
             @Override
             public String getReportingenddate() {
-                return toDate.toString();
+                return toDate;
             }
 
             @Override
@@ -204,7 +204,7 @@ public class SourceXML implements XMLSaveableObject {
 
             String newLocalId = source.getInspireidLocalid();
             try {
-                sourceManager.saveSourceapportionmentDraft(source);
+                sourceManager.saveSourceapportionmentDraft(source, userEmail);
             } catch (SourceapportionmentINSPIRELocalIDAlreadyExistingException e) {
                 String oldLocalId = sourceManager.getSourceapportionmentByID(source.getUuid(), userEmail).getInspireidLocalid();
                 context.getValidationErrors().addGlobalError(new LocalizableError("source.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));

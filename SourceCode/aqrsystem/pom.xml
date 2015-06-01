@@ -28,13 +28,6 @@
         </repository>
     </distributionManagement>
 
-    <!--    <scm>  Required for automatic tagging with the current SVN version 
-        <connection>scm:svn:https://webgate.ec.europa.eu/CITnet/svn/AQRTOOL</connection>
-        <developerConnection>scm:svn:https://webgate.ec.europa.eu/CITnet/svn/AQRTOOL/</developerConnection>
-        <tag>HEAD</tag>
-        <url>https://webgate.ec.europa.eu/CITnet/svn/AQRTOOL/</url>
-    </scm>-->
-    
     <build>
         <plugins>
             <plugin>
@@ -111,7 +104,8 @@
     
     <repositories>
         <repository>
-            <id>CITnet-nexus</id> <!-- the CITNet repository with the ECAS client jar -->
+            <id>CITnet-nexus</id>  
+            <!--the CITNet repository with the ECAS client jar--> 
             <url>https://webgate.ec.europa.eu/CITnet/nexus/content/repositories/ecas</url>
         </repository>
     </repositories>
@@ -144,12 +138,13 @@
             <artifactId>aqrmodel</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
+        <!--ecas-->
+              <dependency>
             <groupId>eu.europa.ec.digit.iam.ecas.client</groupId>
             <artifactId>ecas-tomcat-5.5</artifactId>
             <version>3.6.3</version>
             <scope>provided</scope> 
-        </dependency>
+        </dependency> 
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -201,8 +196,9 @@
     </properties>
     
     <profiles>
+        
         <profile>
-            <id>dev-eepure</id>
+            <id>distribution-profile</id>
             <activation>
                 <property>
                     <name>env</name>
@@ -212,124 +208,14 @@
             </activation>
             <properties>
                 <!-- Database configurations -->
-                <persistence.jdbc.url>jdbc:postgresql://139.191.148.60:5432/aqrsystemdev</persistence.jdbc.url>
-                <persistence.jdbc.username>inspirergd</persistence.jdbc.username>
-                <persistence.jdbc.password>inspirergd</persistence.jdbc.password>
+                <persistence.jdbc.url>jdbc:postgresql://your_server_url:your_port_number/your_database_name</persistence.jdbc.url>
+                <persistence.jdbc.username>your_username</persistence.jdbc.username>
+                <persistence.jdbc.password>your_password</persistence.jdbc.password>
                 
                 <!-- Loggers configurations -->
-                <log.file.name>C:/aqrsystem-temp/logs/aqrsystem.log</log.file.name>
-                <!--                <log.file.dir.unit-test>C:/aqrsystem-temp/unit-test/logs/aqrsystem.log</log.file.dir.unit-test>
-                <model.log.file.dir>C:/aqrsystem-temp/logs/model.log</model.log.file.dir>-->
+                <log.file.name>your_path_to_log_file/aqrsystem.log</log.file.name>
             </properties>
         </profile>
         
-        <profile>
-            <id>cyrallu</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>devcyrallu</value>
-                </property>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <log.file.name>E:/log/log.log</log.file.name>
-                <persistence.jdbc.url>jdbc:postgresql://localhost:5432/aqrsystem</persistence.jdbc.url>
-                <persistence.jdbc.username>postgres</persistence.jdbc.username>
-                <persistence.jdbc.password>admin</persistence.jdbc.password>
-            </properties>
-        </profile>
-        
-        <profile>
-            <id>staging-server</id>
-            <properties>
-                <server.url>http://vap-airq.jrc.it:8080/manager</server.url>
-                <server.name>StagingServer</server.name>
-            </properties>
-            
-            <build>
-                <plugins> <!-- The plugins must be in the profile. Otherwise they break Hudson -->
-                    
-                    <!--GIT-->
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>versions-maven-plugin</artifactId>
-                        <version>2.1</version>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-scm-plugin</artifactId>
-                        <version>1.9.2</version>
-                        <configuration>
-                            <tag>${project.artifactId}-${project.version}</tag>
-                        </configuration>
-                    </plugin>
-                   
-                </plugins>
-            </build>
-        </profile>
-        
-        <profile>
-            <id>production-server</id>
-            <properties>
-                <server.url>http://localhost:8081/manager</server.url>
-                <server.name>ProductionServer</server.name>
-            </properties>
-            <build>
-                <plugins> <!-- The plugins must be in the profile. Otherwise they break Hudson -->
-<!--                    <plugin>  Required for automatic tagging with the current SVN version 
-                        <groupId>com.google.code.maven-replacer-plugin</groupId>
-                        <artifactId>replacer</artifactId>
-                        <version>1.5.2</version>
-                        <executions>
-                            <execution>
-                                <phase>prepare-package</phase>
-                                <goals>
-                                    <goal>replace</goal>
-                                </goals>                   
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <includes>
-                                <file>target/classes/ecas-config.properties</file>
-                            </includes>
-                            <replacements>
-                                otherwise uncomment the line 52 and 58 in the ecas-config.properties
-                                <replacement>  configuration needed due to the usage of the reverse proxy 
-                                    <token>#edu.yale.its.tp.cas.client.filter.serverName</token>
-                                    <value>edu.yale.its.tp.cas.client.filter.serverName</value>
-                                </replacement>         
-                                <replacement>
-                                    <token>#eu.cec.digit.ecas.client.filter.serverPort</token>
-                                    <value>eu.cec.digit.ecas.client.filter.serverPort</value>
-                                </replacement>         
-                            </replacements>
-                        </configuration>
-                    </plugin>-->
-                </plugins>
-            </build>
-        </profile>
-        
-        <profile>
-            <id>hudson</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>hudson</value>
-                </property>
-            </activation>
-            <properties>
-                <log.file.name>whatever</log.file.name>
-                <persistence.jdbc.url>jdbc:postgresql://vap-airq.jrc.it:5432/aqrsystem_ci</persistence.jdbc.url>
-                <persistence.jdbc.username>aqrsystem</persistence.jdbc.username>
-                <persistence.jdbc.password>Our?team123</persistence.jdbc.password>
-            </properties>
-            <repositories>
-                <repository> <!-- an internal repository with the ECAS library (ecas-tomcat-5.5 v3.6.3) so that we do not need authentication. If you need to update the library ask Angelo Quaglia -->
-                    <id>internal</id>
-                    <name>Archiva Managed Internal Repository</name>
-                    <url>http://vap-sdisvn.jrc.it/archiva/repository/internal/</url>
-                </repository>
-            </repositories>
-        </profile>
     </profiles>
 </project>

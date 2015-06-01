@@ -358,7 +358,7 @@ table tr td{
     line-height:32px;
     margin-right:10px;
     float:right;
-    background-position: -16px -20px
+    background-position: -16px -18px
 }
 .cancel {
     height:24px;
@@ -994,6 +994,12 @@ img.in_progress {
 .container select {
     width: 644px;
     margin-left: -4px;
+}
+.multi{
+    width: 644px;
+    margin-left: -4px;
+    height: 150px;
+    /*font-size: 14px;*/
 }
 .dialog select {
     width: 354px;

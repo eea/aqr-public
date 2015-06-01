@@ -13,6 +13,7 @@
             <link href="css/style.css?${res['application.version']}" media="screen" rel="stylesheet" type="text/css">
             <link rel="icon" href="img/favicon.ico" type="image/x-icon" /> 
             <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+
             <!-- Scripts -->
             <script src="js/common/iefix.js?${res['application.version']}"></script>
             <!--[if lt IE 9]><script type="text/javascript" src="js/libs/modernizr.js"></script><![endif]-->

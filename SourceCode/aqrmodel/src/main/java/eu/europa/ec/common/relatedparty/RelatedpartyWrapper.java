@@ -19,7 +19,6 @@
  */
 package eu.europa.ec.common.relatedparty;
 
-import eu.europa.ec.common.relatedparty.RelatedpartyBean;
 import eu.europa.ec.aqrmodel.Relatedparty;
 import eu.europa.ec.aqrmodeluser.Users;
 import eu.europa.ec.util.StringUtils;

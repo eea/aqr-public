@@ -237,7 +237,7 @@
                 </s:select>
                 <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype"/>
                 <cust:label key="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmentsourceList_uri" optional="true"/>
-                <s:select name="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmentsourceList_uri" multiple="true" class="multiple">
+                <s:select name="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmentsourceList_uri" multiple="true" class="multi">
                     <s:options-collection collection="${actionBean.possibleAdjustmentSources}" value="uri" label="label"/>
                 </s:select>
                 <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype"/>
@@ -247,7 +247,7 @@
                 <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedanceareaBean']}</legend>
 
                 <cust:label key="source.exceedancedescriptionBean.exceedanceareaBean.areaclassificationList_uri"/>
-                <s:select name="source.exceedancedescriptionBean.exceedanceareaBean.areaclassificationList_uri" multiple="true" class="multiple">
+                <s:select name="source.exceedancedescriptionBean.exceedanceareaBean.areaclassificationList_uri" multiple="true" class="multi">
                     <s:options-collection collection="${actionBean.possibleClassifications}" value="uri" label="label"/>
                 </s:select>
                 <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/areaclassification"/>
@@ -271,7 +271,7 @@
                 <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedancedescription.continuation']}</legend>
 
                 <cust:label key="source.exceedancedescriptionBean.reasonvalueList_uri" optional="true"/>
-                <s:select name="source.exceedancedescriptionBean.reasonvalueList_uri" multiple="true" class="multiple">
+                <s:select name="source.exceedancedescriptionBean.reasonvalueList_uri" multiple="true" class="multi">
                     <s:options-collection collection="${actionBean.possibleReasons}" value="uri" label="label"/>
                 </s:select>
                 <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason"/>

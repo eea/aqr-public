@@ -32,6 +32,7 @@ import eu.europa.ec.aqrmodeluser.Userrole;
 import eu.europa.ec.aqrmodeluser.Users;
 import eu.europa.ec.util.DateFormatUtil;
 import eu.europa.ec.util.EntityManagerCustom;
+import eu.europa.ec.util.Mail;
 import eu.europa.ec.util.StringUtils;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -120,6 +121,8 @@ public class UserManager {
     public void updateUserByUserID(UserBean userBean) throws EmailAlreadyInTheDBException, Exception {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
+        
+        boolean sendMail = false;
         /**
          * check if the userEmail exist
          */
@@ -143,6 +146,8 @@ public class UserManager {
                     String userUuid = StringUtils.createUUID(userEmail + dateFormatUtil.getToday(), Users.class);
                     user.setUuid(userUuid);
                     user.setDatecreation(new Date());
+                    
+                    sendMail = true;
                 }
             }
         } else {
@@ -268,6 +273,11 @@ public class UserManager {
         } else {
             em.persist(relatedparty);
             em.persist(user);
+            
+            if (sendMail){
+                Mail mail = new Mail();
+//                mail.sendbyMail("subject", "success added", user);
+            }
         }
         emc.commitAndCloseTransaction(em);
     }

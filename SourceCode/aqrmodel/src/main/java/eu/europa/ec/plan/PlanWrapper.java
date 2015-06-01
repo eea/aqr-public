@@ -83,18 +83,73 @@ public class PlanWrapper {
         PlanManager planManager = new PlanManager();
         planBean.setAttainmentBeanList(planManager.getAttainmentByPlanID(plan));
 
-        if (!"0".equals(user.getUserrole().getUuid())) {
-            Users userPlan = plan.getUsers();
-            if (userPlan.equals(user)) {
+        Users userPlan = plan.getUsers();
+
+        if ("0".equals(user.getUserrole().getUuid())) {
+            planBean.setEditable(false);
+        } else if ("1".equals(user.getUserrole().getUuid())) {
+            if (user.getCountry().equals(userPlan.getCountry())) {
                 planBean.setEditable(true);
             } else {
                 planBean.setEditable(false);
             }
         } else {
-            planBean.setEditable(false);
+            if (user.equals(userPlan)) {
+                planBean.setEditable(true);
+            } else {
+                planBean.setEditable(false);
+            }
         }
 
         planBean.setUserBean(UserWrapper.convertUserInUserBean(plan.getUsers()));
+        if (plan.getUserlastupdate()== null) {
+            planBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(plan.getUsers()));
+        } else {
+            planBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(plan.getUserlastupdate()));
+        }
+
+        return planBean;
+    }
+    
+    public static PlanBean convertPlanInPlanBeanTableView(Plan plan, Users user) {
+        PlanBean planBean = new PlanBean();
+
+        /**uri and inspire id*/
+        planBean.setUuid(plan.getUuid());
+
+        planBean.setInspireidLocalid(plan.getInspireidLocalid());
+
+        /**dates*/
+        planBean.setDatecreation(plan.getDatecreation());
+        planBean.setDatelastupdate(plan.getDatelastupdate());
+        /**completed*/
+        planBean.setCompleted(plan.getCompleted());
+
+        /**users*/
+        Users userPlan = plan.getUsers();
+
+        if ("0".equals(user.getUserrole().getUuid())) {
+            planBean.setEditable(false);
+        } else if ("1".equals(user.getUserrole().getUuid())) {
+            if (user.getCountry().equals(userPlan.getCountry())) {
+                planBean.setEditable(true);
+            } else {
+                planBean.setEditable(false);
+            }
+        } else {
+            if (user.equals(userPlan)) {
+                planBean.setEditable(true);
+            } else {
+                planBean.setEditable(false);
+            }
+        }
+
+        planBean.setUserBean(UserWrapper.convertUserInUserBean(plan.getUsers()));
+        if (plan.getUserlastupdate()== null) {
+            planBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(plan.getUsers()));
+        } else {
+            planBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(plan.getUserlastupdate()));
+        }
 
         return planBean;
     }

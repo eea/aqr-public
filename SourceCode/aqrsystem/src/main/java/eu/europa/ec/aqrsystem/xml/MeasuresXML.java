@@ -27,7 +27,6 @@ import eu.europa.ec.aqrsystem.xml.gml.FeatureMember;
 import eu.europa.ec.attainment.AttainmentBean;
 import eu.europa.ec.common.HeaderInterface;
 import eu.europa.ec.common.relatedparty.RelatedpartyBean;
-import eu.europa.ec.plan.PlanBean;
 import eu.europa.ec.user.UserBean;
 import eu.europa.ec.user.UserManager;
 import java.util.ArrayList;
@@ -78,7 +77,7 @@ public class MeasuresXML implements XMLSaveableObject {
         return this;
     }
 
-    public MeasuresXML populateMultiple(final List<MeasuresBean> measuresBean, final Date fromDate, final Date toDate, final String userEmail) {
+    public MeasuresXML populateMultiple(final List<MeasuresBean> measuresBean, final String fromDate, final String toDate, final String userEmail) {
         id = "Measure";
 
         final UserManager userManager = new UserManager();
@@ -145,7 +144,7 @@ public class MeasuresXML implements XMLSaveableObject {
 
             @Override
             public String getReportingstartdate() {
-                return fromDate.toString();
+                return fromDate;
             }
 
             @Override
@@ -154,7 +153,7 @@ public class MeasuresXML implements XMLSaveableObject {
 
             @Override
             public String getReportingenddate() {
-                return toDate.toString();
+                return toDate;
             }
 
             @Override
@@ -203,7 +202,7 @@ public class MeasuresXML implements XMLSaveableObject {
 
             String newLocalId = measure.getInspireidLocalid();
             try {
-                measureManager.saveMeasuresDraft(measure);
+                measureManager.saveMeasuresDraft(measure, userEmail);
             } catch (MeasuresINSPIRELocalIDAlreadyExistingException e) {
                 String oldLocalId = measureManager.getMeasureByID(measure.getUuid(), userEmail).getInspireidLocalid();
                 context.getValidationErrors().addGlobalError(new LocalizableError("measure.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));

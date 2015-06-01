@@ -70,7 +70,7 @@ public class EditEvaluationActionBean extends BaseEvaluationActionBean {
     public Resolution save() throws Exception {
         String newLocalId = evaluation.getInspireidLocalid();
         try {
-            evaluationManager.saveEvaluationScenarioDraft(evaluation);
+            evaluationManager.saveEvaluationScenarioDraft(evaluation, email);
         } catch (EvaluationscenarioINSPIRELocalIDAlreadyExistingException e) {
             String oldLocalId = evaluationManager.getEvaluationscenarioByID(evaluation.getUuid(), email).getInspireidLocalid();
             context.getValidationErrors().addGlobalError(new LocalizableError("evaluation.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));

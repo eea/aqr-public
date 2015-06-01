@@ -126,6 +126,7 @@ public class SourceapportionmentManager {
 
         sourceapportionment.setComment("");
         sourceapportionment.setUsers(user);
+        sourceapportionment.setUserlastupdate(user);
         sourceapportionment.setCompleted(Boolean.FALSE);
 
         sourceapportionment.setDatecreation(new Date());
@@ -197,7 +198,7 @@ public class SourceapportionmentManager {
 
                 List<Sourceapportionment> results = (List<Sourceapportionment>) q.getResultList();
                 for (Sourceapportionment sourceapportionment : results) {
-                    sourceapportionmentBeanList.add(SourceapportionmentWrapper.convertSourceapportionmentInSourceapportionmentBean(sourceapportionment, userSourceapportionment));
+                    sourceapportionmentBeanList.add(SourceapportionmentWrapper.convertSourceapportionmentInSourceapportionmentBeanTableView(sourceapportionment, userSourceapportionment));
                 }
             }
         } else {
@@ -205,7 +206,7 @@ public class SourceapportionmentManager {
 
             List<Sourceapportionment> results = (List<Sourceapportionment>) q.getResultList();
             for (Sourceapportionment sourceapportionment : results) {
-                sourceapportionmentBeanList.add(SourceapportionmentWrapper.convertSourceapportionmentInSourceapportionmentBean(sourceapportionment, userSourceapportionment));
+                sourceapportionmentBeanList.add(SourceapportionmentWrapper.convertSourceapportionmentInSourceapportionmentBeanTableView(sourceapportionment, userSourceapportionment));
             }
         }
 
@@ -370,6 +371,7 @@ public class SourceapportionmentManager {
 
         em.persist(cloneProvider);
         cloneSourceapportionment.setUsers(user);
+        cloneSourceapportionment.setUserlastupdate(user);
 
         cloneSourceapportionment.setChanges(sourceapportionment.isChanges());
         cloneSourceapportionment.setDescriptionofchanges(sourceapportionment.getDescriptionofchanges());
@@ -878,7 +880,7 @@ public class SourceapportionmentManager {
      * @throws
      * eu.europa.ec.aqrexception.SourceapportionmentINSPIRELocalIDAlreadyExistingException
      */
-    public void saveSourceapportionmentDraft(SourceapportionmentBean sourceapportionmentBean) throws Exception, SourceapportionmentINSPIRELocalIDAlreadyExistingException {
+    public void saveSourceapportionmentDraft(SourceapportionmentBean sourceapportionmentBean, String emailUserEdit) throws Exception, SourceapportionmentINSPIRELocalIDAlreadyExistingException {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
@@ -916,6 +918,10 @@ public class SourceapportionmentManager {
             }
         } else {
             sourceapportionment.setInspireidLocalid("");
+        }
+
+        if (sourceapportionmentINSPIRELocalIDAlreadyExisting) {
+            throw new SourceapportionmentINSPIRELocalIDAlreadyExistingException();
         }
 
         if (sourceapportionmentBean.getInspireidNamespace() != null) {
@@ -1010,13 +1016,14 @@ public class SourceapportionmentManager {
             sourceapportionment.setAttainment(null);
         }
 
+        query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + emailUserEdit + "')";
+        q = em.createQuery(query);
+        Users useredit = (Users) q.getSingleResult();
+        sourceapportionment.setUserlastupdate(useredit);
+
         em.merge(provider);
         em.merge(sourceapportionment);
         emc.commitAndCloseTransaction(em);
-
-        if (sourceapportionmentINSPIRELocalIDAlreadyExisting) {
-            throw new SourceapportionmentINSPIRELocalIDAlreadyExistingException();
-        }
     }
 
     private void saveUrbanbackground(Urbanbackground urbanbackground, SourceapportionmentBean sourceapportionmentBean, EntityManager em) {
@@ -2188,7 +2195,7 @@ public class SourceapportionmentManager {
      * @return a list of all the completed sourceapportionment for the user's
      * country
      */
-    public List<SourceapportionmentBean> getAllCompletedsourceApportionmentByUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
+    public List<SourceapportionmentBean> getAllCompletedsourceApportionmentByCountryOfTheActualUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
         List<SourceapportionmentBean> sourceapportionmentBeanList = new ArrayList<SourceapportionmentBean>();
 
         EntityManagerCustom emc = new EntityManagerCustom();

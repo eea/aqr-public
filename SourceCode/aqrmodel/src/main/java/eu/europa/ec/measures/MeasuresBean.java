@@ -109,6 +109,7 @@ public class MeasuresBean implements HeaderInterface {
      */
     private List<String> evaluationscenarioBeanList;
     private UserBean userBean;
+    private UserBean userLastUpdateBean;
 
     public MeasuresBean() {
     }
@@ -416,5 +417,13 @@ public class MeasuresBean implements HeaderInterface {
 
     public UserBean getUserBean() {
         return userBean;
+    }
+
+    public UserBean getUserLastUpdateBean() {
+        return userLastUpdateBean;
+    }
+
+    public void setUserLastUpdateBean(UserBean userLastUpdateBean) {
+        this.userLastUpdateBean = userLastUpdateBean;
     }
 }

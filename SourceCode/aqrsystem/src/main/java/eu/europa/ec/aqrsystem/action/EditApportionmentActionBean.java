@@ -76,7 +76,7 @@ public class EditApportionmentActionBean extends BaseApportionmentActionBean {
     public Resolution save() throws Exception {
         String newLocalId = source.getInspireidLocalid();
         try {
-            sourceManager.saveSourceapportionmentDraft(source);
+            sourceManager.saveSourceapportionmentDraft(source, email);
         } catch (SourceapportionmentINSPIRELocalIDAlreadyExistingException e) {
             String oldLocalId = sourceManager.getSourceapportionmentByID(source.getUuid(), email).getInspireidLocalid();
             context.getValidationErrors().addGlobalError(new LocalizableError("source.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));

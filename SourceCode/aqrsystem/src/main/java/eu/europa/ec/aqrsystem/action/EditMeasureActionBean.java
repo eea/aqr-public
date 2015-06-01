@@ -79,7 +79,7 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
     public Resolution save() throws Exception {
         String newLocalId = measure.getInspireidLocalid();
         try {
-            measuresManager.saveMeasuresDraft(measure);
+            measuresManager.saveMeasuresDraft(measure, email);
         } catch (MeasuresINSPIRELocalIDAlreadyExistingException e) {
             String oldLocalId = measuresManager.getMeasureByID(measure.getUuid(), email).getInspireidLocalid();
             context.getValidationErrors().addGlobalError(new LocalizableError("measure.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));
@@ -236,6 +236,8 @@ public class EditMeasureActionBean extends BaseMeasureActionBean {
      */
     public List<MeasuretypeBean> getPossibleTypes() {
         if (possibleTypes == null) {
+//            CustomLocalePicker lp = new CustomLocalePicker();
+//            String currentLanguge = lp.getLocaleCode(context.getRequest());
             possibleTypes = measuresManager.getAllMeasuretype();
         }
         return possibleTypes;

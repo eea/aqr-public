@@ -97,6 +97,7 @@ public class EvaluationScenarioManager {
 
         evaluationscenario.setCompleted(false);
         evaluationscenario.setUsers(user);
+        evaluationscenario.setUserlastupdate(user);
 
         RelatedpartyWrapper relatedpartyWrapper = new RelatedpartyWrapper();
         Relatedparty provider = relatedpartyWrapper.createDraftProviderFromUser(evaluationScenarioUuid, user);
@@ -165,7 +166,7 @@ public class EvaluationScenarioManager {
 
                 List<Evaluationscenario> results = (List<Evaluationscenario>) q.getResultList();
                 for (Evaluationscenario evaluationscenario : results) {
-                    evaluationscenarioBeanList.add(EvaluationscenarioWrapper.convertEvaluationscenarioInEvaluationscenarioBean(evaluationscenario, userEvaluationscenario));
+                    evaluationscenarioBeanList.add(EvaluationscenarioWrapper.convertEvaluationscenarioInEvaluationscenarioBeanTableView(evaluationscenario, userEvaluationscenario));
                 }
             }
         } else {
@@ -173,7 +174,7 @@ public class EvaluationScenarioManager {
 
             List<Evaluationscenario> results = (List<Evaluationscenario>) q.getResultList();
             for (Evaluationscenario evaluationscenario : results) {
-                evaluationscenarioBeanList.add(EvaluationscenarioWrapper.convertEvaluationscenarioInEvaluationscenarioBean(evaluationscenario, userEvaluationscenario));
+                evaluationscenarioBeanList.add(EvaluationscenarioWrapper.convertEvaluationscenarioInEvaluationscenarioBeanTableView(evaluationscenario, userEvaluationscenario));
             }
         }
 
@@ -224,6 +225,7 @@ public class EvaluationScenarioManager {
 
         cloneEvaluationscenario.setCompleted(evaluationScenario.getCompleted());
         cloneEvaluationscenario.setUsers(userWhichClone);
+        cloneEvaluationscenario.setUserlastupdate(userWhichClone);
 
         cloneEvaluationscenario.setDatecreation(new Date());
         cloneEvaluationscenario.setDatelastupdate(new Date());
@@ -371,7 +373,7 @@ public class EvaluationScenarioManager {
      * @throws
      * eu.europa.ec.aqrexception.EvaluationscenarioINSPIRELocalIDAlreadyExistingException
      */
-    public void saveEvaluationScenarioDraft(EvaluationscenarioBean evaluationscenarioBean) throws Exception, EvaluationscenarioINSPIRELocalIDAlreadyExistingException {
+    public void saveEvaluationScenarioDraft(EvaluationscenarioBean evaluationscenarioBean, String emailUserEdit) throws Exception, EvaluationscenarioINSPIRELocalIDAlreadyExistingException {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
@@ -409,6 +411,10 @@ public class EvaluationScenarioManager {
             }
         } else {
             evaluationscenario.setInspireidLocalid("");
+        }
+
+        if (evaluationscenarioINSPIRELocalIDAlreadyExisting) {
+            throw new EvaluationscenarioINSPIRELocalIDAlreadyExistingException();
         }
 
         if (evaluationscenarioBean.getInspireidNamespace() != null) {
@@ -523,12 +529,13 @@ public class EvaluationScenarioManager {
             evaluationscenario.setSourceapportionment(null);
         }
 
+        query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + emailUserEdit + "')";
+        q = em.createQuery(query);
+        Users useredit = (Users) q.getSingleResult();
+        evaluationscenario.setUserlastupdate(useredit);
+
         em.merge(evaluationscenario);
         emc.commitAndCloseTransaction(em);
-
-        if (evaluationscenarioINSPIRELocalIDAlreadyExisting) {
-            throw new EvaluationscenarioINSPIRELocalIDAlreadyExistingException();
-        }
     }
 
     private void updateScenario(ScenarioBean scenarioBean, Scenario scenario, EntityManager em) throws Exception {
@@ -893,7 +900,7 @@ public class EvaluationScenarioManager {
      * @return a list of all the completed Evaluationscenario for the user's
      * country
      */
-    public List<EvaluationscenarioBean> getAllCompletedEvaluationscenarioByUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
+    public List<EvaluationscenarioBean> getAllCompletedEvaluationscenarioByCountryOfTheActualUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
         List<EvaluationscenarioBean> evaluationscenarioBeanList = new ArrayList<EvaluationscenarioBean>();
 
         EntityManagerCustom emc = new EntityManagerCustom();

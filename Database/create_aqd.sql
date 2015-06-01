@@ -388,9 +388,9 @@ CREATE TABLE scenario
 (
 	uuid character varying(250) NOT NULL,
 	
-	inspireId_localId character varying(45) NOT NULL,
-	inspireId_namespace character varying(45) NOT NULL,
-	inspireId_versionId character varying(50) NOT NULL,
+	inspireId_localId character varying(100) NOT NULL,
+	inspireId_namespace character varying(100) NOT NULL,
+	inspireId_versionId character varying(100) NOT NULL,
 	
 	description character varying(1000) NOT NULL,
 	totalEmissions character varying(50) NOT NULL,
@@ -748,6 +748,7 @@ CREATE TABLE measures
 	provider character varying(250) NOT NULL,
 	
 	users character varying(250) NOT NULL,
+	userlastupdate character varying(250),
 	
 	code character varying(200) NOT NULL,
 	name character varying(200) NOT NULL,
@@ -784,6 +785,9 @@ CREATE TABLE measures
 	
 	CONSTRAINT pk_measures PRIMARY KEY (uuid),
 	CONSTRAINT fk_measures_users FOREIGN KEY (users) 
+		REFERENCES users (uuid) MATCH SIMPLE 
+		ON UPDATE NO ACTION ON DELETE NO ACTION,
+	CONSTRAINT fk_measureslastupdate_users FOREIGN KEY (userlastupdate) 
 		REFERENCES users (uuid) MATCH SIMPLE 
 		ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT fk_measures_provider FOREIGN KEY (provider) 
@@ -860,6 +864,7 @@ CREATE TABLE plan
 	provider character varying(250) NOT NULL,
 	competentauthority character varying(250) NOT NULL,
 	users character varying(250) NOT NULL,
+	userlastupdate character varying(250),
 	
 	firstExceedanceYear_id character varying(50) NOT NULL,
 	firstExceedanceYear_timePosition character varying(4) NOT NULL,
@@ -885,6 +890,9 @@ CREATE TABLE plan
 	
 	CONSTRAINT pk_plan  PRIMARY KEY (uuid),
 	CONSTRAINT fk_plan_users FOREIGN KEY (users) 
+		REFERENCES users (uuid) MATCH SIMPLE 
+		ON UPDATE NO ACTION ON DELETE NO ACTION,
+	CONSTRAINT fk_planlastupdate_users FOREIGN KEY (userlastupdate) 
 		REFERENCES users (uuid) MATCH SIMPLE 
 		ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT fk_plan_provider FOREIGN KEY (provider) 
@@ -938,6 +946,9 @@ CREATE TABLE sourceapportionment
 	CONSTRAINT fk_sourceapportionment_users FOREIGN KEY (users) 
 		REFERENCES users (uuid) MATCH SIMPLE 
 		ON UPDATE NO ACTION ON DELETE NO ACTION,
+	CONSTRAINT fk_sourceapportionmentlastupdate_users FOREIGN KEY (userlastupdate) 
+		REFERENCES users (uuid) MATCH SIMPLE 
+		ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT fk_sourceapportionment_provider FOREIGN KEY (provider) 
 		REFERENCES relatedparty (uuid) MATCH SIMPLE 
 		ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -973,6 +984,7 @@ CREATE TABLE evaluationscenario
 	
 	provider character varying(250) NOT NULL,
 	users character varying(250) NOT NULL,
+	userlastupdate character varying(250),
 	
 	codeOfScenario character varying(250) NOT NULL,
 	
@@ -999,6 +1011,9 @@ CREATE TABLE evaluationscenario
     datelastupdate timestamp without time zone,
 	CONSTRAINT pk_evaluationscenario  PRIMARY KEY (uuid),
 	CONSTRAINT fk_evaluationscenario_users FOREIGN KEY (users) 
+		REFERENCES users (uuid) MATCH SIMPLE 
+		ON UPDATE NO ACTION ON DELETE NO ACTION,
+	CONSTRAINT fk_pk_evaluationscenariolastupdate_users FOREIGN KEY (userlastupdate) 
 		REFERENCES users (uuid) MATCH SIMPLE 
 		ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT fk_evaluationscenario_provider FOREIGN KEY (provider) 

@@ -604,8 +604,8 @@ public class MeasuresManager {
         plannedimplementation.setStatusplannedimplementation(null);
 
         plannedimplementation.setImplementationplannedtimeperiodId("");
-        plannedimplementation.setImplementationplannedtimeperiodBeginposition("");
-        plannedimplementation.setImplementationplannedtimeperiodEndposition("");
+        plannedimplementation.setImplementationplannedtimeperiodBeginposition("9999-01-01");
+        plannedimplementation.setImplementationplannedtimeperiodEndposition("9999-01-01");
         plannedimplementation.setPlannedfulleffectdateTimepositionNil(Boolean.FALSE);
 
         plannedimplementation.setPlannedfulleffectdateId("");
@@ -629,6 +629,7 @@ public class MeasuresManager {
         measures.setName("");
         measures.setDescription("");
         measures.setUsers(user);
+        measures.setUserlastupdate(user);
 
         RelatedpartyWrapper relatedpartyWrapper = new RelatedpartyWrapper();
         Relatedparty provider = relatedpartyWrapper.createDraftProviderFromUser(measuresUuid, user);
@@ -803,6 +804,7 @@ public class MeasuresManager {
         em.persist(cloneProvider);
 
         cloneMeasures.setUsers(user);
+        cloneMeasures.setUserlastupdate(user);
 
         /**
          * Measuretype
@@ -995,7 +997,7 @@ public class MeasuresManager {
 
                 List<Measures> results = (List<Measures>) q.getResultList();
                 for (Measures measures : results) {
-                    measuresBeanList.add(MeasuresWrapper.convertMeasuresInMeasuresBean(measures, userMeasures));
+                    measuresBeanList.add(MeasuresWrapper.convertMeasuresInMeasuresBeanTableView(measures, userMeasures));
                 }
             }
         } else {
@@ -1003,7 +1005,7 @@ public class MeasuresManager {
 
             List<Measures> results = (List<Measures>) q.getResultList();
             for (Measures measures : results) {
-                measuresBeanList.add(MeasuresWrapper.convertMeasuresInMeasuresBean(measures, userMeasures));
+                measuresBeanList.add(MeasuresWrapper.convertMeasuresInMeasuresBeanTableView(measures, userMeasures));
             }
         }
 
@@ -1078,7 +1080,7 @@ public class MeasuresManager {
      * @throws
      * eu.europa.ec.aqrexception.MeasuresINSPIRELocalIDAlreadyExistingException
      */
-    public void saveMeasuresDraft(MeasuresBean measuresBean) throws Exception, MeasuresINSPIRELocalIDAlreadyExistingException {
+    public void saveMeasuresDraft(MeasuresBean measuresBean, String emailUserEdit) throws Exception, MeasuresINSPIRELocalIDAlreadyExistingException {
         EntityManagerCustom emc = new EntityManagerCustom();
         EntityManager em = emc.getEntityManager();
 
@@ -1119,6 +1121,11 @@ public class MeasuresManager {
         } else {
             measures.setInspireidLocalid("");
         }
+
+        if (measuresINSPIRELocalIDAlreadyExisting) {
+            throw new MeasuresINSPIRELocalIDAlreadyExistingException();
+        }
+
         if (measuresBean.getInspireidNamespace() != null) {
             measures.setInspireidNamespace(measuresBean.getInspireidNamespace());
         } else {
@@ -1563,12 +1570,13 @@ public class MeasuresManager {
             q.executeUpdate();
         }
 
+        query = "SELECT u FROM Users u WHERE UPPER(u.email) LIKE UPPER('" + emailUserEdit + "')";
+        q = em.createQuery(query);
+        Users useredit = (Users) q.getSingleResult();
+        measures.setUserlastupdate(useredit);
+
         em.merge(measures);
         emc.commitAndCloseTransaction(em);
-
-        if (measuresINSPIRELocalIDAlreadyExisting) {
-            throw new MeasuresINSPIRELocalIDAlreadyExistingException();
-        }
     }
 
     /**
@@ -1819,7 +1827,7 @@ public class MeasuresManager {
      * @param userEmail
      * @return a list of all the completed measures for the user's country
      */
-    public List<MeasuresBean> getAllCompletedMeasuresByUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
+    public List<MeasuresBean> getAllCompletedMeasuresByCountryOfTheActualUser(String userEmail, boolean completed, Date fromDate, Date toDate) {
         List<MeasuresBean> measuresBeanList = new ArrayList<MeasuresBean>();
 
         EntityManagerCustom emc = new EntityManagerCustom();

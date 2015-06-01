@@ -43,8 +43,9 @@ public class LocalisationActionBean extends BaseActionBean {
         CustomLocalePicker lp = new CustomLocalePicker();
         lp.setLocale(context.getRequest(), currentLanguage);
         res = lp.getLocalisationBundle(context.getRequest());
+        
         if (currentLanguage != null && res != null) {
-            ErrorMessageInterceptor.setLanguageNotSupportedMessage(!currentLanguage.equals("en") && res.getString("common.langsupported").equals("no"));
+            ErrorMessageInterceptor.setLanguageNotSupportedMessage((!currentLanguage.equals("en") || !currentLanguage.equals("es")) && res.getString("common.langsupported").equals("no"));
         }
 
         String currentURL = context.getRequest().getHeader("referer");
