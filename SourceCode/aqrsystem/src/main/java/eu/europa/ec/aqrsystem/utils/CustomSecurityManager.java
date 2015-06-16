@@ -88,14 +88,11 @@ public class CustomSecurityManager extends InstanceBasedSecurityManager implemen
      * @return The email address
      */
     public static String getEmail(ActionBeanContext context) {
-//        org.jasig.services.persondir.support.jdbc.SingleRowJdbcPersonAttributeDao
-//        Principal detailedUser = context.getRequest().getUserPrincipal();
         DetailedUser detailedUser = (DetailedUser) context.getRequest().getUserPrincipal();
         if (detailedUser == null) {
             return null;
         }
         return detailedUser.getEmail();
-//        return detailedUser.getName();
     }
 
     /**
