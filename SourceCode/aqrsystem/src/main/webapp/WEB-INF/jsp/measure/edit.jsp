@@ -8,6 +8,7 @@
             <legend class="measures">${res['description.label.edit']}</legend>
             <p>${res['measure.description.model']}</p>
             <p align="right">${res['fields.marked']}</p>
+            <p align="right">${res['fields.conditional']}</p>
         </fieldset>  
 
         <s:form class="${actionBean.measure.editable ? 'protected' : ''}" beanclass="eu.europa.ec.aqrsystem.action.EditMeasureActionBean">
@@ -99,7 +100,7 @@
             </fieldset>
 
             <fieldset>
-                <legend class="measures">${res['measure.legend.cost']}</legend>
+                <legend class="measures" title="${res['measure.legend.cost.blue.star']}">${res['measure.legend.cost']} <font color="blue">*</font></legend>
                 <s:link beanclass="eu.europa.ec.aqrsystem.action.CostActionBean" event="reloadView" id="reload-view-link">
                     <s:param name="measureId" value="${actionBean.measureId}"/>
                     <div class="hidden"></div>
@@ -180,7 +181,7 @@
             </fieldset>
 
             <fieldset>
-                <legend class="measures">${res['measure.legend.expectedimpact']}</legend>	
+                <legend class="measures" title="${res['measure.legend.expectedimpact.title']}">${res['measure.legend.expectedimpact']} <font color="blue">*</font></legend>	
 
                 <cust:field key="measure.expectedimpactBean.levelofconcentration" optional="true"/>
                 <br/>

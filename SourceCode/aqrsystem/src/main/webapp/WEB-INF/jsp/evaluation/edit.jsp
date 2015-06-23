@@ -8,6 +8,7 @@
             <legend class="evsc">${res['description.label.edit']}</legend>
             <p>${res['evaluation.description.model']}</p>
             <p align="right">${res['fields.marked']}</p>
+            <p align="right">${res['fields.conditional']}</p>
         </fieldset>  
 
         <s:form class="${actionBean.evaluation.editable ? 'protected' : ''}" beanclass="eu.europa.ec.aqrsystem.action.EditEvaluationActionBean">

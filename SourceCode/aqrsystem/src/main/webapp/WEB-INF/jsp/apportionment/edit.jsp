@@ -8,6 +8,7 @@
             <legend class="sourceapp">${res['description.label.edit']}</legend>
             <p>${res['source.description.model']}</p>
             <p align="right">${res['fields.marked']}</p>
+            <p align="right">${res['fields.conditional']}</p>
         </fieldset>  
 
         <s:form class="${actionBean.source.editable ? 'protected' : ''}" beanclass="eu.europa.ec.aqrsystem.action.EditApportionmentActionBean">
@@ -204,71 +205,72 @@
                 <cust:label key="source.exceedancedescriptionBean.exceedance"/><s:checkbox name="source.exceedancedescriptionBean.exceedance"/><br/>
                 <cust:field key="source.exceedancedescriptionBean.numericalexceedance" optional="true"/>
                 <cust:field key="source.exceedancedescriptionBean.numberexceedances" optional="true"/>
-            </fieldset>
 
-            <fieldset>
-                <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.deductionassessmentmethodBean']}</legend>
-                <security:allowed event="save">
-                    <s:link beanclass="eu.europa.ec.aqrsystem.action.AssessmentActionBean" event="form" id="new-ass-btn" class="ftm insert btn">
-                        <s:param name="sourceId" value="${actionBean.sourceId}"/>
-                        ${res['source.button.addnewassessment']}
-                    </s:link>
+                <br/>
+
+                <fieldset>
+                    <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.deductionassessmentmethodBean']}</legend>
+                    <security:allowed event="save">
+                        <s:link beanclass="eu.europa.ec.aqrsystem.action.AssessmentActionBean" event="form" id="new-ass-btn" class="ftm insert btn">
+                            <s:param name="sourceId" value="${actionBean.sourceId}"/>
+                            ${res['source.button.addnewassessment']}
+                        </s:link>
+                        <br/><br/>
+                    </security:allowed>
+                    <div>${res['source.exceedancedescriptionBean.deductionassessmentmethodBean.legend.assessmentmethod']}</div>
+                    <s:url var="loadTableURL" beanclass="eu.europa.ec.aqrsystem.action.AssessmentActionBean" event="table">
+                        <s:param name="sourceId" value="${actionBean.source.uuid}"/>
+                    </s:url>
+                    <cust:ajaxtable>
+                        <jsp:attribute name="tableId">assessmentGUI</jsp:attribute>
+                        <jsp:attribute name="loadTableURL">${loadTableURL}</jsp:attribute>
+                        <jsp:attribute name="sorting_column">0</jsp:attribute>
+                        <jsp:attribute name="sorting_order">asc</jsp:attribute>
+                        <jsp:attribute name="newItemDialogHeight">380</jsp:attribute>
+                        <jsp:attribute name="newItemDialogWidth">650</jsp:attribute>
+                        <jsp:attribute name="newItemDialogTitle">${res['assessment.dialog.title']}</jsp:attribute>
+                        <jsp:attribute name="addNewItemButtonId">new-ass-btn</jsp:attribute>
+                    </cust:ajaxtable>
                     <br/><br/>
-                </security:allowed>
-                <div>${res['source.exceedancedescriptionBean.deductionassessmentmethodBean.legend.assessmentmethod']}</div>
-                <s:url var="loadTableURL" beanclass="eu.europa.ec.aqrsystem.action.AssessmentActionBean" event="table">
-                    <s:param name="sourceId" value="${actionBean.source.uuid}"/>
-                </s:url>
-                <cust:ajaxtable>
-                    <jsp:attribute name="tableId">assessmentGUI</jsp:attribute>
-                    <jsp:attribute name="loadTableURL">${loadTableURL}</jsp:attribute>
-                    <jsp:attribute name="sorting_column">0</jsp:attribute>
-                    <jsp:attribute name="sorting_order">asc</jsp:attribute>
-                    <jsp:attribute name="newItemDialogHeight">380</jsp:attribute>
-                    <jsp:attribute name="newItemDialogWidth">650</jsp:attribute>
-                    <jsp:attribute name="newItemDialogTitle">${res['assessment.dialog.title']}</jsp:attribute>
-                    <jsp:attribute name="addNewItemButtonId">new-ass-btn</jsp:attribute>
-                </cust:ajaxtable>
-                <br/><br/>
-                <cust:label key="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmenttype_uri" optional="true"/>
-                <s:select name="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmenttype_uri">
-                    <s:option value="">None</s:option>
-                    <s:options-collection collection="${actionBean.possibleAdjustmentTypes}" value="uri" label="label"/>
-                </s:select>
-                <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype"/>
-                <cust:label key="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmentsourceList_uri" optional="true"/>
-                <s:select name="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmentsourceList_uri" multiple="true" class="multi">
-                    <s:options-collection collection="${actionBean.possibleAdjustmentSources}" value="uri" label="label"/>
-                </s:select>
-                <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype"/>
-            </fieldset>
+                    <cust:label key="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmenttype_uri" optional="true"/>
+                    <s:select name="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmenttype_uri">
+                        <s:option value="">None</s:option>
+                        <s:options-collection collection="${actionBean.possibleAdjustmentTypes}" value="uri" label="label"/>
+                    </s:select>
+                    <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype"/>
+                    <cust:label key="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmentsourceList_uri" optional="true"/>
+                    <s:select name="source.exceedancedescriptionBean.deductionassessmentmethodBean.adjustmentsourceList_uri" multiple="true" class="multi">
+                        <s:options-collection collection="${actionBean.possibleAdjustmentSources}" value="uri" label="label"/>
+                    </s:select>
+                    <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype"/>
+                </fieldset>
 
-            <fieldset>
-                <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedanceareaBean']}</legend>
+                <fieldset>
+                    <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedanceareaBean']}</legend>
 
-                <cust:label key="source.exceedancedescriptionBean.exceedanceareaBean.areaclassificationList_uri"/>
-                <s:select name="source.exceedancedescriptionBean.exceedanceareaBean.areaclassificationList_uri" multiple="true" class="multi">
-                    <s:options-collection collection="${actionBean.possibleClassifications}" value="uri" label="label"/>
-                </s:select>
-                <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/areaclassification"/>
-                <!--cust:field key="source.exceedancedescriptionBean.exceedanceareaBean.area" optional="true"/-->
-                <cust:field key="source.exceedancedescriptionBean.exceedanceareaBean.areaestimate" optional="true"/>
-                <cust:field key="source.exceedancedescriptionBean.exceedanceareaBean.roadlenghtestimate" optional="true"/>
-                <cust:tagItField key="source.exceedancedescriptionBean.exceedanceareaBean.stationused" optional="true"/>
-                <cust:tagItField key="source.exceedancedescriptionBean.exceedanceareaBean.modelused" optional="true"/>
-            </fieldset>
+                    <cust:label key="source.exceedancedescriptionBean.exceedanceareaBean.areaclassificationList_uri"/>
+                    <s:select name="source.exceedancedescriptionBean.exceedanceareaBean.areaclassificationList_uri" multiple="true" class="multi">
+                        <s:options-collection collection="${actionBean.possibleClassifications}" value="uri" label="label"/>
+                    </s:select>
+                    <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/areaclassification"/>
+                    <!--cust:field key="source.exceedancedescriptionBean.exceedanceareaBean.area" optional="true"/-->
+                    <cust:field key="source.exceedancedescriptionBean.exceedanceareaBean.areaestimate" optional="true"/>
+                    <cust:field key="source.exceedancedescriptionBean.exceedanceareaBean.roadlenghtestimate" optional="true"/>
+                    <cust:tagItField key="source.exceedancedescriptionBean.exceedanceareaBean.stationused" optional="true"/>
+                    <cust:tagItField key="source.exceedancedescriptionBean.exceedanceareaBean.modelused" optional="true"/>
+                </fieldset>
 
-            <fieldset>
-                <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedenceexposureBean']}</legend>
-                <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.exposedpopulation" optional="true"/>
-                <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.exposedarea" optional="true"/>
-                <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.sensitiveresidentpopulation" optional="true"/>
-                <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.relevantinfrastructure" optional="true"/>
-                <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.referenceyear" optional="true"/>
-            </fieldset>
+                <fieldset>
+                    <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedenceexposureBean']}</legend>
+                    <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.exposedpopulation" optional="true"/>
+                    <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.exposedarea" optional="true"/>
+                    <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.sensitiveresidentpopulation" optional="true"/>
+                    <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.relevantinfrastructure" optional="true"/>
+                    <cust:field key="source.exceedancedescriptionBean.exceedenceexposureBean.referenceyear" optional="true"/>
+                </fieldset>
 
-            <fieldset>
-                <legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedancedescription.continuation']}</legend>
+                <!--<fieldset>-->
+                    <!--<legend class="sourceapp">${res['source.exceedancedescriptionBean.legend.exceedancedescription.continuation']}</legend> --!>
 
                 <cust:label key="source.exceedancedescriptionBean.reasonvalueList_uri" optional="true"/>
                 <s:select name="source.exceedancedescriptionBean.reasonvalueList_uri" multiple="true" class="multi">
@@ -277,6 +279,8 @@
                 <cust:valuesfrom href="http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason"/>
                 <cust:field key="source.exceedancedescriptionBean.otherreason" optional="true"/>
                 <cust:field key="source.exceedancedescriptionBean.comment" optional="true"/>
+                <!--</fieldset>-->
+
             </fieldset>
 
             <fieldset>

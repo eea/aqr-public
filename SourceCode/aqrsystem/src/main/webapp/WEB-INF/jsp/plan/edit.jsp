@@ -8,6 +8,7 @@
             <legend class="plan">${res['description.label.edit']}</legend>
             <p>${res['plan.description.model']}</p>
             <p align="right">${res['fields.marked']}</p>
+            <p align="right">${res['fields.conditional']}</p>
         </fieldset>  
 
         <s:form class="${actionBean.plan.editable ? 'protected' : ''}" beanclass="eu.europa.ec.aqrsystem.action.EditPlanActionBean">

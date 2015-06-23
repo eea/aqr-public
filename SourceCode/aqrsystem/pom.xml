@@ -5,7 +5,7 @@
 
     <groupId>eu.europa.ec</groupId>
     <artifactId>aqrsystem</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>war</packaging>
     <name>aqrsystem</name>
     
@@ -27,7 +27,7 @@
             <url>file:${project.build.directory}/repository/</url>
         </repository>
     </distributionManagement>
-
+    
     <build>
         <plugins>
             <plugin>
@@ -144,7 +144,19 @@
             <artifactId>ecas-tomcat-5.5</artifactId>
             <version>3.6.3</version>
             <scope>provided</scope> 
-        </dependency> 
+        </dependency>
+        <!--cas-->
+<!--        <dependency>
+            <groupId>org.jasig.cas</groupId>
+            <artifactId>cas-client-core</artifactId>
+            <version>3.1.10</version>
+        </dependency>-->
+<!--        <dependency>
+            <groupId>org.jasig.cas</groupId>
+            <artifactId>cas-server</artifactId>
+            <version>3.5.2.1</version>
+        </dependency>-->       
+        
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -216,6 +228,6 @@
                 <log.file.name>your_path_to_log_file/aqrsystem.log</log.file.name>
             </properties>
         </profile>
-        
+    
     </profiles>
 </project>
