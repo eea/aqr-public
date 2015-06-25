@@ -35,6 +35,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -59,6 +60,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Evaluationscenario.findByDatecreation", query = "SELECT e FROM Evaluationscenario e WHERE e.datecreation = :datecreation"),
     @NamedQuery(name = "Evaluationscenario.findByDatelastupdate", query = "SELECT e FROM Evaluationscenario e WHERE e.datelastupdate = :datelastupdate"),
     @NamedQuery(name = "Evaluationscenario.findAllByUser", query = "SELECT p FROM Evaluationscenario p WHERE p.users = :users"),
+    @NamedQuery(name = "Evaluationscenario.findAllByUserLastUpdate", query = "SELECT p FROM Evaluationscenario p WHERE p.userlastupdate = :userlastupdate"),
     @NamedQuery(name = "Evaluationscenario.findAllByUserInInterval", query = "SELECT p FROM Evaluationscenario p WHERE p.users = :users AND ((p.datecreation >= :fromDate AND p.datecreation <= :toDate) OR (p.datelastupdate >= :fromDate AND p.datelastupdate <= :toDate)) ORDER BY p.datecreation ASC"),
     @NamedQuery(name = "Evaluationscenario.deleteByUuid", query = "DELETE FROM Evaluationscenario m WHERE m.uuid = :uuid")
 })
@@ -135,6 +137,9 @@ public class Evaluationscenario implements Serializable {
     @JoinColumn(name = "users", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Users users;
+    @JoinColumn(name = "userlastupdate", referencedColumnName = "uuid")
+    @OneToOne
+    private Users userlastupdate;
 
     public Evaluationscenario() {
     }
@@ -355,6 +360,14 @@ public class Evaluationscenario implements Serializable {
 
     public void setUsers(Users users) {
         this.users = users;
+    }
+
+    public Users getUserlastupdate() {
+        return userlastupdate;
+    }
+
+    public void setUserlastupdate(Users userlastupdate) {
+        this.userlastupdate = userlastupdate;
     }
 
     @XmlTransient

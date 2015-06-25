@@ -40,6 +40,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -62,6 +63,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Measures.findByDatecreation", query = "SELECT m FROM Measures m WHERE m.datecreation = :datecreation"),
     @NamedQuery(name = "Measures.findByDatelastupdate", query = "SELECT m FROM Measures m WHERE m.datelastupdate = :datelastupdate"),
     @NamedQuery(name = "Measures.findAllByUser", query = "SELECT p FROM Measures p WHERE p.users = :users"),
+    @NamedQuery(name = "Measures.findAllByUserLastUpdate", query = "SELECT p FROM Measures p WHERE p.userlastupdate = :userlastupdate"),
     @NamedQuery(name = "Measures.findAllByUserInInterval", query = "SELECT p FROM Measures p WHERE p.users = :users AND ((p.datecreation >= :fromDate AND p.datecreation <= :toDate) OR (p.datelastupdate >= :fromDate AND p.datelastupdate <= :toDate)) ORDER BY p.datecreation ASC"),
     @NamedQuery(name = "Measures.deleteByUuid", query = "DELETE FROM Measures m WHERE m.uuid = :uuid")
 })
@@ -157,6 +159,9 @@ public class Measures implements Serializable {
     @JoinColumn(name = "users", referencedColumnName = "uuid")
     @ManyToOne(optional = false)
     private Users users;
+    @JoinColumn(name = "userlastupdate", referencedColumnName = "uuid")
+    @OneToOne
+    private Users userlastupdate;
 
     public Measures() {
     }
@@ -399,6 +404,14 @@ public class Measures implements Serializable {
 
     public void setUsers(Users users) {
         this.users = users;
+    }
+
+    public Users getUserlastupdate() {
+        return userlastupdate;
+    }
+
+    public void setUserlastupdate(Users userlastupdate) {
+        this.userlastupdate = userlastupdate;
     }
 
     @XmlTransient

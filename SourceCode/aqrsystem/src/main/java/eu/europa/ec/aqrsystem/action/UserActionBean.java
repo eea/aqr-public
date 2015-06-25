@@ -153,6 +153,7 @@ public class UserActionBean extends BaseSettingsActionBean {
 
         try {
             userManager.updateUserByUserID(user);
+
         } catch (EmailAlreadyInTheDBException e) {
             return ajaxError("user.duplicate.error");
         }

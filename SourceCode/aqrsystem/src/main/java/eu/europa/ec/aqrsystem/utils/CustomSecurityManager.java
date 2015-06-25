@@ -19,6 +19,7 @@
  */
 package eu.europa.ec.aqrsystem.utils;
 
+//import eu.cec.digit.ecas.client.jaas.DetailedUser;
 import eu.cec.digit.ecas.client.jaas.DetailedUser;
 import eu.europa.ec.user.UserBean;
 import eu.europa.ec.user.UserManager;

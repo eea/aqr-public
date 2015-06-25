@@ -31,7 +31,7 @@
         <!-- This defines the default locale -->
         <init-param>
             <param-name>LocalePicker.Locales</param-name>
-            <param-value>en</param-value>
+            <param-value>en,es</param-value>
         </init-param>
         <!-- This is to prevent the 'Input was not encrypted with the current encryption key' errors -->
         <init-param>

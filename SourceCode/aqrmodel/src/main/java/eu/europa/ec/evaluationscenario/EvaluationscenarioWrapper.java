@@ -83,18 +83,68 @@ public class EvaluationscenarioWrapper {
             evaluationscenarioBean.setSourceapportionment(null);
         }
 
-        if (!"0".equals(user.getUserrole().getUuid())) {
-            Users userEvaluationscenario = evaluationscenario.getUsers();
-            if (userEvaluationscenario.equals(user)) {
+        Users userEvaluationscenario = evaluationscenario.getUsers();
+        if ("0".equals(user.getUserrole().getUuid())) {
+            evaluationscenarioBean.setEditable(false);
+        } else if ("1".equals(user.getUserrole().getUuid())) {
+            if (user.getCountry().equals(userEvaluationscenario.getCountry())) {
                 evaluationscenarioBean.setEditable(true);
             } else {
                 evaluationscenarioBean.setEditable(false);
             }
         } else {
-            evaluationscenarioBean.setEditable(false);
+            if (user.equals(userEvaluationscenario)) {
+                evaluationscenarioBean.setEditable(true);
+            } else {
+                evaluationscenarioBean.setEditable(false);
+            }
         }
 
         evaluationscenarioBean.setUserBean(UserWrapper.convertUserInUserBean(evaluationscenario.getUsers()));
+        if (evaluationscenario.getUserlastupdate() == null) {
+            evaluationscenarioBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(evaluationscenario.getUsers()));
+        } else {
+            evaluationscenarioBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(evaluationscenario.getUserlastupdate()));
+        }
+
+        return evaluationscenarioBean;
+    }
+    
+    public static EvaluationscenarioBean convertEvaluationscenarioInEvaluationscenarioBeanTableView(Evaluationscenario evaluationscenario, Users user) {
+        EvaluationscenarioBean evaluationscenarioBean = new EvaluationscenarioBean();
+
+        evaluationscenarioBean.setUuid(evaluationscenario.getUuid());
+
+        evaluationscenarioBean.setInspireidLocalid(evaluationscenario.getInspireidLocalid());
+        evaluationscenarioBean.setCompleted(evaluationscenario.getCompleted());
+
+        evaluationscenarioBean.setDatecreation(evaluationscenario.getDatecreation());
+        evaluationscenarioBean.setDatelastupdate(evaluationscenario.getDatelastupdate());
+
+
+        Users userEvaluationscenario = evaluationscenario.getUsers();
+        if ("0".equals(user.getUserrole().getUuid())) {
+            evaluationscenarioBean.setEditable(false);
+        } else if ("1".equals(user.getUserrole().getUuid())) {
+            if (user.getCountry().equals(userEvaluationscenario.getCountry())) {
+                evaluationscenarioBean.setEditable(true);
+            } else {
+                evaluationscenarioBean.setEditable(false);
+            }
+        } else {
+            if (user.equals(userEvaluationscenario)) {
+                evaluationscenarioBean.setEditable(true);
+            } else {
+                evaluationscenarioBean.setEditable(false);
+            }
+        }
+
+        evaluationscenarioBean.setUserBean(UserWrapper.convertUserInUserBean(evaluationscenario.getUsers()));
+        if (evaluationscenario.getUserlastupdate() == null) {
+            evaluationscenarioBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(evaluationscenario.getUsers()));
+        } else {
+            evaluationscenarioBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(evaluationscenario.getUserlastupdate()));
+        }
 
         return evaluationscenarioBean;
     }

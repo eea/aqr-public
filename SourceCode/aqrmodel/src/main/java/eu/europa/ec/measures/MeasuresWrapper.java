@@ -228,18 +228,69 @@ public class MeasuresWrapper {
             measuresBean.setExpectedimpactBean(ExpectedimpactWrapper.convertExpectedimpactInExpectedimpactBean(expectedimpact));
         }
 
-        if (!"0".equals(user.getUserrole().getUuid())) {
-            Users userMeasures = measures.getUsers();
-            if (userMeasures.equals(user)) {
+        Users userMeasures = measures.getUsers();
+        if ("0".equals(user.getUserrole().getUuid())) {
+            measuresBean.setEditable(false);
+        } else if ("1".equals(user.getUserrole().getUuid())) {
+            if (user.getCountry().equals(userMeasures.getCountry())) {
                 measuresBean.setEditable(true);
             } else {
                 measuresBean.setEditable(false);
             }
         } else {
-            measuresBean.setEditable(false);
+            if (user.equals(userMeasures)) {
+                measuresBean.setEditable(true);
+            } else {
+                measuresBean.setEditable(false);
+            }
         }
 
         measuresBean.setUserBean(UserWrapper.convertUserInUserBean(measures.getUsers()));
+        if (measures.getUserlastupdate() == null) {
+            measuresBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(measures.getUsers()));
+        } else {
+            measuresBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(measures.getUserlastupdate()));
+        }
+
+
+        return measuresBean;
+    }
+    
+    public static MeasuresBean convertMeasuresInMeasuresBeanTableView(Measures measures, Users user) {
+        MeasuresBean measuresBean = new MeasuresBean();
+
+        measuresBean.setUuid(measures.getUuid());
+        measuresBean.setInspireidLocalid(measures.getInspireidLocalid());
+        measuresBean.setCompleted(measures.getCompleted());
+
+        measuresBean.setDatecreation(measures.getDatecreation());
+        measuresBean.setDatelastupdate(measures.getDatelastupdate());
+
+
+        Users userMeasures = measures.getUsers();
+        if ("0".equals(user.getUserrole().getUuid())) {
+            measuresBean.setEditable(false);
+        } else if ("1".equals(user.getUserrole().getUuid())) {
+            if (user.getCountry().equals(userMeasures.getCountry())) {
+                measuresBean.setEditable(true);
+            } else {
+                measuresBean.setEditable(false);
+            }
+        } else {
+            if (user.equals(userMeasures)) {
+                measuresBean.setEditable(true);
+            } else {
+                measuresBean.setEditable(false);
+            }
+        }
+
+        measuresBean.setUserBean(UserWrapper.convertUserInUserBean(measures.getUsers()));
+        if (measures.getUserlastupdate() == null) {
+            measuresBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(measures.getUsers()));
+        } else {
+            measuresBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(measures.getUserlastupdate()));
+        }
+
 
         return measuresBean;
     }

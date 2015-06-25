@@ -73,7 +73,7 @@ public class EditPlanActionBean extends BasePlanActionBean {
     public Resolution save() throws Exception {
         String newLocalId = plan.getInspireidLocalid();
         try {
-            planManager.savePlanDraft(plan);
+            planManager.savePlanDraft(plan, email);
         } catch (PlanINSPIRELocalIDAlreadyExistingException e) {
             String oldLocalId = planManager.getPlanByID(plan.getUuid(), email).getInspireidLocalid();
             context.getValidationErrors().addGlobalError(new LocalizableError("plan.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));

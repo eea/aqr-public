@@ -37,7 +37,7 @@
                     <label for="radio1" style="vertical-align: inherit; width: 100px">${res['common.completed']}</label>
 
                     <input type="radio" name="radio" value="all" style="width: 10px; display: inline">
-                    <label for="radio2" style="vertical-align: inherit; width: 200px">${res['common.all.completed.draft']}</label>
+                    <label for="radio2" style="vertical-align: inherit; width: 230px">${res['common.all.completed.draft']}</label>
 
                     <a class="ftm exportallcancel btn plan" style="float: right" onclick="closeDialog();">${res['common.cancel']}</a>
                     <s:submit name="exportall" style="display: none" id="exportAndClose" value="${res['plan.export']}" class="ftm export btn btn_dialog_save" onclick="closeDialog();"/>

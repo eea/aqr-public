@@ -28,7 +28,6 @@ import eu.europa.ec.attainment.AttainmentWrapper;
 import eu.europa.ec.sourceapprotionment.exceedancedescription.ExceedancedescriptionWrapper;
 import eu.europa.ec.aqrmodel.Sourceapportionment;
 import eu.europa.ec.aqrmodeluser.Users;
-import eu.europa.ec.user.UserBean;
 import eu.europa.ec.user.UserWrapper;
 
 public class SourceapportionmentWrapper {
@@ -53,16 +52,6 @@ public class SourceapportionmentWrapper {
         sourceapportionmentBean.setComment(sourceapportionment.getComment());
         sourceapportionmentBean.setCompleted(sourceapportionment.getCompleted());
 
-        if (user != null) {
-            Users userEvaluationscenario = sourceapportionment.getUsers();
-            if (userEvaluationscenario.equals(user)) {
-                sourceapportionmentBean.setEditable(true);
-            } else {
-                sourceapportionmentBean.setEditable(false);
-            }
-        } else {
-            sourceapportionmentBean.setEditable(true);
-        }
 
         sourceapportionmentBean.setProviderBean(RelatedpartyWrapper.convertRelatedpartyInRelatedpartyBean(sourceapportionment.getProvider()));
 
@@ -86,7 +75,70 @@ public class SourceapportionmentWrapper {
         } else {
             sourceapportionmentBean.setAttainmentBean(null);
         }
+        
+        Users userSource = sourceapportionment.getUsers();
+        if ("0".equals(user.getUserrole().getUuid())) {
+            sourceapportionmentBean.setEditable(false);
+        } else if ("1".equals(user.getUserrole().getUuid())) {
+            if (user.getCountry().equals(userSource.getCountry())) {
+                sourceapportionmentBean.setEditable(true);
+            } else {
+                sourceapportionmentBean.setEditable(false);
+            }
+        } else {
+            if (user.equals(userSource)) {
+                sourceapportionmentBean.setEditable(true);
+            } else {
+                sourceapportionmentBean.setEditable(false);
+            }
+        }
+        
         sourceapportionmentBean.setUserBean(UserWrapper.convertUserInUserBean(sourceapportionment.getUsers()));
+        if (sourceapportionment.getUserlastupdate() == null) {
+            sourceapportionmentBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(sourceapportionment.getUsers()));
+        } else {
+            sourceapportionmentBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(sourceapportionment.getUserlastupdate()));
+        }
+
+        return sourceapportionmentBean;
+
+    }
+
+    public static SourceapportionmentBean convertSourceapportionmentInSourceapportionmentBeanTableView(Sourceapportionment sourceapportionment, Users user) {
+        SourceapportionmentBean sourceapportionmentBean = new SourceapportionmentBean();
+
+        sourceapportionmentBean.setUuid(sourceapportionment.getUuid());
+
+        sourceapportionmentBean.setInspireidLocalid(sourceapportionment.getInspireidLocalid());
+        sourceapportionmentBean.setCompleted(sourceapportionment.getCompleted());
+        
+        sourceapportionmentBean.setDatecreation(sourceapportionment.getDatecreation());
+        sourceapportionmentBean.setDatelastupdate(sourceapportionment.getDatelastupdate());
+
+        Users userEvaluationscenario = sourceapportionment.getUsers();
+        if ("0".equals(user.getUserrole().getUuid())) {
+            sourceapportionmentBean.setEditable(false);
+        } else if ("1".equals(user.getUserrole().getUuid())) {
+            if (user.getCountry().equals(userEvaluationscenario.getCountry())) {
+                sourceapportionmentBean.setEditable(true);
+            } else {
+                sourceapportionmentBean.setEditable(false);
+            }
+        } else {
+            if (user.equals(userEvaluationscenario)) {
+                sourceapportionmentBean.setEditable(true);
+            } else {
+                sourceapportionmentBean.setEditable(false);
+            }
+        }
+
+        sourceapportionmentBean.setUserBean(UserWrapper.convertUserInUserBean(sourceapportionment.getUsers()));
+        if (sourceapportionment.getUserlastupdate() == null) {
+            sourceapportionmentBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(sourceapportionment.getUsers()));
+        } else {
+            sourceapportionmentBean.setUserLastUpdateBean(UserWrapper.convertUserInUserBean(sourceapportionment.getUserlastupdate()));
+        }
+
 
         return sourceapportionmentBean;
 

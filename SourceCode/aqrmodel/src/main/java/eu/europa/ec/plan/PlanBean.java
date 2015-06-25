@@ -55,6 +55,7 @@ public class PlanBean implements HeaderInterface {
     private String reportingenddate;
     private List<String> attainmentBeanList;
     private UserBean userBean;
+    private UserBean userLastUpdateBean;
 
     public PlanBean() {
     }
@@ -304,4 +305,13 @@ public class PlanBean implements HeaderInterface {
     public void setUserBean(UserBean userBean) {
         this.userBean = userBean;
     }
+
+    public UserBean getUserLastUpdateBean() {
+        return userLastUpdateBean;
+    }
+
+    public void setUserLastUpdateBean(UserBean userLastUpdateBean) {
+        this.userLastUpdateBean = userLastUpdateBean;
+    }
+    
 }

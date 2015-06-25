@@ -17,7 +17,7 @@ textarea{
     margin-bottom:8px;
     font-size: 12px;
     font-family: Arial,open-sans,sans-serif;
-    width:640px
+    width:69%;
 }
 a {
     color: #074B8C;
@@ -358,7 +358,7 @@ table tr td{
     line-height:32px;
     margin-right:10px;
     float:right;
-    background-position: -16px -20px
+    background-position: -16px -18px
 }
 .cancel {
     height:24px;
@@ -675,12 +675,12 @@ a.btn.measures:link{
 }*/
 .container label{
     display:inline-block;
-    width:250px;
+    width:30%;
     line-height:30px;
     vertical-align:top
 }
 .container input{
-    width:640px;
+    width:69%;
     margin-top:5px
 }
 .container select{
@@ -992,8 +992,14 @@ img.in_progress {
     width: 350px;
 }
 .container select {
+    width: 69%;
+    margin-left: -4px;
+}
+.multi{
     width: 644px;
     margin-left: -4px;
+    height: 150px;
+    /*font-size: 14px;*/
 }
 .dialog select {
     width: 354px;
@@ -1062,7 +1068,7 @@ img.in_progress {
     text-decoration: none;
 }
 ul.tagit {
-    width: 632px;
+    width: 68%;
     margin: 0px;
     margin-top: 5px;
     margin-left: 0px;

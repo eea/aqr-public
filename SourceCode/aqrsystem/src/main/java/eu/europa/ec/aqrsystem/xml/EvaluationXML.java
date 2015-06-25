@@ -79,7 +79,7 @@ public class EvaluationXML implements XMLSaveableObject {
         return this;
     }
 
-    public EvaluationXML populateMultiple(final List<EvaluationscenarioBean> evaluationscenarioBeans, final Date fromDate, final Date toDate, final String userEmail) {
+    public EvaluationXML populateMultiple(final List<EvaluationscenarioBean> evaluationscenarioBeans, final String fromDate, final String toDate, final String userEmail) {
         id = "Evaluation_Scenario";
 
         final UserManager userManager = new UserManager();
@@ -146,7 +146,7 @@ public class EvaluationXML implements XMLSaveableObject {
 
             @Override
             public String getReportingstartdate() {
-                return fromDate.toString();
+                return fromDate;
             }
 
             @Override
@@ -155,7 +155,7 @@ public class EvaluationXML implements XMLSaveableObject {
 
             @Override
             public String getReportingenddate() {
-                return toDate.toString();
+                return toDate;
             }
 
             @Override
@@ -204,7 +204,7 @@ public class EvaluationXML implements XMLSaveableObject {
 
             String newLocalId = scenario.getInspireidLocalid();
             try {
-                scenarioManager.saveEvaluationScenarioDraft(scenario);
+                scenarioManager.saveEvaluationScenarioDraft(scenario, userEmail);
             } catch (EvaluationscenarioINSPIRELocalIDAlreadyExistingException e) {
                 String oldLocalId = scenarioManager.getEvaluationscenarioByID(scenario.getUuid(), userEmail).getInspireidLocalid();
                 context.getValidationErrors().addGlobalError(new LocalizableError("evaluation.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));

@@ -56,6 +56,7 @@ public class SourceapportionmentBean implements HeaderInterface {
     private PlanBean planBean;
     private AttainmentBean attainmentBean;
     private UserBean userBean;
+    private UserBean userLastUpdateBean;
 
     public SourceapportionmentBean() {
     }
@@ -272,5 +273,13 @@ public class SourceapportionmentBean implements HeaderInterface {
 
     public void setUserBean(UserBean userBean) {
         this.userBean = userBean;
+    }
+
+    public UserBean getUserLastUpdateBean() {
+        return userLastUpdateBean;
+    }
+
+    public void setUserLastUpdateBean(UserBean userLastUpdateBean) {
+        this.userLastUpdateBean = userLastUpdateBean;
     }
 }

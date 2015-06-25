@@ -23,6 +23,7 @@ import eu.europa.ec.plan.PlanINSPIRELocalIDAlreadyExistingException;
 import eu.europa.ec.plan.PlanBean;
 import eu.europa.ec.plan.PlanManager;
 import eu.europa.ec.aqrsystem.action.EditPlanActionBean;
+import eu.europa.ec.aqrsystem.xml.aqd.ReportingPeriod;
 import eu.europa.ec.aqrsystem.xml.gml.FeatureMember;
 import eu.europa.ec.attainment.AttainmentBean;
 import eu.europa.ec.common.HeaderInterface;
@@ -77,7 +78,7 @@ public class PlanXML implements XMLSaveableObject {
         return this;
     }
 
-    public PlanXML populateMultiple(final List<PlanBean> planBeans, final Date fromDate, final Date toDate, final String userEmail) {
+    public PlanXML populateMultiple(final List<PlanBean> planBeans, final String fromDate, final String toDate, final String userEmail) {
         id = "Plan";
 
         final UserManager userManager = new UserManager();
@@ -144,7 +145,7 @@ public class PlanXML implements XMLSaveableObject {
 
             @Override
             public String getReportingstartdate() {
-                return fromDate.toString();
+                return fromDate;
             }
 
             @Override
@@ -153,7 +154,7 @@ public class PlanXML implements XMLSaveableObject {
 
             @Override
             public String getReportingenddate() {
-                return toDate.toString();
+                return toDate;
             }
 
             @Override
@@ -171,9 +172,10 @@ public class PlanXML implements XMLSaveableObject {
         };
 
         FeatureMember header = new FeatureMember();
-        header.populateHeader(defaultHeader);
-        featureMember.add(header);
 
+        header.populateHeader(defaultHeader);
+
+        featureMember.add(header);
         for (PlanBean p : planBeans) {
             FeatureMember plan = new FeatureMember();
             plan.populate(p);
@@ -202,7 +204,7 @@ public class PlanXML implements XMLSaveableObject {
 
             String newLocalId = plan.getInspireidLocalid();
             try {
-                planManager.savePlanDraft(plan);
+                planManager.savePlanDraft(plan, userEmail);
             } catch (PlanINSPIRELocalIDAlreadyExistingException e) {
                 String oldLocalId = planManager.getPlanByID(plan.getUuid(), userEmail).getInspireidLocalid();
                 context.getValidationErrors().addGlobalError(new LocalizableError("plan.error.duplicatelocalid", HtmlUtil.encode(newLocalId), HtmlUtil.encode(oldLocalId)));
