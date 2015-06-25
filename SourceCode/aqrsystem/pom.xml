@@ -8,7 +8,6 @@
     <version>1.1.0</version>
     <packaging>war</packaging>
     <name>aqrsystem</name>
-    <finalName>aqrsystem</finalName> <!-- name of the bundled project when it is built (no version number) -->
 
     
     <ciManagement>
@@ -31,6 +30,7 @@
     </distributionManagement>
     
     <build>
+        <finalName>aqrsystem</finalName> <!-- name of the bundled project when it is built (no version number) -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
