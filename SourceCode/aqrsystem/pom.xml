@@ -8,6 +8,8 @@
     <version>1.1.0</version>
     <packaging>war</packaging>
     <name>aqrsystem</name>
+    <finalName>aqrsystem</finalName> <!-- name of the bundled project when it is built (no version number) -->
+
     
     <ciManagement>
         <system>hudson</system>
