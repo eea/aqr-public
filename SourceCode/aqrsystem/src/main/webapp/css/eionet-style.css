@@ -1,0 +1,117 @@
+@import url("jq.data.table.css");
+@import url("jquery-ui-1.10.1.min.css");
+@import url("jquery.tagit.css");
+
+#logo-wrapper {
+  width:100%
+}
+#commission-logo {
+  float: right;
+  height: 200px;
+  background: white url('../img/footer/logo_ce-en-rvb-hr.jpg');
+  background-size: 20% auto;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+/* Dx box styles*/
+.dbc{
+    position:fixed;
+    right:0;
+    top:40%;
+    width:300px;
+    direction:rtl
+}
+.dxbox{
+    width:0px;
+    height:46px;
+    background-color:#08498B;
+    border-radius:10px 0 0 10px;
+    padding: 0 0 0 50px;
+    vertical-align:middle;
+    overflow:hidden;
+    cursor:pointer;
+    line-height:45px;
+    margin-bottom:7px;
+    right:0;
+    direction:ltr;
+}
+.dxbox span{
+    margin:10px 10px 0 10px;
+    color:#fff;
+    font-size:20px
+}
+.help{
+    background: #08498B url(../img/main/help.png) no-repeat 5px 3px;
+}
+
+.help a{
+    color: white;
+    text-decoration: none;
+}
+
+ul.messages {
+    padding: 1px;
+    list-style-type: none;
+}
+ul.messages li {
+    background-color: rgb(215, 235, 249);
+    border: 1px solid;
+    border-color: rgb(39, 121, 170);
+    color: black;
+    padding: 15px;
+    margin: 3px;
+}
+ul.errors {
+    padding: 1px;
+    list-style-type: none;
+}
+ul.errors li {
+    background-color: #FFD8D8;
+    border: 1px solid;
+    border-color: #FFB2C4;
+    color: black;
+    padding: 15px;
+    margin: 3px;
+}
+ul.errors em {
+    font-weight:bold;
+    font-style:normal;
+}
+
+/* Main menu */
+.mainmenu{
+    background-color:#fff;
+    margin-bottom:30px;
+    padding-left: 0px;
+}
+.mainmenu ul{
+    padding-left:0
+}
+.mainmenu li{
+    display:inline-block;
+    list-style-type:none
+}
+.mainmenu li a:link, .mainmenu li a:visited {
+    display:inline-block;
+    padding:5px;
+    border:1px solid #074B8C;
+    text-decoration:none;
+    font-weight:bold
+}
+.mainmenu li a:hover, .mainmenu li a:focus, .mainmenu li a:active, .mainmenu li a.sel{
+    background-color:#074B8C;
+    color:#fff
+}
+
+
+#widget-lang_select{
+	  float:left;
+    padding:5px
+}
+#widget-lang_select .ui-state-active{
+    color:#003366
+}
+
+#righttools {
+   width: 380px !important;
+}
