@@ -642,3 +642,50 @@ table.datatable tr.even {
 #listItem.datatable td {
     white-space: pre-wrap;
 }
+/* Login Button */
+.login.btn {
+    margin-left: 35%;
+    margin-right: 40%;
+}
+
+.login {
+    height:24px;
+    line-height:32px;
+    margin-right:10px;
+    /*background-position: -18px -89px;*/
+    background: transparent url(../img/main/key.png) no-repeat 0 0;
+    background-position: 4px 8px;
+}
+
+a.btn:link {
+    display:inline-block;
+    padding:5px;
+    padding-top:0px;
+    padding-left:25px;
+    border:1px solid #074B8C;
+    text-decoration:none;
+    font-weight:bold
+}
+
+a.btn:visited {
+    color: #074B8C;
+    text-decoration: none;
+    word-wrap: break-word;
+}
+a.btn:hover{
+    background-color:#074B8C;
+    color:#fff
+}
+
+
+
+a {
+    color: #074B8C;
+    text-decoration: none;
+    word-wrap: break-word;
+}
+
+a:hover {
+    color: #03478E;
+    text-decoration: underline;
+}

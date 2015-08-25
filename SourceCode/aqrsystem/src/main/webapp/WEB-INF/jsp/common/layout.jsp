@@ -68,7 +68,7 @@
                         <div style="float:left;">
                           <c:choose>
                               <c:when test="${empty actionBean.userEmail}">
-                                  <s:link class="ftm insert btn login" beanclass="eu.europa.ec.aqrsystem.action.HomeActionBean">${res['loginpage.button']}</s:link>
+                                  <!--<s:link class="ftm insert btn login" beanclass="eu.europa.ec.aqrsystem.action.HomeActionBean">${res['loginpage.button']}</s:link>-->
                               </c:when>
                               <c:otherwise>
                                   <s:link beanclass="eu.europa.ec.aqrsystem.action.LoginActionBean" event="logout">${res['header.logout']}</s:link>
