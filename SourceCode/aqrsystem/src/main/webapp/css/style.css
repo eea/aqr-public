@@ -106,7 +106,7 @@ header {
     outline: medium none;
     text-decoration: none;
 }
-#widget-lang_select{	
+#widget-lang_select{
     padding:5px
 }
 #widget-lang_select .ui-state-active{
@@ -188,7 +188,7 @@ p span{
     background: #08498B url(../img/main/rss.png) no-repeat 5px	3px;
 }
 /* Table styles */
-.ui-widget-header{	
+.ui-widget-header{
     background-color:#08498B;
     background-image:none;
     color:#fff
@@ -789,11 +789,11 @@ fieldset h4{
 
 .mainmenu-cnt
 {
-    position: fixed;
+  /*  position: fixed;
     top:165px;
     width: 100%;
     background-color:#fff;
-    z-index:99;
+    z-index:99;*/
 }
 .sx{
     float:none
@@ -841,7 +841,7 @@ input.save {
     padding-bottom: 5px;
     padding-left: 25px;
     padding-right: 5px;
-    padding-top: 0px;    
+    padding-top: 0px;
     font-family: Arial,open-sans,sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -864,7 +864,7 @@ input.export {
     padding-bottom: 5px;
     padding-left: 25px;
     padding-right: 5px;
-    padding-top: 0px;    
+    padding-top: 0px;
     font-family: Arial,open-sans,sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -889,7 +889,7 @@ input.save.plan {
     padding-bottom: 5px;
     padding-left: 25px;
     padding-right: 5px;
-    padding-top: 0px;    
+    padding-top: 0px;
     font-family: Arial,open-sans,sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -908,7 +908,7 @@ input.save.sourceapp {
     padding-bottom: 5px;
     padding-left: 25px;
     padding-right: 5px;
-    padding-top: 0px;    
+    padding-top: 0px;
     font-family: Arial,open-sans,sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -927,7 +927,7 @@ input.save.evsc {
     padding-bottom: 5px;
     padding-left: 25px;
     padding-right: 5px;
-    padding-top: 0px;    
+    padding-top: 0px;
     font-family: Arial,open-sans,sans-serif;
     font-size: 14px;
     font-style: normal;
@@ -946,7 +946,7 @@ input.save.measures {
     padding-bottom: 5px;
     padding-left: 25px;
     padding-right: 5px;
-    padding-top: 0px;    
+    padding-top: 0px;
     font-family: Arial,open-sans,sans-serif;
     font-size: 14px;
     font-style: normal;

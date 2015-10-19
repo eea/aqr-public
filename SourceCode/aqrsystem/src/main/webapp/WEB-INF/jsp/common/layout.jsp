@@ -10,7 +10,7 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="application-name" content="${res['application.name']}/>"/>
             <!-- Styles -->
-            <!--<link href="css/style.css?${res['application.version']}" media="screen" rel="stylesheet" type="text/css">-->
+            <link href="css/style.css?${res['application.version']}" media="screen" rel="stylesheet" type="text/css">
             <link href="css/eionet-style.css?${res['application.version']}" media="screen" rel="stylesheet" type="text/css">
             <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/print.css" media="print" />
             <link rel="stylesheet" type="text/css" href="http://www.eionet.europa.eu/styles/eionet2007/handheld.css" media="handheld" />
@@ -62,10 +62,12 @@
                         <a id="ewlink" href="http://www.ewindows.eu.org/">EnviroWindows</a>
                     </div>
                     <div id="righttools">
-                        <!-- Temporarily removed language selection
-                        <cust:include
-                          beanclass="eu.europa.ec.aqrsystem.action.LocalisationActionBean"
-                          event="showSelect"/>-->
+                        <!-- Temporarily removed language selection -->
+                        <div style="display:none;">
+                          <cust:include
+                            beanclass="eu.europa.ec.aqrsystem.action.LocalisationActionBean"
+                            event="showSelect"/>
+                         </div>
                         <div>
                           <c:choose>
                               <c:when test="${empty actionBean.userEmail}">
@@ -163,7 +165,7 @@
                 </ul>
               </div>-->
               <div id="workarea">
-                <div class="container">
+                <div class="nocontainer">
                   <s:layout-component name="content"/>
                 </div>
               </div>
