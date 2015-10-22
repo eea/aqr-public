@@ -30,7 +30,7 @@
     </distributionManagement>
     
     <build>
-        <finalName>aqrsystem</finalName> <!-- name of the bundled project when it is built (no version number) -->
+        <finalName>aqrsystem</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -83,12 +83,12 @@
                             <autocommit>true</autocommit>
                             <srcFiles>
                                 <!-- drop existing tables and create the database -->
-                                <srcFile>..\aqrsql\create_aqd.sql</srcFile>
-                                <!-- insert the codelist and additional inforations about the user and system -->
-                                <srcFile>..\aqrsql\insert_aqd.sql</srcFile>
+                                <srcFile>../aqrsql/create_aqd.sql</srcFile>
+                                <!-- insert the codelist and additional informations about the user and system -->
+                                <srcFile>../aqrsql/insert_aqd.sql</srcFile>
                                 
                                 <!--optional--> 
-                                <srcFile>..\aqrsql\UK_demos.sql</srcFile>
+                                <srcFile>../aqrsql/UK_demos.sql</srcFile>
                             </srcFiles>                        
                         </configuration>
                     </execution>
@@ -115,11 +115,30 @@
             </snapshots>
         </repository>
 
+<!--
         <repository>
             <id>CITnet-nexus</id>  
-            <!--the CITNet repository with the ECAS client jar--> 
             <url>https://webgate.ec.europa.eu/CITnet/nexus/content/repositories/ecas</url>
         </repository>
+-->
+        <repository>
+            <id>eea</id>
+            <name>EEA Release Repository</name>
+            <url>http://archiva.eionet.europa.eu/repository/internal</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>archiva.snapshots</id>
+            <name>Internal Snapshot Repository</name>
+            <url>http://archiva.eionet.europa.eu/repository/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
     </repositories>
 
     <dependencies>
@@ -151,7 +170,7 @@
             <version>0.1-SNAPSHOT</version>
         </dependency>
         <!--ecas-->
-              <dependency>
+        <dependency>
             <groupId>eu.europa.ec.digit.iam.ecas.client</groupId>
             <artifactId>ecas-tomcat-5.5</artifactId>
             <version>3.6.3</version>
@@ -208,6 +227,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <persistence.unitname>Aqrsystem</persistence.unitname>
         <persistence.transactiontpye>RESOURCE_LOCAL</persistence.transactiontpye>
         <persistence.jdbc.driver>org.postgresql.Driver</persistence.jdbc.driver>
@@ -222,24 +242,228 @@
     <profiles>
         
         <profile>
-            <id>distribution-profile</id>
-            <activation>
-                <property>
-                    <name>env</name>
-                    <value>deveepure</value>
-                </property>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <!-- Database configurations -->
-                <persistence.jdbc.url>jdbc:postgresql://your_server_url:your_port_number/your_database_name</persistence.jdbc.url>
-                <persistence.jdbc.username>your_username</persistence.jdbc.username>
-                <persistence.jdbc.password>your_password</persistence.jdbc.password>
-                
-                <!-- Loggers configurations -->
-                <log.file.name>your_path_to_log_file/aqrsystem.log</log.file.name>
-            </properties>
+          <id>distribution-profile</id>
+          <activation>
+            <property>
+              <name>env</name>
+              <value>deveepure</value>
+            </property>
+            <activeByDefault>true</activeByDefault>
+          </activation>
+          <properties>
+            <!-- Database configurations -->
+            <persistence.jdbc.url>jdbc:postgresql://your_server_url:your_port_number/your_database_name</persistence.jdbc.url>
+            <persistence.jdbc.username>your_username</persistence.jdbc.username>
+            <persistence.jdbc.password>your_password</persistence.jdbc.password>
+
+            <!-- Loggers configurations -->
+            <log.file.name>your_path_to_log_file/aqrsystem.log</log.file.name>
+          </properties>
         </profile>
-    
+
+        <profile>
+          <id>docker</id>
+          <activation>
+            <activeByDefault>false</activeByDefault>
+          </activation>
+          <properties>
+            <!-- Database configurations -->
+            <persistence.jdbc.url>jdbc:postgresql://database:5432/aqrsystem</persistence.jdbc.url>
+            <persistence.jdbc.username>postgres</persistence.jdbc.username>
+            <persistence.jdbc.password>testpassword</persistence.jdbc.password>
+            <!-- Loggers configurations -->
+            <log.file.name>aqrsystem.log</log.file.name>
+          </properties>
+
+          <dependencies>
+            <dependency>
+                <groupId>eionet</groupId>
+                <artifactId>jolokia</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <type>war</type>
+            </dependency>
+
+            <dependency>
+              <groupId>eu.europa.ec.digit.iam.ecas.client</groupId>
+              <artifactId>ecas-tomcat-5.5</artifactId>
+              <version>3.6.3</version>
+            </dependency>
+            <dependency>
+              <groupId>log4j</groupId>
+              <artifactId>log4j</artifactId>
+              <version>1.2.14</version>
+            </dependency>
+
+          </dependencies>
+          <build>
+            <plugins>
+              <plugin>
+                <!-- The Docker Maven plugin is used to create docker image with the fat jar -->
+                <groupId>org.jolokia</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.13.4</version>
+                <configuration>
+                  <verbose>true</verbose>
+                  <logDate>default</logDate>
+                  <autoPull>true</autoPull>
+                  <images>
+                    <!-- Image holding the artifact of this build -->
+                    <image>
+                      <alias>service</alias>
+                      <name>${project.artifactId}</name>
+                      <registry>dockerrepo.eionet.europa.eu:5000</registry>
+                      <build>
+                        <from>tomcat:6</from>
+                        <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
+                        <tags>
+                          <tag>latest</tag>
+                          <tag>${project.version}</tag>
+                        </tags>
+                        <!-- Assembly descriptor holds the reference to the created artifact-->
+                        <assembly>
+                          <descriptor>assembly.xml</descriptor>
+                        </assembly>
+                        <env>
+                          <CATALINA_OPTS>-Djava.security.egd=file:/dev/./urandom</CATALINA_OPTS>
+                          <JAVA_VERSION>7u79</JAVA_VERSION>
+                          <JAVA_DEBIAN_VERSION>7u79-2.5.6-1~deb8u1</JAVA_DEBIAN_VERSION>
+                          <KEYSTORE_PASS>changeit</KEYSTORE_PASS>
+                        </env>
+			<volumes>
+                          <volume>/config</volume>
+			</volumes>
+                        <runCmds>
+                          <!-- Install JDK so we can use the jar tool -->
+                          <run>apt-get update &amp;&amp; apt-get install -y zip &amp;&amp; rm -rf /var/lib/apt/lists/*</run>
+                          <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias EuropeanCommission -file /maven/certs/EuropeanCommission.cer</run>
+                          <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias CommisSign -file /maven/certs/CommisSign.cer</run>
+
+                          <run>rm -rf /usr/local/tomcat/webapps/*</run>
+                          <!--
+                          <run>mv /maven/ROOT.war $CATALINA_HOME/webapps/ROOT.war</run>
+                          <run>mv /maven/jolokia.war $CATALINA_HOME/webapps/jolokia.war</run>
+                          -->
+                          <run>cp -r /maven/tomcat /usr/local</run>
+                          <run>rm -f $CATALINA_HOME/conf/logging.properties</run>
+                          <run>mkdir -p ${CATALINA_HOME}/lib/org/apache/catalina/startup &amp;&amp; cp /maven/Authenticators.properties ${CATALINA_HOME}/lib/org/apache/catalina/startup</run>
+                        </runCmds>
+                        <ports>
+                          <port>8080</port>
+                        </ports>
+                        <!-- Inject configuration -->
+                        <cmd>( cd /config ; zip -rg /usr/local/tomcat/webapps/ROOT.war WEB-INF ) &amp;&amp; catalina.sh run</cmd>
+                      </build>
+
+                      <run>
+                        <hostname>papers</hostname>
+			<volumes>
+			  <bind>
+			    <volume>${project.basedir}/config:/config:ro</volume>
+			  </bind>
+			</volumes>
+                        <ports>
+                          <port>tomcat.port:8080</port>
+                        </ports>
+                        <links>
+                          <link>database:database</link>
+                        </links>
+                        <wait>
+                          <!-- Check for this URL to return a 200 return code .... -->
+                          <url>http://${docker.host.address}:${tomcat.port}/</url>
+                          <!-- ... but at max 20 seconds -->
+                          <time>20000</time>
+                        </wait>
+                        <log>
+                          <prefix>TC</prefix>
+                          <color>cyan</color>
+                        </log>
+                      </run>
+                    </image>
+
+                    <image>
+                      <alias>database</alias>
+                      <name>${project.artifactId}-db</name>
+                      <registry>dockerrepo.eionet.europa.eu:5000</registry>
+                      <build>
+                        <from>postgres:9.3</from>
+                        <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
+                        <tags>
+                          <tag>latest</tag>
+                          <tag>${project.version}</tag>
+                        </tags>
+                        <!-- Assembly descriptor holds the reference to the created artifact-->
+                        <assembly>
+                          <descriptor>assembly-db.xml</descriptor>
+                        </assembly>
+                        <env>
+                          <POSTGRES_PASSWORD>testpassword</POSTGRES_PASSWORD>
+                          <POSTGRES_DB>aqrsystem</POSTGRES_DB>
+                        </env>
+                        <runCmds>
+                          <run>mv /maven/docker-entrypoint-initdb.d/* /docker-entrypoint-initdb.d</run>
+                        </runCmds>
+                        <ports>
+                          <port>5432</port>
+                        </ports>
+                      </build>
+                      <run>
+                      <!--
+			<volumes>
+			  <bind>
+			    <volume>${project.basedir}/data:/var/lib/postgresql/data</volume>
+			  </bind>
+			</volumes>
+                      -->
+                        <ports>
+                          <port>5432:5432</port>
+                        </ports>
+                        <wait>
+                          <log>PostgreSQL init process complete; ready for start up.</log>
+                          <!-- <log>database system is ready to accept connections</log> -->
+                          <time>15000</time>
+                        </wait>
+                        <log>
+                          <prefix>DB</prefix>
+                          <color>blue</color>
+                        </log>
+                      </run>
+                    </image>
+                  </images>
+                </configuration>
+
+                <!-- Hooking into the lifecycle -->
+                <executions>
+                  <execution>
+                    <id>start</id>
+                    <phase>pre-integration-test</phase>
+                    <goals>
+                      <goal>build</goal>
+                      <goal>start</goal>
+                    </goals>
+                  </execution>
+                  <execution>
+                    <id>stop</id>
+                    <phase>post-integration-test</phase>
+                    <goals>
+                      <goal>stop</goal>
+                    </goals>
+                  </execution>
+                </executions>
+              </plugin>
+
+              <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                  <systemPropertyVariables>
+                    <log.url>http://${docker.host.address}:${tomcat.port}/</log.url>
+                  </systemPropertyVariables>
+                </configuration>
+              </plugin>
+
+            </plugins>
+          </build>
+        </profile>
     </profiles>
 </project>
