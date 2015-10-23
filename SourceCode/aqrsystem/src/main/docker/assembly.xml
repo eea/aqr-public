@@ -5,12 +5,12 @@
 <!-- This is the way to add files into the image -->
   <files>
     <file>
-      <source>src/main/docker/CommisSign.cer</source>
+      <source>../../ServerConfiguration/ecas/certs/CommisSign.cer</source>
       <outputDirectory>certs</outputDirectory>
       <destName>CommisSign.cer</destName>
     </file>
     <file>
-      <source>src/main/docker/EuropeanCommission.cer</source>
+      <source>../../ServerConfiguration/ecas/certs/EuropeanCommission.cer</source>
       <outputDirectory>certs</outputDirectory>
       <destName>EuropeanCommission.cer</destName>
     </file>
@@ -26,32 +26,32 @@
       <destName>ecas-tomcat-5.5-3.6.3.jar</destName>
     </file>
     <file>
-      <source>src/main/docker/log4j-1.2.17.jar</source>
+      <source>../../ServerConfiguration/ecas/tomcat/log4j-1.2.17.jar</source>
       <outputDirectory>tomcat/lib</outputDirectory>
       <destName>log4j-1.2.17.jar</destName>
     </file>
     <file>
-      <source>src/main/docker/tomcat-juli-adapters.jar</source>
+      <source>../../ServerConfiguration/log4j/tomcat-juli-adapters.jar</source>
       <outputDirectory>tomcat/lib</outputDirectory>
       <destName>tomcat-juli-adapters.jar</destName>
     </file>
     <file>
-      <source>src/main/docker/tomcat-juli.jar</source>
+      <source>../../ServerConfiguration/log4j/tomcat-juli.jar</source>
       <outputDirectory>tomcat/bin</outputDirectory>
       <destName>tomcat-juli.jar</destName>
     </file>
     <file>
-      <source>src/main/docker/log4j.properties</source>
+      <source>../../ServerConfiguration/log4j/log4j.properties</source>
       <outputDirectory>tomcat/lib</outputDirectory>
       <destName>log4j.properties</destName>
     </file>
     <file>
-      <source>src/main/docker/mbeans-descriptors.xml</source>
+      <source>../../ServerConfiguration/ecas/tomcat/org/apache/catalina/authenticator/mbeans-descriptors.xml</source>
       <outputDirectory>tomcat/lib</outputDirectory>
       <destName>mbeans-descriptors.xml</destName>
     </file>
     <file>
-      <source>src/main/docker/Authenticators.properties</source>
+      <source>../../ServerConfiguration/ecas/tomcat/org/apache/catalina/startup/Authenticators.properties</source>
       <outputDirectory>.</outputDirectory>
       <destName>Authenticators.properties</destName>
     </file>

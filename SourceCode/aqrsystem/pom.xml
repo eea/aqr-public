@@ -325,8 +325,6 @@
                         </assembly>
                         <env>
                           <CATALINA_OPTS>-Djava.security.egd=file:/dev/./urandom</CATALINA_OPTS>
-                          <JAVA_VERSION>7u79</JAVA_VERSION>
-                          <JAVA_DEBIAN_VERSION>7u79-2.5.6-1~deb8u1</JAVA_DEBIAN_VERSION>
                           <KEYSTORE_PASS>changeit</KEYSTORE_PASS>
                         </env>
 			<volumes>
@@ -349,6 +347,7 @@
                         </runCmds>
                         <ports>
                           <port>8080</port>
+                          <port>8009</port>
                         </ports>
                         <!-- Inject configuration -->
                         <cmd>( cd /config ; zip -rg /usr/local/tomcat/webapps/ROOT.war WEB-INF ) &amp;&amp; catalina.sh run</cmd>
@@ -368,8 +367,10 @@
                           <link>database:database</link>
                         </links>
                         <wait>
-                          <!-- Check for this URL to return a 200 return code .... -->
-                          <url>http://${docker.host.address}:${tomcat.port}/</url>
+                          <http>
+                            <!-- Check for this URL to return a 200 return code .... -->
+                            <url>http://${docker.host.address}:${tomcat.port}/</url>
+                          </http>
                           <!-- ... but at max 20 seconds -->
                           <time>20000</time>
                         </wait>
@@ -385,7 +386,7 @@
                       <name>${project.artifactId}-db</name>
                       <registry>dockerrepo.eionet.europa.eu:5000</registry>
                       <build>
-                        <from>postgres:9.3</from>
+                        <from>postgres:9.0</from>
                         <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
                         <tags>
                           <tag>latest</tag>
@@ -420,7 +421,7 @@
                         <wait>
                           <log>PostgreSQL init process complete; ready for start up.</log>
                           <!-- <log>database system is ready to accept connections</log> -->
-                          <time>15000</time>
+                          <time>60000</time>
                         </wait>
                         <log>
                           <prefix>DB</prefix>

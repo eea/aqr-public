@@ -6,12 +6,12 @@
 
   <files>
     <file>
-      <source>src/main/docker/create_aqd.sql</source>
+      <source>../../Database/create_aqd.sql</source>
       <outputDirectory>/docker-entrypoint-initdb.d</outputDirectory>
       <destName>10_create_aqd.sql</destName>
     </file>
     <file>
-      <source>src/main/docker/insert_aqd.sql</source>
+      <source>../../Database/insert_aqd.sql</source>
       <outputDirectory>/docker-entrypoint-initdb.d</outputDirectory>
       <destName>20_insert_aqd.sql</destName>
     </file>
