@@ -371,6 +371,7 @@
                       </run>
                     </image>
 
+                    <!-- This image is rebuilt every time. It is not suitable for persistent data -->
                     <image>
                       <alias>database</alias>
                       <name>${project.artifactId}-db</name>
@@ -451,6 +452,14 @@
                     <log.url>http://${docker.host.address}:${tomcat.port}/</log.url>
                   </systemPropertyVariables>
                 </configuration>
+                <executions>
+                  <execution>
+                    <goals>
+                      <goal>integration-test</goal>
+                      <goal>verify</goal>
+                    </goals>
+                  </execution>
+                </executions>
               </plugin>
 
             </plugins>
