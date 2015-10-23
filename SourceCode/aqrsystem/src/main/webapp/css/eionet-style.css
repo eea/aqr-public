@@ -19,3 +19,11 @@
      right: 0;
      height: 100%;
 }
+
+form fieldset * {
+  vertical-align: middle;
+}
+
+.preset-text {
+  margin-left: 10px;
+}
