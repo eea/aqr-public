@@ -47,12 +47,12 @@
     </file>
     <file>
       <source>../../ServerConfiguration/ecas/tomcat/org/apache/catalina/authenticator/mbeans-descriptors.xml</source>
-      <outputDirectory>tomcat/lib</outputDirectory>
+      <outputDirectory>tomcat/lib/org/apache/catalina/authenticator</outputDirectory>
       <destName>mbeans-descriptors.xml</destName>
     </file>
     <file>
       <source>../../ServerConfiguration/ecas/tomcat/org/apache/catalina/startup/Authenticators.properties</source>
-      <outputDirectory>.</outputDirectory>
+      <outputDirectory>tomcat/lib/org/apache/catalina/startup</outputDirectory>
       <destName>Authenticators.properties</destName>
     </file>
 

@@ -281,20 +281,16 @@
                 <artifactId>jolokia</artifactId>
                 <version>1.0-SNAPSHOT</version>
                 <type>war</type>
+                <scope>provided</scope> 
             </dependency>
 
-            <dependency>
-              <groupId>eu.europa.ec.digit.iam.ecas.client</groupId>
-              <artifactId>ecas-tomcat-5.5</artifactId>
-              <version>3.6.3</version>
-            </dependency>
             <dependency>
               <groupId>log4j</groupId>
               <artifactId>log4j</artifactId>
-              <version>1.2.14</version>
+              <version>1.2.17</version>
             </dependency>
-
           </dependencies>
+
           <build>
             <plugins>
               <plugin>
@@ -337,13 +333,8 @@
                           <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias CommisSign -file /maven/certs/CommisSign.cer</run>
 
                           <run>rm -rf /usr/local/tomcat/webapps/*</run>
-                          <!--
-                          <run>mv /maven/ROOT.war $CATALINA_HOME/webapps/ROOT.war</run>
-                          <run>mv /maven/jolokia.war $CATALINA_HOME/webapps/jolokia.war</run>
-                          -->
                           <run>cp -r /maven/tomcat /usr/local</run>
                           <run>rm -f $CATALINA_HOME/conf/logging.properties</run>
-                          <run>mkdir -p ${CATALINA_HOME}/lib/org/apache/catalina/startup &amp;&amp; cp /maven/Authenticators.properties ${CATALINA_HOME}/lib/org/apache/catalina/startup</run>
                         </runCmds>
                         <ports>
                           <port>8080</port>
