@@ -306,8 +306,7 @@
                     <!-- Image holding the artifact of this build -->
                     <image>
                       <alias>service</alias>
-                      <name>${project.artifactId}</name>
-                      <registry>dockerrepo.eionet.europa.eu:5000</registry>
+                      <name>eeacms/${project.artifactId}</name>
                       <build>
                         <from>tomcat:6</from>
                         <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>

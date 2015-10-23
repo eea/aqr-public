@@ -60,7 +60,7 @@ tomcat:
     hostname: papers
     ports:
         - "8080:8080"
-    image: dockerrepo.eionet.europa.eu:5000/aqrsystem
+    image: eeacms/aqrsystem
     links: 
         - postgres:DB_HOST
     volumes_from:
