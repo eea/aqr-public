@@ -1,0 +1,96 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+
+<!-- This is the way to add files into the image -->
+  <files>
+    <file>
+      <source>../../ServerConfiguration/ecas/certs/CommisSign.cer</source>
+      <outputDirectory>certs</outputDirectory>
+      <destName>CommisSign.cer</destName>
+    </file>
+    <file>
+      <source>../../ServerConfiguration/ecas/certs/EuropeanCommission.cer</source>
+      <outputDirectory>certs</outputDirectory>
+      <destName>EuropeanCommission.cer</destName>
+    </file>
+
+    <file>
+      <source>src/main/docker/server.xml</source>
+      <outputDirectory>tomcat/conf</outputDirectory>
+      <destName>server.xml</destName>
+    </file>
+    <file>
+      <source>3rdparty/eu/europa/ec/digit/iam/ecas/client/ecas-tomcat-5.5/3.6.3/ecas-tomcat-5.5-3.6.3.jar</source>
+      <outputDirectory>tomcat/lib</outputDirectory>
+      <destName>ecas-tomcat-5.5-3.6.3.jar</destName>
+    </file>
+    <file>
+      <source>../../ServerConfiguration/ecas/tomcat/log4j-1.2.17.jar</source>
+      <outputDirectory>tomcat/lib</outputDirectory>
+      <destName>log4j-1.2.17.jar</destName>
+    </file>
+    <file>
+      <source>../../ServerConfiguration/log4j/tomcat-juli-adapters.jar</source>
+      <outputDirectory>tomcat/lib</outputDirectory>
+      <destName>tomcat-juli-adapters.jar</destName>
+    </file>
+    <file>
+      <source>../../ServerConfiguration/log4j/tomcat-juli.jar</source>
+      <outputDirectory>tomcat/bin</outputDirectory>
+      <destName>tomcat-juli.jar</destName>
+    </file>
+    <file>
+      <source>../../ServerConfiguration/log4j/log4j.properties</source>
+      <outputDirectory>tomcat/lib</outputDirectory>
+      <destName>log4j.properties</destName>
+    </file>
+    <file>
+      <source>../../ServerConfiguration/ecas/tomcat/org/apache/catalina/authenticator/mbeans-descriptors.xml</source>
+      <outputDirectory>tomcat/lib</outputDirectory>
+      <destName>mbeans-descriptors.xml</destName>
+    </file>
+    <file>
+      <source>../../ServerConfiguration/ecas/tomcat/org/apache/catalina/startup/Authenticators.properties</source>
+      <outputDirectory>.</outputDirectory>
+      <destName>Authenticators.properties</destName>
+    </file>
+
+  </files>
+
+  <dependencySets>
+    <!-- Inject the war file into the image a /maven -->
+    <dependencySet>
+      <useProjectArtifact>true</useProjectArtifact>
+      <includes>
+        <include>eu.europa.ec:aqrsystem</include>
+      </includes>
+      <outputDirectory>tomcat/webapps</outputDirectory>
+      <outputFileNameMapping>ROOT.war</outputFileNameMapping>
+    </dependencySet>
+    <!-- Get the preconfigured Jolokia from the repository. Look for the dependency in pom.xml -->
+    <dependencySet>
+      <includes>
+        <include>eionet:jolokia:war</include>
+      </includes>
+      <outputDirectory>tomcat/webapps</outputDirectory>
+      <outputFileNameMapping>jolokia.war</outputFileNameMapping>
+    </dependencySet>
+    <!--
+    <dependencySet>
+      <includes>
+        <include>eu.europa.ec.digit.iam.ecas.client:ecas-tomcat-5.5</include>
+      </includes>
+      <outputDirectory>.</outputDirectory>
+      <outputFileNameMapping>ecas-tomcat-5.5.jar</outputFileNameMapping>
+    </dependencySet>
+    <dependencySet>
+      <includes>
+        <include>log4j:log4j</include>
+      </includes>
+      <outputDirectory>.</outputDirectory>
+      <outputFileNameMapping>log4j.jar</outputFileNameMapping>
+    </dependencySet>
+    -->
+  </dependencySets>
+</assembly>
