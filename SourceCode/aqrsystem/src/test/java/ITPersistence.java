@@ -1,6 +1,5 @@
-import eu.europa.ec.common.CountryBean;
+import eu.europa.ec.aqrmodeluser.Country;
 import eu.europa.ec.util.PersistenceFactory;
-import eu.europa.ec.user.UserManager;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.List;
@@ -10,14 +9,15 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import org.eclipse.persistence.internal.jpa.EntityManagerImpl;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ITPersistence {
-
 
     private static EntityManagerFactory emf;
 
@@ -33,6 +33,12 @@ public class ITPersistence {
         props.put("javax.persistence.jdbc.url", dbhost);
 
         emf = Persistence.createEntityManagerFactory("Aqrsystem", props);
+    }
+
+    @AfterClass
+    public static void closeEntityManager() {
+        emf.close();
+        emf = null;
     }
 
     @Test
@@ -69,14 +75,21 @@ public class ITPersistence {
      * Since the UserManager is not using the overriden EntityManager, it won't
      * be able to connect to the database.
      */
-    //@Test
+    @Test
     public void getCountries() throws Exception {
         try {
-             UserManager um = new UserManager();
-             List<CountryBean> countries = um.getAllCountries();
-             for (CountryBean country : countries) {
-                 System.out.println("COUNTRY=" + country.getCountryname());
-             }
+            EntityManager em = emf.createEntityManager();
+            Query q = em.createNamedQuery("Country.findAll");
+            List<Country> countries = q.getResultList();
+
+            String expected = "Finland";
+            boolean expectedFound = false;
+            for (Country country : countries) {
+                if (expected.equals(country.getCountryname())) {
+                    expectedFound = true;
+                }
+            }
+            assertTrue(expectedFound);
         } catch (Exception e) {
             System.out.println("timed out");
         }
