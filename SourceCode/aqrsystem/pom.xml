@@ -281,7 +281,7 @@
                 <artifactId>jolokia</artifactId>
                 <version>1.0-SNAPSHOT</version>
                 <type>war</type>
-                <scope>provided</scope> 
+                <scope>runtime</scope> 
             </dependency>
 
             <dependency>
@@ -294,7 +294,6 @@
           <build>
             <plugins>
               <plugin>
-                <!-- The Docker Maven plugin is used to create docker image with the fat jar -->
                 <groupId>org.jolokia</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.13.4</version>
@@ -303,10 +302,10 @@
                   <logDate>default</logDate>
                   <autoPull>true</autoPull>
                   <images>
-                    <!-- Image holding the artifact of this build -->
                     <image>
                       <alias>service</alias>
-                      <name>eeacms/${project.artifactId}</name>
+                      <name>${project.artifactId}</name>
+                      <registry>dockerrepo.eionet.europa.eu:5000</registry>
                       <build>
                         <from>tomcat:6</from>
                         <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
@@ -314,7 +313,6 @@
                           <tag>latest</tag>
                           <tag>${project.version}</tag>
                         </tags>
-                        <!-- Assembly descriptor holds the reference to the created artifact-->
                         <assembly>
                           <descriptor>assembly.xml</descriptor>
                         </assembly>
@@ -326,7 +324,6 @@
                           <volume>/config</volume>
 			</volumes>
                         <runCmds>
-                          <!-- Install JDK so we can use the jar tool -->
                           <run>apt-get update &amp;&amp; apt-get install -y zip &amp;&amp; rm -rf /var/lib/apt/lists/*</run>
                           <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias EuropeanCommission -file /maven/certs/EuropeanCommission.cer</run>
                           <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias CommisSign -file /maven/certs/CommisSign.cer</run>
