@@ -447,6 +447,7 @@
                 <configuration>
                   <systemPropertyVariables>
                     <log.url>http://${docker.host.address}:${tomcat.port}/</log.url>
+                    <db.url>jdbc:postgresql://${docker.host.address}:5432/aqrsystem</db.url>
                   </systemPropertyVariables>
                 </configuration>
                 <executions>
