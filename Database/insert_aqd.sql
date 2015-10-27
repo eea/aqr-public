@@ -1,2952 +1,2956 @@
 /*statusplan*/
-INSERT INTO statusplan VALUES ('0', 'In preparation', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/preparation');
-INSERT INTO statusplan VALUES ('1', 'In formal adoption process', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/adoption-process');
-INSERT INTO statusplan VALUES ('2', 'First year of implementation, adopted during reporting year', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/first-year');
-INSERT INTO statusplan VALUES ('3', 'Implemented', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/implemented');
-INSERT INTO statusplan VALUES ('4', 'Under revision', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/under-revision');
-INSERT INTO statusplan VALUES ('5', 'Ended, no revision foreseen', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/ended');
+INSERT INTO statusplan VALUES
+ ('0', 'In preparation', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/preparation'),
+ ('1', 'In formal adoption process', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/adoption-process'),
+ ('2', 'First year of implementation, adopted during reporting year', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/first-year'),
+ ('3', 'Implemented', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/implemented'),
+ ('4', 'Under revision', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/under-revision'),
+ ('5', 'Ended, no revision foreseen', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/ended');
 
 /*administrationlevel*/
-INSERT INTO pollutant VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/8', 'Nitrogen dioxide (air)', 'NO2 - recommended unit: µg/m3', 'NO2');
-INSERT INTO pollutant VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/9', 'Nitrogen oxides (air)', 'NOX as NO2 - recommended unit: µg/m3', 'NOX as NO2');
-INSERT INTO pollutant VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5', 'Particulate matter < 10 µm (aerosol)', 'PM10 - recommended unit: µg/m3', 'PM10');
-INSERT INTO pollutant VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6001', 'Particulate matter < 2.5 µm (aerosol)', 'PM2.5 - recommended unit: µg/m3', 'PM2.5');
-INSERT INTO pollutant VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1', 'Sulphur dioxide (air)', 'SO2 - recommended unit: µg/m3', 'SO2');
-INSERT INTO pollutant VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7', 'Ozone (air)', 'O3 - recommended unit: µg/m3', 'O3');
-INSERT INTO pollutant VALUES ('6', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/10', 'Carbon monoxide (air)', 'CO - recommended unit: mg/m3', 'CO');
-INSERT INTO pollutant VALUES ('7', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/20', 'Benzene (air)', 'C6H6 - recommended unit: µg/m3', 'C6H6');
-INSERT INTO pollutant VALUES ('8', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/12', 'Lead (aerosol)', 'Pb - recommended unit: µg/m3', 'Pb');
-INSERT INTO pollutant VALUES ('9', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2012', 'Lead (precip)', 'Pb - recommended unit: µg/l', 'Pb');
-INSERT INTO pollutant VALUES ('10', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/14', 'Cadmium (aerosol)', 'Cd - recommended unit: ng/m3', 'Cd');
-INSERT INTO pollutant VALUES ('11', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2014', 'Cadmium (precip)', 'Cd - recommended unit: µg/l', 'Cd');
-INSERT INTO pollutant VALUES ('12', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/18', 'Arsenic (aerosol)', 'As - recommended unit: ng/m3', 'As');
-INSERT INTO pollutant VALUES ('13', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2018', 'Arsenic (precip)', 'As - recommended unit: µg/l', 'As');
-INSERT INTO pollutant VALUES ('14', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/15', 'Nickel (aerosol)', 'Ni - recommended unit: ng/m3', 'Ni');
-INSERT INTO pollutant VALUES ('15', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2015', 'Nickel (precip)', 'Ni - recommended unit: µg/l', 'Ni');
-INSERT INTO pollutant VALUES ('16', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/29', 'Benzo(a)pyrene (precip)', 'BaP - recommended unit: ng/l', 'BaP');
-INSERT INTO pollutant VALUES ('17', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1012', 'Lead in PM2.5 (aerosol)', 'Pb in PM2.5 - recommended unit: µg/m3', 'Pb in PM2.5');
-INSERT INTO pollutant VALUES ('18', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1013', 'Mercury in PM2.5 (aerosol)', 'Hg in PM2.5 - recommended unit: ng/m3', 'Hg in PM2.5');
-INSERT INTO pollutant VALUES ('19', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1014', 'Cadmium in PM2.5 (aerosol)', 'Cd in PM2.5 - recommended unit: ng/m3', 'Cd in PM2.5');
-INSERT INTO pollutant VALUES ('20', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1015', 'Nickel in PM2.5 (aerosol)', 'Ni in PM2.5 - recommended unit: ng/m3', 'Ni in PM2.5');
-INSERT INTO pollutant VALUES ('21', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1016', 'Chromium in PM2.5 (aerosol)', 'Cr in PM2.5 - recommended unit: ng/m3', 'Cr in PM2.5');
-INSERT INTO pollutant VALUES ('22', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1017', 'Manganese in PM2.5 (aerosol)', 'Mn in PM2.5 - recommended unit: ng/m3', 'Mn in PM2.5');
-INSERT INTO pollutant VALUES ('23', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1018', 'Arsenic in PM2.5 (aerosol)', 'As in PM2.5 - recommended unit: µg/m3', 'As in PM2.5');
-INSERT INTO pollutant VALUES ('24', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1029', 'Benzo(a)pyrene in PM2.5 (aerosol)', 'BaP in PM2.5 - recommended unit: ng/m3', 'BaP in PM2.5');
-INSERT INTO pollutant VALUES ('25', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1045', 'Ammonium in PM2.5 (aerosol)', 'NH4+ in PM2.5 - recommended unit: µg/m3', 'NH4+ in PM2.5');
-INSERT INTO pollutant VALUES ('26', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1046', 'Nitrate in PM2.5 (aerosol)', 'NO3- in PM2.5 - recommended unit: µg/m3', 'NO3- in PM2.5');
-INSERT INTO pollutant VALUES ('27', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1047', 'sulphate in PM2.5 (aerosol)', 'SO42- in PM2.5 - recommended unit: µg/m3', 'SO42- in PM2.5');
-INSERT INTO pollutant VALUES ('28', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1048', 'Selenium in PM2.5 (aerosol)', 'Se in PM2.5 - recommended unit: ng/m3', 'Se in PM2.5');
-INSERT INTO pollutant VALUES ('29', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1049', 'Vanedium in PM2.5 (aerosol)', 'V in PM2.5 - recommended unit: ng/m3', 'V in PM2.5');
-INSERT INTO pollutant VALUES ('30', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1063', 'Zinc in PM2.5 (aerosol)', 'Zn in PM2.5 - recommended unit: ng/m3', 'Zn in PM2.5');
-INSERT INTO pollutant VALUES ('31', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1064', 'Cobalt in PM2.5 (aerosol)', 'Co in PM2.5 - recommended unit: ng/m3', 'Co in PM2.5');
-INSERT INTO pollutant VALUES ('32', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1065', 'Iron in PM2.5 (aerosol)', 'Fe in PM2.5 - recommended unit: ng/m3', 'Fe in PM2.5');
-INSERT INTO pollutant VALUES ('33', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1073', 'Copper in PM2.5 (aerosol)', 'Cu in PM2.5 - recommended unit: ng/m3', 'Cu in PM2.5');
-INSERT INTO pollutant VALUES ('34', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/11', 'Hydrogen sulphide (air)', 'H2S - recommended unit: µg/m3', 'H2S');
-INSERT INTO pollutant VALUES ('35', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1129', 'Benzo(a)pyrene in PM2.5 (air+aerosol)', 'BaP in PM2.5 - recommended unit: ng/m3', 'BaP in PM2.5');
-INSERT INTO pollutant VALUES ('36', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/13', 'Mercury (aerosol)', 'Hg - recommended unit: ng/m3', 'Hg');
-INSERT INTO pollutant VALUES ('37', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1419', 'Dibenzo(ah)anthracene in PM2.5 (aerosol)', 'Dibenzo(ah)anthracene in PM2.5 - recommended unit: ng/m3', 'Dibenzo(ah)anthracene in PM2.5');
-INSERT INTO pollutant VALUES ('38', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/16', 'Chromium (aerosol)', 'Cr - recommended unit: ng/m3', 'Cr');
-INSERT INTO pollutant VALUES ('39', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1610', 'Benzo(a)anthracene in PM2.5 (aerosol)', 'Benzo(a)anthracene in PM2.5 - recommended unit: ng/m3', 'Benzo(a)anthracene in PM2.5');
-INSERT INTO pollutant VALUES ('40', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1617', 'Benzo(b)fluoranthene in PM2.5 (air+aerosol)', 'Benzo(b)fluoranthene in PM2.5 - recommended unit: ng/m3', 'Benzo(b)fluoranthene in PM2.5');
-INSERT INTO pollutant VALUES ('41', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1626', 'Benzo(k)fluoranthene in PM2.5 (aerosol)', 'Benzo(k)fluoranthene in PM2.5 - recommended unit: ng/m3', 'Benzo(k)fluoranthene in PM2.5');
-INSERT INTO pollutant VALUES ('42', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1629', 'calcium in PM2.5 (aerosol)', 'Ca2+ in PM2.5 - recommended unit: µg/m3', 'Ca2+ in PM2.5');
-INSERT INTO pollutant VALUES ('43', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1631', 'chloride in PM2.5 (aerosol)', 'Cl- in PM2.5 - recommended unit: µg/m3', 'Cl- in PM2.5');
-INSERT INTO pollutant VALUES ('44', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1655', 'indeno_123cd_pyrene in PM2.5 (aerosol)', 'Indeno-(1,2,3-cd)pyrene in PM2 - recommended unit: ng/m3', 'Indeno-(1,2,3-cd)pyrene in PM2');
-INSERT INTO pollutant VALUES ('45', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1657', 'potassium in PM2.5 (aerosol)', 'K+ in PM2.5 - recommended unit: µg/m3', 'K+ in PM2.5');
-INSERT INTO pollutant VALUES ('46', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1659', 'magnesium in PM2.5 (aerosol)', 'Mg2+ in PM2.5 - recommended unit: µg/m3', 'Mg2+ in PM2.5');
-INSERT INTO pollutant VALUES ('47', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1668', 'sodium in PM2.5 (aerosol)', 'Na+ in PM2.5 - recommended unit: µg/m3', 'Na+  in PM2.5');
-INSERT INTO pollutant VALUES ('48', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/17', 'Manganese (aerosol)', 'Mn - recommended unit: ng/m3', 'Mn');
-INSERT INTO pollutant VALUES ('49', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1759', 'Benzo(j)fluoranthene in PM2.5 (aerosol)', 'Benzo(j)fluoranthene in PM2.5 - recommended unit: ng/m3', 'Benzo(j)fluoranthene in PM2.5');
-INSERT INTO pollutant VALUES ('50', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1771', 'Elemental carbon in PM2.5 (aerosol)', 'EC in PM2.5 - recommended unit: µg/m3', 'EC in PM2.5');
-INSERT INTO pollutant VALUES ('51', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1772', 'Organic carbon in PM2.5 (aerosol)', 'OC in PM2.5 - recommended unit: µg/m3', 'OC in PM2.5');
-INSERT INTO pollutant VALUES ('52', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/19', 'Carbon disulphide (air)', 'CS2 - recommended unit: µg/m3', 'CS2');
-INSERT INTO pollutant VALUES ('53', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2013', 'Mercury (precip)', 'Hg - recommended unit: ng/l', 'Hg');
-INSERT INTO pollutant VALUES ('54', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2016', 'Chromium (precip)', 'Cr - recommended unit: µg/l', 'Cr');
-INSERT INTO pollutant VALUES ('55', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2017', 'Manganese (precip)', 'Mn - recommended unit: µg/l', 'Mn');
-INSERT INTO pollutant VALUES ('56', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2063', 'Zinc (precip)', 'Zn - recommended unit: µg/l', 'Zn');
-INSERT INTO pollutant VALUES ('57', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2064', 'Cobalt (precip)', 'Co - recommended unit: µg/l', 'Co');
-INSERT INTO pollutant VALUES ('58', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2065', 'Iron (precip)', 'Fe - recommended unit: µg/l', 'Fe');
-INSERT INTO pollutant VALUES ('59', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2073', 'Copper (precip)', 'Cu - recommended unit: µg/l', 'Cu');
-INSERT INTO pollutant VALUES ('60', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2076', 'acidity(pH) (precip)', 'pH - recommended unit: pH units', 'pH');
-INSERT INTO pollutant VALUES ('61', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/21', 'Toluene (air)', 'C6H5-CH3 - recommended unit: µg/m3', 'C6H5-CH3');
-INSERT INTO pollutant VALUES ('62', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/22', 'Styrene (air)', 'C6H5-CH=CH2 - recommended unit: µg/m3', 'C6H5-CH=CH2');
-INSERT INTO pollutant VALUES ('63', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/23', 'Acrylonitrile (air)', 'CH2=CH-CN - recommended unit: µg/m3', 'CH2=CH-CN');
-INSERT INTO pollutant VALUES ('64', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2380', 'Benzo(b,j,k)fluoranthene (precip)', 'Benzo(b,j,k)fluoranthene - recommended unit: ng/l', 'Benzo(b,j,k)fluoranthene');
-INSERT INTO pollutant VALUES ('65', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/24', '1.3 Butadiene (air)', 'CH2=CH-CH=CH2 - recommended unit: µg/m3', 'CH2=CH-CH=CH2');
-INSERT INTO pollutant VALUES ('66', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/25', 'Formaldehyde (air)', 'HCHO - recommended unit: µg/m3', 'HCHO');
-INSERT INTO pollutant VALUES ('67', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/26', 'Trichloroethylene (air)', 'CHCl=CCl2 - recommended unit: µg/m3', 'CHCl=CCl2');
-INSERT INTO pollutant VALUES ('68', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/27', 'Tetrachloroethylene (air)', 'C2Cl4 - recommended unit: µg/m3', 'C2Cl4');
-INSERT INTO pollutant VALUES ('69', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2770', 'phosphate (precip)', 'PO43- - recommended unit: mg S/l', 'PO43-');
-INSERT INTO pollutant VALUES ('70', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/28', 'Dichloromethane (air)', 'CH2Cl2 - recommended unit: µg/m3', 'CH2Cl2');
-INSERT INTO pollutant VALUES ('71', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3', 'Strong acidity (air)', 'SA - recommended unit: µg SO2/m3', 'SA');
-INSERT INTO pollutant VALUES ('72', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/30', 'Polyaromatic hydrocarbons (air+aerosol)', 'PAH - recommended unit: ng/m3', 'PAH');
-INSERT INTO pollutant VALUES ('73', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3012', 'Lead in TSP (aerosol)', 'Pb in TSP - recommended unit: µg/m3', 'Pb in TSP');
-INSERT INTO pollutant VALUES ('74', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3013', 'Mercury in TSP (aerosol)', 'Hg in TSP - recommended unit: ng/m3', 'Hg in TSP');
-INSERT INTO pollutant VALUES ('75', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3014', 'Cadmium in TSP (aerosol)', 'Cd in TSP - recommended unit: ng/m3', 'Cd in TSP');
-INSERT INTO pollutant VALUES ('76', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3015', 'Nickel in TSP (aerosol)', 'Ni in TSP - recommended unit: ng/m3', 'Ni in TSP');
-INSERT INTO pollutant VALUES ('77', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3016', 'Chromium in TSP (aerosol)', 'Cr in TSP - recommended unit: ng/m3', 'Cr in TSP');
-INSERT INTO pollutant VALUES ('78', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3017', 'Manganese in TSP (aerosol)', 'Mn in TSP - recommended unit: ng/m3', 'Mn in TSP');
-INSERT INTO pollutant VALUES ('79', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3018', 'Arsenic in TSP (aerosol)', 'As in TSP - recommended unit: ng/m3', 'As in TSP');
-INSERT INTO pollutant VALUES ('80', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/302', 'CFC_11 (air)', 'CFC-11 - recommended unit: pptv', 'CFC-11');
-INSERT INTO pollutant VALUES ('81', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/303', 'CFC_113 (air)', 'CFC-113 - recommended unit: pptv', 'CFC-113');
-INSERT INTO pollutant VALUES ('82', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/304', 'CFC_12 (air)', 'CFC-12 - recommended unit: pptv', 'CFC-12');
-INSERT INTO pollutant VALUES ('83', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3063', 'Zinc in TSP (aerosol)', 'Zn in TSP - recommended unit: ng/m3', 'Zn in TSP');
-INSERT INTO pollutant VALUES ('84', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/307', 'HCFC_123 (air)', 'HCFC-123 - recommended unit: pptv', 'HCFC-123');
-INSERT INTO pollutant VALUES ('85', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3073', 'Copper in TSP (aerosol)', 'Cu in TSP - recommended unit: ng/m3', 'Cu in TSP');
-INSERT INTO pollutant VALUES ('86', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/308', 'HCFC_22 (air)', 'HCFC-22 - recommended unit: pptv', 'HCFC-22');
-INSERT INTO pollutant VALUES ('87', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/309', 'N1methylnaphtalene (air+aerosol)', '1-methylnaphtalene - recommended unit: ng/m3', '1-methylnaphtalene');
-INSERT INTO pollutant VALUES ('88', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/31', 'Vinyl chloride (air)', 'VC - recommended unit: µg/m3', 'VC');
-INSERT INTO pollutant VALUES ('89', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/310', 'N1methylphenanthrene (air+aerosol)', '1-methylphenanthrene - recommended unit: ng/m3', '1-methylphenanthrene');
-INSERT INTO pollutant VALUES ('90', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/311', 'N2butanone (air)', 'Methyletylketone (MEK) - recommended unit: µg/m3', 'Methyletylketone (MEK)');
-INSERT INTO pollutant VALUES ('91', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/312', 'N2butenal (air)', 'Crotonaldehyde - recommended unit: µg/m3', 'Crotonaldehyde');
-INSERT INTO pollutant VALUES ('92', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/313', 'N2methylanthracene (air+aerosol)', '2-methylanthracene - recommended unit: ng/m3', '2-methylanthracene');
-INSERT INTO pollutant VALUES ('93', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/314', 'N2methylbenzencarbaldehyde (air)', '2-methylbenzaldehyde - recommended unit: µg/m3', '2-methylbenzaldehyde');
-INSERT INTO pollutant VALUES ('94', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/315', 'N2methylnaphtalene (air+aerosol)', '2-methylnaphtalene - recommended unit: ng/m3', '2-methylnaphtalene');
-INSERT INTO pollutant VALUES ('95', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/316', 'i-Hexane (2-methylpentane) (air)', '(CH3)2-CH-CH2-CH2-CH3 - recommended unit: µg/m3', '(CH3)2-CH-CH2-CH2-CH3');
-INSERT INTO pollutant VALUES ('96', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/317', 'N2methylphenanthrene (air+aerosol)', '2-methylphenanthrene - recommended unit: ng/m3', '2-methylphenanthrene');
-INSERT INTO pollutant VALUES ('97', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/318', 'N2methylpropenal (air)', 'Methacroleine - recommended unit: µg/m3', 'Methacroleine');
-INSERT INTO pollutant VALUES ('98', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/319', 'N2oxopropanal (air)', 'Methylglyoxal - recommended unit: µg/m3', 'Methylglyoxal');
-INSERT INTO pollutant VALUES ('99', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/32', 'Total non-methane hydrocarbons (air)', 'THC (NM) - recommended unit: µg C/m3', 'THC (NM)');
-INSERT INTO pollutant VALUES ('100', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/320', 'N2propenal (air)', 'Acroleine - recommended unit: µg/m3', 'Acroleine');
-INSERT INTO pollutant VALUES ('101', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/321', 'N3buten2one (air)', 'Methylvinylketone (MVK) - recommended unit: µg/m3', 'Methylvinylketone (MVK)');
-INSERT INTO pollutant VALUES ('102', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/322', 'N3methylbenzencarbaldehyde (air)', '3-methylbenzaldehyde - recommended unit: µg/m3', '3-methylbenzaldehyde');
-INSERT INTO pollutant VALUES ('103', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/323', 'N3methylpentane (air)', '3-methylpentane - recommended unit: pptv', '3-methylpentane');
-INSERT INTO pollutant VALUES ('104', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/324', 'N4methylbenzencarbaldehyde (air)', '4-methylbenzaldehyde - recommended unit: µg/m3', '4-methylbenzaldehyde');
-INSERT INTO pollutant VALUES ('105', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/326', 'NOy (air)', 'NOy - recommended unit: µg N/m3', 'NOy');
-INSERT INTO pollutant VALUES ('106', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/33', 'Total volatile organic compounds (air)', 'T-VOC - recommended unit: µg/m3', 'T-VOC');
-INSERT INTO pollutant VALUES ('107', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/330', 'PCB_105 (precip)', 'PCB-105 - recommended unit: ng/l', 'PCB-105');
-INSERT INTO pollutant VALUES ('108', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/333', 'PCB_128 (precip)', 'PCB-128 - recommended unit: ng/l', 'PCB-128');
-INSERT INTO pollutant VALUES ('109', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/336', 'PCB_149 (precip)', 'PCB-149 - recommended unit: ng/l', 'PCB-149');
-INSERT INTO pollutant VALUES ('110', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/339', 'PCB_156 (precip)', 'PCB-156 - recommended unit: ng/l', 'PCB-156');
-INSERT INTO pollutant VALUES ('111', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/34', 'Peroxyacetyl nitrate (air)', 'PAN - recommended unit: µg/m3', 'PAN');
-INSERT INTO pollutant VALUES ('112', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/340', 'PCB_177 (precip)', 'PCB-177 - recommended unit: ng/l', 'PCB-177');
-INSERT INTO pollutant VALUES ('113', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/341', 'PCB_18 (precip)', 'PCB-18 - recommended unit: ng/l', 'PCB-18');
-INSERT INTO pollutant VALUES ('114', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/344', 'PCB_26 (precip)', 'PCB-26 - recommended unit: ng/l', 'PCB-26');
-INSERT INTO pollutant VALUES ('115', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/347', 'PCB_31 (precip)', 'PCB-31 - recommended unit: ng/l', 'PCB-31');
-INSERT INTO pollutant VALUES ('116', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/348', 'PCB_44 (precip)', 'PCB-44 - recommended unit: ng/l', 'PCB-44');
-INSERT INTO pollutant VALUES ('117', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/35', 'Ammonia (air)', 'NH3 - recommended unit: µg/m3', 'NH3');
-INSERT INTO pollutant VALUES ('118', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/351', 'acenaphthene (air+aerosol)', 'Acenaphthene - recommended unit: ng/m3', 'Acenaphthene');
-INSERT INTO pollutant VALUES ('119', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/352', 'acenaphtylene (air+aerosol)', 'Acenaphtylene - recommended unit: ng/m3', 'Acenaphtylene');
-INSERT INTO pollutant VALUES ('120', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/356', 'aldrin (precip)', 'Aldrin - recommended unit: ng/l', 'Aldrin');
-INSERT INTO pollutant VALUES ('121', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/36', 'Wet nitrogen deposition (flux)', 'N-DEP - recommended unit: mg N/m2.m', 'N-DEP');
-INSERT INTO pollutant VALUES ('122', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3631', 'chloride in TSP (aerosol)', 'Cl- in TSP - recommended unit: µg/m3', 'Cl- in TSP');
-INSERT INTO pollutant VALUES ('123', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/364', 'anthanthrene (air+aerosol)', 'Anthanthrene - recommended unit: ng/m3', 'Anthanthrene');
-INSERT INTO pollutant VALUES ('124', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3668', 'sodium in TSP (aerosol)', 'Na+ in TSP - recommended unit: µg/m3', 'Na+  in TSP');
-INSERT INTO pollutant VALUES ('125', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/37', 'Wet sulphur deposition (flux)', 'S-DEP - recommended unit: mg S/m2.m', 'S-DEP');
-INSERT INTO pollutant VALUES ('126', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/372', 'Benzenecarbaldehyde (air)', 'Benzaldehyde - recommended unit: µg/m3', 'Benzaldehyde');
-INSERT INTO pollutant VALUES ('127', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/373', 'Benzo(a)fluoranthene (air+aerosol)', 'Benzo(a)fluoranthene - recommended unit: ng/m3', 'Benzo(a)fluoranthene');
-INSERT INTO pollutant VALUES ('128', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/38', 'Nitrogen monoxide (air)', 'NO - recommended unit: µg/m3', 'NO');
-INSERT INTO pollutant VALUES ('129', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/380', 'Benzo(b+j+k)fluoranthenes (air+aerosol)', 'Benzo(b+j+k)fluoranthenes - recommended unit: ng/m3', 'Benzo(b+j+k)fluoranthenes');
-INSERT INTO pollutant VALUES ('130', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/381', 'Benzo(e)pyrene (air+aerosol)', 'Benzo(e)pyrene - recommended unit: ng/m3', 'Benzo(e)pyrene');
-INSERT INTO pollutant VALUES ('131', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/39', 'Hydrogen chloride (air)', 'HCl - recommended unit: µg/m3', 'HCl');
-INSERT INTO pollutant VALUES ('132', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/390', 'biphenyl (air+aerosol)', 'Biphenyl - recommended unit: ng/m3', 'Biphenyl');
-INSERT INTO pollutant VALUES ('133', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/391', 'black_carbon (aerosol)', 'Black Carbon - recommended unit: µg/m3', 'Black Carbon');
-INSERT INTO pollutant VALUES ('134', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/393', 'butanales (air)', 'Butanales - recommended unit: µg/m3', 'Butanales');
-INSERT INTO pollutant VALUES ('135', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/394', 'n-Butane (air)', 'H3C-CH2-CH2-CH3 - recommended unit: µg/m3', 'H3C-CH2-CH2-CH3');
-INSERT INTO pollutant VALUES ('136', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/395', 'butenes (air)', 'Butenes - recommended unit: pptv', 'Butenes');
-INSERT INTO pollutant VALUES ('137', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4', 'Total suspended particulates (aerosol)', 'SPM - recommended unit: µg/m3', 'SPM');
-INSERT INTO pollutant VALUES ('138', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/40', 'Hydrogen fluoride (air)', 'HF - recommended unit: µg/m3', 'HF');
-INSERT INTO pollutant VALUES ('139', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/401', 'carbontetrachloride (air)', 'Carbon-tetrachloride - recommended unit: pptv', 'Carbon-tetrachloride');
-INSERT INTO pollutant VALUES ('140', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4013', 'Elemental Gaseous Mercury (air+aerosol)', 'Hg0 - recommended unit: ng/m3', 'Hg0');
-INSERT INTO pollutant VALUES ('141', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/406', 'chrysene (precip)', 'Chrysene - recommended unit: ng/l', 'Chrysene');
-INSERT INTO pollutant VALUES ('142', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/41', 'Methane (air)', 'CH4 - recommended unit: µg/m3', 'CH4');
-INSERT INTO pollutant VALUES ('143', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/412', 'conductivity (precip)', 'k - recommended unit: uS/cm', 'k');
-INSERT INTO pollutant VALUES ('144', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/415', 'coronene (air+aerosol)', 'Coronene - recommended unit: ng/m3', 'Coronene');
-INSERT INTO pollutant VALUES ('145', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/416', 'cyclohexane (air)', 'Cyclo-hexane - recommended unit: pptv', 'Cyclo-hexane');
-INSERT INTO pollutant VALUES ('146', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/417', 'Cyklopenta(cd)pyrene (air+aerosol)', 'Cyklopenta(cd)pyrene - recommended unit: ng/m3', 'Cyklopenta(cd)pyrene');
-INSERT INTO pollutant VALUES ('147', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/418', 'Dibenzo(ac+ah)anthracenes (precip)', 'Dibenzo(ac+ah)anthracenes - recommended unit: ng/m3', 'Dibenzo(ac+ah)anthracenes');
-INSERT INTO pollutant VALUES ('148', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/419', 'Dibenzo(ah)anthracene (precip)', 'Dibenzo(ah)anthracene - recommended unit: ng/l', 'Dibenzo(ah)anthracene');
-INSERT INTO pollutant VALUES ('149', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/420', 'dibenzofuran (air+aerosol)', 'Dibenzofuran - recommended unit: ng/m3', 'Dibenzofuran');
-INSERT INTO pollutant VALUES ('150', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/421', 'dibenzothiophene (air+aerosol)', 'Dibenzothiophene - recommended unit: ng/m3', 'Dibenzothiophene');
-INSERT INTO pollutant VALUES ('151', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/425', 'dinitrogenoxide (air)', 'N2O - recommended unit: ppbv', 'N2O');
-INSERT INTO pollutant VALUES ('152', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/426', 'endrin (precip)', 'Endrin - recommended unit: ng/l', 'Endrin');
-INSERT INTO pollutant VALUES ('153', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/427', 'ethanal (air)', 'Acetaldehyde - recommended unit: µg/m3', 'Acetaldehyde');
-INSERT INTO pollutant VALUES ('154', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/428', 'Ethane (air)', 'C2H6 - recommended unit: µg/m3', 'C2H6');
-INSERT INTO pollutant VALUES ('155', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/429', 'ethanedial (air)', 'Glyoxal - recommended unit: µg/m3', 'Glyoxal');
-INSERT INTO pollutant VALUES ('156', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/430', 'Ethene (Ethylene) (air)', 'H2C=CH2 - recommended unit: µg/m3', 'H2C=CH2');
-INSERT INTO pollutant VALUES ('157', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/431', 'Ethyl benzene (air)', 'C6H5-C2H5 - recommended unit: µg/m3', 'C6H5-C2H5');
-INSERT INTO pollutant VALUES ('158', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/432', 'Ethyne (Acetylene) (air)', 'HC=CH - recommended unit: µg/m3', 'HC=CH');
-INSERT INTO pollutant VALUES ('159', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4330', 'PCB_105 (air+aerosol)', 'PCB-105 - recommended unit: pg/m3', 'PCB-105');
-INSERT INTO pollutant VALUES ('160', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4336', 'PCB_149 (air+aerosol)', 'PCB-149 - recommended unit: pg/m3', 'PCB-149');
-INSERT INTO pollutant VALUES ('161', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4339', 'PCB_156 (air+aerosol)', 'PCB-156 - recommended unit: pg/m3', 'PCB-156');
-INSERT INTO pollutant VALUES ('162', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4341', 'PCB_18 (air+aerosol)', 'PCB-18 - recommended unit: pg/m3', 'PCB-18');
-INSERT INTO pollutant VALUES ('163', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4347', 'PCB_31 (air+aerosol)', 'PCB-31 - recommended unit: pg/m3', 'PCB-31');
-INSERT INTO pollutant VALUES ('164', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/435', 'fluorene (air+aerosol)', 'Fluorene - recommended unit: ng/m3', 'Fluorene');
-INSERT INTO pollutant VALUES ('165', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/438', 'halon_1211 (air)', 'Halon 1211 - recommended unit: pptv', 'Halon 1211');
-INSERT INTO pollutant VALUES ('166', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/439', 'halon_1301 (air)', 'Halon 1301 - recommended unit: pptv', 'Halon 1301');
-INSERT INTO pollutant VALUES ('167', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/440', 'heptachlor (precip)', 'Heptachlor - recommended unit: ng/l', 'Heptachlor');
-INSERT INTO pollutant VALUES ('168', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4406', 'chrysene (air+aerosol)', 'Chrysene - recommended unit: ng/m3', 'Chrysene');
-INSERT INTO pollutant VALUES ('169', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4407', 'chrysene_triphenylene (air+aerosol)', 'Chrysene + Triphenylene - recommended unit: ng/m3', 'Chrysene + Triphenylene');
-INSERT INTO pollutant VALUES ('170', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/441', 'n-Heptane (air)', 'C7H16 - recommended unit: µg/m3', 'C7H16');
-INSERT INTO pollutant VALUES ('171', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/442', 'hexanal (air)', 'n-Hexanal - recommended unit: µg/m3', 'n-Hexanal');
-INSERT INTO pollutant VALUES ('172', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/443', 'n-Hexane (air)', 'C6H14 - recommended unit: µg/m3', 'C6H14');
-INSERT INTO pollutant VALUES ('173', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/447', 'i-Butane (2-methylpropane) (air)', 'H3C-CH(CH3)2 - recommended unit: µg/m3', 'H3C-CH(CH3)2');
-INSERT INTO pollutant VALUES ('174', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/448', 'isoheptane (air)', 'i-Heptane - recommended unit: µg/m3', 'i-Heptane');
-INSERT INTO pollutant VALUES ('175', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/449', 'i-Octane (2,2,4-trimethylpentane) (air)', '(CH3)3-C-CH2-CH-(CH3)2 - recommended unit: µg/m3', '(CH3)3-C-CH2-CH-(CH3)2');
-INSERT INTO pollutant VALUES ('176', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/45', 'Particulate ammonium (aerosol)', 'NH4 - recommended unit: µg/m3', 'NH4');
-INSERT INTO pollutant VALUES ('177', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/450', 'i-Pentane (2-methylbutane) (air)', 'H3C-CH2-CH(CH3)2 - recommended unit: µg/m3', 'H3C-CH2-CH(CH3)2');
-INSERT INTO pollutant VALUES ('178', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/451', 'Isoprene (2-methyl-1,3-butadiene) (air)', 'CH2=CH-C(CH3)=CH2 - recommended unit: µg/m3', 'CH2=CH-C(CH3)=CH2');
-INSERT INTO pollutant VALUES ('179', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/46', 'Particulate nitrate (aerosol)', 'NO3 - recommended unit: µg/m3', 'NO3');
-INSERT INTO pollutant VALUES ('180', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/463', 'methylchloroform (air)', 'Methyl-chloroform - recommended unit: pptv', 'Methyl-chloroform');
-INSERT INTO pollutant VALUES ('181', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/464', 'm,p-Xylene (air)', 'm,p-C6H4(CH3)2 - recommended unit: µg/m3', 'm,p-C6H4(CH3)2');
-INSERT INTO pollutant VALUES ('182', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/465', 'naphtalene (air+aerosol)', 'Naphtalene - recommended unit: ng/m3', 'Naphtalene');
-INSERT INTO pollutant VALUES ('183', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/466', 'neohexane (air)', 'Neo-hexane - recommended unit: pptv', 'Neo-hexane');
-INSERT INTO pollutant VALUES ('184', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/467', 'neopentane (air)', 'Neo-pentane - recommended unit: pptv', 'Neo-pentane');
-INSERT INTO pollutant VALUES ('185', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/47', 'Particulate sulphate (aerosol)', 'SO4 (H2SO4 aerosols) (SO4--) - recommended unit: µg/m3', 'SO4 (H2SO4 aerosols) (SO4--)');
-INSERT INTO pollutant VALUES ('186', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/475', 'n-Octane (air)', 'C8H18 - recommended unit: µg/m3', 'C8H18');
-INSERT INTO pollutant VALUES ('187', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/48', 'Selenium (aerosol)', 'Se - recommended unit: ng/m3', 'Se');
-INSERT INTO pollutant VALUES ('188', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4813', 'Total gaseous mercury (air+aerosol)', 'Hg0 + Hg-reactive - recommended unit: ng/m3', 'Hg0 + Hg-reactive');
-INSERT INTO pollutant VALUES ('189', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/482', 'o-Xylene (air)', 'o-C6H4-(CH3)2 - recommended unit: µg/m3', 'o-C6H4-(CH3)2');
-INSERT INTO pollutant VALUES ('190', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/485', 'pentanal (air)', 'Valeraldehyde - recommended unit: µg/m3', 'Valeraldehyde');
-INSERT INTO pollutant VALUES ('191', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/486', 'n-Pentane (air)', 'H3C-(CH2)3-CH3 - recommended unit: µg/m3', 'H3C-(CH2)3-CH3');
-INSERT INTO pollutant VALUES ('192', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/487', 'pentenes (air)', 'Pentenes - recommended unit: pptv', 'Pentenes');
-INSERT INTO pollutant VALUES ('193', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/488', 'perylene (air+aerosol)', 'Perylene - recommended unit: ng/m3', 'Perylene');
-INSERT INTO pollutant VALUES ('194', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/49', 'Vanadium (aerosol)', 'V - recommended unit: ng/m3', 'V');
-INSERT INTO pollutant VALUES ('195', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/491', 'phenyletanone (air)', 'Acetophenone - recommended unit: µg/m3', 'Acetophenone');
-INSERT INTO pollutant VALUES ('196', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/50', 'Gaseous nitric acid (air)', 'HNO3 - recommended unit: µg/m3', 'HNO3');
-INSERT INTO pollutant VALUES ('197', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5012', 'Lead in PM10 (aerosol)', 'Pb in PM10 - recommended unit: µg/m3', 'Pb in PM10');
-INSERT INTO pollutant VALUES ('198', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5013', 'Mercury in PM10 (aerosol)', 'Hg in PM10 - recommended unit: ng/m3', 'Hg in PM10');
-INSERT INTO pollutant VALUES ('199', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5014', 'Cadmium in PM10 (aerosol)', 'Cd in PM10 - recommended unit: ng/m3', 'Cd in PM10');
-INSERT INTO pollutant VALUES ('200', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5015', 'Nickel in PM10 (aerosol)', 'Ni in PM10 - recommended unit: ng/m3', 'Ni in PM10');
-INSERT INTO pollutant VALUES ('201', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5016', 'Chromium in PM10 (aerosol)', 'Cr in PM10 - recommended unit: ng/m3', 'Cr in PM10');
-INSERT INTO pollutant VALUES ('202', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5017', 'Manganese in PM10 (aerosol)', 'Mn in PM10 - recommended unit: ng/m3', 'Mn in PM10');
-INSERT INTO pollutant VALUES ('203', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5018', 'Arsenic in PM10 (aerosol)', 'As in PM10 - recommended unit: ng/m3', 'As in PM10');
-INSERT INTO pollutant VALUES ('204', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/502', 'propanal (air)', 'Propanal - recommended unit: µg/m3', 'Propanal');
-INSERT INTO pollutant VALUES ('205', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5029', 'Benzo(a)pyrene in PM10 (aerosol)', 'BaP in PM10 - recommended unit: ng/m3', 'BaP in PM10');
-INSERT INTO pollutant VALUES ('206', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/503', 'Propane (air)', 'H3C-CH2-CH3 - recommended unit: µg/m3', 'H3C-CH2-CH3');
-INSERT INTO pollutant VALUES ('207', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/504', 'propanone (air)', 'Acetone - recommended unit: µg/m3', 'Acetone');
-INSERT INTO pollutant VALUES ('208', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5045', 'Ammonium in PM10 (aerosol)', 'NH4+ in PM10 - recommended unit: µg/m3', 'NH4+ in PM10');
-INSERT INTO pollutant VALUES ('209', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5046', 'Nitrate in PM10 (aerosol)', 'NO3- in PM10 - recommended unit: µg/m3', 'NO3- in PM10');
-INSERT INTO pollutant VALUES ('210', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5047', 'sulphate in PM10 (aerosol)', 'SO42- in PM10 - recommended unit: µg/m3', 'SO42-  in PM10');
-INSERT INTO pollutant VALUES ('211', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5048', 'Selenium in PM10 (aerosol)', 'Se in PM10 - recommended unit: ng/m3', 'Se in PM10');
-INSERT INTO pollutant VALUES ('212', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5049', 'Vanedium in PM10 (aerosol)', 'V in PM10 - recommended unit: ng/m3', 'V in PM10');
-INSERT INTO pollutant VALUES ('213', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/505', 'Propene (air)', 'CH2=CH-CH3 - recommended unit: µg/m3', 'CH2=CH-CH3');
-INSERT INTO pollutant VALUES ('214', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5063', 'Zinc in PM10 (aerosol)', 'Zn in PM10 - recommended unit: ng/m3', 'Zn in PM10');
-INSERT INTO pollutant VALUES ('215', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5064', 'Cobalt in PM10 (aerosol)', 'Co in PM10 - recommended unit: ng/m3', 'Co in PM10');
-INSERT INTO pollutant VALUES ('216', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5065', 'Iron in PM10 (aerosol)', 'Fe in PM10 - recommended unit: ng/m3', 'Fe in PM10');
-INSERT INTO pollutant VALUES ('217', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5073', 'Copper in PM10 (aerosol)', 'Cu in PM10 - recommended unit: ng/m3', 'Cu in PM10');
-INSERT INTO pollutant VALUES ('218', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/508', 'retene (air+aerosol)', 'Retene - recommended unit: ng/m3', 'Retene');
-INSERT INTO pollutant VALUES ('219', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/51', 'HC C2-C6(excl. AROM. & CHLH) (air+aerosol)', 'HC C2-C6(excl. AROM. & CHLH) - recommended unit: µg/m3', 'HC C2-C6(excl. AROM. & CHLH)');
-INSERT INTO pollutant VALUES ('220', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5129', 'Benzo(a)pyrene in PM10 (air+aerosol)', 'BaP in PM10 - recommended unit: ng/m3', 'BaP in PM10');
-INSERT INTO pollutant VALUES ('221', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/517', 'sum_PCB (precip)', 'sum-PCB - recommended unit: ng/l', 'sum-PCB');
-INSERT INTO pollutant VALUES ('222', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/52', 'HC > C6 (excl. AROM. & CHLH) (air+aerosol)', 'HC > C6 (excl. AROM. & CHLH) - recommended unit: µg/m3', 'HC > C6 (excl. AROM. & CHLH)');
-INSERT INTO pollutant VALUES ('223', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/520', 'sum_sulph_diox_sulphate (air+aerosol)', 'SO2 + SO4-- - recommended unit: µg S/m3', 'SO2 + SO4--');
-INSERT INTO pollutant VALUES ('224', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/53', 'Aromatics (except C6H6) (air)', 'Aromatics (except C6H6) - recommended unit: µg/m3', 'Aromatics (except C6H6)');
-INSERT INTO pollutant VALUES ('225', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5380', 'Benzo(b,j,k)fluoranthene in PM10 (aerosol)', 'Benzo(b,j,k)fluorantheneInPM1 - recommended unit: ng/m3', 'Benzo(b,j,k)fluorantheneInPM1');
-INSERT INTO pollutant VALUES ('226', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/54', 'Chlorinated hydrocarbons (air)', 'Chlorinated hydrocarbons - recommended unit: µg/m3', 'Chlorinated hydrocarbons');
-INSERT INTO pollutant VALUES ('227', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5418', 'Dibenzo(ac+ah)anthracene in PM10 (aerosol)', 'Dibenzo(ac+ah)anthracene in PM10 - recommended unit: ng/m3', 'Dibenzo(ac+ah)anthracene in PM10');
-INSERT INTO pollutant VALUES ('228', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5419', 'Dibenzo(ah)anthracene in PM10 (aerosol)', 'Dibenzo(ah)anthracene in PM10 - recommended unit: ng/m3', 'Dibenzo(ah)anthracene in PM10');
-INSERT INTO pollutant VALUES ('229', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5480', 'Benzo(b,j)fluoranthene in PM10 (aerosol)', 'Benzo(b,j)fluorantheneInPM10 - recommended unit: ng/m3', 'Benzo(b,j)fluorantheneinPM10');
-INSERT INTO pollutant VALUES ('230', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5609', 'Benzo(a)anthracene in PM10 (air+aerosol)', 'Benzo(a)anthracene in PM10 - recommended unit: ng/m3', 'Benzo(a)anthracene in PM10');
-INSERT INTO pollutant VALUES ('231', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5610', 'Benzo(a)anthracene in PM10 (aerosol)', 'Benzo(a)anthracene in PM10 - recommended unit: ng/m3', 'Benzo(a)anthracene in PM10');
-INSERT INTO pollutant VALUES ('232', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5616', 'Benzo(b)fluoranthene in PM10 (air+aerosol)', 'Benzo(b)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(b)fluoranthene in PM10');
-INSERT INTO pollutant VALUES ('233', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5617', 'Benzo(b)fluoranthene in PM10 (aerosol)', 'Benzo(b)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(b)fluoranthene in PM10');
-INSERT INTO pollutant VALUES ('234', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5625', 'Benzo(k)fluoranthene in PM10 (air+aerosol)', 'Benzo(k)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(k)fluoranthene in PM10');
-INSERT INTO pollutant VALUES ('235', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5626', 'Benzo(k)fluoranthene in PM10 (aerosol)', 'Benzo(k)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(k)fluoranthene in PM10');
-INSERT INTO pollutant VALUES ('236', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5629', 'calcium in PM10 (aerosol)', 'Ca2+ in PM10 - recommended unit: µg/m3', 'Ca2+ in PM10');
-INSERT INTO pollutant VALUES ('237', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5631', 'chloride in PM10 (aerosol)', 'Cl- in PM10 - recommended unit: µg/m3', 'Cl- in PM10');
-INSERT INTO pollutant VALUES ('238', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5654', 'indeno_123cd_pyrene in PM10 (air+aerosol)', 'Indeno-(1,2,3-cd)pyrene in PM - recommended unit: ng/m3', 'Indeno-(1,2,3-cd)pyrene in PM');
-INSERT INTO pollutant VALUES ('239', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5655', 'indeno_123cd_pyrene in PM10 (aerosol)', 'Indeno-(1,2,3-cd)pyrene in PM - recommended unit: ng/m3', 'Indeno-(1,2,3-cd)pyrene in PM');
-INSERT INTO pollutant VALUES ('240', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5657', 'potassium in PM10 (aerosol)', 'K+ in PM10 - recommended unit: µg/m3', 'K+ in PM10');
-INSERT INTO pollutant VALUES ('241', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5659', 'magnesium in PM10 (aerosol)', 'Mg2+ in PM10 - recommended unit: µg/m3', 'Mg2+ in PM10');
-INSERT INTO pollutant VALUES ('242', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5668', 'sodium in PM10 (aerosol)', 'Na+ in PM10 - recommended unit: µg/m3', 'Na+  in PM10');
-INSERT INTO pollutant VALUES ('243', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5759', 'Benzo(j)fluoranthene in PM10 (aerosol)', 'Benzo(j)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(j)fluoranthene in PM10');
-INSERT INTO pollutant VALUES ('244', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5762', 'Benzo(j)fluoranthene in PM10 (air+aerosol)', 'Benzo(j)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(j)fluoranthene in PM10');
-INSERT INTO pollutant VALUES ('245', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5763', 'Dibenzo(ah)anthracene in PM10 (air+aerosol)', 'Dibenzo(ah)anthracene in PM10 - recommended unit: ng/m3', 'Dibenzo(ah)anthracene in PM10');
-INSERT INTO pollutant VALUES ('246', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5771', 'Elemental carbon in PM10 (aerosol)', 'EC in PM10 - recommended unit: µg/m3', 'EC in PM10');
-INSERT INTO pollutant VALUES ('247', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5772', 'Organic carbon in PM10 (aerosol)', 'OC in PM10 - recommended unit: µg/m3', 'OC in PM10');
-INSERT INTO pollutant VALUES ('248', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6', 'Black smoke (air)', 'BS - recommended unit: µg/m3', 'BS');
-INSERT INTO pollutant VALUES ('249', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6002', 'Particulate matter < 1 µm (aerosol)', 'PM1 - recommended unit: µg/m3', 'PM1');
-INSERT INTO pollutant VALUES ('250', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6005', '1-Butene (air)', 'H2C=CH-CH2-CH3 - recommended unit: µg/m3', 'H2C=CH-CH2-CH3');
-INSERT INTO pollutant VALUES ('251', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6006', 'trans-2-Butene (air)', 'trans-H3C-CH=CH-CH3 - recommended unit: µg/m3', 'trans-H3C-CH=CH-CH3');
-INSERT INTO pollutant VALUES ('252', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6007', 'cis-2-Butene (air)', 'cis-H3C-CH=CH-CH3 - recommended unit: µg/m3', 'cis-H3C-CH=CH-CH3');
-INSERT INTO pollutant VALUES ('253', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6008', '1-Pentene (air)', 'H2C=CH-CH2-CH2-CH3 - recommended unit: µg/m3', 'H2C=CH-CH2-CH2-CH3');
-INSERT INTO pollutant VALUES ('254', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6009', '2-Pentenes (air)', 'H3C-HC=CH-CH2-CH3 - recommended unit: µg/m3', 'H3C-HC=CH-CH2-CH3');
-INSERT INTO pollutant VALUES ('255', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/601', 'N3methylphenanthrene (air+aerosol)', '3-methylphenantrene - recommended unit: ng/m3', '3-methylphenantrene');
-INSERT INTO pollutant VALUES ('256', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6011', '1,2,4-Trimethylbenzene (air)', '1,2,4-C6H3(CH3)3 - recommended unit: µg/m3', '1,2,4-C6H3(CH3)3');
-INSERT INTO pollutant VALUES ('257', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6012', '1,2,3-Trimethylbenzene (air)', '1,2,3-C6H3(CH3)3 - recommended unit: µg/m3', '1,2,3-C6H3(CH3)3');
-INSERT INTO pollutant VALUES ('258', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6013', '1,3,5-Trimethylbenzene (air)', '1,3,5-C6H3(CH3)3 - recommended unit: µg/m3', '1,3,5-C6H3(CH3)3');
-INSERT INTO pollutant VALUES ('259', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6015', 'Benzo(a)pyrene (air+aerosol)', 'BaP - recommended unit: ng/m3', 'BaP');
-INSERT INTO pollutant VALUES ('260', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/602', 'N9methylphenanthrene (air+aerosol)', '9-methylphenantrene - recommended unit: ng/m3', '9-methylphenantrene');
-INSERT INTO pollutant VALUES ('261', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/604', 'aluminium (aerosol)', 'Al - recommended unit: ng/m3', 'Al');
-INSERT INTO pollutant VALUES ('262', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/605', 'aluminium (precip)', 'Al - recommended unit: µg/l', 'Al');
-INSERT INTO pollutant VALUES ('263', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/606', 'anthracene (air+aerosol)', 'Anthracene - recommended unit: ng/m3', 'Anthracene');
-INSERT INTO pollutant VALUES ('264', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/607', 'anthracene (precip)', 'Anthracene - recommended unit: ng/l', 'Anthracene');
-INSERT INTO pollutant VALUES ('265', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/608', 'anthracene (precip+dry_dep)', 'Anthracene - recommended unit: µg/m2/day', 'Anthracene');
-INSERT INTO pollutant VALUES ('266', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/609', 'Benzo(a)anthracene (air+aerosol)', 'Benzo(a)anthracene - recommended unit: ng/m3', 'Benzo(a)anthracene');
-INSERT INTO pollutant VALUES ('267', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/610', 'Benzo(a)anthracene (precip)', 'Benzo(a)anthracene - recommended unit: ng/l', 'Benzo(a)anthracene');
-INSERT INTO pollutant VALUES ('268', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/611', 'Benzo(a)anthracene (precip+dry_dep)', 'Benzo(a)anthracene - recommended unit: µg/m2/day', 'Benzo(a)anthracene');
-INSERT INTO pollutant VALUES ('269', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/613', 'Benzo(a)fluorene (air+aerosol)', 'Benzo(a)fluorene - recommended unit: ng/m3', 'Benzo(a)fluorene');
-INSERT INTO pollutant VALUES ('270', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/616', 'Benzo(b)fluoranthene (air+aerosol)', 'Benzo(b)fluoranthene - recommended unit: ng/m3', 'Benzo(b)fluoranthene');
-INSERT INTO pollutant VALUES ('271', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/617', 'Benzo(b)fluoranthene (precip)', 'Benzo(b)fluoranthene - recommended unit: ng/l', 'Benzo(b)fluoranthene');
-INSERT INTO pollutant VALUES ('272', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/618', 'Benzo(b)fluoranthene (precip+dry_dep)', 'Benzo(b)fluoranthene - recommended unit: µg/m2/day', 'Benzo(b)fluoranthene');
-INSERT INTO pollutant VALUES ('273', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/619', 'Benzo(b)fluorene (air+aerosol)', 'Benzo(b)fluorene - recommended unit: ng/m3', 'Benzo(b)fluorene');
-INSERT INTO pollutant VALUES ('274', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/62', 'Fluoride (except HF) (air)', 'Fluor (except HF) - recommended unit: µg/m3', 'Fluor (except HF)');
-INSERT INTO pollutant VALUES ('275', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/620', 'Benzo(ghi)fluoranthene (air+aerosol)', 'Benzo(ghi)fluoranthene - recommended unit: ng/m3', 'Benzo(ghi)fluoranthene');
-INSERT INTO pollutant VALUES ('276', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/621', 'Benzo(ghi)fluoranthene (precip)', 'Benzo(ghi)fluoranthene - recommended unit: ng/l', 'Benzo(ghi)fluoranthene');
-INSERT INTO pollutant VALUES ('277', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/622', 'Benzo(ghi)perylene (air+aerosol)', 'Benzo(ghi)perylene - recommended unit: ng/m3', 'Benzo(ghi)perylene');
-INSERT INTO pollutant VALUES ('278', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/623', 'Benzo(ghi)perylene (precip)', 'Benzo(ghi)perylene - recommended unit: ng/l', 'Benzo(ghi)perylene');
-INSERT INTO pollutant VALUES ('279', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/624', 'Benzo(ghi)perylene (precip+dry_dep)', 'Benzo(ghi)perylene - recommended unit: µg/m2/day', 'Benzo(ghi)perylene');
-INSERT INTO pollutant VALUES ('280', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/625', 'Benzo(k)fluoranthene (air+aerosol)', 'Benzo(k)fluoranthene - recommended unit: ng/m3', 'Benzo(k)fluoranthene');
-INSERT INTO pollutant VALUES ('281', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/626', 'Benzo(k)fluoranthene (precip)', 'Benzo(k)fluoranthene - recommended unit: ng/l', 'Benzo(k)fluoranthene');
-INSERT INTO pollutant VALUES ('282', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/627', 'Benzo(k)fluoranthene (precip+dry_dep)', 'Benzo(k)fluoranthene - recommended unit: µg/m2/day', 'Benzo(k)fluoranthene');
-INSERT INTO pollutant VALUES ('283', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/629', 'calcium (aerosol)', 'Ca++ - recommended unit: µg/m3', 'Ca++');
-INSERT INTO pollutant VALUES ('284', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/63', 'Zinc (aerosol)', 'Zn - recommended unit: ng/m3', 'Zn');
-INSERT INTO pollutant VALUES ('285', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/630', 'calcium (precip)', 'Ca++ - recommended unit: mg/l', 'Ca++');
-INSERT INTO pollutant VALUES ('286', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/631', 'chloride (aerosol)', 'Cl- - recommended unit: µg/m3', 'Cl-');
-INSERT INTO pollutant VALUES ('287', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/632', 'chloride (precip)', 'Cl- - recommended unit: mg/l', 'Cl-');
-INSERT INTO pollutant VALUES ('288', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/633', 'Dibenz(ac+ah)anthracenes (air+aerosol)', 'Dibenz(ac+ah)anthracenes - recommended unit: ng/m3', 'Dibenz(ac+ah)anthracenes');
-INSERT INTO pollutant VALUES ('289', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/634', 'Dibenz(ac+ah)anthracenes (precip)', 'Dibenz(ac+ah)anthracenes - recommended unit: ng/l', 'Dibenz(ac+ah)anthracenes');
-INSERT INTO pollutant VALUES ('290', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/635', 'Dibenz(ah)anthracene (precip)', 'Dibenz(ah)anthracene - recommended unit: ng/l', 'Dibenz(ah)anthracene');
-INSERT INTO pollutant VALUES ('291', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/636', 'Dibenzo(ae)pyrene (air+aerosol)', 'Dibenzo(ae)pyrene - recommended unit: ng/m3', 'Dibenzo(ae)pyrene');
-INSERT INTO pollutant VALUES ('292', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/637', 'Dibenzo(ah)pyrene (air+aerosol)', 'Dibenzo(ah)pyrene - recommended unit: ng/m3', 'Dibenzo(ah)pyrene');
-INSERT INTO pollutant VALUES ('293', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/638', 'Dibenzo(ai)pyrene (air+aerosol)', 'Dibenzo(ai)pyrene - recommended unit: ng/m3', 'Dibenzo(ai)pyrene');
-INSERT INTO pollutant VALUES ('294', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6380', 'Benzo(b,j,k)fluoranthene in PM10 (air+aerosol)', 'Benzo(b,j,k)fluorantheneInPM1 - recommended unit: ng/m3', 'Benzo(b,j,k)fluorantheneInPM1');
-INSERT INTO pollutant VALUES ('295', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/639', 'Dibenzo(ai)pyrene (precip)', 'Dibenzo(ai)pyrene - recommended unit: ng/l', 'Dibenzo(ai)pyrene');
-INSERT INTO pollutant VALUES ('296', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/64', 'Cobalt (aerosol)', 'Co - recommended unit: ng/m3', 'Co');
-INSERT INTO pollutant VALUES ('297', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/640', 'dieldrin (air+aerosol)', 'Dieldrin - recommended unit: pg/m3', 'Dieldrin');
-INSERT INTO pollutant VALUES ('298', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/641', 'dieldrin (precip)', 'Dieldrin - recommended unit: ng/l', 'Dieldrin');
-INSERT INTO pollutant VALUES ('299', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/643', 'fluoranthene (air+aerosol)', 'Fluoranthene - recommended unit: ng/m3', 'Fluoranthene');
-INSERT INTO pollutant VALUES ('300', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/644', 'fluoranthene (precip)', 'Fluoranthene - recommended unit: ng/l', 'Fluoranthene');
-INSERT INTO pollutant VALUES ('301', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/645', 'fluoranthene (precip+dry_dep)', 'Fluoranthene - recommended unit: µg/m2/day', 'Fluoranthene');
-INSERT INTO pollutant VALUES ('302', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/648', 'acidity(H+) (precip)', 'H+ - recommended unit: ue H/l', 'H+');
-INSERT INTO pollutant VALUES ('303', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/649', 'HCB (air+aerosol)', 'HCB - recommended unit: pg/m3', 'HCB');
-INSERT INTO pollutant VALUES ('304', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/65', 'Iron (aerosol)', 'Fe - recommended unit: ng/m3', 'Fe');
-INSERT INTO pollutant VALUES ('305', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/650', 'HCB (precip)', 'HCB - recommended unit: ng/l', 'HCB');
-INSERT INTO pollutant VALUES ('306', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/652', 'heptachlor_epoxide (precip)', 'Heptachlor Epoxide - recommended unit: ng/l', 'Heptachlor Epoxide');
-INSERT INTO pollutant VALUES ('307', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/653', 'reactive_mercury (air+aerosol)', 'Hg-reactive - recommended unit: ng/m3', 'Hg-reactive');
-INSERT INTO pollutant VALUES ('308', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/654', 'indeno_123cd_pyrene (air+aerosol)', 'Indeno-(1,2,3-cd)pyrene - recommended unit: ng/m3', 'Indeno-(1,2,3-cd)pyrene');
-INSERT INTO pollutant VALUES ('309', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/655', 'indeno_123cd_pyrene (precip)', 'Indeno-(1,2,3-cd)pyrene - recommended unit: ng/l', 'Indeno-(1,2,3-cd)pyrene');
-INSERT INTO pollutant VALUES ('310', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/656', 'indeno_123cd_pyrene (precip+dry_dep)', 'Indeno-(1,2,3-cd)pyrene - recommended unit: µg/m2/day', 'Indeno-(1,2,3-cd)pyrene');
-INSERT INTO pollutant VALUES ('311', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/657', 'potassium (aerosol)', 'K+ - recommended unit: µg/m3', 'K+');
-INSERT INTO pollutant VALUES ('312', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/658', 'potassium (precip)', 'K+ - recommended unit: mg/l', 'K+');
-INSERT INTO pollutant VALUES ('313', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/659', 'magnesium (aerosol)', 'Mg++ - recommended unit: µg/m3', 'Mg++');
-INSERT INTO pollutant VALUES ('314', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/66', 'Back scattering ()', 'Back scattering - recommended unit: m-1', 'Back scattering');
-INSERT INTO pollutant VALUES ('315', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/660', 'magnesium (precip)', 'Mg++ - recommended unit: mg/l', 'Mg++');
-INSERT INTO pollutant VALUES ('316', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/661', 'molybdenum (aerosol)', 'Mo - recommended unit: ng/m3', 'Mo');
-INSERT INTO pollutant VALUES ('317', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/664', 'ammonium (precip)', 'NH4+ - recommended unit: mg N/l', 'NH4+');
-INSERT INTO pollutant VALUES ('318', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/666', 'nitrate (precip)', 'NO3- - recommended unit: mg N/l', 'NO3-');
-INSERT INTO pollutant VALUES ('319', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/668', 'sodium (aerosol)', 'Na+ - recommended unit: µg/m3', 'Na+');
-INSERT INTO pollutant VALUES ('320', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/669', 'sodium (precip)', 'Na+ - recommended unit: mg/l', 'Na+');
-INSERT INTO pollutant VALUES ('321', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/67', 'Total nitrate (air+aerosol)', 'HNO3+NO3 - recommended unit: µg N/m3', 'HNO3+NO3');
-INSERT INTO pollutant VALUES ('322', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/670', 'PCB_101 (air+aerosol)', 'PCB-101 - recommended unit: pg/m3', 'PCB-101');
-INSERT INTO pollutant VALUES ('323', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/671', 'PCB_101 (precip)', 'PCB-101 - recommended unit: ng/l', 'PCB-101');
-INSERT INTO pollutant VALUES ('324', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/672', 'PCB_101 (precip+dry_dep)', 'PCB-101 - recommended unit: ng/m2/day', 'PCB-101');
-INSERT INTO pollutant VALUES ('325', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/673', 'PCB_114 (air+aerosol)', 'PCB-114 - recommended unit: pg/m3', 'PCB-114');
-INSERT INTO pollutant VALUES ('326', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/674', 'PCB_118 (air+aerosol)', 'PCB-118 - recommended unit: pg/m3', 'PCB-118');
-INSERT INTO pollutant VALUES ('327', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/675', 'PCB_118 (precip)', 'PCB-118 - recommended unit: ng/l', 'PCB-118');
-INSERT INTO pollutant VALUES ('328', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/676', 'PCB_118 (precip+dry_dep)', 'PCB-118 - recommended unit: ng/m2/day', 'PCB-118');
-INSERT INTO pollutant VALUES ('329', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/677', 'PCB_138 (air+aerosol)', 'PCB-138 - recommended unit: pg/m3', 'PCB-138');
-INSERT INTO pollutant VALUES ('330', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/678', 'PCB_138 (precip+dry_dep)', 'PCB-138 - recommended unit: ng/m2/day', 'PCB-138');
-INSERT INTO pollutant VALUES ('331', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/679', 'PCB_141 (air+aerosol)', 'PCB-141 - recommended unit: pg/m3', 'PCB-141');
-INSERT INTO pollutant VALUES ('332', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/68', 'Total ammonium (air+aerosol)', 'NH3+NH4 - recommended unit: µg N/m3', 'NH3+NH4');
-INSERT INTO pollutant VALUES ('333', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/680', 'PCB_153 (air+aerosol)', 'PCB-153 - recommended unit: pg/m3', 'PCB-153');
-INSERT INTO pollutant VALUES ('334', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/681', 'PCB_153 (precip)', 'PCB-153 - recommended unit: ng/l', 'PCB-153');
-INSERT INTO pollutant VALUES ('335', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/682', 'PCB_153 (precip+dry_dep)', 'PCB-153 - recommended unit: ng/m2/day', 'PCB-153');
-INSERT INTO pollutant VALUES ('336', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/683', 'PCB_157 (air+aerosol)', 'PCB-157 - recommended unit: pg/m3', 'PCB-157');
-INSERT INTO pollutant VALUES ('337', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/684', 'PCB_167 (air+aerosol)', 'PCB-167 - recommended unit: pg/m3', 'PCB-167');
-INSERT INTO pollutant VALUES ('338', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/685', 'PCB_170 (air+aerosol)', 'PCB-170 - recommended unit: pg/m3', 'PCB-170');
-INSERT INTO pollutant VALUES ('339', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/686', 'PCB_180 (air+aerosol)', 'PCB-180 - recommended unit: pg/m3', 'PCB-180');
-INSERT INTO pollutant VALUES ('340', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/687', 'PCB_180 (precip)', 'PCB-180 - recommended unit: ng/l', 'PCB-180');
-INSERT INTO pollutant VALUES ('341', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/688', 'PCB_180 (precip+dry_dep)', 'PCB-180 - recommended unit: ng/m2/day', 'PCB-180');
-INSERT INTO pollutant VALUES ('342', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/689', 'PCB_183 (air+aerosol)', 'PCB-183 - recommended unit: pg/m3', 'PCB-183');
-INSERT INTO pollutant VALUES ('343', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/69', 'Radioactivity ()', 'Radioactivity - recommended unit:', 'Radioactivity');
-INSERT INTO pollutant VALUES ('344', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/690', 'PCB_187 (air+aerosol)', 'PCB-187 - recommended unit: pg/m3', 'PCB-187');
-INSERT INTO pollutant VALUES ('345', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/691', 'PCB_189 (air+aerosol)', 'PCB-189 - recommended unit: pg/m3', 'PCB-189');
-INSERT INTO pollutant VALUES ('346', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/692', 'PCB_194 (air+aerosol)', 'PCB-194 - recommended unit: pg/m3', 'PCB-194');
-INSERT INTO pollutant VALUES ('347', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/693', 'PCB_206 (air+aerosol)', 'PCB-206 - recommended unit: pg/m3', 'PCB-206');
-INSERT INTO pollutant VALUES ('348', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/694', 'PCB_209 (air+aerosol)', 'PCB-209 - recommended unit: pg/m3', 'PCB-209');
-INSERT INTO pollutant VALUES ('349', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/695', 'PCB_28 (air+aerosol)', 'PCB-28 - recommended unit: pg/m3', 'PCB-28');
-INSERT INTO pollutant VALUES ('350', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/696', 'PCB_28 (precip)', 'PCB-28 - recommended unit: ng/l', 'PCB-28');
-INSERT INTO pollutant VALUES ('351', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/697', 'PCB_28 (precip+dry_dep)', 'PCB-28 - recommended unit: ng/m2/day', 'PCB-28');
-INSERT INTO pollutant VALUES ('352', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/698', 'PCB_33 (air+aerosol)', 'PCB-33 - recommended unit: pg/m3', 'PCB-33');
-INSERT INTO pollutant VALUES ('353', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/699', 'PCB_37 (air+aerosol)', 'PCB-37 - recommended unit: pg/m3', 'PCB-37');
-INSERT INTO pollutant VALUES ('354', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/700', 'PCB_47 (air+aerosol)', 'PCB-47 - recommended unit: pg/m3', 'PCB-47');
-INSERT INTO pollutant VALUES ('355', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/701', 'PCB_52 (air+aerosol)', 'PCB-52 - recommended unit: pg/m3', 'PCB-52');
-INSERT INTO pollutant VALUES ('356', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7012', 'Lead (precip+dry_dep)', 'Pb - recommended unit: µg/m2/day', 'Pb');
-INSERT INTO pollutant VALUES ('357', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7013', 'Mercury (precip+dry_dep)', 'Hg - recommended unit: µg/m2/day', 'Hg');
-INSERT INTO pollutant VALUES ('358', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7014', 'Cadmium (precip+dry_dep)', 'Cd - recommended unit: µg/m2/day', 'Cd');
-INSERT INTO pollutant VALUES ('359', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7015', 'Nickel (precip+dry_dep)', 'Ni - recommended unit: µg/m2/day', 'Ni');
-INSERT INTO pollutant VALUES ('360', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7018', 'Arsenic (precip+dry_dep)', 'As - recommended unit: µg/m2/day', 'As');
-INSERT INTO pollutant VALUES ('361', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/702', 'PCB_52 (precip)', 'PCB-52 - recommended unit: ng/l', 'PCB-52');
-INSERT INTO pollutant VALUES ('362', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7029', 'Benzo(a)pyrene (precip+dry_dep)', 'BaP - recommended unit: µg/m2/day', 'BaP');
-INSERT INTO pollutant VALUES ('363', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/703', 'PCB_52 (precip+dry_dep)', 'PCB-52 - recommended unit: ng/m2/day', 'PCB-52');
-INSERT INTO pollutant VALUES ('364', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/704', 'PCB_60 (air+aerosol)', 'PCB-60 - recommended unit: pg/m3', 'PCB-60');
-INSERT INTO pollutant VALUES ('365', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/705', 'PCB_66 (air+aerosol)', 'PCB-66 - recommended unit: pg/m3', 'PCB-66');
-INSERT INTO pollutant VALUES ('366', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/706', 'PCB_74 (air+aerosol)', 'PCB-74 - recommended unit: pg/m3', 'PCB-74');
-INSERT INTO pollutant VALUES ('367', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/707', 'PCB_99 (air+aerosol)', 'PCB-99 - recommended unit: pg/m3', 'PCB-99');
-INSERT INTO pollutant VALUES ('368', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/708', 'PCB_122 (air+aerosol)', 'PCB_122 - recommended unit: pg/m3', 'PCB_122');
-INSERT INTO pollutant VALUES ('369', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/709', 'PCB_123 (air+aerosol)', 'PCB_123 - recommended unit: pg/m3', 'PCB_123');
-INSERT INTO pollutant VALUES ('370', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/71', 'Carbon dioxide (air)', 'CO2 - recommended unit: ppmv', 'CO2');
-INSERT INTO pollutant VALUES ('371', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/710', 'PCB_128 (air+aerosol)', 'PCB_128 - recommended unit: pg/m3', 'PCB_128');
-INSERT INTO pollutant VALUES ('372', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/711', 'PCB_138 (precip)', 'PCB_138 - recommended unit: ng/l', 'PCB_138');
-INSERT INTO pollutant VALUES ('373', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/712', 'phenanthrene (air+aerosol)', 'Phenanthrene - recommended unit: ng/m3', 'Phenanthrene');
-INSERT INTO pollutant VALUES ('374', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/713', 'phenanthrene (precip)', 'Phenanthrene - recommended unit: ng/l', 'Phenanthrene');
-INSERT INTO pollutant VALUES ('375', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/714', 'phenanthrene (precip+dry_dep)', 'Phenanthrene - recommended unit: µg/m2/day', 'Phenanthrene');
-INSERT INTO pollutant VALUES ('376', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/715', 'pyrene (air+aerosol)', 'Pyrene - recommended unit: ng/m3', 'Pyrene');
-INSERT INTO pollutant VALUES ('377', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/716', 'pyrene (precip)', 'Pyrene - recommended unit: ng/l', 'Pyrene');
-INSERT INTO pollutant VALUES ('378', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/717', 'pyrene (precip+dry_dep)', 'Pyrene - recommended unit: µg/m2/day', 'Pyrene');
-INSERT INTO pollutant VALUES ('379', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/719', 'sulphate (precip)', 'SO4-- - recommended unit: mg S/l', 'SO4--');
-INSERT INTO pollutant VALUES ('380', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/720', 'sulphate_corrected (precip)', 'SO4-- corr - recommended unit: mg S/l', 'SO4-- corr');
-INSERT INTO pollutant VALUES ('381', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/723', 'titanium (precip)', 'TI - recommended unit: µg/l', 'TI');
-INSERT INTO pollutant VALUES ('382', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/728', 'vanadium (precip)', 'Vanadium - recommended unit: µg/l', 'Vanadium');
-INSERT INTO pollutant VALUES ('383', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/729', 'alpha_HCH (air+aerosol)', 'alpha-HCH - recommended unit: pg/m3', 'alpha-HCH');
-INSERT INTO pollutant VALUES ('384', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/73', 'Copper (aerosol)', 'Cu - recommended unit: ng/m3', 'Cu');
-INSERT INTO pollutant VALUES ('385', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/730', 'alpha_HCH (precip)', 'alpha-HCH - recommended unit: ng/l', 'alpha-HCH');
-INSERT INTO pollutant VALUES ('386', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/731', 'alpha_HCH (precip+dry_dep)', 'alpha-HCH - recommended unit: ng/m2', 'alpha-HCH');
-INSERT INTO pollutant VALUES ('387', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/732', 'beta_HCH (air+aerosol)', 'beta-HCH - recommended unit: pg/m3', 'beta-HCH');
-INSERT INTO pollutant VALUES ('388', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/733', 'beta_HCH (precip)', 'beta-HCH - recommended unit: ng/l', 'beta-HCH');
-INSERT INTO pollutant VALUES ('389', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/734', 'cis_CD (air+aerosol)', 'cis-CD - recommended unit: pg/m3', 'cis-CD');
-INSERT INTO pollutant VALUES ('390', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/735', 'cis_CD (precip)', 'cis-CD - recommended unit: ng/l', 'cis-CD');
-INSERT INTO pollutant VALUES ('391', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/736', 'cis_NO (air+aerosol)', 'cis-NO - recommended unit: pg/m3', 'cis-NO');
-INSERT INTO pollutant VALUES ('392', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/737', 'lindane (air+aerosol)', 'gamma-HCH - recommended unit: pg/m3', 'gamma-HCH');
-INSERT INTO pollutant VALUES ('393', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/738', 'lindane (precip+dry_dep)', 'gamma-HCH - recommended unit: ng/m2', 'gamma-HCH');
-INSERT INTO pollutant VALUES ('394', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7380', 'Benzo(b,j,k)fluoranthene (precip+dry_dep)', 'Benzo(b,j,k)fluoranthene - recommended unit: µg/m2/day', 'Benzo(b,j,k)fluoranthene');
-INSERT INTO pollutant VALUES ('395', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/739', 'lindane (precip)', 'gamma-HCH - recommended unit: ng/l', 'gamma-HCH');
-INSERT INTO pollutant VALUES ('396', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7407', 'chrysene_triphenylene (precip+dry_dep)', 'Chrysene + Triphenylene - recommended unit: µg/m2/day', 'Chrysene + Triphenylene');
-INSERT INTO pollutant VALUES ('397', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/741', 'op_DDD (precip)', 'o,p''-DDD - recommended unit: ng/l', 'o,p''-DDD');
-INSERT INTO pollutant VALUES ('398', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7419', 'Dibenzo(ah)anthracene (precip+dry_dep)', 'Dibenzo(ah)anthracene - recommended unit: µg/m2/day', 'Dibenzo(ah)anthracene');
-INSERT INTO pollutant VALUES ('399', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/742', 'op_DDE (precip)', 'o,p''-DDE - recommended unit: ng/l', 'o,p''-DDE');
-INSERT INTO pollutant VALUES ('400', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/743', 'op_DDT (precip)', 'o,p''-DDT - recommended unit: ng/l', 'o,p''-DDT');
-INSERT INTO pollutant VALUES ('401', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/744', 'op_DDD (air+aerosol)', 'o,p''-DDD - recommended unit: pg/m3', 'o,p''-DDD');
-INSERT INTO pollutant VALUES ('402', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/745', 'op_DDE (air+aerosol)', 'o,p''-DDE - recommended unit: pg/m3', 'o,p''-DDE');
-INSERT INTO pollutant VALUES ('403', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/746', 'op_DDT (air+aerosol)', 'o,p''-DDT - recommended unit: pg/m3', 'o,p''-DDT');
-INSERT INTO pollutant VALUES ('404', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/747', 'pp_DDD (precip)', 'p,p''-DDD - recommended unit: ng/l', 'p,p''-DDD');
-INSERT INTO pollutant VALUES ('405', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/748', 'pp_DDE (precip)', 'p,p''-DDE - recommended unit: ng/l', 'p,p''-DDE');
-INSERT INTO pollutant VALUES ('406', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/749', 'pp_DDT (precip)', 'p,p''-DDT - recommended unit: ng/l', 'p,p''-DDT');
-INSERT INTO pollutant VALUES ('407', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/750', 'pp_DDD (air+aerosol)', 'p,p''-DDD - recommended unit: pg/m3', 'p,p''-DDD');
-INSERT INTO pollutant VALUES ('408', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/751', 'pp_DDE (air+aerosol)', 'p,p''-DDE - recommended unit: pg/m3', 'p,p''-DDE');
-INSERT INTO pollutant VALUES ('409', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/752', 'pp_DDT (air+aerosol)', 'p,p''-DDT - recommended unit: pg/m3', 'p,p''-DDT');
-INSERT INTO pollutant VALUES ('410', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/753', 'precipitation_amount (precip)', 'precip_amount - recommended unit: mm', 'precip_amount');
-INSERT INTO pollutant VALUES ('411', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/754', 'precipitation_amount_off (precip)', 'precip_amount_off - recommended unit: mm', 'precip_amount_off');
-INSERT INTO pollutant VALUES ('412', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/755', 'trans_CD (air+aerosol)', 'trans-CD - recommended unit: pg/m3', 'trans-CD');
-INSERT INTO pollutant VALUES ('413', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/756', 'trans_CD (precip)', 'trans-CD - recommended unit: ng/l', 'trans-CD');
-INSERT INTO pollutant VALUES ('414', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/757', 'trans_NO (air+aerosol)', 'trans-NO - recommended unit: pg/m3', 'trans-NO');
-INSERT INTO pollutant VALUES ('415', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/758', 'trans_NO (precip)', 'trans_NO - recommended unit: ng/l', 'trans_NO');
-INSERT INTO pollutant VALUES ('416', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/759', 'Benzo(j)fluoranthene (precip)', 'Benzo(j)fluoranthene - recommended unit: ng/l', 'Benzo(j)fluoranthene');
-INSERT INTO pollutant VALUES ('417', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/760', 'Benzo(j)fluoranthene (precip+dry_dep)', 'Benzo(j)fluoranthene - recommended unit: µg/m2/day', 'Benzo(j)fluoranthene');
-INSERT INTO pollutant VALUES ('418', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/761', 'Benzo(j)fluorene (air+aerosol)', 'Benzo(j)fluorene - recommended unit: ng/m3', 'Benzo(j)fluorene');
-INSERT INTO pollutant VALUES ('419', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/762', 'Benzo(j)fluoranthene (air+aerosol)', 'Benzo(j)fluoranthene - recommended unit: ng/m3', 'Benzo(j)fluoranthene');
-INSERT INTO pollutant VALUES ('420', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/763', 'Dibenzo(ah)anthracene (air+aerosol)', 'Dibenzo(ah)anthracene - recommended unit: ng/m3', 'Dibenzo(ah)anthracene');
-INSERT INTO pollutant VALUES ('421', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/771', 'Elemental carbon (aerosol)', 'EC - recommended unit: µg/m3', 'EC');
-INSERT INTO pollutant VALUES ('422', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/772', 'Organic carbon (aerosol)', 'OC - recommended unit: µg/m3', 'OC');
-INSERT INTO pollutant VALUES ('423', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/78', 'Xylene (air)', 'C6H4-(CH3)2 - recommended unit: µg/m3', 'C6H4-(CH3)2');
-INSERT INTO pollutant VALUES ('424', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/80', 'p-Xylene (air)', 'p-C6H4(CH3)2 - recommended unit: µg/m3', 'p-C6H4(CH3)2');
-INSERT INTO pollutant VALUES ('425', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/81', 'm-Xylene (air)', 'm-C6H4-(CH3)2 - recommended unit: µg/m3', 'm-C6H4-(CH3)2');
-INSERT INTO pollutant VALUES ('426', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/82', 'trans-2-Pentene (air)', 'trans-H3C-HC=CH-CH2-CH3 - recommended unit: µg/m3', 'trans-H3C-HC=CH-CH2-CH3');
-INSERT INTO pollutant VALUES ('427', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/83', 'cis-2-Pentene (air)', 'cis-H3C-HC=CH-CH2-CH3 - recommended unit: µg/m3', 'cis-H3C-HC=CH-CH2-CH3');
+INSERT INTO pollutant VALUES
+ ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/8', 'Nitrogen dioxide (air)', 'NO2 - recommended unit: µg/m3', 'NO2'),
+ ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/9', 'Nitrogen oxides (air)', 'NOX as NO2 - recommended unit: µg/m3', 'NOX as NO2'),
+ ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5', 'Particulate matter < 10 µm (aerosol)', 'PM10 - recommended unit: µg/m3', 'PM10'),
+ ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6001', 'Particulate matter < 2.5 µm (aerosol)', 'PM2.5 - recommended unit: µg/m3', 'PM2.5'),
+ ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1', 'Sulphur dioxide (air)', 'SO2 - recommended unit: µg/m3', 'SO2'),
+ ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7', 'Ozone (air)', 'O3 - recommended unit: µg/m3', 'O3'),
+ ('6', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/10', 'Carbon monoxide (air)', 'CO - recommended unit: mg/m3', 'CO'),
+ ('7', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/20', 'Benzene (air)', 'C6H6 - recommended unit: µg/m3', 'C6H6'),
+ ('8', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/12', 'Lead (aerosol)', 'Pb - recommended unit: µg/m3', 'Pb'),
+ ('9', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2012', 'Lead (precip)', 'Pb - recommended unit: µg/l', 'Pb'),
+ ('10', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/14', 'Cadmium (aerosol)', 'Cd - recommended unit: ng/m3', 'Cd'),
+ ('11', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2014', 'Cadmium (precip)', 'Cd - recommended unit: µg/l', 'Cd'),
+ ('12', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/18', 'Arsenic (aerosol)', 'As - recommended unit: ng/m3', 'As'),
+ ('13', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2018', 'Arsenic (precip)', 'As - recommended unit: µg/l', 'As'),
+ ('14', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/15', 'Nickel (aerosol)', 'Ni - recommended unit: ng/m3', 'Ni'),
+ ('15', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2015', 'Nickel (precip)', 'Ni - recommended unit: µg/l', 'Ni'),
+ ('16', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/29', 'Benzo(a)pyrene (precip)', 'BaP - recommended unit: ng/l', 'BaP'),
+ ('17', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1012', 'Lead in PM2.5 (aerosol)', 'Pb in PM2.5 - recommended unit: µg/m3', 'Pb in PM2.5'),
+ ('18', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1013', 'Mercury in PM2.5 (aerosol)', 'Hg in PM2.5 - recommended unit: ng/m3', 'Hg in PM2.5'),
+ ('19', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1014', 'Cadmium in PM2.5 (aerosol)', 'Cd in PM2.5 - recommended unit: ng/m3', 'Cd in PM2.5'),
+ ('20', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1015', 'Nickel in PM2.5 (aerosol)', 'Ni in PM2.5 - recommended unit: ng/m3', 'Ni in PM2.5'),
+ ('21', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1016', 'Chromium in PM2.5 (aerosol)', 'Cr in PM2.5 - recommended unit: ng/m3', 'Cr in PM2.5'),
+ ('22', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1017', 'Manganese in PM2.5 (aerosol)', 'Mn in PM2.5 - recommended unit: ng/m3', 'Mn in PM2.5'),
+ ('23', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1018', 'Arsenic in PM2.5 (aerosol)', 'As in PM2.5 - recommended unit: µg/m3', 'As in PM2.5'),
+ ('24', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1029', 'Benzo(a)pyrene in PM2.5 (aerosol)', 'BaP in PM2.5 - recommended unit: ng/m3', 'BaP in PM2.5'),
+ ('25', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1045', 'Ammonium in PM2.5 (aerosol)', 'NH4+ in PM2.5 - recommended unit: µg/m3', 'NH4+ in PM2.5'),
+ ('26', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1046', 'Nitrate in PM2.5 (aerosol)', 'NO3- in PM2.5 - recommended unit: µg/m3', 'NO3- in PM2.5'),
+ ('27', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1047', 'sulphate in PM2.5 (aerosol)', 'SO42- in PM2.5 - recommended unit: µg/m3', 'SO42- in PM2.5'),
+ ('28', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1048', 'Selenium in PM2.5 (aerosol)', 'Se in PM2.5 - recommended unit: ng/m3', 'Se in PM2.5'),
+ ('29', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1049', 'Vanedium in PM2.5 (aerosol)', 'V in PM2.5 - recommended unit: ng/m3', 'V in PM2.5'),
+ ('30', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1063', 'Zinc in PM2.5 (aerosol)', 'Zn in PM2.5 - recommended unit: ng/m3', 'Zn in PM2.5'),
+ ('31', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1064', 'Cobalt in PM2.5 (aerosol)', 'Co in PM2.5 - recommended unit: ng/m3', 'Co in PM2.5'),
+ ('32', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1065', 'Iron in PM2.5 (aerosol)', 'Fe in PM2.5 - recommended unit: ng/m3', 'Fe in PM2.5'),
+ ('33', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1073', 'Copper in PM2.5 (aerosol)', 'Cu in PM2.5 - recommended unit: ng/m3', 'Cu in PM2.5'),
+ ('34', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/11', 'Hydrogen sulphide (air)', 'H2S - recommended unit: µg/m3', 'H2S'),
+ ('35', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1129', 'Benzo(a)pyrene in PM2.5 (air+aerosol)', 'BaP in PM2.5 - recommended unit: ng/m3', 'BaP in PM2.5'),
+ ('36', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/13', 'Mercury (aerosol)', 'Hg - recommended unit: ng/m3', 'Hg'),
+ ('37', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1419', 'Dibenzo(ah)anthracene in PM2.5 (aerosol)', 'Dibenzo(ah)anthracene in PM2.5 - recommended unit: ng/m3', 'Dibenzo(ah)anthracene in PM2.5'),
+ ('38', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/16', 'Chromium (aerosol)', 'Cr - recommended unit: ng/m3', 'Cr'),
+ ('39', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1610', 'Benzo(a)anthracene in PM2.5 (aerosol)', 'Benzo(a)anthracene in PM2.5 - recommended unit: ng/m3', 'Benzo(a)anthracene in PM2.5'),
+ ('40', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1617', 'Benzo(b)fluoranthene in PM2.5 (air+aerosol)', 'Benzo(b)fluoranthene in PM2.5 - recommended unit: ng/m3', 'Benzo(b)fluoranthene in PM2.5'),
+ ('41', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1626', 'Benzo(k)fluoranthene in PM2.5 (aerosol)', 'Benzo(k)fluoranthene in PM2.5 - recommended unit: ng/m3', 'Benzo(k)fluoranthene in PM2.5'),
+ ('42', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1629', 'calcium in PM2.5 (aerosol)', 'Ca2+ in PM2.5 - recommended unit: µg/m3', 'Ca2+ in PM2.5'),
+ ('43', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1631', 'chloride in PM2.5 (aerosol)', 'Cl- in PM2.5 - recommended unit: µg/m3', 'Cl- in PM2.5'),
+ ('44', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1655', 'indeno_123cd_pyrene in PM2.5 (aerosol)', 'Indeno-(1,2,3-cd)pyrene in PM2 - recommended unit: ng/m3', 'Indeno-(1,2,3-cd)pyrene in PM2'),
+ ('45', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1657', 'potassium in PM2.5 (aerosol)', 'K+ in PM2.5 - recommended unit: µg/m3', 'K+ in PM2.5'),
+ ('46', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1659', 'magnesium in PM2.5 (aerosol)', 'Mg2+ in PM2.5 - recommended unit: µg/m3', 'Mg2+ in PM2.5'),
+ ('47', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1668', 'sodium in PM2.5 (aerosol)', 'Na+ in PM2.5 - recommended unit: µg/m3', 'Na+  in PM2.5'),
+ ('48', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/17', 'Manganese (aerosol)', 'Mn - recommended unit: ng/m3', 'Mn'),
+ ('49', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1759', 'Benzo(j)fluoranthene in PM2.5 (aerosol)', 'Benzo(j)fluoranthene in PM2.5 - recommended unit: ng/m3', 'Benzo(j)fluoranthene in PM2.5'),
+ ('50', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1771', 'Elemental carbon in PM2.5 (aerosol)', 'EC in PM2.5 - recommended unit: µg/m3', 'EC in PM2.5'),
+ ('51', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/1772', 'Organic carbon in PM2.5 (aerosol)', 'OC in PM2.5 - recommended unit: µg/m3', 'OC in PM2.5'),
+ ('52', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/19', 'Carbon disulphide (air)', 'CS2 - recommended unit: µg/m3', 'CS2'),
+ ('53', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2013', 'Mercury (precip)', 'Hg - recommended unit: ng/l', 'Hg'),
+ ('54', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2016', 'Chromium (precip)', 'Cr - recommended unit: µg/l', 'Cr'),
+ ('55', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2017', 'Manganese (precip)', 'Mn - recommended unit: µg/l', 'Mn'),
+ ('56', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2063', 'Zinc (precip)', 'Zn - recommended unit: µg/l', 'Zn'),
+ ('57', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2064', 'Cobalt (precip)', 'Co - recommended unit: µg/l', 'Co'),
+ ('58', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2065', 'Iron (precip)', 'Fe - recommended unit: µg/l', 'Fe'),
+ ('59', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2073', 'Copper (precip)', 'Cu - recommended unit: µg/l', 'Cu'),
+ ('60', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2076', 'acidity(pH) (precip)', 'pH - recommended unit: pH units', 'pH'),
+ ('61', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/21', 'Toluene (air)', 'C6H5-CH3 - recommended unit: µg/m3', 'C6H5-CH3'),
+ ('62', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/22', 'Styrene (air)', 'C6H5-CH=CH2 - recommended unit: µg/m3', 'C6H5-CH=CH2'),
+ ('63', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/23', 'Acrylonitrile (air)', 'CH2=CH-CN - recommended unit: µg/m3', 'CH2=CH-CN'),
+ ('64', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2380', 'Benzo(b,j,k)fluoranthene (precip)', 'Benzo(b,j,k)fluoranthene - recommended unit: ng/l', 'Benzo(b,j,k)fluoranthene'),
+ ('65', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/24', '1.3 Butadiene (air)', 'CH2=CH-CH=CH2 - recommended unit: µg/m3', 'CH2=CH-CH=CH2'),
+ ('66', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/25', 'Formaldehyde (air)', 'HCHO - recommended unit: µg/m3', 'HCHO'),
+ ('67', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/26', 'Trichloroethylene (air)', 'CHCl=CCl2 - recommended unit: µg/m3', 'CHCl=CCl2'),
+ ('68', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/27', 'Tetrachloroethylene (air)', 'C2Cl4 - recommended unit: µg/m3', 'C2Cl4'),
+ ('69', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/2770', 'phosphate (precip)', 'PO43- - recommended unit: mg S/l', 'PO43-'),
+ ('70', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/28', 'Dichloromethane (air)', 'CH2Cl2 - recommended unit: µg/m3', 'CH2Cl2'),
+ ('71', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3', 'Strong acidity (air)', 'SA - recommended unit: µg SO2/m3', 'SA'),
+ ('72', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/30', 'Polyaromatic hydrocarbons (air+aerosol)', 'PAH - recommended unit: ng/m3', 'PAH'),
+ ('73', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3012', 'Lead in TSP (aerosol)', 'Pb in TSP - recommended unit: µg/m3', 'Pb in TSP'),
+ ('74', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3013', 'Mercury in TSP (aerosol)', 'Hg in TSP - recommended unit: ng/m3', 'Hg in TSP'),
+ ('75', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3014', 'Cadmium in TSP (aerosol)', 'Cd in TSP - recommended unit: ng/m3', 'Cd in TSP'),
+ ('76', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3015', 'Nickel in TSP (aerosol)', 'Ni in TSP - recommended unit: ng/m3', 'Ni in TSP'),
+ ('77', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3016', 'Chromium in TSP (aerosol)', 'Cr in TSP - recommended unit: ng/m3', 'Cr in TSP'),
+ ('78', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3017', 'Manganese in TSP (aerosol)', 'Mn in TSP - recommended unit: ng/m3', 'Mn in TSP'),
+ ('79', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3018', 'Arsenic in TSP (aerosol)', 'As in TSP - recommended unit: ng/m3', 'As in TSP'),
+ ('80', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/302', 'CFC_11 (air)', 'CFC-11 - recommended unit: pptv', 'CFC-11'),
+ ('81', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/303', 'CFC_113 (air)', 'CFC-113 - recommended unit: pptv', 'CFC-113'),
+ ('82', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/304', 'CFC_12 (air)', 'CFC-12 - recommended unit: pptv', 'CFC-12'),
+ ('83', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3063', 'Zinc in TSP (aerosol)', 'Zn in TSP - recommended unit: ng/m3', 'Zn in TSP'),
+ ('84', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/307', 'HCFC_123 (air)', 'HCFC-123 - recommended unit: pptv', 'HCFC-123'),
+ ('85', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3073', 'Copper in TSP (aerosol)', 'Cu in TSP - recommended unit: ng/m3', 'Cu in TSP'),
+ ('86', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/308', 'HCFC_22 (air)', 'HCFC-22 - recommended unit: pptv', 'HCFC-22'),
+ ('87', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/309', 'N1methylnaphtalene (air+aerosol)', '1-methylnaphtalene - recommended unit: ng/m3', '1-methylnaphtalene'),
+ ('88', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/31', 'Vinyl chloride (air)', 'VC - recommended unit: µg/m3', 'VC'),
+ ('89', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/310', 'N1methylphenanthrene (air+aerosol)', '1-methylphenanthrene - recommended unit: ng/m3', '1-methylphenanthrene'),
+ ('90', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/311', 'N2butanone (air)', 'Methyletylketone (MEK) - recommended unit: µg/m3', 'Methyletylketone (MEK)'),
+ ('91', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/312', 'N2butenal (air)', 'Crotonaldehyde - recommended unit: µg/m3', 'Crotonaldehyde'),
+ ('92', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/313', 'N2methylanthracene (air+aerosol)', '2-methylanthracene - recommended unit: ng/m3', '2-methylanthracene'),
+ ('93', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/314', 'N2methylbenzencarbaldehyde (air)', '2-methylbenzaldehyde - recommended unit: µg/m3', '2-methylbenzaldehyde'),
+ ('94', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/315', 'N2methylnaphtalene (air+aerosol)', '2-methylnaphtalene - recommended unit: ng/m3', '2-methylnaphtalene'),
+ ('95', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/316', 'i-Hexane (2-methylpentane) (air)', '(CH3)2-CH-CH2-CH2-CH3 - recommended unit: µg/m3', '(CH3)2-CH-CH2-CH2-CH3'),
+ ('96', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/317', 'N2methylphenanthrene (air+aerosol)', '2-methylphenanthrene - recommended unit: ng/m3', '2-methylphenanthrene'),
+ ('97', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/318', 'N2methylpropenal (air)', 'Methacroleine - recommended unit: µg/m3', 'Methacroleine'),
+ ('98', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/319', 'N2oxopropanal (air)', 'Methylglyoxal - recommended unit: µg/m3', 'Methylglyoxal'),
+ ('99', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/32', 'Total non-methane hydrocarbons (air)', 'THC (NM) - recommended unit: µg C/m3', 'THC (NM)'),
+ ('100', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/320', 'N2propenal (air)', 'Acroleine - recommended unit: µg/m3', 'Acroleine'),
+ ('101', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/321', 'N3buten2one (air)', 'Methylvinylketone (MVK) - recommended unit: µg/m3', 'Methylvinylketone (MVK)'),
+ ('102', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/322', 'N3methylbenzencarbaldehyde (air)', '3-methylbenzaldehyde - recommended unit: µg/m3', '3-methylbenzaldehyde'),
+ ('103', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/323', 'N3methylpentane (air)', '3-methylpentane - recommended unit: pptv', '3-methylpentane'),
+ ('104', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/324', 'N4methylbenzencarbaldehyde (air)', '4-methylbenzaldehyde - recommended unit: µg/m3', '4-methylbenzaldehyde'),
+ ('105', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/326', 'NOy (air)', 'NOy - recommended unit: µg N/m3', 'NOy'),
+ ('106', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/33', 'Total volatile organic compounds (air)', 'T-VOC - recommended unit: µg/m3', 'T-VOC'),
+ ('107', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/330', 'PCB_105 (precip)', 'PCB-105 - recommended unit: ng/l', 'PCB-105'),
+ ('108', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/333', 'PCB_128 (precip)', 'PCB-128 - recommended unit: ng/l', 'PCB-128'),
+ ('109', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/336', 'PCB_149 (precip)', 'PCB-149 - recommended unit: ng/l', 'PCB-149'),
+ ('110', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/339', 'PCB_156 (precip)', 'PCB-156 - recommended unit: ng/l', 'PCB-156'),
+ ('111', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/34', 'Peroxyacetyl nitrate (air)', 'PAN - recommended unit: µg/m3', 'PAN'),
+ ('112', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/340', 'PCB_177 (precip)', 'PCB-177 - recommended unit: ng/l', 'PCB-177'),
+ ('113', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/341', 'PCB_18 (precip)', 'PCB-18 - recommended unit: ng/l', 'PCB-18'),
+ ('114', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/344', 'PCB_26 (precip)', 'PCB-26 - recommended unit: ng/l', 'PCB-26'),
+ ('115', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/347', 'PCB_31 (precip)', 'PCB-31 - recommended unit: ng/l', 'PCB-31'),
+ ('116', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/348', 'PCB_44 (precip)', 'PCB-44 - recommended unit: ng/l', 'PCB-44'),
+ ('117', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/35', 'Ammonia (air)', 'NH3 - recommended unit: µg/m3', 'NH3'),
+ ('118', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/351', 'acenaphthene (air+aerosol)', 'Acenaphthene - recommended unit: ng/m3', 'Acenaphthene'),
+ ('119', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/352', 'acenaphtylene (air+aerosol)', 'Acenaphtylene - recommended unit: ng/m3', 'Acenaphtylene'),
+ ('120', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/356', 'aldrin (precip)', 'Aldrin - recommended unit: ng/l', 'Aldrin'),
+ ('121', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/36', 'Wet nitrogen deposition (flux)', 'N-DEP - recommended unit: mg N/m2.m', 'N-DEP'),
+ ('122', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3631', 'chloride in TSP (aerosol)', 'Cl- in TSP - recommended unit: µg/m3', 'Cl- in TSP'),
+ ('123', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/364', 'anthanthrene (air+aerosol)', 'Anthanthrene - recommended unit: ng/m3', 'Anthanthrene'),
+ ('124', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/3668', 'sodium in TSP (aerosol)', 'Na+ in TSP - recommended unit: µg/m3', 'Na+  in TSP'),
+ ('125', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/37', 'Wet sulphur deposition (flux)', 'S-DEP - recommended unit: mg S/m2.m', 'S-DEP'),
+ ('126', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/372', 'Benzenecarbaldehyde (air)', 'Benzaldehyde - recommended unit: µg/m3', 'Benzaldehyde'),
+ ('127', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/373', 'Benzo(a)fluoranthene (air+aerosol)', 'Benzo(a)fluoranthene - recommended unit: ng/m3', 'Benzo(a)fluoranthene'),
+ ('128', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/38', 'Nitrogen monoxide (air)', 'NO - recommended unit: µg/m3', 'NO'),
+ ('129', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/380', 'Benzo(b+j+k)fluoranthenes (air+aerosol)', 'Benzo(b+j+k)fluoranthenes - recommended unit: ng/m3', 'Benzo(b+j+k)fluoranthenes'),
+ ('130', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/381', 'Benzo(e)pyrene (air+aerosol)', 'Benzo(e)pyrene - recommended unit: ng/m3', 'Benzo(e)pyrene'),
+ ('131', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/39', 'Hydrogen chloride (air)', 'HCl - recommended unit: µg/m3', 'HCl'),
+ ('132', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/390', 'biphenyl (air+aerosol)', 'Biphenyl - recommended unit: ng/m3', 'Biphenyl'),
+ ('133', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/391', 'black_carbon (aerosol)', 'Black Carbon - recommended unit: µg/m3', 'Black Carbon'),
+ ('134', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/393', 'butanales (air)', 'Butanales - recommended unit: µg/m3', 'Butanales'),
+ ('135', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/394', 'n-Butane (air)', 'H3C-CH2-CH2-CH3 - recommended unit: µg/m3', 'H3C-CH2-CH2-CH3'),
+ ('136', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/395', 'butenes (air)', 'Butenes - recommended unit: pptv', 'Butenes'),
+ ('137', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4', 'Total suspended particulates (aerosol)', 'SPM - recommended unit: µg/m3', 'SPM'),
+ ('138', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/40', 'Hydrogen fluoride (air)', 'HF - recommended unit: µg/m3', 'HF'),
+ ('139', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/401', 'carbontetrachloride (air)', 'Carbon-tetrachloride - recommended unit: pptv', 'Carbon-tetrachloride'),
+ ('140', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4013', 'Elemental Gaseous Mercury (air+aerosol)', 'Hg0 - recommended unit: ng/m3', 'Hg0'),
+ ('141', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/406', 'chrysene (precip)', 'Chrysene - recommended unit: ng/l', 'Chrysene'),
+ ('142', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/41', 'Methane (air)', 'CH4 - recommended unit: µg/m3', 'CH4'),
+ ('143', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/412', 'conductivity (precip)', 'k - recommended unit: uS/cm', 'k'),
+ ('144', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/415', 'coronene (air+aerosol)', 'Coronene - recommended unit: ng/m3', 'Coronene'),
+ ('145', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/416', 'cyclohexane (air)', 'Cyclo-hexane - recommended unit: pptv', 'Cyclo-hexane'),
+ ('146', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/417', 'Cyklopenta(cd)pyrene (air+aerosol)', 'Cyklopenta(cd)pyrene - recommended unit: ng/m3', 'Cyklopenta(cd)pyrene'),
+ ('147', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/418', 'Dibenzo(ac+ah)anthracenes (precip)', 'Dibenzo(ac+ah)anthracenes - recommended unit: ng/m3', 'Dibenzo(ac+ah)anthracenes'),
+ ('148', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/419', 'Dibenzo(ah)anthracene (precip)', 'Dibenzo(ah)anthracene - recommended unit: ng/l', 'Dibenzo(ah)anthracene'),
+ ('149', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/420', 'dibenzofuran (air+aerosol)', 'Dibenzofuran - recommended unit: ng/m3', 'Dibenzofuran'),
+ ('150', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/421', 'dibenzothiophene (air+aerosol)', 'Dibenzothiophene - recommended unit: ng/m3', 'Dibenzothiophene'),
+ ('151', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/425', 'dinitrogenoxide (air)', 'N2O - recommended unit: ppbv', 'N2O'),
+ ('152', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/426', 'endrin (precip)', 'Endrin - recommended unit: ng/l', 'Endrin'),
+ ('153', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/427', 'ethanal (air)', 'Acetaldehyde - recommended unit: µg/m3', 'Acetaldehyde'),
+ ('154', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/428', 'Ethane (air)', 'C2H6 - recommended unit: µg/m3', 'C2H6'),
+ ('155', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/429', 'ethanedial (air)', 'Glyoxal - recommended unit: µg/m3', 'Glyoxal'),
+ ('156', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/430', 'Ethene (Ethylene) (air)', 'H2C=CH2 - recommended unit: µg/m3', 'H2C=CH2'),
+ ('157', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/431', 'Ethyl benzene (air)', 'C6H5-C2H5 - recommended unit: µg/m3', 'C6H5-C2H5'),
+ ('158', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/432', 'Ethyne (Acetylene) (air)', 'HC=CH - recommended unit: µg/m3', 'HC=CH'),
+ ('159', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4330', 'PCB_105 (air+aerosol)', 'PCB-105 - recommended unit: pg/m3', 'PCB-105'),
+ ('160', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4336', 'PCB_149 (air+aerosol)', 'PCB-149 - recommended unit: pg/m3', 'PCB-149'),
+ ('161', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4339', 'PCB_156 (air+aerosol)', 'PCB-156 - recommended unit: pg/m3', 'PCB-156'),
+ ('162', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4341', 'PCB_18 (air+aerosol)', 'PCB-18 - recommended unit: pg/m3', 'PCB-18'),
+ ('163', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4347', 'PCB_31 (air+aerosol)', 'PCB-31 - recommended unit: pg/m3', 'PCB-31'),
+ ('164', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/435', 'fluorene (air+aerosol)', 'Fluorene - recommended unit: ng/m3', 'Fluorene'),
+ ('165', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/438', 'halon_1211 (air)', 'Halon 1211 - recommended unit: pptv', 'Halon 1211'),
+ ('166', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/439', 'halon_1301 (air)', 'Halon 1301 - recommended unit: pptv', 'Halon 1301'),
+ ('167', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/440', 'heptachlor (precip)', 'Heptachlor - recommended unit: ng/l', 'Heptachlor'),
+ ('168', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4406', 'chrysene (air+aerosol)', 'Chrysene - recommended unit: ng/m3', 'Chrysene'),
+ ('169', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4407', 'chrysene_triphenylene (air+aerosol)', 'Chrysene + Triphenylene - recommended unit: ng/m3', 'Chrysene + Triphenylene'),
+ ('170', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/441', 'n-Heptane (air)', 'C7H16 - recommended unit: µg/m3', 'C7H16'),
+ ('171', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/442', 'hexanal (air)', 'n-Hexanal - recommended unit: µg/m3', 'n-Hexanal'),
+ ('172', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/443', 'n-Hexane (air)', 'C6H14 - recommended unit: µg/m3', 'C6H14'),
+ ('173', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/447', 'i-Butane (2-methylpropane) (air)', 'H3C-CH(CH3)2 - recommended unit: µg/m3', 'H3C-CH(CH3)2'),
+ ('174', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/448', 'isoheptane (air)', 'i-Heptane - recommended unit: µg/m3', 'i-Heptane'),
+ ('175', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/449', 'i-Octane (2,2,4-trimethylpentane) (air)', '(CH3)3-C-CH2-CH-(CH3)2 - recommended unit: µg/m3', '(CH3)3-C-CH2-CH-(CH3)2'),
+ ('176', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/45', 'Particulate ammonium (aerosol)', 'NH4 - recommended unit: µg/m3', 'NH4'),
+ ('177', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/450', 'i-Pentane (2-methylbutane) (air)', 'H3C-CH2-CH(CH3)2 - recommended unit: µg/m3', 'H3C-CH2-CH(CH3)2'),
+ ('178', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/451', 'Isoprene (2-methyl-1,3-butadiene) (air)', 'CH2=CH-C(CH3)=CH2 - recommended unit: µg/m3', 'CH2=CH-C(CH3)=CH2'),
+ ('179', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/46', 'Particulate nitrate (aerosol)', 'NO3 - recommended unit: µg/m3', 'NO3'),
+ ('180', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/463', 'methylchloroform (air)', 'Methyl-chloroform - recommended unit: pptv', 'Methyl-chloroform'),
+ ('181', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/464', 'm,p-Xylene (air)', 'm,p-C6H4(CH3)2 - recommended unit: µg/m3', 'm,p-C6H4(CH3)2'),
+ ('182', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/465', 'naphtalene (air+aerosol)', 'Naphtalene - recommended unit: ng/m3', 'Naphtalene'),
+ ('183', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/466', 'neohexane (air)', 'Neo-hexane - recommended unit: pptv', 'Neo-hexane'),
+ ('184', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/467', 'neopentane (air)', 'Neo-pentane - recommended unit: pptv', 'Neo-pentane'),
+ ('185', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/47', 'Particulate sulphate (aerosol)', 'SO4 (H2SO4 aerosols) (SO4--) - recommended unit: µg/m3', 'SO4 (H2SO4 aerosols) (SO4--)'),
+ ('186', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/475', 'n-Octane (air)', 'C8H18 - recommended unit: µg/m3', 'C8H18'),
+ ('187', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/48', 'Selenium (aerosol)', 'Se - recommended unit: ng/m3', 'Se'),
+ ('188', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/4813', 'Total gaseous mercury (air+aerosol)', 'Hg0 + Hg-reactive - recommended unit: ng/m3', 'Hg0 + Hg-reactive'),
+ ('189', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/482', 'o-Xylene (air)', 'o-C6H4-(CH3)2 - recommended unit: µg/m3', 'o-C6H4-(CH3)2'),
+ ('190', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/485', 'pentanal (air)', 'Valeraldehyde - recommended unit: µg/m3', 'Valeraldehyde'),
+ ('191', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/486', 'n-Pentane (air)', 'H3C-(CH2)3-CH3 - recommended unit: µg/m3', 'H3C-(CH2)3-CH3'),
+ ('192', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/487', 'pentenes (air)', 'Pentenes - recommended unit: pptv', 'Pentenes'),
+ ('193', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/488', 'perylene (air+aerosol)', 'Perylene - recommended unit: ng/m3', 'Perylene'),
+ ('194', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/49', 'Vanadium (aerosol)', 'V - recommended unit: ng/m3', 'V'),
+ ('195', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/491', 'phenyletanone (air)', 'Acetophenone - recommended unit: µg/m3', 'Acetophenone'),
+ ('196', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/50', 'Gaseous nitric acid (air)', 'HNO3 - recommended unit: µg/m3', 'HNO3'),
+ ('197', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5012', 'Lead in PM10 (aerosol)', 'Pb in PM10 - recommended unit: µg/m3', 'Pb in PM10'),
+ ('198', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5013', 'Mercury in PM10 (aerosol)', 'Hg in PM10 - recommended unit: ng/m3', 'Hg in PM10'),
+ ('199', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5014', 'Cadmium in PM10 (aerosol)', 'Cd in PM10 - recommended unit: ng/m3', 'Cd in PM10'),
+ ('200', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5015', 'Nickel in PM10 (aerosol)', 'Ni in PM10 - recommended unit: ng/m3', 'Ni in PM10'),
+ ('201', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5016', 'Chromium in PM10 (aerosol)', 'Cr in PM10 - recommended unit: ng/m3', 'Cr in PM10'),
+ ('202', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5017', 'Manganese in PM10 (aerosol)', 'Mn in PM10 - recommended unit: ng/m3', 'Mn in PM10'),
+ ('203', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5018', 'Arsenic in PM10 (aerosol)', 'As in PM10 - recommended unit: ng/m3', 'As in PM10'),
+ ('204', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/502', 'propanal (air)', 'Propanal - recommended unit: µg/m3', 'Propanal'),
+ ('205', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5029', 'Benzo(a)pyrene in PM10 (aerosol)', 'BaP in PM10 - recommended unit: ng/m3', 'BaP in PM10'),
+ ('206', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/503', 'Propane (air)', 'H3C-CH2-CH3 - recommended unit: µg/m3', 'H3C-CH2-CH3'),
+ ('207', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/504', 'propanone (air)', 'Acetone - recommended unit: µg/m3', 'Acetone'),
+ ('208', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5045', 'Ammonium in PM10 (aerosol)', 'NH4+ in PM10 - recommended unit: µg/m3', 'NH4+ in PM10'),
+ ('209', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5046', 'Nitrate in PM10 (aerosol)', 'NO3- in PM10 - recommended unit: µg/m3', 'NO3- in PM10'),
+ ('210', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5047', 'sulphate in PM10 (aerosol)', 'SO42- in PM10 - recommended unit: µg/m3', 'SO42-  in PM10'),
+ ('211', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5048', 'Selenium in PM10 (aerosol)', 'Se in PM10 - recommended unit: ng/m3', 'Se in PM10'),
+ ('212', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5049', 'Vanedium in PM10 (aerosol)', 'V in PM10 - recommended unit: ng/m3', 'V in PM10'),
+ ('213', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/505', 'Propene (air)', 'CH2=CH-CH3 - recommended unit: µg/m3', 'CH2=CH-CH3'),
+ ('214', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5063', 'Zinc in PM10 (aerosol)', 'Zn in PM10 - recommended unit: ng/m3', 'Zn in PM10'),
+ ('215', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5064', 'Cobalt in PM10 (aerosol)', 'Co in PM10 - recommended unit: ng/m3', 'Co in PM10'),
+ ('216', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5065', 'Iron in PM10 (aerosol)', 'Fe in PM10 - recommended unit: ng/m3', 'Fe in PM10'),
+ ('217', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5073', 'Copper in PM10 (aerosol)', 'Cu in PM10 - recommended unit: ng/m3', 'Cu in PM10'),
+ ('218', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/508', 'retene (air+aerosol)', 'Retene - recommended unit: ng/m3', 'Retene'),
+ ('219', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/51', 'HC C2-C6(excl. AROM. & CHLH) (air+aerosol)', 'HC C2-C6(excl. AROM. & CHLH) - recommended unit: µg/m3', 'HC C2-C6(excl. AROM. & CHLH)'),
+ ('220', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5129', 'Benzo(a)pyrene in PM10 (air+aerosol)', 'BaP in PM10 - recommended unit: ng/m3', 'BaP in PM10'),
+ ('221', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/517', 'sum_PCB (precip)', 'sum-PCB - recommended unit: ng/l', 'sum-PCB'),
+ ('222', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/52', 'HC > C6 (excl. AROM. & CHLH) (air+aerosol)', 'HC > C6 (excl. AROM. & CHLH) - recommended unit: µg/m3', 'HC > C6 (excl. AROM. & CHLH)'),
+ ('223', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/520', 'sum_sulph_diox_sulphate (air+aerosol)', 'SO2 + SO4-- - recommended unit: µg S/m3', 'SO2 + SO4--'),
+ ('224', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/53', 'Aromatics (except C6H6) (air)', 'Aromatics (except C6H6) - recommended unit: µg/m3', 'Aromatics (except C6H6)'),
+ ('225', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5380', 'Benzo(b,j,k)fluoranthene in PM10 (aerosol)', 'Benzo(b,j,k)fluorantheneInPM1 - recommended unit: ng/m3', 'Benzo(b,j,k)fluorantheneInPM1'),
+ ('226', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/54', 'Chlorinated hydrocarbons (air)', 'Chlorinated hydrocarbons - recommended unit: µg/m3', 'Chlorinated hydrocarbons'),
+ ('227', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5418', 'Dibenzo(ac+ah)anthracene in PM10 (aerosol)', 'Dibenzo(ac+ah)anthracene in PM10 - recommended unit: ng/m3', 'Dibenzo(ac+ah)anthracene in PM10'),
+ ('228', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5419', 'Dibenzo(ah)anthracene in PM10 (aerosol)', 'Dibenzo(ah)anthracene in PM10 - recommended unit: ng/m3', 'Dibenzo(ah)anthracene in PM10'),
+ ('229', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5480', 'Benzo(b,j)fluoranthene in PM10 (aerosol)', 'Benzo(b,j)fluorantheneInPM10 - recommended unit: ng/m3', 'Benzo(b,j)fluorantheneinPM10'),
+ ('230', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5609', 'Benzo(a)anthracene in PM10 (air+aerosol)', 'Benzo(a)anthracene in PM10 - recommended unit: ng/m3', 'Benzo(a)anthracene in PM10'),
+ ('231', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5610', 'Benzo(a)anthracene in PM10 (aerosol)', 'Benzo(a)anthracene in PM10 - recommended unit: ng/m3', 'Benzo(a)anthracene in PM10'),
+ ('232', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5616', 'Benzo(b)fluoranthene in PM10 (air+aerosol)', 'Benzo(b)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(b)fluoranthene in PM10'),
+ ('233', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5617', 'Benzo(b)fluoranthene in PM10 (aerosol)', 'Benzo(b)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(b)fluoranthene in PM10'),
+ ('234', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5625', 'Benzo(k)fluoranthene in PM10 (air+aerosol)', 'Benzo(k)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(k)fluoranthene in PM10'),
+ ('235', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5626', 'Benzo(k)fluoranthene in PM10 (aerosol)', 'Benzo(k)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(k)fluoranthene in PM10'),
+ ('236', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5629', 'calcium in PM10 (aerosol)', 'Ca2+ in PM10 - recommended unit: µg/m3', 'Ca2+ in PM10'),
+ ('237', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5631', 'chloride in PM10 (aerosol)', 'Cl- in PM10 - recommended unit: µg/m3', 'Cl- in PM10'),
+ ('238', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5654', 'indeno_123cd_pyrene in PM10 (air+aerosol)', 'Indeno-(1,2,3-cd)pyrene in PM - recommended unit: ng/m3', 'Indeno-(1,2,3-cd)pyrene in PM'),
+ ('239', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5655', 'indeno_123cd_pyrene in PM10 (aerosol)', 'Indeno-(1,2,3-cd)pyrene in PM - recommended unit: ng/m3', 'Indeno-(1,2,3-cd)pyrene in PM'),
+ ('240', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5657', 'potassium in PM10 (aerosol)', 'K+ in PM10 - recommended unit: µg/m3', 'K+ in PM10'),
+ ('241', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5659', 'magnesium in PM10 (aerosol)', 'Mg2+ in PM10 - recommended unit: µg/m3', 'Mg2+ in PM10'),
+ ('242', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5668', 'sodium in PM10 (aerosol)', 'Na+ in PM10 - recommended unit: µg/m3', 'Na+  in PM10'),
+ ('243', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5759', 'Benzo(j)fluoranthene in PM10 (aerosol)', 'Benzo(j)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(j)fluoranthene in PM10'),
+ ('244', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5762', 'Benzo(j)fluoranthene in PM10 (air+aerosol)', 'Benzo(j)fluoranthene in PM10 - recommended unit: ng/m3', 'Benzo(j)fluoranthene in PM10'),
+ ('245', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5763', 'Dibenzo(ah)anthracene in PM10 (air+aerosol)', 'Dibenzo(ah)anthracene in PM10 - recommended unit: ng/m3', 'Dibenzo(ah)anthracene in PM10'),
+ ('246', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5771', 'Elemental carbon in PM10 (aerosol)', 'EC in PM10 - recommended unit: µg/m3', 'EC in PM10'),
+ ('247', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/5772', 'Organic carbon in PM10 (aerosol)', 'OC in PM10 - recommended unit: µg/m3', 'OC in PM10'),
+ ('248', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6', 'Black smoke (air)', 'BS - recommended unit: µg/m3', 'BS'),
+ ('249', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6002', 'Particulate matter < 1 µm (aerosol)', 'PM1 - recommended unit: µg/m3', 'PM1'),
+ ('250', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6005', '1-Butene (air)', 'H2C=CH-CH2-CH3 - recommended unit: µg/m3', 'H2C=CH-CH2-CH3'),
+ ('251', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6006', 'trans-2-Butene (air)', 'trans-H3C-CH=CH-CH3 - recommended unit: µg/m3', 'trans-H3C-CH=CH-CH3'),
+ ('252', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6007', 'cis-2-Butene (air)', 'cis-H3C-CH=CH-CH3 - recommended unit: µg/m3', 'cis-H3C-CH=CH-CH3'),
+ ('253', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6008', '1-Pentene (air)', 'H2C=CH-CH2-CH2-CH3 - recommended unit: µg/m3', 'H2C=CH-CH2-CH2-CH3'),
+ ('254', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6009', '2-Pentenes (air)', 'H3C-HC=CH-CH2-CH3 - recommended unit: µg/m3', 'H3C-HC=CH-CH2-CH3'),
+ ('255', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/601', 'N3methylphenanthrene (air+aerosol)', '3-methylphenantrene - recommended unit: ng/m3', '3-methylphenantrene'),
+ ('256', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6011', '1,2,4-Trimethylbenzene (air)', '1,2,4-C6H3(CH3)3 - recommended unit: µg/m3', '1,2,4-C6H3(CH3)3'),
+ ('257', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6012', '1,2,3-Trimethylbenzene (air)', '1,2,3-C6H3(CH3)3 - recommended unit: µg/m3', '1,2,3-C6H3(CH3)3'),
+ ('258', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6013', '1,3,5-Trimethylbenzene (air)', '1,3,5-C6H3(CH3)3 - recommended unit: µg/m3', '1,3,5-C6H3(CH3)3'),
+ ('259', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6015', 'Benzo(a)pyrene (air+aerosol)', 'BaP - recommended unit: ng/m3', 'BaP'),
+ ('260', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/602', 'N9methylphenanthrene (air+aerosol)', '9-methylphenantrene - recommended unit: ng/m3', '9-methylphenantrene'),
+ ('261', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/604', 'aluminium (aerosol)', 'Al - recommended unit: ng/m3', 'Al'),
+ ('262', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/605', 'aluminium (precip)', 'Al - recommended unit: µg/l', 'Al'),
+ ('263', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/606', 'anthracene (air+aerosol)', 'Anthracene - recommended unit: ng/m3', 'Anthracene'),
+ ('264', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/607', 'anthracene (precip)', 'Anthracene - recommended unit: ng/l', 'Anthracene'),
+ ('265', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/608', 'anthracene (precip+dry_dep)', 'Anthracene - recommended unit: µg/m2/day', 'Anthracene'),
+ ('266', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/609', 'Benzo(a)anthracene (air+aerosol)', 'Benzo(a)anthracene - recommended unit: ng/m3', 'Benzo(a)anthracene'),
+ ('267', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/610', 'Benzo(a)anthracene (precip)', 'Benzo(a)anthracene - recommended unit: ng/l', 'Benzo(a)anthracene'),
+ ('268', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/611', 'Benzo(a)anthracene (precip+dry_dep)', 'Benzo(a)anthracene - recommended unit: µg/m2/day', 'Benzo(a)anthracene'),
+ ('269', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/613', 'Benzo(a)fluorene (air+aerosol)', 'Benzo(a)fluorene - recommended unit: ng/m3', 'Benzo(a)fluorene'),
+ ('270', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/616', 'Benzo(b)fluoranthene (air+aerosol)', 'Benzo(b)fluoranthene - recommended unit: ng/m3', 'Benzo(b)fluoranthene'),
+ ('271', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/617', 'Benzo(b)fluoranthene (precip)', 'Benzo(b)fluoranthene - recommended unit: ng/l', 'Benzo(b)fluoranthene'),
+ ('272', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/618', 'Benzo(b)fluoranthene (precip+dry_dep)', 'Benzo(b)fluoranthene - recommended unit: µg/m2/day', 'Benzo(b)fluoranthene'),
+ ('273', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/619', 'Benzo(b)fluorene (air+aerosol)', 'Benzo(b)fluorene - recommended unit: ng/m3', 'Benzo(b)fluorene'),
+ ('274', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/62', 'Fluoride (except HF) (air)', 'Fluor (except HF) - recommended unit: µg/m3', 'Fluor (except HF)'),
+ ('275', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/620', 'Benzo(ghi)fluoranthene (air+aerosol)', 'Benzo(ghi)fluoranthene - recommended unit: ng/m3', 'Benzo(ghi)fluoranthene'),
+ ('276', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/621', 'Benzo(ghi)fluoranthene (precip)', 'Benzo(ghi)fluoranthene - recommended unit: ng/l', 'Benzo(ghi)fluoranthene'),
+ ('277', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/622', 'Benzo(ghi)perylene (air+aerosol)', 'Benzo(ghi)perylene - recommended unit: ng/m3', 'Benzo(ghi)perylene'),
+ ('278', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/623', 'Benzo(ghi)perylene (precip)', 'Benzo(ghi)perylene - recommended unit: ng/l', 'Benzo(ghi)perylene'),
+ ('279', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/624', 'Benzo(ghi)perylene (precip+dry_dep)', 'Benzo(ghi)perylene - recommended unit: µg/m2/day', 'Benzo(ghi)perylene'),
+ ('280', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/625', 'Benzo(k)fluoranthene (air+aerosol)', 'Benzo(k)fluoranthene - recommended unit: ng/m3', 'Benzo(k)fluoranthene'),
+ ('281', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/626', 'Benzo(k)fluoranthene (precip)', 'Benzo(k)fluoranthene - recommended unit: ng/l', 'Benzo(k)fluoranthene'),
+ ('282', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/627', 'Benzo(k)fluoranthene (precip+dry_dep)', 'Benzo(k)fluoranthene - recommended unit: µg/m2/day', 'Benzo(k)fluoranthene'),
+ ('283', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/629', 'calcium (aerosol)', 'Ca++ - recommended unit: µg/m3', 'Ca++'),
+ ('284', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/63', 'Zinc (aerosol)', 'Zn - recommended unit: ng/m3', 'Zn'),
+ ('285', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/630', 'calcium (precip)', 'Ca++ - recommended unit: mg/l', 'Ca++'),
+ ('286', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/631', 'chloride (aerosol)', 'Cl- - recommended unit: µg/m3', 'Cl-'),
+ ('287', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/632', 'chloride (precip)', 'Cl- - recommended unit: mg/l', 'Cl-'),
+ ('288', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/633', 'Dibenz(ac+ah)anthracenes (air+aerosol)', 'Dibenz(ac+ah)anthracenes - recommended unit: ng/m3', 'Dibenz(ac+ah)anthracenes'),
+ ('289', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/634', 'Dibenz(ac+ah)anthracenes (precip)', 'Dibenz(ac+ah)anthracenes - recommended unit: ng/l', 'Dibenz(ac+ah)anthracenes'),
+ ('290', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/635', 'Dibenz(ah)anthracene (precip)', 'Dibenz(ah)anthracene - recommended unit: ng/l', 'Dibenz(ah)anthracene'),
+ ('291', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/636', 'Dibenzo(ae)pyrene (air+aerosol)', 'Dibenzo(ae)pyrene - recommended unit: ng/m3', 'Dibenzo(ae)pyrene'),
+ ('292', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/637', 'Dibenzo(ah)pyrene (air+aerosol)', 'Dibenzo(ah)pyrene - recommended unit: ng/m3', 'Dibenzo(ah)pyrene'),
+ ('293', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/638', 'Dibenzo(ai)pyrene (air+aerosol)', 'Dibenzo(ai)pyrene - recommended unit: ng/m3', 'Dibenzo(ai)pyrene'),
+ ('294', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/6380', 'Benzo(b,j,k)fluoranthene in PM10 (air+aerosol)', 'Benzo(b,j,k)fluorantheneInPM1 - recommended unit: ng/m3', 'Benzo(b,j,k)fluorantheneInPM1'),
+ ('295', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/639', 'Dibenzo(ai)pyrene (precip)', 'Dibenzo(ai)pyrene - recommended unit: ng/l', 'Dibenzo(ai)pyrene'),
+ ('296', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/64', 'Cobalt (aerosol)', 'Co - recommended unit: ng/m3', 'Co'),
+ ('297', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/640', 'dieldrin (air+aerosol)', 'Dieldrin - recommended unit: pg/m3', 'Dieldrin'),
+ ('298', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/641', 'dieldrin (precip)', 'Dieldrin - recommended unit: ng/l', 'Dieldrin'),
+ ('299', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/643', 'fluoranthene (air+aerosol)', 'Fluoranthene - recommended unit: ng/m3', 'Fluoranthene'),
+ ('300', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/644', 'fluoranthene (precip)', 'Fluoranthene - recommended unit: ng/l', 'Fluoranthene'),
+ ('301', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/645', 'fluoranthene (precip+dry_dep)', 'Fluoranthene - recommended unit: µg/m2/day', 'Fluoranthene'),
+ ('302', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/648', 'acidity(H+) (precip)', 'H+ - recommended unit: ue H/l', 'H+'),
+ ('303', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/649', 'HCB (air+aerosol)', 'HCB - recommended unit: pg/m3', 'HCB'),
+ ('304', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/65', 'Iron (aerosol)', 'Fe - recommended unit: ng/m3', 'Fe'),
+ ('305', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/650', 'HCB (precip)', 'HCB - recommended unit: ng/l', 'HCB'),
+ ('306', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/652', 'heptachlor_epoxide (precip)', 'Heptachlor Epoxide - recommended unit: ng/l', 'Heptachlor Epoxide'),
+ ('307', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/653', 'reactive_mercury (air+aerosol)', 'Hg-reactive - recommended unit: ng/m3', 'Hg-reactive'),
+ ('308', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/654', 'indeno_123cd_pyrene (air+aerosol)', 'Indeno-(1,2,3-cd)pyrene - recommended unit: ng/m3', 'Indeno-(1,2,3-cd)pyrene'),
+ ('309', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/655', 'indeno_123cd_pyrene (precip)', 'Indeno-(1,2,3-cd)pyrene - recommended unit: ng/l', 'Indeno-(1,2,3-cd)pyrene'),
+ ('310', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/656', 'indeno_123cd_pyrene (precip+dry_dep)', 'Indeno-(1,2,3-cd)pyrene - recommended unit: µg/m2/day', 'Indeno-(1,2,3-cd)pyrene'),
+ ('311', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/657', 'potassium (aerosol)', 'K+ - recommended unit: µg/m3', 'K+'),
+ ('312', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/658', 'potassium (precip)', 'K+ - recommended unit: mg/l', 'K+'),
+ ('313', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/659', 'magnesium (aerosol)', 'Mg++ - recommended unit: µg/m3', 'Mg++'),
+ ('314', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/66', 'Back scattering ()', 'Back scattering - recommended unit: m-1', 'Back scattering'),
+ ('315', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/660', 'magnesium (precip)', 'Mg++ - recommended unit: mg/l', 'Mg++'),
+ ('316', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/661', 'molybdenum (aerosol)', 'Mo - recommended unit: ng/m3', 'Mo'),
+ ('317', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/664', 'ammonium (precip)', 'NH4+ - recommended unit: mg N/l', 'NH4+'),
+ ('318', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/666', 'nitrate (precip)', 'NO3- - recommended unit: mg N/l', 'NO3-'),
+ ('319', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/668', 'sodium (aerosol)', 'Na+ - recommended unit: µg/m3', 'Na+'),
+ ('320', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/669', 'sodium (precip)', 'Na+ - recommended unit: mg/l', 'Na+'),
+ ('321', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/67', 'Total nitrate (air+aerosol)', 'HNO3+NO3 - recommended unit: µg N/m3', 'HNO3+NO3'),
+ ('322', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/670', 'PCB_101 (air+aerosol)', 'PCB-101 - recommended unit: pg/m3', 'PCB-101'),
+ ('323', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/671', 'PCB_101 (precip)', 'PCB-101 - recommended unit: ng/l', 'PCB-101'),
+ ('324', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/672', 'PCB_101 (precip+dry_dep)', 'PCB-101 - recommended unit: ng/m2/day', 'PCB-101'),
+ ('325', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/673', 'PCB_114 (air+aerosol)', 'PCB-114 - recommended unit: pg/m3', 'PCB-114'),
+ ('326', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/674', 'PCB_118 (air+aerosol)', 'PCB-118 - recommended unit: pg/m3', 'PCB-118'),
+ ('327', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/675', 'PCB_118 (precip)', 'PCB-118 - recommended unit: ng/l', 'PCB-118'),
+ ('328', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/676', 'PCB_118 (precip+dry_dep)', 'PCB-118 - recommended unit: ng/m2/day', 'PCB-118'),
+ ('329', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/677', 'PCB_138 (air+aerosol)', 'PCB-138 - recommended unit: pg/m3', 'PCB-138'),
+ ('330', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/678', 'PCB_138 (precip+dry_dep)', 'PCB-138 - recommended unit: ng/m2/day', 'PCB-138'),
+ ('331', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/679', 'PCB_141 (air+aerosol)', 'PCB-141 - recommended unit: pg/m3', 'PCB-141'),
+ ('332', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/68', 'Total ammonium (air+aerosol)', 'NH3+NH4 - recommended unit: µg N/m3', 'NH3+NH4'),
+ ('333', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/680', 'PCB_153 (air+aerosol)', 'PCB-153 - recommended unit: pg/m3', 'PCB-153'),
+ ('334', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/681', 'PCB_153 (precip)', 'PCB-153 - recommended unit: ng/l', 'PCB-153'),
+ ('335', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/682', 'PCB_153 (precip+dry_dep)', 'PCB-153 - recommended unit: ng/m2/day', 'PCB-153'),
+ ('336', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/683', 'PCB_157 (air+aerosol)', 'PCB-157 - recommended unit: pg/m3', 'PCB-157'),
+ ('337', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/684', 'PCB_167 (air+aerosol)', 'PCB-167 - recommended unit: pg/m3', 'PCB-167'),
+ ('338', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/685', 'PCB_170 (air+aerosol)', 'PCB-170 - recommended unit: pg/m3', 'PCB-170'),
+ ('339', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/686', 'PCB_180 (air+aerosol)', 'PCB-180 - recommended unit: pg/m3', 'PCB-180'),
+ ('340', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/687', 'PCB_180 (precip)', 'PCB-180 - recommended unit: ng/l', 'PCB-180'),
+ ('341', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/688', 'PCB_180 (precip+dry_dep)', 'PCB-180 - recommended unit: ng/m2/day', 'PCB-180'),
+ ('342', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/689', 'PCB_183 (air+aerosol)', 'PCB-183 - recommended unit: pg/m3', 'PCB-183'),
+ ('343', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/69', 'Radioactivity ()', 'Radioactivity - recommended unit:', 'Radioactivity'),
+ ('344', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/690', 'PCB_187 (air+aerosol)', 'PCB-187 - recommended unit: pg/m3', 'PCB-187'),
+ ('345', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/691', 'PCB_189 (air+aerosol)', 'PCB-189 - recommended unit: pg/m3', 'PCB-189'),
+ ('346', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/692', 'PCB_194 (air+aerosol)', 'PCB-194 - recommended unit: pg/m3', 'PCB-194'),
+ ('347', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/693', 'PCB_206 (air+aerosol)', 'PCB-206 - recommended unit: pg/m3', 'PCB-206'),
+ ('348', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/694', 'PCB_209 (air+aerosol)', 'PCB-209 - recommended unit: pg/m3', 'PCB-209'),
+ ('349', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/695', 'PCB_28 (air+aerosol)', 'PCB-28 - recommended unit: pg/m3', 'PCB-28'),
+ ('350', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/696', 'PCB_28 (precip)', 'PCB-28 - recommended unit: ng/l', 'PCB-28'),
+ ('351', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/697', 'PCB_28 (precip+dry_dep)', 'PCB-28 - recommended unit: ng/m2/day', 'PCB-28'),
+ ('352', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/698', 'PCB_33 (air+aerosol)', 'PCB-33 - recommended unit: pg/m3', 'PCB-33'),
+ ('353', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/699', 'PCB_37 (air+aerosol)', 'PCB-37 - recommended unit: pg/m3', 'PCB-37'),
+ ('354', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/700', 'PCB_47 (air+aerosol)', 'PCB-47 - recommended unit: pg/m3', 'PCB-47'),
+ ('355', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/701', 'PCB_52 (air+aerosol)', 'PCB-52 - recommended unit: pg/m3', 'PCB-52'),
+ ('356', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7012', 'Lead (precip+dry_dep)', 'Pb - recommended unit: µg/m2/day', 'Pb'),
+ ('357', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7013', 'Mercury (precip+dry_dep)', 'Hg - recommended unit: µg/m2/day', 'Hg'),
+ ('358', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7014', 'Cadmium (precip+dry_dep)', 'Cd - recommended unit: µg/m2/day', 'Cd'),
+ ('359', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7015', 'Nickel (precip+dry_dep)', 'Ni - recommended unit: µg/m2/day', 'Ni'),
+ ('360', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7018', 'Arsenic (precip+dry_dep)', 'As - recommended unit: µg/m2/day', 'As'),
+ ('361', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/702', 'PCB_52 (precip)', 'PCB-52 - recommended unit: ng/l', 'PCB-52'),
+ ('362', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7029', 'Benzo(a)pyrene (precip+dry_dep)', 'BaP - recommended unit: µg/m2/day', 'BaP'),
+ ('363', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/703', 'PCB_52 (precip+dry_dep)', 'PCB-52 - recommended unit: ng/m2/day', 'PCB-52'),
+ ('364', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/704', 'PCB_60 (air+aerosol)', 'PCB-60 - recommended unit: pg/m3', 'PCB-60'),
+ ('365', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/705', 'PCB_66 (air+aerosol)', 'PCB-66 - recommended unit: pg/m3', 'PCB-66'),
+ ('366', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/706', 'PCB_74 (air+aerosol)', 'PCB-74 - recommended unit: pg/m3', 'PCB-74'),
+ ('367', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/707', 'PCB_99 (air+aerosol)', 'PCB-99 - recommended unit: pg/m3', 'PCB-99'),
+ ('368', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/708', 'PCB_122 (air+aerosol)', 'PCB_122 - recommended unit: pg/m3', 'PCB_122'),
+ ('369', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/709', 'PCB_123 (air+aerosol)', 'PCB_123 - recommended unit: pg/m3', 'PCB_123'),
+ ('370', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/71', 'Carbon dioxide (air)', 'CO2 - recommended unit: ppmv', 'CO2'),
+ ('371', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/710', 'PCB_128 (air+aerosol)', 'PCB_128 - recommended unit: pg/m3', 'PCB_128'),
+ ('372', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/711', 'PCB_138 (precip)', 'PCB_138 - recommended unit: ng/l', 'PCB_138'),
+ ('373', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/712', 'phenanthrene (air+aerosol)', 'Phenanthrene - recommended unit: ng/m3', 'Phenanthrene'),
+ ('374', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/713', 'phenanthrene (precip)', 'Phenanthrene - recommended unit: ng/l', 'Phenanthrene'),
+ ('375', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/714', 'phenanthrene (precip+dry_dep)', 'Phenanthrene - recommended unit: µg/m2/day', 'Phenanthrene'),
+ ('376', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/715', 'pyrene (air+aerosol)', 'Pyrene - recommended unit: ng/m3', 'Pyrene'),
+ ('377', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/716', 'pyrene (precip)', 'Pyrene - recommended unit: ng/l', 'Pyrene'),
+ ('378', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/717', 'pyrene (precip+dry_dep)', 'Pyrene - recommended unit: µg/m2/day', 'Pyrene'),
+ ('379', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/719', 'sulphate (precip)', 'SO4-- - recommended unit: mg S/l', 'SO4--'),
+ ('380', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/720', 'sulphate_corrected (precip)', 'SO4-- corr - recommended unit: mg S/l', 'SO4-- corr'),
+ ('381', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/723', 'titanium (precip)', 'TI - recommended unit: µg/l', 'TI'),
+ ('382', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/728', 'vanadium (precip)', 'Vanadium - recommended unit: µg/l', 'Vanadium'),
+ ('383', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/729', 'alpha_HCH (air+aerosol)', 'alpha-HCH - recommended unit: pg/m3', 'alpha-HCH'),
+ ('384', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/73', 'Copper (aerosol)', 'Cu - recommended unit: ng/m3', 'Cu'),
+ ('385', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/730', 'alpha_HCH (precip)', 'alpha-HCH - recommended unit: ng/l', 'alpha-HCH'),
+ ('386', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/731', 'alpha_HCH (precip+dry_dep)', 'alpha-HCH - recommended unit: ng/m2', 'alpha-HCH'),
+ ('387', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/732', 'beta_HCH (air+aerosol)', 'beta-HCH - recommended unit: pg/m3', 'beta-HCH'),
+ ('388', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/733', 'beta_HCH (precip)', 'beta-HCH - recommended unit: ng/l', 'beta-HCH'),
+ ('389', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/734', 'cis_CD (air+aerosol)', 'cis-CD - recommended unit: pg/m3', 'cis-CD'),
+ ('390', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/735', 'cis_CD (precip)', 'cis-CD - recommended unit: ng/l', 'cis-CD'),
+ ('391', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/736', 'cis_NO (air+aerosol)', 'cis-NO - recommended unit: pg/m3', 'cis-NO'),
+ ('392', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/737', 'lindane (air+aerosol)', 'gamma-HCH - recommended unit: pg/m3', 'gamma-HCH'),
+ ('393', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/738', 'lindane (precip+dry_dep)', 'gamma-HCH - recommended unit: ng/m2', 'gamma-HCH'),
+ ('394', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7380', 'Benzo(b,j,k)fluoranthene (precip+dry_dep)', 'Benzo(b,j,k)fluoranthene - recommended unit: µg/m2/day', 'Benzo(b,j,k)fluoranthene'),
+ ('395', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/739', 'lindane (precip)', 'gamma-HCH - recommended unit: ng/l', 'gamma-HCH'),
+ ('396', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7407', 'chrysene_triphenylene (precip+dry_dep)', 'Chrysene + Triphenylene - recommended unit: µg/m2/day', 'Chrysene + Triphenylene'),
+ ('397', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/741', 'op_DDD (precip)', 'o,p''-DDD - recommended unit: ng/l', 'o,p''-DDD'),
+ ('398', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/7419', 'Dibenzo(ah)anthracene (precip+dry_dep)', 'Dibenzo(ah)anthracene - recommended unit: µg/m2/day', 'Dibenzo(ah)anthracene'),
+ ('399', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/742', 'op_DDE (precip)', 'o,p''-DDE - recommended unit: ng/l', 'o,p''-DDE'),
+ ('400', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/743', 'op_DDT (precip)', 'o,p''-DDT - recommended unit: ng/l', 'o,p''-DDT'),
+ ('401', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/744', 'op_DDD (air+aerosol)', 'o,p''-DDD - recommended unit: pg/m3', 'o,p''-DDD'),
+ ('402', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/745', 'op_DDE (air+aerosol)', 'o,p''-DDE - recommended unit: pg/m3', 'o,p''-DDE'),
+ ('403', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/746', 'op_DDT (air+aerosol)', 'o,p''-DDT - recommended unit: pg/m3', 'o,p''-DDT'),
+ ('404', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/747', 'pp_DDD (precip)', 'p,p''-DDD - recommended unit: ng/l', 'p,p''-DDD'),
+ ('405', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/748', 'pp_DDE (precip)', 'p,p''-DDE - recommended unit: ng/l', 'p,p''-DDE'),
+ ('406', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/749', 'pp_DDT (precip)', 'p,p''-DDT - recommended unit: ng/l', 'p,p''-DDT'),
+ ('407', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/750', 'pp_DDD (air+aerosol)', 'p,p''-DDD - recommended unit: pg/m3', 'p,p''-DDD'),
+ ('408', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/751', 'pp_DDE (air+aerosol)', 'p,p''-DDE - recommended unit: pg/m3', 'p,p''-DDE'),
+ ('409', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/752', 'pp_DDT (air+aerosol)', 'p,p''-DDT - recommended unit: pg/m3', 'p,p''-DDT'),
+ ('410', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/753', 'precipitation_amount (precip)', 'precip_amount - recommended unit: mm', 'precip_amount'),
+ ('411', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/754', 'precipitation_amount_off (precip)', 'precip_amount_off - recommended unit: mm', 'precip_amount_off'),
+ ('412', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/755', 'trans_CD (air+aerosol)', 'trans-CD - recommended unit: pg/m3', 'trans-CD'),
+ ('413', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/756', 'trans_CD (precip)', 'trans-CD - recommended unit: ng/l', 'trans-CD'),
+ ('414', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/757', 'trans_NO (air+aerosol)', 'trans-NO - recommended unit: pg/m3', 'trans-NO'),
+ ('415', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/758', 'trans_NO (precip)', 'trans_NO - recommended unit: ng/l', 'trans_NO'),
+ ('416', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/759', 'Benzo(j)fluoranthene (precip)', 'Benzo(j)fluoranthene - recommended unit: ng/l', 'Benzo(j)fluoranthene'),
+ ('417', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/760', 'Benzo(j)fluoranthene (precip+dry_dep)', 'Benzo(j)fluoranthene - recommended unit: µg/m2/day', 'Benzo(j)fluoranthene'),
+ ('418', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/761', 'Benzo(j)fluorene (air+aerosol)', 'Benzo(j)fluorene - recommended unit: ng/m3', 'Benzo(j)fluorene'),
+ ('419', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/762', 'Benzo(j)fluoranthene (air+aerosol)', 'Benzo(j)fluoranthene - recommended unit: ng/m3', 'Benzo(j)fluoranthene'),
+ ('420', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/763', 'Dibenzo(ah)anthracene (air+aerosol)', 'Dibenzo(ah)anthracene - recommended unit: ng/m3', 'Dibenzo(ah)anthracene'),
+ ('421', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/771', 'Elemental carbon (aerosol)', 'EC - recommended unit: µg/m3', 'EC'),
+ ('422', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/772', 'Organic carbon (aerosol)', 'OC - recommended unit: µg/m3', 'OC'),
+ ('423', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/78', 'Xylene (air)', 'C6H4-(CH3)2 - recommended unit: µg/m3', 'C6H4-(CH3)2'),
+ ('424', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/80', 'p-Xylene (air)', 'p-C6H4(CH3)2 - recommended unit: µg/m3', 'p-C6H4(CH3)2'),
+ ('425', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/81', 'm-Xylene (air)', 'm-C6H4-(CH3)2 - recommended unit: µg/m3', 'm-C6H4-(CH3)2'),
+ ('426', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/82', 'trans-2-Pentene (air)', 'trans-H3C-HC=CH-CH2-CH3 - recommended unit: µg/m3', 'trans-H3C-HC=CH-CH2-CH3'),
+ ('427', 'http://dd.eionet.europa.eu/vocabulary/aq/pollutant/83', 'cis-2-Pentene (air)', 'cis-H3C-HC=CH-CH2-CH3 - recommended unit: µg/m3', 'cis-H3C-HC=CH-CH2-CH3');
 
 /*protectiontarget*/
-INSERT INTO protectiontarget VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/H', 'Health', 'Protection target of human health', 'H');
-INSERT INTO protectiontarget VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/H-S1', 'Health (Stage 1)', 'Differentiates between the annual mean Stage 1 & 2 health protection target for PM2.5 both of which use annual mean as the reporting metric.', 'H-S1');
-INSERT INTO protectiontarget VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/H-S2', 'Health (Stage 2)', 'Differentiates between the annual mean Stage 1 & 2 health protection target for PM2.5 both of which use annual mean as the reporting metric.', 'H-S2');
-INSERT INTO protectiontarget VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/HV', 'Health & Vegetation', 'INTERIM code.Please note that preferably countries should use either H or V separately', 'HV');
-INSERT INTO protectiontarget VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/NA', 'Not applicable', '', 'NA');
-INSERT INTO protectiontarget VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/V', 'Vegetation', 'Protection target of vegetation', 'V');
+INSERT INTO protectiontarget VALUES
+ ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/H', 'Health', 'Protection target of human health', 'H'),
+ ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/H-S1', 'Health (Stage 1)', 'Differentiates between the annual mean Stage 1 & 2 health protection target for PM2.5 both of which use annual mean as the reporting metric.', 'H-S1'),
+ ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/H-S2', 'Health (Stage 2)', 'Differentiates between the annual mean Stage 1 & 2 health protection target for PM2.5 both of which use annual mean as the reporting metric.', 'H-S2'),
+ ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/HV', 'Health & Vegetation', 'INTERIM code.Please note that preferably countries should use either H or V separately', 'HV'),
+ ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/NA', 'Not applicable', '', 'NA'),
+ ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/protectiontarget/V', 'Vegetation', 'Protection target of vegetation', 'V');
 
 /*pollutant_protectiontarget*/
-INSERT INTO pollutant_protectiontarget VALUES ('0', '0', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('1', '1', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2', '2', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('3', '3', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('4', '4', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('5', '4', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('6', '5', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('7', '5', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('8', '6', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('9', '7', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('10', '8', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('11', '9', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('12', '10', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('13', '11', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('14', '12', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('15', '13', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('16', '14', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('17', '15', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('18', '16', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('19', '17', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('20', '18', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('21', '19', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('22', '20', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('23', '21', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('24', '22', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('25', '23', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('26', '24', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('27', '25', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('28', '26', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('29', '27', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('30', '28', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('31', '29', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('32', '30', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('33', '31', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('34', '32', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('35', '33', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('36', '34', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('37', '35', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('38', '36', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('39', '37', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('40', '38', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('41', '39', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('42', '40', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('43', '41', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('44', '42', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('45', '43', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('46', '44', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('47', '45', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('48', '46', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('49', '47', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('50', '48', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('51', '49', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('52', '50', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('53', '51', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('54', '52', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('55', '53', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('56', '54', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('57', '55', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('58', '56', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('59', '57', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('60', '58', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('61', '59', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('62', '60', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('63', '61', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('64', '62', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('65', '63', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('66', '64', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('67', '65', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('68', '66', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('69', '67', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('70', '68', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('71', '69', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('72', '70', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('73', '71', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('74', '72', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('75', '73', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('76', '74', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('77', '75', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('78', '76', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('79', '77', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('80', '78', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('81', '79', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('82', '80', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('83', '81', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('84', '82', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('85', '83', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('86', '84', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('87', '85', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('88', '86', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('89', '87', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('90', '88', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('91', '89', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('92', '90', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('93', '91', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('94', '92', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('95', '93', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('96', '94', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('97', '95', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('98', '96', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('99', '97', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('100', '98', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('101', '99', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('102', '100', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('103', '101', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('104', '102', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('105', '103', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('106', '104', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('107', '105', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('108', '106', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('109', '107', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('110', '108', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('111', '109', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('112', '110', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('113', '111', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('114', '112', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('115', '113', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('116', '114', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('117', '115', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('118', '116', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('119', '117', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('120', '118', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('121', '119', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('122', '120', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('123', '121', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('124', '122', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('125', '123', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('126', '124', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('127', '125', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('128', '126', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('129', '127', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('130', '128', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('131', '129', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('132', '130', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('133', '131', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('134', '132', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('135', '133', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('136', '134', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('137', '135', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('138', '136', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('139', '137', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('140', '138', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('141', '139', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('142', '140', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('143', '141', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('144', '142', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('145', '143', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('146', '144', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('147', '145', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('148', '146', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('149', '147', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('150', '148', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('151', '149', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('152', '150', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('153', '151', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('154', '152', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('155', '153', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('156', '154', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('157', '155', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('158', '156', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('159', '157', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('160', '158', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('161', '159', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('162', '160', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('163', '161', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('164', '162', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('165', '163', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('166', '164', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('167', '165', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('168', '166', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('169', '167', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('170', '168', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('171', '169', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('172', '170', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('173', '171', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('174', '172', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('175', '173', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('176', '174', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('177', '175', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('178', '176', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('179', '177', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('180', '178', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('181', '179', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('182', '180', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('183', '181', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('184', '182', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('185', '183', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('186', '184', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('187', '185', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('188', '186', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('189', '187', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('190', '188', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('191', '189', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('192', '190', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('193', '191', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('194', '192', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('195', '193', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('196', '194', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('197', '195', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('198', '196', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('199', '197', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('200', '198', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('201', '199', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('202', '200', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('203', '201', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('204', '202', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('205', '203', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('206', '204', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('207', '205', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('208', '206', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('209', '207', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('210', '208', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('211', '209', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('212', '210', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('213', '211', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('214', '212', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('215', '213', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('216', '214', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('217', '215', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('218', '216', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('219', '217', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('220', '218', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('221', '219', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('222', '220', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('223', '221', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('224', '222', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('225', '223', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('226', '224', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('227', '225', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('228', '226', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('229', '227', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('230', '228', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('231', '229', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('232', '230', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('233', '231', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('234', '232', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('235', '233', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('236', '234', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('237', '235', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('238', '236', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('239', '237', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('240', '238', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('241', '239', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('242', '240', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('243', '241', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('244', '242', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('245', '243', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('246', '244', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('247', '245', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('248', '246', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('249', '247', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('250', '248', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('251', '249', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('252', '250', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('253', '251', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('254', '252', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('255', '253', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('256', '254', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('257', '255', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('258', '256', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('259', '257', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('260', '258', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('261', '259', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('262', '260', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('263', '261', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('264', '262', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('265', '263', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('266', '264', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('267', '265', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('268', '266', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('269', '267', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('270', '268', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('271', '269', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('272', '270', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('273', '271', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('274', '272', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('275', '273', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('276', '274', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('277', '275', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('278', '276', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('279', '277', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('280', '278', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('281', '279', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('282', '280', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('283', '281', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('284', '282', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('285', '283', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('286', '284', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('287', '285', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('288', '286', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('289', '287', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('290', '288', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('291', '289', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('292', '290', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('293', '291', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('294', '292', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('295', '293', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('296', '294', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('297', '295', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('298', '296', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('299', '297', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('300', '298', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('301', '299', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('302', '300', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('303', '301', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('304', '302', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('305', '303', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('306', '304', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('307', '305', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('308', '306', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('309', '307', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('310', '308', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('311', '309', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('312', '310', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('313', '311', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('314', '312', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('315', '313', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('316', '314', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('317', '315', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('318', '316', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('319', '317', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('320', '318', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('321', '319', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('322', '320', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('323', '321', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('324', '322', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('325', '323', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('326', '324', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('327', '325', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('328', '326', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('329', '327', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('330', '328', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('331', '329', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('332', '330', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('333', '331', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('334', '332', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('335', '333', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('336', '334', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('337', '335', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('338', '336', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('339', '337', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('340', '338', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('341', '339', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('342', '340', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('343', '341', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('344', '342', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('345', '343', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('346', '344', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('347', '345', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('348', '346', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('349', '347', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('350', '348', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('351', '349', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('352', '350', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('353', '351', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('354', '352', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('355', '353', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('356', '354', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('357', '355', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('358', '356', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('359', '357', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('360', '358', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('361', '359', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('362', '360', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('363', '361', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('364', '362', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('365', '363', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('366', '364', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('367', '365', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('368', '366', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('369', '367', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('370', '368', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('371', '369', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('372', '370', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('373', '371', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('374', '372', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('375', '373', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('376', '374', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('377', '375', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('378', '376', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('379', '377', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('380', '378', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('381', '379', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('382', '380', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('383', '381', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('384', '382', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('385', '383', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('386', '384', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('387', '385', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('388', '386', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('389', '387', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('390', '388', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('391', '389', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('392', '390', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('393', '391', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('394', '392', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('395', '393', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('396', '394', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('397', '395', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('398', '396', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('399', '397', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('400', '398', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('401', '399', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('402', '400', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('403', '401', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('404', '402', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('405', '403', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('406', '404', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('407', '405', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('408', '406', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('409', '407', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('410', '408', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('411', '409', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('412', '410', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('413', '411', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('414', '412', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('415', '413', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('416', '414', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('417', '415', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('418', '416', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('419', '417', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('420', '418', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('421', '419', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('422', '420', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('423', '421', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('424', '422', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('425', '423', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('426', '424', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('427', '425', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('428', '426', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('429', '427', '0');
-INSERT INTO pollutant_protectiontarget VALUES ('430', '17', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('431', '18', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('432', '19', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('433', '20', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('434', '21', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('435', '22', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('436', '23', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('437', '24', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('438', '25', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('439', '26', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('440', '27', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('441', '28', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('442', '29', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('443', '30', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('444', '31', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('445', '32', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('446', '33', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('447', '34', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('448', '35', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('449', '36', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('450', '37', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('451', '38', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('452', '39', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('453', '40', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('454', '41', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('455', '42', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('456', '43', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('457', '44', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('458', '45', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('459', '46', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('460', '47', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('461', '48', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('462', '49', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('463', '50', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('464', '51', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('465', '52', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('466', '53', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('467', '54', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('468', '55', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('469', '56', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('470', '57', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('471', '58', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('472', '59', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('473', '60', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('474', '61', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('475', '62', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('476', '63', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('477', '64', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('478', '65', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('479', '66', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('480', '67', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('481', '68', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('482', '69', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('483', '70', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('484', '71', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('485', '72', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('486', '73', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('487', '74', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('488', '75', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('489', '76', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('490', '77', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('491', '78', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('492', '79', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('493', '80', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('494', '81', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('495', '82', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('496', '83', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('497', '84', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('498', '85', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('499', '86', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('500', '87', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('501', '88', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('502', '89', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('503', '90', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('504', '91', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('505', '92', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('506', '93', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('507', '94', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('508', '95', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('509', '96', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('510', '97', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('511', '98', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('512', '99', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('513', '100', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('514', '101', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('515', '102', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('516', '103', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('517', '104', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('518', '105', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('519', '106', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('520', '107', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('521', '108', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('522', '109', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('523', '110', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('524', '111', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('525', '112', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('526', '113', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('527', '114', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('528', '115', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('529', '116', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('530', '117', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('531', '118', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('532', '119', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('533', '120', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('534', '121', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('535', '122', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('536', '123', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('537', '124', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('538', '125', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('539', '126', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('540', '127', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('541', '128', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('542', '129', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('543', '130', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('544', '131', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('545', '132', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('546', '133', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('547', '134', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('548', '135', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('549', '136', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('550', '137', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('551', '138', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('552', '139', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('553', '140', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('554', '141', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('555', '142', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('556', '143', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('557', '144', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('558', '145', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('559', '146', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('560', '147', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('561', '148', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('562', '149', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('563', '150', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('564', '151', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('565', '152', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('566', '153', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('567', '154', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('568', '155', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('569', '156', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('570', '157', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('571', '158', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('572', '159', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('573', '160', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('574', '161', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('575', '162', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('576', '163', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('577', '164', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('578', '165', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('579', '166', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('580', '167', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('581', '168', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('582', '169', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('583', '170', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('584', '171', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('585', '172', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('586', '173', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('587', '174', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('588', '175', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('589', '176', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('590', '177', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('591', '178', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('592', '179', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('593', '180', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('594', '181', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('595', '182', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('596', '183', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('597', '184', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('598', '185', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('599', '186', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('600', '187', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('601', '188', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('602', '189', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('603', '190', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('604', '191', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('605', '192', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('606', '193', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('607', '194', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('608', '195', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('609', '196', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('610', '197', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('611', '198', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('612', '199', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('613', '200', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('614', '201', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('615', '202', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('616', '203', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('617', '204', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('618', '205', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('619', '206', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('620', '207', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('621', '208', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('622', '209', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('623', '210', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('624', '211', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('625', '212', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('626', '213', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('627', '214', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('628', '215', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('629', '216', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('630', '217', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('631', '218', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('632', '219', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('633', '220', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('634', '221', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('635', '222', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('636', '223', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('637', '224', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('638', '225', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('639', '226', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('640', '227', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('641', '228', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('642', '229', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('643', '230', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('644', '231', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('645', '232', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('646', '233', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('647', '234', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('648', '235', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('649', '236', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('650', '237', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('651', '238', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('652', '239', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('653', '240', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('654', '241', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('655', '242', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('656', '243', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('657', '244', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('658', '245', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('659', '246', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('660', '247', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('661', '248', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('662', '249', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('663', '250', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('664', '251', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('665', '252', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('666', '253', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('667', '254', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('668', '255', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('669', '256', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('670', '257', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('671', '258', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('672', '259', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('673', '260', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('674', '261', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('675', '262', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('676', '263', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('677', '264', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('678', '265', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('679', '266', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('680', '267', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('681', '268', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('682', '269', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('683', '270', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('684', '271', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('685', '272', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('686', '273', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('687', '274', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('688', '275', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('689', '276', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('690', '277', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('691', '278', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('692', '279', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('693', '280', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('694', '281', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('695', '282', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('696', '283', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('697', '284', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('698', '285', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('699', '286', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('700', '287', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('701', '288', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('702', '289', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('703', '290', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('704', '291', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('705', '292', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('706', '293', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('707', '294', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('708', '295', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('709', '296', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('710', '297', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('711', '298', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('712', '299', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('713', '300', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('714', '301', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('715', '302', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('716', '303', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('717', '304', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('718', '305', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('719', '306', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('720', '307', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('721', '308', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('722', '309', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('723', '310', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('724', '311', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('725', '312', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('726', '313', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('727', '314', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('728', '315', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('729', '316', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('730', '317', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('731', '318', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('732', '319', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('733', '320', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('734', '321', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('735', '322', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('736', '323', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('737', '324', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('738', '325', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('739', '326', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('740', '327', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('741', '328', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('742', '329', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('743', '330', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('744', '331', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('745', '332', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('746', '333', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('747', '334', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('748', '335', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('749', '336', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('750', '337', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('751', '338', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('752', '339', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('753', '340', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('754', '341', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('755', '342', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('756', '343', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('757', '344', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('758', '345', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('759', '346', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('760', '347', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('761', '348', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('762', '349', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('763', '350', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('764', '351', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('765', '352', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('766', '353', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('767', '354', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('768', '355', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('769', '356', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('770', '357', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('771', '358', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('772', '359', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('773', '360', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('774', '361', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('775', '362', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('776', '363', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('777', '364', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('778', '365', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('779', '366', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('780', '367', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('781', '368', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('782', '369', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('783', '370', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('784', '371', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('785', '372', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('786', '373', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('787', '374', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('788', '375', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('789', '376', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('790', '377', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('791', '378', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('792', '379', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('793', '380', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('794', '381', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('795', '382', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('796', '383', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('797', '384', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('798', '385', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('799', '386', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('800', '387', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('801', '388', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('802', '389', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('803', '390', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('804', '391', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('805', '392', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('806', '393', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('807', '394', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('808', '395', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('809', '396', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('810', '397', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('811', '398', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('812', '399', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('813', '400', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('814', '401', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('815', '402', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('816', '403', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('817', '404', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('818', '405', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('819', '406', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('820', '407', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('821', '408', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('822', '409', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('823', '410', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('824', '411', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('825', '412', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('826', '413', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('827', '414', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('828', '415', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('829', '416', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('830', '417', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('831', '418', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('832', '419', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('833', '420', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('834', '421', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('835', '422', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('836', '423', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('837', '424', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('838', '425', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('839', '426', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('840', '427', '1');
-INSERT INTO pollutant_protectiontarget VALUES ('841', '17', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('842', '18', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('843', '19', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('844', '20', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('845', '21', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('846', '22', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('847', '23', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('848', '24', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('849', '25', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('850', '26', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('851', '27', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('852', '28', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('853', '29', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('854', '30', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('855', '31', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('856', '32', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('857', '33', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('858', '34', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('859', '35', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('860', '36', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('861', '37', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('862', '38', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('863', '39', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('864', '40', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('865', '41', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('866', '42', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('867', '43', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('868', '44', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('869', '45', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('870', '46', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('871', '47', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('872', '48', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('873', '49', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('874', '50', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('875', '51', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('876', '52', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('877', '53', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('878', '54', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('879', '55', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('880', '56', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('881', '57', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('882', '58', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('883', '59', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('884', '60', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('885', '61', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('886', '62', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('887', '63', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('888', '64', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('889', '65', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('890', '66', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('891', '67', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('892', '68', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('893', '69', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('894', '70', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('895', '71', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('896', '72', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('897', '73', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('898', '74', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('899', '75', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('900', '76', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('901', '77', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('902', '78', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('903', '79', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('904', '80', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('905', '81', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('906', '82', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('907', '83', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('908', '84', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('909', '85', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('910', '86', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('911', '87', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('912', '88', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('913', '89', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('914', '90', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('915', '91', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('916', '92', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('917', '93', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('918', '94', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('919', '95', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('920', '96', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('921', '97', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('922', '98', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('923', '99', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('924', '100', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('925', '101', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('926', '102', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('927', '103', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('928', '104', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('929', '105', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('930', '106', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('931', '107', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('932', '108', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('933', '109', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('934', '110', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('935', '111', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('936', '112', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('937', '113', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('938', '114', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('939', '115', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('940', '116', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('941', '117', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('942', '118', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('943', '119', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('944', '120', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('945', '121', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('946', '122', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('947', '123', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('948', '124', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('949', '125', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('950', '126', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('951', '127', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('952', '128', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('953', '129', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('954', '130', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('955', '131', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('956', '132', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('957', '133', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('958', '134', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('959', '135', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('960', '136', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('961', '137', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('962', '138', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('963', '139', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('964', '140', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('965', '141', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('966', '142', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('967', '143', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('968', '144', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('969', '145', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('970', '146', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('971', '147', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('972', '148', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('973', '149', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('974', '150', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('975', '151', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('976', '152', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('977', '153', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('978', '154', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('979', '155', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('980', '156', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('981', '157', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('982', '158', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('983', '159', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('984', '160', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('985', '161', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('986', '162', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('987', '163', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('988', '164', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('989', '165', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('990', '166', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('991', '167', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('992', '168', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('993', '169', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('994', '170', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('995', '171', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('996', '172', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('997', '173', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('998', '174', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('999', '175', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1000', '176', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1001', '177', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1002', '178', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1003', '179', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1004', '180', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1005', '181', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1006', '182', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1007', '183', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1008', '184', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1009', '185', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1010', '186', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1011', '187', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1012', '188', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1013', '189', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1014', '190', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1015', '191', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1016', '192', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1017', '193', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1018', '194', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1019', '195', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1020', '196', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1021', '197', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1022', '198', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1023', '199', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1024', '200', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1025', '201', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1026', '202', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1027', '203', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1028', '204', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1029', '205', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1030', '206', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1031', '207', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1032', '208', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1033', '209', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1034', '210', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1035', '211', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1036', '212', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1037', '213', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1038', '214', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1039', '215', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1040', '216', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1041', '217', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1042', '218', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1043', '219', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1044', '220', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1045', '221', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1046', '222', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1047', '223', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1048', '224', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1049', '225', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1050', '226', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1051', '227', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1052', '228', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1053', '229', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1054', '230', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1055', '231', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1056', '232', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1057', '233', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1058', '234', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1059', '235', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1060', '236', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1061', '237', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1062', '238', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1063', '239', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1064', '240', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1065', '241', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1066', '242', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1067', '243', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1068', '244', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1069', '245', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1070', '246', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1071', '247', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1072', '248', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1073', '249', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1074', '250', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1075', '251', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1076', '252', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1077', '253', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1078', '254', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1079', '255', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1080', '256', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1081', '257', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1082', '258', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1083', '259', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1084', '260', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1085', '261', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1086', '262', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1087', '263', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1088', '264', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1089', '265', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1090', '266', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1091', '267', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1092', '268', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1093', '269', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1094', '270', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1095', '271', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1096', '272', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1097', '273', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1098', '274', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1099', '275', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1100', '276', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1101', '277', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1102', '278', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1103', '279', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1104', '280', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1105', '281', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1106', '282', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1107', '283', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1108', '284', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1109', '285', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1110', '286', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1111', '287', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1112', '288', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1113', '289', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1114', '290', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1115', '291', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1116', '292', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1117', '293', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1118', '294', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1119', '295', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1120', '296', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1121', '297', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1122', '298', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1123', '299', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1124', '300', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1125', '301', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1126', '302', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1127', '303', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1128', '304', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1129', '305', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1130', '306', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1131', '307', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1132', '308', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1133', '309', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1134', '310', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1135', '311', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1136', '312', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1137', '313', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1138', '314', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1139', '315', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1140', '316', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1141', '317', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1142', '318', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1143', '319', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1144', '320', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1145', '321', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1146', '322', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1147', '323', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1148', '324', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1149', '325', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1150', '326', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1151', '327', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1152', '328', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1153', '329', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1154', '330', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1155', '331', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1156', '332', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1157', '333', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1158', '334', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1159', '335', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1160', '336', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1161', '337', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1162', '338', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1163', '339', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1164', '340', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1165', '341', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1166', '342', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1167', '343', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1168', '344', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1169', '345', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1170', '346', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1171', '347', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1172', '348', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1173', '349', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1174', '350', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1175', '351', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1176', '352', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1177', '353', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1178', '354', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1179', '355', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1180', '356', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1181', '357', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1182', '358', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1183', '359', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1184', '360', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1185', '361', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1186', '362', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1187', '363', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1188', '364', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1189', '365', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1190', '366', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1191', '367', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1192', '368', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1193', '369', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1194', '370', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1195', '371', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1196', '372', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1197', '373', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1198', '374', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1199', '375', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1200', '376', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1201', '377', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1202', '378', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1203', '379', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1204', '380', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1205', '381', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1206', '382', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1207', '383', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1208', '384', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1209', '385', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1210', '386', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1211', '387', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1212', '388', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1213', '389', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1214', '390', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1215', '391', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1216', '392', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1217', '393', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1218', '394', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1219', '395', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1220', '396', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1221', '397', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1222', '398', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1223', '399', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1224', '400', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1225', '401', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1226', '402', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1227', '403', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1228', '404', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1229', '405', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1230', '406', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1231', '407', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1232', '408', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1233', '409', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1234', '410', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1235', '411', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1236', '412', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1237', '413', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1238', '414', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1239', '415', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1240', '416', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1241', '417', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1242', '418', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1243', '419', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1244', '420', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1245', '421', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1246', '422', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1247', '423', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1248', '424', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1249', '425', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1250', '426', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1251', '427', '2');
-INSERT INTO pollutant_protectiontarget VALUES ('1252', '17', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1253', '18', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1254', '19', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1255', '20', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1256', '21', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1257', '22', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1258', '23', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1259', '24', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1260', '25', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1261', '26', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1262', '27', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1263', '28', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1264', '29', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1265', '30', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1266', '31', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1267', '32', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1268', '33', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1269', '34', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1270', '35', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1271', '36', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1272', '37', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1273', '38', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1274', '39', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1275', '40', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1276', '41', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1277', '42', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1278', '43', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1279', '44', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1280', '45', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1281', '46', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1282', '47', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1283', '48', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1284', '49', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1285', '50', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1286', '51', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1287', '52', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1288', '53', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1289', '54', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1290', '55', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1291', '56', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1292', '57', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1293', '58', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1294', '59', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1295', '60', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1296', '61', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1297', '62', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1298', '63', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1299', '64', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1300', '65', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1301', '66', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1302', '67', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1303', '68', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1304', '69', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1305', '70', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1306', '71', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1307', '72', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1308', '73', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1309', '74', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1310', '75', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1311', '76', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1312', '77', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1313', '78', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1314', '79', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1315', '80', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1316', '81', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1317', '82', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1318', '83', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1319', '84', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1320', '85', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1321', '86', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1322', '87', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1323', '88', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1324', '89', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1325', '90', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1326', '91', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1327', '92', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1328', '93', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1329', '94', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1330', '95', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1331', '96', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1332', '97', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1333', '98', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1334', '99', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1335', '100', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1336', '101', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1337', '102', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1338', '103', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1339', '104', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1340', '105', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1341', '106', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1342', '107', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1343', '108', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1344', '109', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1345', '110', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1346', '111', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1347', '112', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1348', '113', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1349', '114', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1350', '115', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1351', '116', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1352', '117', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1353', '118', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1354', '119', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1355', '120', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1356', '121', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1357', '122', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1358', '123', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1359', '124', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1360', '125', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1361', '126', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1362', '127', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1363', '128', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1364', '129', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1365', '130', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1366', '131', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1367', '132', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1368', '133', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1369', '134', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1370', '135', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1371', '136', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1372', '137', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1373', '138', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1374', '139', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1375', '140', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1376', '141', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1377', '142', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1378', '143', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1379', '144', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1380', '145', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1381', '146', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1382', '147', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1383', '148', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1384', '149', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1385', '150', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1386', '151', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1387', '152', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1388', '153', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1389', '154', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1390', '155', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1391', '156', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1392', '157', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1393', '158', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1394', '159', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1395', '160', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1396', '161', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1397', '162', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1398', '163', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1399', '164', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1400', '165', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1401', '166', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1402', '167', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1403', '168', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1404', '169', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1405', '170', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1406', '171', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1407', '172', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1408', '173', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1409', '174', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1410', '175', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1411', '176', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1412', '177', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1413', '178', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1414', '179', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1415', '180', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1416', '181', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1417', '182', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1418', '183', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1419', '184', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1420', '185', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1421', '186', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1422', '187', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1423', '188', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1424', '189', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1425', '190', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1426', '191', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1427', '192', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1428', '193', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1429', '194', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1430', '195', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1431', '196', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1432', '197', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1433', '198', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1434', '199', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1435', '200', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1436', '201', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1437', '202', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1438', '203', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1439', '204', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1440', '205', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1441', '206', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1442', '207', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1443', '208', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1444', '209', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1445', '210', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1446', '211', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1447', '212', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1448', '213', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1449', '214', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1450', '215', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1451', '216', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1452', '217', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1453', '218', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1454', '219', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1455', '220', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1456', '221', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1457', '222', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1458', '223', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1459', '224', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1460', '225', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1461', '226', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1462', '227', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1463', '228', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1464', '229', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1465', '230', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1466', '231', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1467', '232', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1468', '233', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1469', '234', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1470', '235', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1471', '236', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1472', '237', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1473', '238', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1474', '239', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1475', '240', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1476', '241', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1477', '242', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1478', '243', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1479', '244', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1480', '245', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1481', '246', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1482', '247', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1483', '248', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1484', '249', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1485', '250', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1486', '251', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1487', '252', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1488', '253', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1489', '254', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1490', '255', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1491', '256', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1492', '257', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1493', '258', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1494', '259', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1495', '260', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1496', '261', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1497', '262', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1498', '263', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1499', '264', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1500', '265', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1501', '266', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1502', '267', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1503', '268', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1504', '269', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1505', '270', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1506', '271', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1507', '272', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1508', '273', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1509', '274', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1510', '275', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1511', '276', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1512', '277', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1513', '278', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1514', '279', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1515', '280', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1516', '281', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1517', '282', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1518', '283', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1519', '284', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1520', '285', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1521', '286', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1522', '287', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1523', '288', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1524', '289', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1525', '290', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1526', '291', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1527', '292', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1528', '293', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1529', '294', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1530', '295', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1531', '296', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1532', '297', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1533', '298', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1534', '299', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1535', '300', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1536', '301', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1537', '302', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1538', '303', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1539', '304', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1540', '305', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1541', '306', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1542', '307', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1543', '308', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1544', '309', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1545', '310', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1546', '311', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1547', '312', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1548', '313', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1549', '314', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1550', '315', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1551', '316', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1552', '317', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1553', '318', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1554', '319', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1555', '320', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1556', '321', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1557', '322', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1558', '323', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1559', '324', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1560', '325', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1561', '326', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1562', '327', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1563', '328', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1564', '329', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1565', '330', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1566', '331', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1567', '332', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1568', '333', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1569', '334', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1570', '335', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1571', '336', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1572', '337', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1573', '338', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1574', '339', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1575', '340', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1576', '341', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1577', '342', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1578', '343', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1579', '344', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1580', '345', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1581', '346', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1582', '347', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1583', '348', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1584', '349', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1585', '350', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1586', '351', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1587', '352', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1588', '353', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1589', '354', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1590', '355', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1591', '356', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1592', '357', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1593', '358', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1594', '359', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1595', '360', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1596', '361', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1597', '362', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1598', '363', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1599', '364', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1600', '365', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1601', '366', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1602', '367', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1603', '368', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1604', '369', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1605', '370', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1606', '371', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1607', '372', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1608', '373', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1609', '374', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1610', '375', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1611', '376', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1612', '377', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1613', '378', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1614', '379', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1615', '380', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1616', '381', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1617', '382', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1618', '383', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1619', '384', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1620', '385', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1621', '386', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1622', '387', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1623', '388', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1624', '389', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1625', '390', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1626', '391', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1627', '392', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1628', '393', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1629', '394', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1630', '395', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1631', '396', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1632', '397', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1633', '398', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1634', '399', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1635', '400', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1636', '401', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1637', '402', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1638', '403', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1639', '404', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1640', '405', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1641', '406', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1642', '407', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1643', '408', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1644', '409', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1645', '410', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1646', '411', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1647', '412', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1648', '413', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1649', '414', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1650', '415', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1651', '416', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1652', '417', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1653', '418', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1654', '419', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1655', '420', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1656', '421', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1657', '422', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1658', '423', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1659', '424', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1660', '425', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1661', '426', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1662', '427', '3');
-INSERT INTO pollutant_protectiontarget VALUES ('1663', '0', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1664', '1', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1665', '2', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1666', '3', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1667', '4', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1668', '5', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1669', '6', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1670', '7', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1671', '8', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1672', '9', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1673', '10', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1674', '11', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1675', '12', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1676', '13', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1677', '14', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1678', '15', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1679', '16', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1680', '17', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1681', '18', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1682', '19', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1683', '20', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1684', '21', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1685', '22', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1686', '23', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1687', '24', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1688', '25', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1689', '26', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1690', '27', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1691', '28', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1692', '29', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1693', '30', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1694', '31', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1695', '32', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1696', '33', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1697', '34', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1698', '35', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1699', '36', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1700', '37', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1701', '38', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1702', '39', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1703', '40', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1704', '41', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1705', '42', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1706', '43', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1707', '44', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1708', '45', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1709', '46', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1710', '47', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1711', '48', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1712', '49', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1713', '50', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1714', '51', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1715', '52', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1716', '53', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1717', '54', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1718', '55', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1719', '56', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1720', '57', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1721', '58', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1722', '59', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1723', '60', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1724', '61', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1725', '62', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1726', '63', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1727', '64', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1728', '65', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1729', '66', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1730', '67', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1731', '68', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1732', '69', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1733', '70', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1734', '71', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1735', '72', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1736', '73', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1737', '74', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1738', '75', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1739', '76', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1740', '77', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1741', '78', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1742', '79', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1743', '80', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1744', '81', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1745', '82', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1746', '83', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1747', '84', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1748', '85', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1749', '86', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1750', '87', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1751', '88', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1752', '89', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1753', '90', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1754', '91', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1755', '92', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1756', '93', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1757', '94', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1758', '95', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1759', '96', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1760', '97', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1761', '98', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1762', '99', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1763', '100', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1764', '101', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1765', '102', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1766', '103', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1767', '104', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1768', '105', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1769', '106', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1770', '107', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1771', '108', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1772', '109', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1773', '110', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1774', '111', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1775', '112', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1776', '113', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1777', '114', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1778', '115', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1779', '116', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1780', '117', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1781', '118', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1782', '119', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1783', '120', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1784', '121', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1785', '122', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1786', '123', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1787', '124', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1788', '125', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1789', '126', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1790', '127', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1791', '128', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1792', '129', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1793', '130', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1794', '131', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1795', '132', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1796', '133', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1797', '134', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1798', '135', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1799', '136', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1800', '137', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1801', '138', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1802', '139', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1803', '140', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1804', '141', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1805', '142', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1806', '143', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1807', '144', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1808', '145', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1809', '146', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1810', '147', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1811', '148', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1812', '149', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1813', '150', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1814', '151', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1815', '152', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1816', '153', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1817', '154', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1818', '155', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1819', '156', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1820', '157', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1821', '158', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1822', '159', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1823', '160', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1824', '161', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1825', '162', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1826', '163', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1827', '164', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1828', '165', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1829', '166', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1830', '167', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1831', '168', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1832', '169', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1833', '170', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1834', '171', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1835', '172', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1836', '173', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1837', '174', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1838', '175', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1839', '176', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1840', '177', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1841', '178', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1842', '179', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1843', '180', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1844', '181', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1845', '182', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1846', '183', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1847', '184', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1848', '185', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1849', '186', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1850', '187', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1851', '188', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1852', '189', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1853', '190', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1854', '191', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1855', '192', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1856', '193', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1857', '194', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1858', '195', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1859', '196', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1860', '197', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1861', '198', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1862', '199', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1863', '200', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1864', '201', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1865', '202', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1866', '203', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1867', '204', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1868', '205', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1869', '206', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1870', '207', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1871', '208', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1872', '209', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1873', '210', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1874', '211', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1875', '212', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1876', '213', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1877', '214', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1878', '215', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1879', '216', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1880', '217', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1881', '218', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1882', '219', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1883', '220', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1884', '221', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1885', '222', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1886', '223', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1887', '224', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1888', '225', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1889', '226', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1890', '227', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1891', '228', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1892', '229', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1893', '230', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1894', '231', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1895', '232', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1896', '233', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1897', '234', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1898', '235', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1899', '236', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1900', '237', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1901', '238', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1902', '239', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1903', '240', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1904', '241', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1905', '242', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1906', '243', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1907', '244', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1908', '245', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1909', '246', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1910', '247', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1911', '248', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1912', '249', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1913', '250', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1914', '251', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1915', '252', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1916', '253', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1917', '254', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1918', '255', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1919', '256', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1920', '257', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1921', '258', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1922', '259', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1923', '260', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1924', '261', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1925', '262', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1926', '263', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1927', '264', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1928', '265', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1929', '266', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1930', '267', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1931', '268', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1932', '269', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1933', '270', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1934', '271', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1935', '272', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1936', '273', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1937', '274', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1938', '275', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1939', '276', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1940', '277', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1941', '278', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1942', '279', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1943', '280', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1944', '281', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1945', '282', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1946', '283', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1947', '284', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1948', '285', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1949', '286', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1950', '287', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1951', '288', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1952', '289', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1953', '290', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1954', '291', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1955', '292', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1956', '293', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1957', '294', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1958', '295', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1959', '296', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1960', '297', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1961', '298', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1962', '299', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1963', '300', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1964', '301', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1965', '302', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1966', '303', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1967', '304', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1968', '305', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1969', '306', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1970', '307', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1971', '308', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1972', '309', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1973', '310', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1974', '311', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1975', '312', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1976', '313', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1977', '314', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1978', '315', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1979', '316', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1980', '317', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1981', '318', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1982', '319', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1983', '320', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1984', '321', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1985', '322', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1986', '323', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1987', '324', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1988', '325', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1989', '326', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1990', '327', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1991', '328', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1992', '329', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1993', '330', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1994', '331', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1995', '332', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1996', '333', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1997', '334', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1998', '335', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('1999', '336', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2000', '337', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2001', '338', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2002', '339', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2003', '340', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2004', '341', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2005', '342', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2006', '343', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2007', '344', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2008', '345', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2009', '346', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2010', '347', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2011', '348', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2012', '349', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2013', '350', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2014', '351', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2015', '352', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2016', '353', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2017', '354', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2018', '355', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2019', '356', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2020', '357', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2021', '358', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2022', '359', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2023', '360', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2024', '361', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2025', '362', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2026', '363', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2027', '364', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2028', '365', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2029', '366', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2030', '367', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2031', '368', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2032', '369', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2033', '370', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2034', '371', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2035', '372', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2036', '373', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2037', '374', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2038', '375', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2039', '376', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2040', '377', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2041', '378', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2042', '379', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2043', '380', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2044', '381', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2045', '382', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2046', '383', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2047', '384', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2048', '385', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2049', '386', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2050', '387', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2051', '388', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2052', '389', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2053', '390', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2054', '391', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2055', '392', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2056', '393', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2057', '394', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2058', '395', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2059', '396', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2060', '397', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2061', '398', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2062', '399', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2063', '400', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2064', '401', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2065', '402', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2066', '403', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2067', '404', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2068', '405', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2069', '406', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2070', '407', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2071', '408', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2072', '409', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2073', '410', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2074', '411', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2075', '412', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2076', '413', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2077', '414', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2078', '415', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2079', '416', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2080', '417', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2081', '418', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2082', '419', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2083', '420', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2084', '421', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2085', '422', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2086', '423', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2087', '424', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2088', '425', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2089', '426', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2090', '427', '4');
-INSERT INTO pollutant_protectiontarget VALUES ('2091', '17', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2092', '18', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2093', '19', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2094', '20', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2095', '21', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2096', '22', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2097', '23', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2098', '24', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2099', '25', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2100', '26', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2101', '27', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2102', '28', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2103', '29', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2104', '30', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2105', '31', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2106', '32', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2107', '33', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2108', '34', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2109', '35', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2110', '36', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2111', '37', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2112', '38', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2113', '39', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2114', '40', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2115', '41', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2116', '42', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2117', '43', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2118', '44', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2119', '45', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2120', '46', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2121', '47', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2122', '48', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2123', '49', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2124', '50', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2125', '51', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2126', '52', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2127', '53', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2128', '54', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2129', '55', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2130', '56', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2131', '57', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2132', '58', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2133', '59', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2134', '60', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2135', '61', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2136', '62', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2137', '63', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2138', '64', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2139', '65', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2140', '66', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2141', '67', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2142', '68', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2143', '69', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2144', '70', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2145', '71', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2146', '72', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2147', '73', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2148', '74', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2149', '75', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2150', '76', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2151', '77', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2152', '78', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2153', '79', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2154', '80', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2155', '81', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2156', '82', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2157', '83', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2158', '84', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2159', '85', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2160', '86', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2161', '87', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2162', '88', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2163', '89', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2164', '90', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2165', '91', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2166', '92', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2167', '93', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2168', '94', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2169', '95', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2170', '96', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2171', '97', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2172', '98', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2173', '99', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2174', '100', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2175', '101', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2176', '102', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2177', '103', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2178', '104', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2179', '105', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2180', '106', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2181', '107', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2182', '108', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2183', '109', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2184', '110', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2185', '111', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2186', '112', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2187', '113', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2188', '114', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2189', '115', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2190', '116', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2191', '117', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2192', '118', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2193', '119', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2194', '120', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2195', '121', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2196', '122', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2197', '123', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2198', '124', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2199', '125', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2200', '126', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2201', '127', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2202', '128', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2203', '129', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2204', '130', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2205', '131', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2206', '132', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2207', '133', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2208', '134', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2209', '135', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2210', '136', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2211', '137', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2212', '138', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2213', '139', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2214', '140', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2215', '141', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2216', '142', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2217', '143', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2218', '144', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2219', '145', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2220', '146', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2221', '147', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2222', '148', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2223', '149', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2224', '150', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2225', '151', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2226', '152', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2227', '153', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2228', '154', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2229', '155', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2230', '156', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2231', '157', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2232', '158', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2233', '159', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2234', '160', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2235', '161', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2236', '162', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2237', '163', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2238', '164', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2239', '165', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2240', '166', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2241', '167', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2242', '168', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2243', '169', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2244', '170', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2245', '171', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2246', '172', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2247', '173', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2248', '174', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2249', '175', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2250', '176', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2251', '177', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2252', '178', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2253', '179', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2254', '180', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2255', '181', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2256', '182', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2257', '183', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2258', '184', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2259', '185', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2260', '186', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2261', '187', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2262', '188', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2263', '189', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2264', '190', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2265', '191', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2266', '192', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2267', '193', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2268', '194', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2269', '195', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2270', '196', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2271', '197', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2272', '198', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2273', '199', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2274', '200', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2275', '201', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2276', '202', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2277', '203', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2278', '204', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2279', '205', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2280', '206', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2281', '207', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2282', '208', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2283', '209', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2284', '210', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2285', '211', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2286', '212', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2287', '213', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2288', '214', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2289', '215', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2290', '216', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2291', '217', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2292', '218', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2293', '219', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2294', '220', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2295', '221', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2296', '222', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2297', '223', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2298', '224', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2299', '225', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2300', '226', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2301', '227', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2302', '228', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2303', '229', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2304', '230', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2305', '231', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2306', '232', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2307', '233', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2308', '234', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2309', '235', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2310', '236', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2311', '237', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2312', '238', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2313', '239', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2314', '240', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2315', '241', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2316', '242', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2317', '243', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2318', '244', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2319', '245', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2320', '246', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2321', '247', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2322', '248', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2323', '249', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2324', '250', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2325', '251', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2326', '252', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2327', '253', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2328', '254', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2329', '255', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2330', '256', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2331', '257', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2332', '258', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2333', '259', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2334', '260', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2335', '261', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2336', '262', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2337', '263', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2338', '264', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2339', '265', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2340', '266', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2341', '267', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2342', '268', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2343', '269', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2344', '270', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2345', '271', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2346', '272', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2347', '273', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2348', '274', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2349', '275', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2350', '276', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2351', '277', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2352', '278', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2353', '279', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2354', '280', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2355', '281', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2356', '282', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2357', '283', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2358', '284', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2359', '285', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2360', '286', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2361', '287', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2362', '288', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2363', '289', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2364', '290', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2365', '291', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2366', '292', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2367', '293', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2368', '294', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2369', '295', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2370', '296', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2371', '297', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2372', '298', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2373', '299', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2374', '300', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2375', '301', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2376', '302', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2377', '303', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2378', '304', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2379', '305', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2380', '306', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2381', '307', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2382', '308', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2383', '309', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2384', '310', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2385', '311', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2386', '312', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2387', '313', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2388', '314', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2389', '315', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2390', '316', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2391', '317', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2392', '318', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2393', '319', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2394', '320', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2395', '321', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2396', '322', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2397', '323', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2398', '324', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2399', '325', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2400', '326', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2401', '327', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2402', '328', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2403', '329', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2404', '330', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2405', '331', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2406', '332', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2407', '333', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2408', '334', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2409', '335', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2410', '336', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2411', '337', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2412', '338', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2413', '339', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2414', '340', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2415', '341', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2416', '342', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2417', '343', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2418', '344', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2419', '345', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2420', '346', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2421', '347', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2422', '348', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2423', '349', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2424', '350', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2425', '351', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2426', '352', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2427', '353', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2428', '354', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2429', '355', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2430', '356', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2431', '357', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2432', '358', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2433', '359', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2434', '360', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2435', '361', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2436', '362', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2437', '363', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2438', '364', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2439', '365', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2440', '366', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2441', '367', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2442', '368', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2443', '369', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2444', '370', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2445', '371', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2446', '372', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2447', '373', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2448', '374', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2449', '375', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2450', '376', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2451', '377', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2452', '378', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2453', '379', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2454', '380', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2455', '381', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2456', '382', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2457', '383', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2458', '384', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2459', '385', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2460', '386', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2461', '387', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2462', '388', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2463', '389', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2464', '390', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2465', '391', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2466', '392', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2467', '393', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2468', '394', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2469', '395', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2470', '396', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2471', '397', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2472', '398', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2473', '399', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2474', '400', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2475', '401', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2476', '402', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2477', '403', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2478', '404', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2479', '405', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2480', '406', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2481', '407', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2482', '408', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2483', '409', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2484', '410', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2485', '411', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2486', '412', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2487', '413', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2488', '414', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2489', '415', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2490', '416', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2491', '417', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2492', '418', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2493', '419', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2494', '420', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2495', '421', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2496', '422', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2497', '423', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2498', '424', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2499', '425', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2500', '426', '5');
-INSERT INTO pollutant_protectiontarget VALUES ('2501', '427', '5');
+INSERT INTO pollutant_protectiontarget VALUES
+ ('0', '0', '0'),
+ ('1', '1', '5'),
+ ('2', '2', '0'),
+ ('3', '3', '0'),
+ ('4', '4', '0'),
+ ('5', '4', '5'),
+ ('6', '5', '0'),
+ ('7', '5', '5'),
+ ('8', '6', '0'),
+ ('9', '7', '0'),
+ ('10', '8', '0'),
+ ('11', '9', '0'),
+ ('12', '10', '0'),
+ ('13', '11', '0'),
+ ('14', '12', '0'),
+ ('15', '13', '0'),
+ ('16', '14', '0'),
+ ('17', '15', '0'),
+ ('18', '16', '0'),
+ ('19', '17', '0'),
+ ('20', '18', '0'),
+ ('21', '19', '0'),
+ ('22', '20', '0'),
+ ('23', '21', '0'),
+ ('24', '22', '0'),
+ ('25', '23', '0'),
+ ('26', '24', '0'),
+ ('27', '25', '0'),
+ ('28', '26', '0'),
+ ('29', '27', '0'),
+ ('30', '28', '0'),
+ ('31', '29', '0'),
+ ('32', '30', '0'),
+ ('33', '31', '0'),
+ ('34', '32', '0'),
+ ('35', '33', '0'),
+ ('36', '34', '0'),
+ ('37', '35', '0'),
+ ('38', '36', '0'),
+ ('39', '37', '0'),
+ ('40', '38', '0'),
+ ('41', '39', '0'),
+ ('42', '40', '0'),
+ ('43', '41', '0'),
+ ('44', '42', '0'),
+ ('45', '43', '0'),
+ ('46', '44', '0'),
+ ('47', '45', '0'),
+ ('48', '46', '0'),
+ ('49', '47', '0'),
+ ('50', '48', '0'),
+ ('51', '49', '0'),
+ ('52', '50', '0'),
+ ('53', '51', '0'),
+ ('54', '52', '0'),
+ ('55', '53', '0'),
+ ('56', '54', '0'),
+ ('57', '55', '0'),
+ ('58', '56', '0'),
+ ('59', '57', '0'),
+ ('60', '58', '0'),
+ ('61', '59', '0'),
+ ('62', '60', '0'),
+ ('63', '61', '0'),
+ ('64', '62', '0'),
+ ('65', '63', '0'),
+ ('66', '64', '0'),
+ ('67', '65', '0'),
+ ('68', '66', '0'),
+ ('69', '67', '0'),
+ ('70', '68', '0'),
+ ('71', '69', '0'),
+ ('72', '70', '0'),
+ ('73', '71', '0'),
+ ('74', '72', '0'),
+ ('75', '73', '0'),
+ ('76', '74', '0'),
+ ('77', '75', '0'),
+ ('78', '76', '0'),
+ ('79', '77', '0'),
+ ('80', '78', '0'),
+ ('81', '79', '0'),
+ ('82', '80', '0'),
+ ('83', '81', '0'),
+ ('84', '82', '0'),
+ ('85', '83', '0'),
+ ('86', '84', '0'),
+ ('87', '85', '0'),
+ ('88', '86', '0'),
+ ('89', '87', '0'),
+ ('90', '88', '0'),
+ ('91', '89', '0'),
+ ('92', '90', '0'),
+ ('93', '91', '0'),
+ ('94', '92', '0'),
+ ('95', '93', '0'),
+ ('96', '94', '0'),
+ ('97', '95', '0'),
+ ('98', '96', '0'),
+ ('99', '97', '0'),
+ ('100', '98', '0'),
+ ('101', '99', '0'),
+ ('102', '100', '0'),
+ ('103', '101', '0'),
+ ('104', '102', '0'),
+ ('105', '103', '0'),
+ ('106', '104', '0'),
+ ('107', '105', '0'),
+ ('108', '106', '0'),
+ ('109', '107', '0'),
+ ('110', '108', '0'),
+ ('111', '109', '0'),
+ ('112', '110', '0'),
+ ('113', '111', '0'),
+ ('114', '112', '0'),
+ ('115', '113', '0'),
+ ('116', '114', '0'),
+ ('117', '115', '0'),
+ ('118', '116', '0'),
+ ('119', '117', '0'),
+ ('120', '118', '0'),
+ ('121', '119', '0'),
+ ('122', '120', '0'),
+ ('123', '121', '0'),
+ ('124', '122', '0'),
+ ('125', '123', '0'),
+ ('126', '124', '0'),
+ ('127', '125', '0'),
+ ('128', '126', '0'),
+ ('129', '127', '0'),
+ ('130', '128', '0'),
+ ('131', '129', '0'),
+ ('132', '130', '0'),
+ ('133', '131', '0'),
+ ('134', '132', '0'),
+ ('135', '133', '0'),
+ ('136', '134', '0'),
+ ('137', '135', '0'),
+ ('138', '136', '0'),
+ ('139', '137', '0'),
+ ('140', '138', '0'),
+ ('141', '139', '0'),
+ ('142', '140', '0'),
+ ('143', '141', '0'),
+ ('144', '142', '0'),
+ ('145', '143', '0'),
+ ('146', '144', '0'),
+ ('147', '145', '0'),
+ ('148', '146', '0'),
+ ('149', '147', '0'),
+ ('150', '148', '0'),
+ ('151', '149', '0'),
+ ('152', '150', '0'),
+ ('153', '151', '0'),
+ ('154', '152', '0'),
+ ('155', '153', '0'),
+ ('156', '154', '0'),
+ ('157', '155', '0'),
+ ('158', '156', '0'),
+ ('159', '157', '0'),
+ ('160', '158', '0'),
+ ('161', '159', '0'),
+ ('162', '160', '0'),
+ ('163', '161', '0'),
+ ('164', '162', '0'),
+ ('165', '163', '0'),
+ ('166', '164', '0'),
+ ('167', '165', '0'),
+ ('168', '166', '0'),
+ ('169', '167', '0'),
+ ('170', '168', '0'),
+ ('171', '169', '0'),
+ ('172', '170', '0'),
+ ('173', '171', '0'),
+ ('174', '172', '0'),
+ ('175', '173', '0'),
+ ('176', '174', '0'),
+ ('177', '175', '0'),
+ ('178', '176', '0'),
+ ('179', '177', '0'),
+ ('180', '178', '0'),
+ ('181', '179', '0'),
+ ('182', '180', '0'),
+ ('183', '181', '0'),
+ ('184', '182', '0'),
+ ('185', '183', '0'),
+ ('186', '184', '0'),
+ ('187', '185', '0'),
+ ('188', '186', '0'),
+ ('189', '187', '0'),
+ ('190', '188', '0'),
+ ('191', '189', '0'),
+ ('192', '190', '0'),
+ ('193', '191', '0'),
+ ('194', '192', '0'),
+ ('195', '193', '0'),
+ ('196', '194', '0'),
+ ('197', '195', '0'),
+ ('198', '196', '0'),
+ ('199', '197', '0'),
+ ('200', '198', '0'),
+ ('201', '199', '0'),
+ ('202', '200', '0'),
+ ('203', '201', '0'),
+ ('204', '202', '0'),
+ ('205', '203', '0'),
+ ('206', '204', '0'),
+ ('207', '205', '0'),
+ ('208', '206', '0'),
+ ('209', '207', '0'),
+ ('210', '208', '0'),
+ ('211', '209', '0'),
+ ('212', '210', '0'),
+ ('213', '211', '0'),
+ ('214', '212', '0'),
+ ('215', '213', '0'),
+ ('216', '214', '0'),
+ ('217', '215', '0'),
+ ('218', '216', '0'),
+ ('219', '217', '0'),
+ ('220', '218', '0'),
+ ('221', '219', '0'),
+ ('222', '220', '0'),
+ ('223', '221', '0'),
+ ('224', '222', '0'),
+ ('225', '223', '0'),
+ ('226', '224', '0'),
+ ('227', '225', '0'),
+ ('228', '226', '0'),
+ ('229', '227', '0'),
+ ('230', '228', '0'),
+ ('231', '229', '0'),
+ ('232', '230', '0'),
+ ('233', '231', '0'),
+ ('234', '232', '0'),
+ ('235', '233', '0'),
+ ('236', '234', '0'),
+ ('237', '235', '0'),
+ ('238', '236', '0'),
+ ('239', '237', '0'),
+ ('240', '238', '0'),
+ ('241', '239', '0'),
+ ('242', '240', '0'),
+ ('243', '241', '0'),
+ ('244', '242', '0'),
+ ('245', '243', '0'),
+ ('246', '244', '0'),
+ ('247', '245', '0'),
+ ('248', '246', '0'),
+ ('249', '247', '0'),
+ ('250', '248', '0'),
+ ('251', '249', '0'),
+ ('252', '250', '0'),
+ ('253', '251', '0'),
+ ('254', '252', '0'),
+ ('255', '253', '0'),
+ ('256', '254', '0'),
+ ('257', '255', '0'),
+ ('258', '256', '0'),
+ ('259', '257', '0'),
+ ('260', '258', '0'),
+ ('261', '259', '0'),
+ ('262', '260', '0'),
+ ('263', '261', '0'),
+ ('264', '262', '0'),
+ ('265', '263', '0'),
+ ('266', '264', '0'),
+ ('267', '265', '0'),
+ ('268', '266', '0'),
+ ('269', '267', '0'),
+ ('270', '268', '0'),
+ ('271', '269', '0'),
+ ('272', '270', '0'),
+ ('273', '271', '0'),
+ ('274', '272', '0'),
+ ('275', '273', '0'),
+ ('276', '274', '0'),
+ ('277', '275', '0'),
+ ('278', '276', '0'),
+ ('279', '277', '0'),
+ ('280', '278', '0'),
+ ('281', '279', '0'),
+ ('282', '280', '0'),
+ ('283', '281', '0'),
+ ('284', '282', '0'),
+ ('285', '283', '0'),
+ ('286', '284', '0'),
+ ('287', '285', '0'),
+ ('288', '286', '0'),
+ ('289', '287', '0'),
+ ('290', '288', '0'),
+ ('291', '289', '0'),
+ ('292', '290', '0'),
+ ('293', '291', '0'),
+ ('294', '292', '0'),
+ ('295', '293', '0'),
+ ('296', '294', '0'),
+ ('297', '295', '0'),
+ ('298', '296', '0'),
+ ('299', '297', '0'),
+ ('300', '298', '0'),
+ ('301', '299', '0'),
+ ('302', '300', '0'),
+ ('303', '301', '0'),
+ ('304', '302', '0'),
+ ('305', '303', '0'),
+ ('306', '304', '0'),
+ ('307', '305', '0'),
+ ('308', '306', '0'),
+ ('309', '307', '0'),
+ ('310', '308', '0'),
+ ('311', '309', '0'),
+ ('312', '310', '0'),
+ ('313', '311', '0'),
+ ('314', '312', '0'),
+ ('315', '313', '0'),
+ ('316', '314', '0'),
+ ('317', '315', '0'),
+ ('318', '316', '0'),
+ ('319', '317', '0'),
+ ('320', '318', '0'),
+ ('321', '319', '0'),
+ ('322', '320', '0'),
+ ('323', '321', '0'),
+ ('324', '322', '0'),
+ ('325', '323', '0'),
+ ('326', '324', '0'),
+ ('327', '325', '0'),
+ ('328', '326', '0'),
+ ('329', '327', '0'),
+ ('330', '328', '0'),
+ ('331', '329', '0'),
+ ('332', '330', '0'),
+ ('333', '331', '0'),
+ ('334', '332', '0'),
+ ('335', '333', '0'),
+ ('336', '334', '0'),
+ ('337', '335', '0'),
+ ('338', '336', '0'),
+ ('339', '337', '0'),
+ ('340', '338', '0'),
+ ('341', '339', '0'),
+ ('342', '340', '0'),
+ ('343', '341', '0'),
+ ('344', '342', '0'),
+ ('345', '343', '0'),
+ ('346', '344', '0'),
+ ('347', '345', '0'),
+ ('348', '346', '0'),
+ ('349', '347', '0'),
+ ('350', '348', '0'),
+ ('351', '349', '0'),
+ ('352', '350', '0'),
+ ('353', '351', '0'),
+ ('354', '352', '0'),
+ ('355', '353', '0'),
+ ('356', '354', '0'),
+ ('357', '355', '0'),
+ ('358', '356', '0'),
+ ('359', '357', '0'),
+ ('360', '358', '0'),
+ ('361', '359', '0'),
+ ('362', '360', '0'),
+ ('363', '361', '0'),
+ ('364', '362', '0'),
+ ('365', '363', '0'),
+ ('366', '364', '0'),
+ ('367', '365', '0'),
+ ('368', '366', '0'),
+ ('369', '367', '0'),
+ ('370', '368', '0'),
+ ('371', '369', '0'),
+ ('372', '370', '0'),
+ ('373', '371', '0'),
+ ('374', '372', '0'),
+ ('375', '373', '0'),
+ ('376', '374', '0'),
+ ('377', '375', '0'),
+ ('378', '376', '0'),
+ ('379', '377', '0'),
+ ('380', '378', '0'),
+ ('381', '379', '0'),
+ ('382', '380', '0'),
+ ('383', '381', '0'),
+ ('384', '382', '0'),
+ ('385', '383', '0'),
+ ('386', '384', '0'),
+ ('387', '385', '0'),
+ ('388', '386', '0'),
+ ('389', '387', '0'),
+ ('390', '388', '0'),
+ ('391', '389', '0'),
+ ('392', '390', '0'),
+ ('393', '391', '0'),
+ ('394', '392', '0'),
+ ('395', '393', '0'),
+ ('396', '394', '0'),
+ ('397', '395', '0'),
+ ('398', '396', '0'),
+ ('399', '397', '0'),
+ ('400', '398', '0'),
+ ('401', '399', '0'),
+ ('402', '400', '0'),
+ ('403', '401', '0'),
+ ('404', '402', '0'),
+ ('405', '403', '0'),
+ ('406', '404', '0'),
+ ('407', '405', '0'),
+ ('408', '406', '0'),
+ ('409', '407', '0'),
+ ('410', '408', '0'),
+ ('411', '409', '0'),
+ ('412', '410', '0'),
+ ('413', '411', '0'),
+ ('414', '412', '0'),
+ ('415', '413', '0'),
+ ('416', '414', '0'),
+ ('417', '415', '0'),
+ ('418', '416', '0'),
+ ('419', '417', '0'),
+ ('420', '418', '0'),
+ ('421', '419', '0'),
+ ('422', '420', '0'),
+ ('423', '421', '0'),
+ ('424', '422', '0'),
+ ('425', '423', '0'),
+ ('426', '424', '0'),
+ ('427', '425', '0'),
+ ('428', '426', '0'),
+ ('429', '427', '0'),
+ ('430', '17', '1'),
+ ('431', '18', '1'),
+ ('432', '19', '1'),
+ ('433', '20', '1'),
+ ('434', '21', '1'),
+ ('435', '22', '1'),
+ ('436', '23', '1'),
+ ('437', '24', '1'),
+ ('438', '25', '1'),
+ ('439', '26', '1'),
+ ('440', '27', '1'),
+ ('441', '28', '1'),
+ ('442', '29', '1'),
+ ('443', '30', '1'),
+ ('444', '31', '1'),
+ ('445', '32', '1'),
+ ('446', '33', '1'),
+ ('447', '34', '1'),
+ ('448', '35', '1'),
+ ('449', '36', '1'),
+ ('450', '37', '1'),
+ ('451', '38', '1'),
+ ('452', '39', '1'),
+ ('453', '40', '1'),
+ ('454', '41', '1'),
+ ('455', '42', '1'),
+ ('456', '43', '1'),
+ ('457', '44', '1'),
+ ('458', '45', '1'),
+ ('459', '46', '1'),
+ ('460', '47', '1'),
+ ('461', '48', '1'),
+ ('462', '49', '1'),
+ ('463', '50', '1'),
+ ('464', '51', '1'),
+ ('465', '52', '1'),
+ ('466', '53', '1'),
+ ('467', '54', '1'),
+ ('468', '55', '1'),
+ ('469', '56', '1'),
+ ('470', '57', '1'),
+ ('471', '58', '1'),
+ ('472', '59', '1'),
+ ('473', '60', '1'),
+ ('474', '61', '1'),
+ ('475', '62', '1'),
+ ('476', '63', '1'),
+ ('477', '64', '1'),
+ ('478', '65', '1'),
+ ('479', '66', '1'),
+ ('480', '67', '1'),
+ ('481', '68', '1'),
+ ('482', '69', '1'),
+ ('483', '70', '1'),
+ ('484', '71', '1'),
+ ('485', '72', '1'),
+ ('486', '73', '1'),
+ ('487', '74', '1'),
+ ('488', '75', '1'),
+ ('489', '76', '1'),
+ ('490', '77', '1'),
+ ('491', '78', '1'),
+ ('492', '79', '1'),
+ ('493', '80', '1'),
+ ('494', '81', '1'),
+ ('495', '82', '1'),
+ ('496', '83', '1'),
+ ('497', '84', '1'),
+ ('498', '85', '1'),
+ ('499', '86', '1'),
+ ('500', '87', '1'),
+ ('501', '88', '1'),
+ ('502', '89', '1'),
+ ('503', '90', '1'),
+ ('504', '91', '1'),
+ ('505', '92', '1'),
+ ('506', '93', '1'),
+ ('507', '94', '1'),
+ ('508', '95', '1'),
+ ('509', '96', '1'),
+ ('510', '97', '1'),
+ ('511', '98', '1'),
+ ('512', '99', '1'),
+ ('513', '100', '1'),
+ ('514', '101', '1'),
+ ('515', '102', '1'),
+ ('516', '103', '1'),
+ ('517', '104', '1'),
+ ('518', '105', '1'),
+ ('519', '106', '1'),
+ ('520', '107', '1'),
+ ('521', '108', '1'),
+ ('522', '109', '1'),
+ ('523', '110', '1'),
+ ('524', '111', '1'),
+ ('525', '112', '1'),
+ ('526', '113', '1'),
+ ('527', '114', '1'),
+ ('528', '115', '1'),
+ ('529', '116', '1'),
+ ('530', '117', '1'),
+ ('531', '118', '1'),
+ ('532', '119', '1'),
+ ('533', '120', '1'),
+ ('534', '121', '1'),
+ ('535', '122', '1'),
+ ('536', '123', '1'),
+ ('537', '124', '1'),
+ ('538', '125', '1'),
+ ('539', '126', '1'),
+ ('540', '127', '1'),
+ ('541', '128', '1'),
+ ('542', '129', '1'),
+ ('543', '130', '1'),
+ ('544', '131', '1'),
+ ('545', '132', '1'),
+ ('546', '133', '1'),
+ ('547', '134', '1'),
+ ('548', '135', '1'),
+ ('549', '136', '1'),
+ ('550', '137', '1'),
+ ('551', '138', '1'),
+ ('552', '139', '1'),
+ ('553', '140', '1'),
+ ('554', '141', '1'),
+ ('555', '142', '1'),
+ ('556', '143', '1'),
+ ('557', '144', '1'),
+ ('558', '145', '1'),
+ ('559', '146', '1'),
+ ('560', '147', '1'),
+ ('561', '148', '1'),
+ ('562', '149', '1'),
+ ('563', '150', '1'),
+ ('564', '151', '1'),
+ ('565', '152', '1'),
+ ('566', '153', '1'),
+ ('567', '154', '1'),
+ ('568', '155', '1'),
+ ('569', '156', '1'),
+ ('570', '157', '1'),
+ ('571', '158', '1'),
+ ('572', '159', '1'),
+ ('573', '160', '1'),
+ ('574', '161', '1'),
+ ('575', '162', '1'),
+ ('576', '163', '1'),
+ ('577', '164', '1'),
+ ('578', '165', '1'),
+ ('579', '166', '1'),
+ ('580', '167', '1'),
+ ('581', '168', '1'),
+ ('582', '169', '1'),
+ ('583', '170', '1'),
+ ('584', '171', '1'),
+ ('585', '172', '1'),
+ ('586', '173', '1'),
+ ('587', '174', '1'),
+ ('588', '175', '1'),
+ ('589', '176', '1'),
+ ('590', '177', '1'),
+ ('591', '178', '1'),
+ ('592', '179', '1'),
+ ('593', '180', '1'),
+ ('594', '181', '1'),
+ ('595', '182', '1'),
+ ('596', '183', '1'),
+ ('597', '184', '1'),
+ ('598', '185', '1'),
+ ('599', '186', '1'),
+ ('600', '187', '1'),
+ ('601', '188', '1'),
+ ('602', '189', '1'),
+ ('603', '190', '1'),
+ ('604', '191', '1'),
+ ('605', '192', '1'),
+ ('606', '193', '1'),
+ ('607', '194', '1'),
+ ('608', '195', '1'),
+ ('609', '196', '1'),
+ ('610', '197', '1'),
+ ('611', '198', '1'),
+ ('612', '199', '1'),
+ ('613', '200', '1'),
+ ('614', '201', '1'),
+ ('615', '202', '1'),
+ ('616', '203', '1'),
+ ('617', '204', '1'),
+ ('618', '205', '1'),
+ ('619', '206', '1'),
+ ('620', '207', '1'),
+ ('621', '208', '1'),
+ ('622', '209', '1'),
+ ('623', '210', '1'),
+ ('624', '211', '1'),
+ ('625', '212', '1'),
+ ('626', '213', '1'),
+ ('627', '214', '1'),
+ ('628', '215', '1'),
+ ('629', '216', '1'),
+ ('630', '217', '1'),
+ ('631', '218', '1'),
+ ('632', '219', '1'),
+ ('633', '220', '1'),
+ ('634', '221', '1'),
+ ('635', '222', '1'),
+ ('636', '223', '1'),
+ ('637', '224', '1'),
+ ('638', '225', '1'),
+ ('639', '226', '1'),
+ ('640', '227', '1'),
+ ('641', '228', '1'),
+ ('642', '229', '1'),
+ ('643', '230', '1'),
+ ('644', '231', '1'),
+ ('645', '232', '1'),
+ ('646', '233', '1'),
+ ('647', '234', '1'),
+ ('648', '235', '1'),
+ ('649', '236', '1'),
+ ('650', '237', '1'),
+ ('651', '238', '1'),
+ ('652', '239', '1'),
+ ('653', '240', '1'),
+ ('654', '241', '1'),
+ ('655', '242', '1'),
+ ('656', '243', '1'),
+ ('657', '244', '1'),
+ ('658', '245', '1'),
+ ('659', '246', '1'),
+ ('660', '247', '1'),
+ ('661', '248', '1'),
+ ('662', '249', '1'),
+ ('663', '250', '1'),
+ ('664', '251', '1'),
+ ('665', '252', '1'),
+ ('666', '253', '1'),
+ ('667', '254', '1'),
+ ('668', '255', '1'),
+ ('669', '256', '1'),
+ ('670', '257', '1'),
+ ('671', '258', '1'),
+ ('672', '259', '1'),
+ ('673', '260', '1'),
+ ('674', '261', '1'),
+ ('675', '262', '1'),
+ ('676', '263', '1'),
+ ('677', '264', '1'),
+ ('678', '265', '1'),
+ ('679', '266', '1'),
+ ('680', '267', '1'),
+ ('681', '268', '1'),
+ ('682', '269', '1'),
+ ('683', '270', '1'),
+ ('684', '271', '1'),
+ ('685', '272', '1'),
+ ('686', '273', '1'),
+ ('687', '274', '1'),
+ ('688', '275', '1'),
+ ('689', '276', '1'),
+ ('690', '277', '1'),
+ ('691', '278', '1'),
+ ('692', '279', '1'),
+ ('693', '280', '1'),
+ ('694', '281', '1'),
+ ('695', '282', '1'),
+ ('696', '283', '1'),
+ ('697', '284', '1'),
+ ('698', '285', '1'),
+ ('699', '286', '1'),
+ ('700', '287', '1'),
+ ('701', '288', '1'),
+ ('702', '289', '1'),
+ ('703', '290', '1'),
+ ('704', '291', '1'),
+ ('705', '292', '1'),
+ ('706', '293', '1'),
+ ('707', '294', '1'),
+ ('708', '295', '1'),
+ ('709', '296', '1'),
+ ('710', '297', '1'),
+ ('711', '298', '1'),
+ ('712', '299', '1'),
+ ('713', '300', '1'),
+ ('714', '301', '1'),
+ ('715', '302', '1'),
+ ('716', '303', '1'),
+ ('717', '304', '1'),
+ ('718', '305', '1'),
+ ('719', '306', '1'),
+ ('720', '307', '1'),
+ ('721', '308', '1'),
+ ('722', '309', '1'),
+ ('723', '310', '1'),
+ ('724', '311', '1'),
+ ('725', '312', '1'),
+ ('726', '313', '1'),
+ ('727', '314', '1'),
+ ('728', '315', '1'),
+ ('729', '316', '1'),
+ ('730', '317', '1'),
+ ('731', '318', '1'),
+ ('732', '319', '1'),
+ ('733', '320', '1'),
+ ('734', '321', '1'),
+ ('735', '322', '1'),
+ ('736', '323', '1'),
+ ('737', '324', '1'),
+ ('738', '325', '1'),
+ ('739', '326', '1'),
+ ('740', '327', '1'),
+ ('741', '328', '1'),
+ ('742', '329', '1'),
+ ('743', '330', '1'),
+ ('744', '331', '1'),
+ ('745', '332', '1'),
+ ('746', '333', '1'),
+ ('747', '334', '1'),
+ ('748', '335', '1'),
+ ('749', '336', '1'),
+ ('750', '337', '1'),
+ ('751', '338', '1'),
+ ('752', '339', '1'),
+ ('753', '340', '1'),
+ ('754', '341', '1'),
+ ('755', '342', '1'),
+ ('756', '343', '1'),
+ ('757', '344', '1'),
+ ('758', '345', '1'),
+ ('759', '346', '1'),
+ ('760', '347', '1'),
+ ('761', '348', '1'),
+ ('762', '349', '1'),
+ ('763', '350', '1'),
+ ('764', '351', '1'),
+ ('765', '352', '1'),
+ ('766', '353', '1'),
+ ('767', '354', '1'),
+ ('768', '355', '1'),
+ ('769', '356', '1'),
+ ('770', '357', '1'),
+ ('771', '358', '1'),
+ ('772', '359', '1'),
+ ('773', '360', '1'),
+ ('774', '361', '1'),
+ ('775', '362', '1'),
+ ('776', '363', '1'),
+ ('777', '364', '1'),
+ ('778', '365', '1'),
+ ('779', '366', '1'),
+ ('780', '367', '1'),
+ ('781', '368', '1'),
+ ('782', '369', '1'),
+ ('783', '370', '1'),
+ ('784', '371', '1'),
+ ('785', '372', '1'),
+ ('786', '373', '1'),
+ ('787', '374', '1'),
+ ('788', '375', '1'),
+ ('789', '376', '1'),
+ ('790', '377', '1'),
+ ('791', '378', '1'),
+ ('792', '379', '1'),
+ ('793', '380', '1'),
+ ('794', '381', '1'),
+ ('795', '382', '1'),
+ ('796', '383', '1'),
+ ('797', '384', '1'),
+ ('798', '385', '1'),
+ ('799', '386', '1'),
+ ('800', '387', '1'),
+ ('801', '388', '1'),
+ ('802', '389', '1'),
+ ('803', '390', '1'),
+ ('804', '391', '1'),
+ ('805', '392', '1'),
+ ('806', '393', '1'),
+ ('807', '394', '1'),
+ ('808', '395', '1'),
+ ('809', '396', '1'),
+ ('810', '397', '1'),
+ ('811', '398', '1'),
+ ('812', '399', '1'),
+ ('813', '400', '1'),
+ ('814', '401', '1'),
+ ('815', '402', '1'),
+ ('816', '403', '1'),
+ ('817', '404', '1'),
+ ('818', '405', '1'),
+ ('819', '406', '1'),
+ ('820', '407', '1'),
+ ('821', '408', '1'),
+ ('822', '409', '1'),
+ ('823', '410', '1'),
+ ('824', '411', '1'),
+ ('825', '412', '1'),
+ ('826', '413', '1'),
+ ('827', '414', '1'),
+ ('828', '415', '1'),
+ ('829', '416', '1'),
+ ('830', '417', '1'),
+ ('831', '418', '1'),
+ ('832', '419', '1'),
+ ('833', '420', '1'),
+ ('834', '421', '1'),
+ ('835', '422', '1'),
+ ('836', '423', '1'),
+ ('837', '424', '1'),
+ ('838', '425', '1'),
+ ('839', '426', '1'),
+ ('840', '427', '1'),
+ ('841', '17', '2'),
+ ('842', '18', '2'),
+ ('843', '19', '2'),
+ ('844', '20', '2'),
+ ('845', '21', '2'),
+ ('846', '22', '2'),
+ ('847', '23', '2'),
+ ('848', '24', '2'),
+ ('849', '25', '2'),
+ ('850', '26', '2'),
+ ('851', '27', '2'),
+ ('852', '28', '2'),
+ ('853', '29', '2'),
+ ('854', '30', '2'),
+ ('855', '31', '2'),
+ ('856', '32', '2'),
+ ('857', '33', '2'),
+ ('858', '34', '2'),
+ ('859', '35', '2'),
+ ('860', '36', '2'),
+ ('861', '37', '2'),
+ ('862', '38', '2'),
+ ('863', '39', '2'),
+ ('864', '40', '2'),
+ ('865', '41', '2'),
+ ('866', '42', '2'),
+ ('867', '43', '2'),
+ ('868', '44', '2'),
+ ('869', '45', '2'),
+ ('870', '46', '2'),
+ ('871', '47', '2'),
+ ('872', '48', '2'),
+ ('873', '49', '2'),
+ ('874', '50', '2'),
+ ('875', '51', '2'),
+ ('876', '52', '2'),
+ ('877', '53', '2'),
+ ('878', '54', '2'),
+ ('879', '55', '2'),
+ ('880', '56', '2'),
+ ('881', '57', '2'),
+ ('882', '58', '2'),
+ ('883', '59', '2'),
+ ('884', '60', '2'),
+ ('885', '61', '2'),
+ ('886', '62', '2'),
+ ('887', '63', '2'),
+ ('888', '64', '2'),
+ ('889', '65', '2'),
+ ('890', '66', '2'),
+ ('891', '67', '2'),
+ ('892', '68', '2'),
+ ('893', '69', '2'),
+ ('894', '70', '2'),
+ ('895', '71', '2'),
+ ('896', '72', '2'),
+ ('897', '73', '2'),
+ ('898', '74', '2'),
+ ('899', '75', '2'),
+ ('900', '76', '2'),
+ ('901', '77', '2'),
+ ('902', '78', '2'),
+ ('903', '79', '2'),
+ ('904', '80', '2'),
+ ('905', '81', '2'),
+ ('906', '82', '2'),
+ ('907', '83', '2'),
+ ('908', '84', '2'),
+ ('909', '85', '2'),
+ ('910', '86', '2'),
+ ('911', '87', '2'),
+ ('912', '88', '2'),
+ ('913', '89', '2'),
+ ('914', '90', '2'),
+ ('915', '91', '2'),
+ ('916', '92', '2'),
+ ('917', '93', '2'),
+ ('918', '94', '2'),
+ ('919', '95', '2'),
+ ('920', '96', '2'),
+ ('921', '97', '2'),
+ ('922', '98', '2'),
+ ('923', '99', '2'),
+ ('924', '100', '2'),
+ ('925', '101', '2'),
+ ('926', '102', '2'),
+ ('927', '103', '2'),
+ ('928', '104', '2'),
+ ('929', '105', '2'),
+ ('930', '106', '2'),
+ ('931', '107', '2'),
+ ('932', '108', '2'),
+ ('933', '109', '2'),
+ ('934', '110', '2'),
+ ('935', '111', '2'),
+ ('936', '112', '2'),
+ ('937', '113', '2'),
+ ('938', '114', '2'),
+ ('939', '115', '2'),
+ ('940', '116', '2'),
+ ('941', '117', '2'),
+ ('942', '118', '2'),
+ ('943', '119', '2'),
+ ('944', '120', '2'),
+ ('945', '121', '2'),
+ ('946', '122', '2'),
+ ('947', '123', '2'),
+ ('948', '124', '2'),
+ ('949', '125', '2'),
+ ('950', '126', '2'),
+ ('951', '127', '2'),
+ ('952', '128', '2'),
+ ('953', '129', '2'),
+ ('954', '130', '2'),
+ ('955', '131', '2'),
+ ('956', '132', '2'),
+ ('957', '133', '2'),
+ ('958', '134', '2'),
+ ('959', '135', '2'),
+ ('960', '136', '2'),
+ ('961', '137', '2'),
+ ('962', '138', '2'),
+ ('963', '139', '2'),
+ ('964', '140', '2'),
+ ('965', '141', '2'),
+ ('966', '142', '2'),
+ ('967', '143', '2'),
+ ('968', '144', '2'),
+ ('969', '145', '2'),
+ ('970', '146', '2'),
+ ('971', '147', '2'),
+ ('972', '148', '2'),
+ ('973', '149', '2'),
+ ('974', '150', '2'),
+ ('975', '151', '2'),
+ ('976', '152', '2'),
+ ('977', '153', '2'),
+ ('978', '154', '2'),
+ ('979', '155', '2'),
+ ('980', '156', '2'),
+ ('981', '157', '2'),
+ ('982', '158', '2'),
+ ('983', '159', '2'),
+ ('984', '160', '2'),
+ ('985', '161', '2'),
+ ('986', '162', '2'),
+ ('987', '163', '2'),
+ ('988', '164', '2'),
+ ('989', '165', '2'),
+ ('990', '166', '2'),
+ ('991', '167', '2'),
+ ('992', '168', '2'),
+ ('993', '169', '2'),
+ ('994', '170', '2'),
+ ('995', '171', '2'),
+ ('996', '172', '2'),
+ ('997', '173', '2'),
+ ('998', '174', '2'),
+ ('999', '175', '2'),
+ ('1000', '176', '2'),
+ ('1001', '177', '2'),
+ ('1002', '178', '2'),
+ ('1003', '179', '2'),
+ ('1004', '180', '2'),
+ ('1005', '181', '2'),
+ ('1006', '182', '2'),
+ ('1007', '183', '2'),
+ ('1008', '184', '2'),
+ ('1009', '185', '2'),
+ ('1010', '186', '2'),
+ ('1011', '187', '2'),
+ ('1012', '188', '2'),
+ ('1013', '189', '2'),
+ ('1014', '190', '2'),
+ ('1015', '191', '2'),
+ ('1016', '192', '2'),
+ ('1017', '193', '2'),
+ ('1018', '194', '2'),
+ ('1019', '195', '2'),
+ ('1020', '196', '2'),
+ ('1021', '197', '2'),
+ ('1022', '198', '2'),
+ ('1023', '199', '2'),
+ ('1024', '200', '2'),
+ ('1025', '201', '2'),
+ ('1026', '202', '2'),
+ ('1027', '203', '2'),
+ ('1028', '204', '2'),
+ ('1029', '205', '2'),
+ ('1030', '206', '2'),
+ ('1031', '207', '2'),
+ ('1032', '208', '2'),
+ ('1033', '209', '2'),
+ ('1034', '210', '2'),
+ ('1035', '211', '2'),
+ ('1036', '212', '2'),
+ ('1037', '213', '2'),
+ ('1038', '214', '2'),
+ ('1039', '215', '2'),
+ ('1040', '216', '2'),
+ ('1041', '217', '2'),
+ ('1042', '218', '2'),
+ ('1043', '219', '2'),
+ ('1044', '220', '2'),
+ ('1045', '221', '2'),
+ ('1046', '222', '2'),
+ ('1047', '223', '2'),
+ ('1048', '224', '2'),
+ ('1049', '225', '2'),
+ ('1050', '226', '2'),
+ ('1051', '227', '2'),
+ ('1052', '228', '2'),
+ ('1053', '229', '2'),
+ ('1054', '230', '2'),
+ ('1055', '231', '2'),
+ ('1056', '232', '2'),
+ ('1057', '233', '2'),
+ ('1058', '234', '2'),
+ ('1059', '235', '2'),
+ ('1060', '236', '2'),
+ ('1061', '237', '2'),
+ ('1062', '238', '2'),
+ ('1063', '239', '2'),
+ ('1064', '240', '2'),
+ ('1065', '241', '2'),
+ ('1066', '242', '2'),
+ ('1067', '243', '2'),
+ ('1068', '244', '2'),
+ ('1069', '245', '2'),
+ ('1070', '246', '2'),
+ ('1071', '247', '2'),
+ ('1072', '248', '2'),
+ ('1073', '249', '2'),
+ ('1074', '250', '2'),
+ ('1075', '251', '2'),
+ ('1076', '252', '2'),
+ ('1077', '253', '2'),
+ ('1078', '254', '2'),
+ ('1079', '255', '2'),
+ ('1080', '256', '2'),
+ ('1081', '257', '2'),
+ ('1082', '258', '2'),
+ ('1083', '259', '2'),
+ ('1084', '260', '2'),
+ ('1085', '261', '2'),
+ ('1086', '262', '2'),
+ ('1087', '263', '2'),
+ ('1088', '264', '2'),
+ ('1089', '265', '2'),
+ ('1090', '266', '2'),
+ ('1091', '267', '2'),
+ ('1092', '268', '2'),
+ ('1093', '269', '2'),
+ ('1094', '270', '2'),
+ ('1095', '271', '2'),
+ ('1096', '272', '2'),
+ ('1097', '273', '2'),
+ ('1098', '274', '2'),
+ ('1099', '275', '2'),
+ ('1100', '276', '2'),
+ ('1101', '277', '2'),
+ ('1102', '278', '2'),
+ ('1103', '279', '2'),
+ ('1104', '280', '2'),
+ ('1105', '281', '2'),
+ ('1106', '282', '2'),
+ ('1107', '283', '2'),
+ ('1108', '284', '2'),
+ ('1109', '285', '2'),
+ ('1110', '286', '2'),
+ ('1111', '287', '2'),
+ ('1112', '288', '2'),
+ ('1113', '289', '2'),
+ ('1114', '290', '2'),
+ ('1115', '291', '2'),
+ ('1116', '292', '2'),
+ ('1117', '293', '2'),
+ ('1118', '294', '2'),
+ ('1119', '295', '2'),
+ ('1120', '296', '2'),
+ ('1121', '297', '2'),
+ ('1122', '298', '2'),
+ ('1123', '299', '2'),
+ ('1124', '300', '2'),
+ ('1125', '301', '2'),
+ ('1126', '302', '2'),
+ ('1127', '303', '2'),
+ ('1128', '304', '2'),
+ ('1129', '305', '2'),
+ ('1130', '306', '2'),
+ ('1131', '307', '2'),
+ ('1132', '308', '2'),
+ ('1133', '309', '2'),
+ ('1134', '310', '2'),
+ ('1135', '311', '2'),
+ ('1136', '312', '2'),
+ ('1137', '313', '2'),
+ ('1138', '314', '2'),
+ ('1139', '315', '2'),
+ ('1140', '316', '2'),
+ ('1141', '317', '2'),
+ ('1142', '318', '2'),
+ ('1143', '319', '2'),
+ ('1144', '320', '2'),
+ ('1145', '321', '2'),
+ ('1146', '322', '2'),
+ ('1147', '323', '2'),
+ ('1148', '324', '2'),
+ ('1149', '325', '2'),
+ ('1150', '326', '2'),
+ ('1151', '327', '2'),
+ ('1152', '328', '2'),
+ ('1153', '329', '2'),
+ ('1154', '330', '2'),
+ ('1155', '331', '2'),
+ ('1156', '332', '2'),
+ ('1157', '333', '2'),
+ ('1158', '334', '2'),
+ ('1159', '335', '2'),
+ ('1160', '336', '2'),
+ ('1161', '337', '2'),
+ ('1162', '338', '2'),
+ ('1163', '339', '2'),
+ ('1164', '340', '2'),
+ ('1165', '341', '2'),
+ ('1166', '342', '2'),
+ ('1167', '343', '2'),
+ ('1168', '344', '2'),
+ ('1169', '345', '2'),
+ ('1170', '346', '2'),
+ ('1171', '347', '2'),
+ ('1172', '348', '2'),
+ ('1173', '349', '2'),
+ ('1174', '350', '2'),
+ ('1175', '351', '2'),
+ ('1176', '352', '2'),
+ ('1177', '353', '2'),
+ ('1178', '354', '2'),
+ ('1179', '355', '2'),
+ ('1180', '356', '2'),
+ ('1181', '357', '2'),
+ ('1182', '358', '2'),
+ ('1183', '359', '2'),
+ ('1184', '360', '2'),
+ ('1185', '361', '2'),
+ ('1186', '362', '2'),
+ ('1187', '363', '2'),
+ ('1188', '364', '2'),
+ ('1189', '365', '2'),
+ ('1190', '366', '2'),
+ ('1191', '367', '2'),
+ ('1192', '368', '2'),
+ ('1193', '369', '2'),
+ ('1194', '370', '2'),
+ ('1195', '371', '2'),
+ ('1196', '372', '2'),
+ ('1197', '373', '2'),
+ ('1198', '374', '2'),
+ ('1199', '375', '2'),
+ ('1200', '376', '2'),
+ ('1201', '377', '2'),
+ ('1202', '378', '2'),
+ ('1203', '379', '2'),
+ ('1204', '380', '2'),
+ ('1205', '381', '2'),
+ ('1206', '382', '2'),
+ ('1207', '383', '2'),
+ ('1208', '384', '2'),
+ ('1209', '385', '2'),
+ ('1210', '386', '2'),
+ ('1211', '387', '2'),
+ ('1212', '388', '2'),
+ ('1213', '389', '2'),
+ ('1214', '390', '2'),
+ ('1215', '391', '2'),
+ ('1216', '392', '2'),
+ ('1217', '393', '2'),
+ ('1218', '394', '2'),
+ ('1219', '395', '2'),
+ ('1220', '396', '2'),
+ ('1221', '397', '2'),
+ ('1222', '398', '2'),
+ ('1223', '399', '2'),
+ ('1224', '400', '2'),
+ ('1225', '401', '2'),
+ ('1226', '402', '2'),
+ ('1227', '403', '2'),
+ ('1228', '404', '2'),
+ ('1229', '405', '2'),
+ ('1230', '406', '2'),
+ ('1231', '407', '2'),
+ ('1232', '408', '2'),
+ ('1233', '409', '2'),
+ ('1234', '410', '2'),
+ ('1235', '411', '2'),
+ ('1236', '412', '2'),
+ ('1237', '413', '2'),
+ ('1238', '414', '2'),
+ ('1239', '415', '2'),
+ ('1240', '416', '2'),
+ ('1241', '417', '2'),
+ ('1242', '418', '2'),
+ ('1243', '419', '2'),
+ ('1244', '420', '2'),
+ ('1245', '421', '2'),
+ ('1246', '422', '2'),
+ ('1247', '423', '2'),
+ ('1248', '424', '2'),
+ ('1249', '425', '2'),
+ ('1250', '426', '2'),
+ ('1251', '427', '2'),
+ ('1252', '17', '3'),
+ ('1253', '18', '3'),
+ ('1254', '19', '3'),
+ ('1255', '20', '3'),
+ ('1256', '21', '3'),
+ ('1257', '22', '3'),
+ ('1258', '23', '3'),
+ ('1259', '24', '3'),
+ ('1260', '25', '3'),
+ ('1261', '26', '3'),
+ ('1262', '27', '3'),
+ ('1263', '28', '3'),
+ ('1264', '29', '3'),
+ ('1265', '30', '3'),
+ ('1266', '31', '3'),
+ ('1267', '32', '3'),
+ ('1268', '33', '3'),
+ ('1269', '34', '3'),
+ ('1270', '35', '3'),
+ ('1271', '36', '3'),
+ ('1272', '37', '3'),
+ ('1273', '38', '3'),
+ ('1274', '39', '3'),
+ ('1275', '40', '3'),
+ ('1276', '41', '3'),
+ ('1277', '42', '3'),
+ ('1278', '43', '3'),
+ ('1279', '44', '3'),
+ ('1280', '45', '3'),
+ ('1281', '46', '3'),
+ ('1282', '47', '3'),
+ ('1283', '48', '3'),
+ ('1284', '49', '3'),
+ ('1285', '50', '3'),
+ ('1286', '51', '3'),
+ ('1287', '52', '3'),
+ ('1288', '53', '3'),
+ ('1289', '54', '3'),
+ ('1290', '55', '3'),
+ ('1291', '56', '3'),
+ ('1292', '57', '3'),
+ ('1293', '58', '3'),
+ ('1294', '59', '3'),
+ ('1295', '60', '3'),
+ ('1296', '61', '3'),
+ ('1297', '62', '3'),
+ ('1298', '63', '3'),
+ ('1299', '64', '3'),
+ ('1300', '65', '3'),
+ ('1301', '66', '3'),
+ ('1302', '67', '3'),
+ ('1303', '68', '3'),
+ ('1304', '69', '3'),
+ ('1305', '70', '3'),
+ ('1306', '71', '3'),
+ ('1307', '72', '3'),
+ ('1308', '73', '3'),
+ ('1309', '74', '3'),
+ ('1310', '75', '3'),
+ ('1311', '76', '3'),
+ ('1312', '77', '3'),
+ ('1313', '78', '3'),
+ ('1314', '79', '3'),
+ ('1315', '80', '3'),
+ ('1316', '81', '3'),
+ ('1317', '82', '3'),
+ ('1318', '83', '3'),
+ ('1319', '84', '3'),
+ ('1320', '85', '3'),
+ ('1321', '86', '3'),
+ ('1322', '87', '3'),
+ ('1323', '88', '3'),
+ ('1324', '89', '3'),
+ ('1325', '90', '3'),
+ ('1326', '91', '3'),
+ ('1327', '92', '3'),
+ ('1328', '93', '3'),
+ ('1329', '94', '3'),
+ ('1330', '95', '3'),
+ ('1331', '96', '3'),
+ ('1332', '97', '3'),
+ ('1333', '98', '3'),
+ ('1334', '99', '3'),
+ ('1335', '100', '3'),
+ ('1336', '101', '3'),
+ ('1337', '102', '3'),
+ ('1338', '103', '3'),
+ ('1339', '104', '3'),
+ ('1340', '105', '3'),
+ ('1341', '106', '3'),
+ ('1342', '107', '3'),
+ ('1343', '108', '3'),
+ ('1344', '109', '3'),
+ ('1345', '110', '3'),
+ ('1346', '111', '3'),
+ ('1347', '112', '3'),
+ ('1348', '113', '3'),
+ ('1349', '114', '3'),
+ ('1350', '115', '3'),
+ ('1351', '116', '3'),
+ ('1352', '117', '3'),
+ ('1353', '118', '3'),
+ ('1354', '119', '3'),
+ ('1355', '120', '3'),
+ ('1356', '121', '3'),
+ ('1357', '122', '3'),
+ ('1358', '123', '3'),
+ ('1359', '124', '3'),
+ ('1360', '125', '3'),
+ ('1361', '126', '3'),
+ ('1362', '127', '3'),
+ ('1363', '128', '3'),
+ ('1364', '129', '3'),
+ ('1365', '130', '3'),
+ ('1366', '131', '3'),
+ ('1367', '132', '3'),
+ ('1368', '133', '3'),
+ ('1369', '134', '3'),
+ ('1370', '135', '3'),
+ ('1371', '136', '3'),
+ ('1372', '137', '3'),
+ ('1373', '138', '3'),
+ ('1374', '139', '3'),
+ ('1375', '140', '3'),
+ ('1376', '141', '3'),
+ ('1377', '142', '3'),
+ ('1378', '143', '3'),
+ ('1379', '144', '3'),
+ ('1380', '145', '3'),
+ ('1381', '146', '3'),
+ ('1382', '147', '3'),
+ ('1383', '148', '3'),
+ ('1384', '149', '3'),
+ ('1385', '150', '3'),
+ ('1386', '151', '3'),
+ ('1387', '152', '3'),
+ ('1388', '153', '3'),
+ ('1389', '154', '3'),
+ ('1390', '155', '3'),
+ ('1391', '156', '3'),
+ ('1392', '157', '3'),
+ ('1393', '158', '3'),
+ ('1394', '159', '3'),
+ ('1395', '160', '3'),
+ ('1396', '161', '3'),
+ ('1397', '162', '3'),
+ ('1398', '163', '3'),
+ ('1399', '164', '3'),
+ ('1400', '165', '3'),
+ ('1401', '166', '3'),
+ ('1402', '167', '3'),
+ ('1403', '168', '3'),
+ ('1404', '169', '3'),
+ ('1405', '170', '3'),
+ ('1406', '171', '3'),
+ ('1407', '172', '3'),
+ ('1408', '173', '3'),
+ ('1409', '174', '3'),
+ ('1410', '175', '3'),
+ ('1411', '176', '3'),
+ ('1412', '177', '3'),
+ ('1413', '178', '3'),
+ ('1414', '179', '3'),
+ ('1415', '180', '3'),
+ ('1416', '181', '3'),
+ ('1417', '182', '3'),
+ ('1418', '183', '3'),
+ ('1419', '184', '3'),
+ ('1420', '185', '3'),
+ ('1421', '186', '3'),
+ ('1422', '187', '3'),
+ ('1423', '188', '3'),
+ ('1424', '189', '3'),
+ ('1425', '190', '3'),
+ ('1426', '191', '3'),
+ ('1427', '192', '3'),
+ ('1428', '193', '3'),
+ ('1429', '194', '3'),
+ ('1430', '195', '3'),
+ ('1431', '196', '3'),
+ ('1432', '197', '3'),
+ ('1433', '198', '3'),
+ ('1434', '199', '3'),
+ ('1435', '200', '3'),
+ ('1436', '201', '3'),
+ ('1437', '202', '3'),
+ ('1438', '203', '3'),
+ ('1439', '204', '3'),
+ ('1440', '205', '3'),
+ ('1441', '206', '3'),
+ ('1442', '207', '3'),
+ ('1443', '208', '3'),
+ ('1444', '209', '3'),
+ ('1445', '210', '3'),
+ ('1446', '211', '3'),
+ ('1447', '212', '3'),
+ ('1448', '213', '3'),
+ ('1449', '214', '3'),
+ ('1450', '215', '3'),
+ ('1451', '216', '3'),
+ ('1452', '217', '3'),
+ ('1453', '218', '3'),
+ ('1454', '219', '3'),
+ ('1455', '220', '3'),
+ ('1456', '221', '3'),
+ ('1457', '222', '3'),
+ ('1458', '223', '3'),
+ ('1459', '224', '3'),
+ ('1460', '225', '3'),
+ ('1461', '226', '3'),
+ ('1462', '227', '3'),
+ ('1463', '228', '3'),
+ ('1464', '229', '3'),
+ ('1465', '230', '3'),
+ ('1466', '231', '3'),
+ ('1467', '232', '3'),
+ ('1468', '233', '3'),
+ ('1469', '234', '3'),
+ ('1470', '235', '3'),
+ ('1471', '236', '3'),
+ ('1472', '237', '3'),
+ ('1473', '238', '3'),
+ ('1474', '239', '3'),
+ ('1475', '240', '3'),
+ ('1476', '241', '3'),
+ ('1477', '242', '3'),
+ ('1478', '243', '3'),
+ ('1479', '244', '3'),
+ ('1480', '245', '3'),
+ ('1481', '246', '3'),
+ ('1482', '247', '3'),
+ ('1483', '248', '3'),
+ ('1484', '249', '3'),
+ ('1485', '250', '3'),
+ ('1486', '251', '3'),
+ ('1487', '252', '3'),
+ ('1488', '253', '3'),
+ ('1489', '254', '3'),
+ ('1490', '255', '3'),
+ ('1491', '256', '3'),
+ ('1492', '257', '3'),
+ ('1493', '258', '3'),
+ ('1494', '259', '3'),
+ ('1495', '260', '3'),
+ ('1496', '261', '3'),
+ ('1497', '262', '3'),
+ ('1498', '263', '3'),
+ ('1499', '264', '3'),
+ ('1500', '265', '3'),
+ ('1501', '266', '3'),
+ ('1502', '267', '3'),
+ ('1503', '268', '3'),
+ ('1504', '269', '3'),
+ ('1505', '270', '3'),
+ ('1506', '271', '3'),
+ ('1507', '272', '3'),
+ ('1508', '273', '3'),
+ ('1509', '274', '3'),
+ ('1510', '275', '3'),
+ ('1511', '276', '3'),
+ ('1512', '277', '3'),
+ ('1513', '278', '3'),
+ ('1514', '279', '3'),
+ ('1515', '280', '3'),
+ ('1516', '281', '3'),
+ ('1517', '282', '3'),
+ ('1518', '283', '3'),
+ ('1519', '284', '3'),
+ ('1520', '285', '3'),
+ ('1521', '286', '3'),
+ ('1522', '287', '3'),
+ ('1523', '288', '3'),
+ ('1524', '289', '3'),
+ ('1525', '290', '3'),
+ ('1526', '291', '3'),
+ ('1527', '292', '3'),
+ ('1528', '293', '3'),
+ ('1529', '294', '3'),
+ ('1530', '295', '3'),
+ ('1531', '296', '3'),
+ ('1532', '297', '3'),
+ ('1533', '298', '3'),
+ ('1534', '299', '3'),
+ ('1535', '300', '3'),
+ ('1536', '301', '3'),
+ ('1537', '302', '3'),
+ ('1538', '303', '3'),
+ ('1539', '304', '3'),
+ ('1540', '305', '3'),
+ ('1541', '306', '3'),
+ ('1542', '307', '3'),
+ ('1543', '308', '3'),
+ ('1544', '309', '3'),
+ ('1545', '310', '3'),
+ ('1546', '311', '3'),
+ ('1547', '312', '3'),
+ ('1548', '313', '3'),
+ ('1549', '314', '3'),
+ ('1550', '315', '3'),
+ ('1551', '316', '3'),
+ ('1552', '317', '3'),
+ ('1553', '318', '3'),
+ ('1554', '319', '3'),
+ ('1555', '320', '3'),
+ ('1556', '321', '3'),
+ ('1557', '322', '3'),
+ ('1558', '323', '3'),
+ ('1559', '324', '3'),
+ ('1560', '325', '3'),
+ ('1561', '326', '3'),
+ ('1562', '327', '3'),
+ ('1563', '328', '3'),
+ ('1564', '329', '3'),
+ ('1565', '330', '3'),
+ ('1566', '331', '3'),
+ ('1567', '332', '3'),
+ ('1568', '333', '3'),
+ ('1569', '334', '3'),
+ ('1570', '335', '3'),
+ ('1571', '336', '3'),
+ ('1572', '337', '3'),
+ ('1573', '338', '3'),
+ ('1574', '339', '3'),
+ ('1575', '340', '3'),
+ ('1576', '341', '3'),
+ ('1577', '342', '3'),
+ ('1578', '343', '3'),
+ ('1579', '344', '3'),
+ ('1580', '345', '3'),
+ ('1581', '346', '3'),
+ ('1582', '347', '3'),
+ ('1583', '348', '3'),
+ ('1584', '349', '3'),
+ ('1585', '350', '3'),
+ ('1586', '351', '3'),
+ ('1587', '352', '3'),
+ ('1588', '353', '3'),
+ ('1589', '354', '3'),
+ ('1590', '355', '3'),
+ ('1591', '356', '3'),
+ ('1592', '357', '3'),
+ ('1593', '358', '3'),
+ ('1594', '359', '3'),
+ ('1595', '360', '3'),
+ ('1596', '361', '3'),
+ ('1597', '362', '3'),
+ ('1598', '363', '3'),
+ ('1599', '364', '3'),
+ ('1600', '365', '3'),
+ ('1601', '366', '3'),
+ ('1602', '367', '3'),
+ ('1603', '368', '3'),
+ ('1604', '369', '3'),
+ ('1605', '370', '3'),
+ ('1606', '371', '3'),
+ ('1607', '372', '3'),
+ ('1608', '373', '3'),
+ ('1609', '374', '3'),
+ ('1610', '375', '3'),
+ ('1611', '376', '3'),
+ ('1612', '377', '3'),
+ ('1613', '378', '3'),
+ ('1614', '379', '3'),
+ ('1615', '380', '3'),
+ ('1616', '381', '3'),
+ ('1617', '382', '3'),
+ ('1618', '383', '3'),
+ ('1619', '384', '3'),
+ ('1620', '385', '3'),
+ ('1621', '386', '3'),
+ ('1622', '387', '3'),
+ ('1623', '388', '3'),
+ ('1624', '389', '3'),
+ ('1625', '390', '3'),
+ ('1626', '391', '3'),
+ ('1627', '392', '3'),
+ ('1628', '393', '3'),
+ ('1629', '394', '3'),
+ ('1630', '395', '3'),
+ ('1631', '396', '3'),
+ ('1632', '397', '3'),
+ ('1633', '398', '3'),
+ ('1634', '399', '3'),
+ ('1635', '400', '3'),
+ ('1636', '401', '3'),
+ ('1637', '402', '3'),
+ ('1638', '403', '3'),
+ ('1639', '404', '3'),
+ ('1640', '405', '3'),
+ ('1641', '406', '3'),
+ ('1642', '407', '3'),
+ ('1643', '408', '3'),
+ ('1644', '409', '3'),
+ ('1645', '410', '3'),
+ ('1646', '411', '3'),
+ ('1647', '412', '3'),
+ ('1648', '413', '3'),
+ ('1649', '414', '3'),
+ ('1650', '415', '3'),
+ ('1651', '416', '3'),
+ ('1652', '417', '3'),
+ ('1653', '418', '3'),
+ ('1654', '419', '3'),
+ ('1655', '420', '3'),
+ ('1656', '421', '3'),
+ ('1657', '422', '3'),
+ ('1658', '423', '3'),
+ ('1659', '424', '3'),
+ ('1660', '425', '3'),
+ ('1661', '426', '3'),
+ ('1662', '427', '3'),
+ ('1663', '0', '4'),
+ ('1664', '1', '4'),
+ ('1665', '2', '4'),
+ ('1666', '3', '4'),
+ ('1667', '4', '4'),
+ ('1668', '5', '4'),
+ ('1669', '6', '4'),
+ ('1670', '7', '4'),
+ ('1671', '8', '4'),
+ ('1672', '9', '4'),
+ ('1673', '10', '4'),
+ ('1674', '11', '4'),
+ ('1675', '12', '4'),
+ ('1676', '13', '4'),
+ ('1677', '14', '4'),
+ ('1678', '15', '4'),
+ ('1679', '16', '4'),
+ ('1680', '17', '4'),
+ ('1681', '18', '4'),
+ ('1682', '19', '4'),
+ ('1683', '20', '4'),
+ ('1684', '21', '4'),
+ ('1685', '22', '4'),
+ ('1686', '23', '4'),
+ ('1687', '24', '4'),
+ ('1688', '25', '4'),
+ ('1689', '26', '4'),
+ ('1690', '27', '4'),
+ ('1691', '28', '4'),
+ ('1692', '29', '4'),
+ ('1693', '30', '4'),
+ ('1694', '31', '4'),
+ ('1695', '32', '4'),
+ ('1696', '33', '4'),
+ ('1697', '34', '4'),
+ ('1698', '35', '4'),
+ ('1699', '36', '4'),
+ ('1700', '37', '4'),
+ ('1701', '38', '4'),
+ ('1702', '39', '4'),
+ ('1703', '40', '4'),
+ ('1704', '41', '4'),
+ ('1705', '42', '4'),
+ ('1706', '43', '4'),
+ ('1707', '44', '4'),
+ ('1708', '45', '4'),
+ ('1709', '46', '4'),
+ ('1710', '47', '4'),
+ ('1711', '48', '4'),
+ ('1712', '49', '4'),
+ ('1713', '50', '4'),
+ ('1714', '51', '4'),
+ ('1715', '52', '4'),
+ ('1716', '53', '4'),
+ ('1717', '54', '4'),
+ ('1718', '55', '4'),
+ ('1719', '56', '4'),
+ ('1720', '57', '4'),
+ ('1721', '58', '4'),
+ ('1722', '59', '4'),
+ ('1723', '60', '4'),
+ ('1724', '61', '4'),
+ ('1725', '62', '4'),
+ ('1726', '63', '4'),
+ ('1727', '64', '4'),
+ ('1728', '65', '4'),
+ ('1729', '66', '4'),
+ ('1730', '67', '4'),
+ ('1731', '68', '4'),
+ ('1732', '69', '4'),
+ ('1733', '70', '4'),
+ ('1734', '71', '4'),
+ ('1735', '72', '4'),
+ ('1736', '73', '4'),
+ ('1737', '74', '4'),
+ ('1738', '75', '4'),
+ ('1739', '76', '4'),
+ ('1740', '77', '4'),
+ ('1741', '78', '4'),
+ ('1742', '79', '4'),
+ ('1743', '80', '4'),
+ ('1744', '81', '4'),
+ ('1745', '82', '4'),
+ ('1746', '83', '4'),
+ ('1747', '84', '4'),
+ ('1748', '85', '4'),
+ ('1749', '86', '4'),
+ ('1750', '87', '4'),
+ ('1751', '88', '4'),
+ ('1752', '89', '4'),
+ ('1753', '90', '4'),
+ ('1754', '91', '4'),
+ ('1755', '92', '4'),
+ ('1756', '93', '4'),
+ ('1757', '94', '4'),
+ ('1758', '95', '4'),
+ ('1759', '96', '4'),
+ ('1760', '97', '4'),
+ ('1761', '98', '4'),
+ ('1762', '99', '4'),
+ ('1763', '100', '4'),
+ ('1764', '101', '4'),
+ ('1765', '102', '4'),
+ ('1766', '103', '4'),
+ ('1767', '104', '4'),
+ ('1768', '105', '4'),
+ ('1769', '106', '4'),
+ ('1770', '107', '4'),
+ ('1771', '108', '4'),
+ ('1772', '109', '4'),
+ ('1773', '110', '4'),
+ ('1774', '111', '4'),
+ ('1775', '112', '4'),
+ ('1776', '113', '4'),
+ ('1777', '114', '4'),
+ ('1778', '115', '4'),
+ ('1779', '116', '4'),
+ ('1780', '117', '4'),
+ ('1781', '118', '4'),
+ ('1782', '119', '4'),
+ ('1783', '120', '4'),
+ ('1784', '121', '4'),
+ ('1785', '122', '4'),
+ ('1786', '123', '4'),
+ ('1787', '124', '4'),
+ ('1788', '125', '4'),
+ ('1789', '126', '4'),
+ ('1790', '127', '4'),
+ ('1791', '128', '4'),
+ ('1792', '129', '4'),
+ ('1793', '130', '4'),
+ ('1794', '131', '4'),
+ ('1795', '132', '4'),
+ ('1796', '133', '4'),
+ ('1797', '134', '4'),
+ ('1798', '135', '4'),
+ ('1799', '136', '4'),
+ ('1800', '137', '4'),
+ ('1801', '138', '4'),
+ ('1802', '139', '4'),
+ ('1803', '140', '4'),
+ ('1804', '141', '4'),
+ ('1805', '142', '4'),
+ ('1806', '143', '4'),
+ ('1807', '144', '4'),
+ ('1808', '145', '4'),
+ ('1809', '146', '4'),
+ ('1810', '147', '4'),
+ ('1811', '148', '4'),
+ ('1812', '149', '4'),
+ ('1813', '150', '4'),
+ ('1814', '151', '4'),
+ ('1815', '152', '4'),
+ ('1816', '153', '4'),
+ ('1817', '154', '4'),
+ ('1818', '155', '4'),
+ ('1819', '156', '4'),
+ ('1820', '157', '4'),
+ ('1821', '158', '4'),
+ ('1822', '159', '4'),
+ ('1823', '160', '4'),
+ ('1824', '161', '4'),
+ ('1825', '162', '4'),
+ ('1826', '163', '4'),
+ ('1827', '164', '4'),
+ ('1828', '165', '4'),
+ ('1829', '166', '4'),
+ ('1830', '167', '4'),
+ ('1831', '168', '4'),
+ ('1832', '169', '4'),
+ ('1833', '170', '4'),
+ ('1834', '171', '4'),
+ ('1835', '172', '4'),
+ ('1836', '173', '4'),
+ ('1837', '174', '4'),
+ ('1838', '175', '4'),
+ ('1839', '176', '4'),
+ ('1840', '177', '4'),
+ ('1841', '178', '4'),
+ ('1842', '179', '4'),
+ ('1843', '180', '4'),
+ ('1844', '181', '4'),
+ ('1845', '182', '4'),
+ ('1846', '183', '4'),
+ ('1847', '184', '4'),
+ ('1848', '185', '4'),
+ ('1849', '186', '4'),
+ ('1850', '187', '4'),
+ ('1851', '188', '4'),
+ ('1852', '189', '4'),
+ ('1853', '190', '4'),
+ ('1854', '191', '4'),
+ ('1855', '192', '4'),
+ ('1856', '193', '4'),
+ ('1857', '194', '4'),
+ ('1858', '195', '4'),
+ ('1859', '196', '4'),
+ ('1860', '197', '4'),
+ ('1861', '198', '4'),
+ ('1862', '199', '4'),
+ ('1863', '200', '4'),
+ ('1864', '201', '4'),
+ ('1865', '202', '4'),
+ ('1866', '203', '4'),
+ ('1867', '204', '4'),
+ ('1868', '205', '4'),
+ ('1869', '206', '4'),
+ ('1870', '207', '4'),
+ ('1871', '208', '4'),
+ ('1872', '209', '4'),
+ ('1873', '210', '4'),
+ ('1874', '211', '4'),
+ ('1875', '212', '4'),
+ ('1876', '213', '4'),
+ ('1877', '214', '4'),
+ ('1878', '215', '4'),
+ ('1879', '216', '4'),
+ ('1880', '217', '4'),
+ ('1881', '218', '4'),
+ ('1882', '219', '4'),
+ ('1883', '220', '4'),
+ ('1884', '221', '4'),
+ ('1885', '222', '4'),
+ ('1886', '223', '4'),
+ ('1887', '224', '4'),
+ ('1888', '225', '4'),
+ ('1889', '226', '4'),
+ ('1890', '227', '4'),
+ ('1891', '228', '4'),
+ ('1892', '229', '4'),
+ ('1893', '230', '4'),
+ ('1894', '231', '4'),
+ ('1895', '232', '4'),
+ ('1896', '233', '4'),
+ ('1897', '234', '4'),
+ ('1898', '235', '4'),
+ ('1899', '236', '4'),
+ ('1900', '237', '4'),
+ ('1901', '238', '4'),
+ ('1902', '239', '4'),
+ ('1903', '240', '4'),
+ ('1904', '241', '4'),
+ ('1905', '242', '4'),
+ ('1906', '243', '4'),
+ ('1907', '244', '4'),
+ ('1908', '245', '4'),
+ ('1909', '246', '4'),
+ ('1910', '247', '4'),
+ ('1911', '248', '4'),
+ ('1912', '249', '4'),
+ ('1913', '250', '4'),
+ ('1914', '251', '4'),
+ ('1915', '252', '4'),
+ ('1916', '253', '4'),
+ ('1917', '254', '4'),
+ ('1918', '255', '4'),
+ ('1919', '256', '4'),
+ ('1920', '257', '4'),
+ ('1921', '258', '4'),
+ ('1922', '259', '4'),
+ ('1923', '260', '4'),
+ ('1924', '261', '4'),
+ ('1925', '262', '4'),
+ ('1926', '263', '4'),
+ ('1927', '264', '4'),
+ ('1928', '265', '4'),
+ ('1929', '266', '4'),
+ ('1930', '267', '4'),
+ ('1931', '268', '4'),
+ ('1932', '269', '4'),
+ ('1933', '270', '4'),
+ ('1934', '271', '4'),
+ ('1935', '272', '4'),
+ ('1936', '273', '4'),
+ ('1937', '274', '4'),
+ ('1938', '275', '4'),
+ ('1939', '276', '4'),
+ ('1940', '277', '4'),
+ ('1941', '278', '4'),
+ ('1942', '279', '4'),
+ ('1943', '280', '4'),
+ ('1944', '281', '4'),
+ ('1945', '282', '4'),
+ ('1946', '283', '4'),
+ ('1947', '284', '4'),
+ ('1948', '285', '4'),
+ ('1949', '286', '4'),
+ ('1950', '287', '4'),
+ ('1951', '288', '4'),
+ ('1952', '289', '4'),
+ ('1953', '290', '4'),
+ ('1954', '291', '4'),
+ ('1955', '292', '4'),
+ ('1956', '293', '4'),
+ ('1957', '294', '4'),
+ ('1958', '295', '4'),
+ ('1959', '296', '4'),
+ ('1960', '297', '4'),
+ ('1961', '298', '4'),
+ ('1962', '299', '4'),
+ ('1963', '300', '4'),
+ ('1964', '301', '4'),
+ ('1965', '302', '4'),
+ ('1966', '303', '4'),
+ ('1967', '304', '4'),
+ ('1968', '305', '4'),
+ ('1969', '306', '4'),
+ ('1970', '307', '4'),
+ ('1971', '308', '4'),
+ ('1972', '309', '4'),
+ ('1973', '310', '4'),
+ ('1974', '311', '4'),
+ ('1975', '312', '4'),
+ ('1976', '313', '4'),
+ ('1977', '314', '4'),
+ ('1978', '315', '4'),
+ ('1979', '316', '4'),
+ ('1980', '317', '4'),
+ ('1981', '318', '4'),
+ ('1982', '319', '4'),
+ ('1983', '320', '4'),
+ ('1984', '321', '4'),
+ ('1985', '322', '4'),
+ ('1986', '323', '4'),
+ ('1987', '324', '4'),
+ ('1988', '325', '4'),
+ ('1989', '326', '4'),
+ ('1990', '327', '4'),
+ ('1991', '328', '4'),
+ ('1992', '329', '4'),
+ ('1993', '330', '4'),
+ ('1994', '331', '4'),
+ ('1995', '332', '4'),
+ ('1996', '333', '4'),
+ ('1997', '334', '4'),
+ ('1998', '335', '4'),
+ ('1999', '336', '4'),
+ ('2000', '337', '4'),
+ ('2001', '338', '4'),
+ ('2002', '339', '4'),
+ ('2003', '340', '4'),
+ ('2004', '341', '4'),
+ ('2005', '342', '4'),
+ ('2006', '343', '4'),
+ ('2007', '344', '4'),
+ ('2008', '345', '4'),
+ ('2009', '346', '4'),
+ ('2010', '347', '4'),
+ ('2011', '348', '4'),
+ ('2012', '349', '4'),
+ ('2013', '350', '4'),
+ ('2014', '351', '4'),
+ ('2015', '352', '4'),
+ ('2016', '353', '4'),
+ ('2017', '354', '4'),
+ ('2018', '355', '4'),
+ ('2019', '356', '4'),
+ ('2020', '357', '4'),
+ ('2021', '358', '4'),
+ ('2022', '359', '4'),
+ ('2023', '360', '4'),
+ ('2024', '361', '4'),
+ ('2025', '362', '4'),
+ ('2026', '363', '4'),
+ ('2027', '364', '4'),
+ ('2028', '365', '4'),
+ ('2029', '366', '4'),
+ ('2030', '367', '4'),
+ ('2031', '368', '4'),
+ ('2032', '369', '4'),
+ ('2033', '370', '4'),
+ ('2034', '371', '4'),
+ ('2035', '372', '4'),
+ ('2036', '373', '4'),
+ ('2037', '374', '4'),
+ ('2038', '375', '4'),
+ ('2039', '376', '4'),
+ ('2040', '377', '4'),
+ ('2041', '378', '4'),
+ ('2042', '379', '4'),
+ ('2043', '380', '4'),
+ ('2044', '381', '4'),
+ ('2045', '382', '4'),
+ ('2046', '383', '4'),
+ ('2047', '384', '4'),
+ ('2048', '385', '4'),
+ ('2049', '386', '4'),
+ ('2050', '387', '4'),
+ ('2051', '388', '4'),
+ ('2052', '389', '4'),
+ ('2053', '390', '4'),
+ ('2054', '391', '4'),
+ ('2055', '392', '4'),
+ ('2056', '393', '4'),
+ ('2057', '394', '4'),
+ ('2058', '395', '4'),
+ ('2059', '396', '4'),
+ ('2060', '397', '4'),
+ ('2061', '398', '4'),
+ ('2062', '399', '4'),
+ ('2063', '400', '4'),
+ ('2064', '401', '4'),
+ ('2065', '402', '4'),
+ ('2066', '403', '4'),
+ ('2067', '404', '4'),
+ ('2068', '405', '4'),
+ ('2069', '406', '4'),
+ ('2070', '407', '4'),
+ ('2071', '408', '4'),
+ ('2072', '409', '4'),
+ ('2073', '410', '4'),
+ ('2074', '411', '4'),
+ ('2075', '412', '4'),
+ ('2076', '413', '4'),
+ ('2077', '414', '4'),
+ ('2078', '415', '4'),
+ ('2079', '416', '4'),
+ ('2080', '417', '4'),
+ ('2081', '418', '4'),
+ ('2082', '419', '4'),
+ ('2083', '420', '4'),
+ ('2084', '421', '4'),
+ ('2085', '422', '4'),
+ ('2086', '423', '4'),
+ ('2087', '424', '4'),
+ ('2088', '425', '4'),
+ ('2089', '426', '4'),
+ ('2090', '427', '4'),
+ ('2091', '17', '5'),
+ ('2092', '18', '5'),
+ ('2093', '19', '5'),
+ ('2094', '20', '5'),
+ ('2095', '21', '5'),
+ ('2096', '22', '5'),
+ ('2097', '23', '5'),
+ ('2098', '24', '5'),
+ ('2099', '25', '5'),
+ ('2100', '26', '5'),
+ ('2101', '27', '5'),
+ ('2102', '28', '5'),
+ ('2103', '29', '5'),
+ ('2104', '30', '5'),
+ ('2105', '31', '5'),
+ ('2106', '32', '5'),
+ ('2107', '33', '5'),
+ ('2108', '34', '5'),
+ ('2109', '35', '5'),
+ ('2110', '36', '5'),
+ ('2111', '37', '5'),
+ ('2112', '38', '5'),
+ ('2113', '39', '5'),
+ ('2114', '40', '5'),
+ ('2115', '41', '5'),
+ ('2116', '42', '5'),
+ ('2117', '43', '5'),
+ ('2118', '44', '5'),
+ ('2119', '45', '5'),
+ ('2120', '46', '5'),
+ ('2121', '47', '5'),
+ ('2122', '48', '5'),
+ ('2123', '49', '5'),
+ ('2124', '50', '5'),
+ ('2125', '51', '5'),
+ ('2126', '52', '5'),
+ ('2127', '53', '5'),
+ ('2128', '54', '5'),
+ ('2129', '55', '5'),
+ ('2130', '56', '5'),
+ ('2131', '57', '5'),
+ ('2132', '58', '5'),
+ ('2133', '59', '5'),
+ ('2134', '60', '5'),
+ ('2135', '61', '5'),
+ ('2136', '62', '5'),
+ ('2137', '63', '5'),
+ ('2138', '64', '5'),
+ ('2139', '65', '5'),
+ ('2140', '66', '5'),
+ ('2141', '67', '5'),
+ ('2142', '68', '5'),
+ ('2143', '69', '5'),
+ ('2144', '70', '5'),
+ ('2145', '71', '5'),
+ ('2146', '72', '5'),
+ ('2147', '73', '5'),
+ ('2148', '74', '5'),
+ ('2149', '75', '5'),
+ ('2150', '76', '5'),
+ ('2151', '77', '5'),
+ ('2152', '78', '5'),
+ ('2153', '79', '5'),
+ ('2154', '80', '5'),
+ ('2155', '81', '5'),
+ ('2156', '82', '5'),
+ ('2157', '83', '5'),
+ ('2158', '84', '5'),
+ ('2159', '85', '5'),
+ ('2160', '86', '5'),
+ ('2161', '87', '5'),
+ ('2162', '88', '5'),
+ ('2163', '89', '5'),
+ ('2164', '90', '5'),
+ ('2165', '91', '5'),
+ ('2166', '92', '5'),
+ ('2167', '93', '5'),
+ ('2168', '94', '5'),
+ ('2169', '95', '5'),
+ ('2170', '96', '5'),
+ ('2171', '97', '5'),
+ ('2172', '98', '5'),
+ ('2173', '99', '5'),
+ ('2174', '100', '5'),
+ ('2175', '101', '5'),
+ ('2176', '102', '5'),
+ ('2177', '103', '5'),
+ ('2178', '104', '5'),
+ ('2179', '105', '5'),
+ ('2180', '106', '5'),
+ ('2181', '107', '5'),
+ ('2182', '108', '5'),
+ ('2183', '109', '5'),
+ ('2184', '110', '5'),
+ ('2185', '111', '5'),
+ ('2186', '112', '5'),
+ ('2187', '113', '5'),
+ ('2188', '114', '5'),
+ ('2189', '115', '5'),
+ ('2190', '116', '5'),
+ ('2191', '117', '5'),
+ ('2192', '118', '5'),
+ ('2193', '119', '5'),
+ ('2194', '120', '5'),
+ ('2195', '121', '5'),
+ ('2196', '122', '5'),
+ ('2197', '123', '5'),
+ ('2198', '124', '5'),
+ ('2199', '125', '5'),
+ ('2200', '126', '5'),
+ ('2201', '127', '5'),
+ ('2202', '128', '5'),
+ ('2203', '129', '5'),
+ ('2204', '130', '5'),
+ ('2205', '131', '5'),
+ ('2206', '132', '5'),
+ ('2207', '133', '5'),
+ ('2208', '134', '5'),
+ ('2209', '135', '5'),
+ ('2210', '136', '5'),
+ ('2211', '137', '5'),
+ ('2212', '138', '5'),
+ ('2213', '139', '5'),
+ ('2214', '140', '5'),
+ ('2215', '141', '5'),
+ ('2216', '142', '5'),
+ ('2217', '143', '5'),
+ ('2218', '144', '5'),
+ ('2219', '145', '5'),
+ ('2220', '146', '5'),
+ ('2221', '147', '5'),
+ ('2222', '148', '5'),
+ ('2223', '149', '5'),
+ ('2224', '150', '5'),
+ ('2225', '151', '5'),
+ ('2226', '152', '5'),
+ ('2227', '153', '5'),
+ ('2228', '154', '5'),
+ ('2229', '155', '5'),
+ ('2230', '156', '5'),
+ ('2231', '157', '5'),
+ ('2232', '158', '5'),
+ ('2233', '159', '5'),
+ ('2234', '160', '5'),
+ ('2235', '161', '5'),
+ ('2236', '162', '5'),
+ ('2237', '163', '5'),
+ ('2238', '164', '5'),
+ ('2239', '165', '5'),
+ ('2240', '166', '5'),
+ ('2241', '167', '5'),
+ ('2242', '168', '5'),
+ ('2243', '169', '5'),
+ ('2244', '170', '5'),
+ ('2245', '171', '5'),
+ ('2246', '172', '5'),
+ ('2247', '173', '5'),
+ ('2248', '174', '5'),
+ ('2249', '175', '5'),
+ ('2250', '176', '5'),
+ ('2251', '177', '5'),
+ ('2252', '178', '5'),
+ ('2253', '179', '5'),
+ ('2254', '180', '5'),
+ ('2255', '181', '5'),
+ ('2256', '182', '5'),
+ ('2257', '183', '5'),
+ ('2258', '184', '5'),
+ ('2259', '185', '5'),
+ ('2260', '186', '5'),
+ ('2261', '187', '5'),
+ ('2262', '188', '5'),
+ ('2263', '189', '5'),
+ ('2264', '190', '5'),
+ ('2265', '191', '5'),
+ ('2266', '192', '5'),
+ ('2267', '193', '5'),
+ ('2268', '194', '5'),
+ ('2269', '195', '5'),
+ ('2270', '196', '5'),
+ ('2271', '197', '5'),
+ ('2272', '198', '5'),
+ ('2273', '199', '5'),
+ ('2274', '200', '5'),
+ ('2275', '201', '5'),
+ ('2276', '202', '5'),
+ ('2277', '203', '5'),
+ ('2278', '204', '5'),
+ ('2279', '205', '5'),
+ ('2280', '206', '5'),
+ ('2281', '207', '5'),
+ ('2282', '208', '5'),
+ ('2283', '209', '5'),
+ ('2284', '210', '5'),
+ ('2285', '211', '5'),
+ ('2286', '212', '5'),
+ ('2287', '213', '5'),
+ ('2288', '214', '5'),
+ ('2289', '215', '5'),
+ ('2290', '216', '5'),
+ ('2291', '217', '5'),
+ ('2292', '218', '5'),
+ ('2293', '219', '5'),
+ ('2294', '220', '5'),
+ ('2295', '221', '5'),
+ ('2296', '222', '5'),
+ ('2297', '223', '5'),
+ ('2298', '224', '5'),
+ ('2299', '225', '5'),
+ ('2300', '226', '5'),
+ ('2301', '227', '5'),
+ ('2302', '228', '5'),
+ ('2303', '229', '5'),
+ ('2304', '230', '5'),
+ ('2305', '231', '5'),
+ ('2306', '232', '5'),
+ ('2307', '233', '5'),
+ ('2308', '234', '5'),
+ ('2309', '235', '5'),
+ ('2310', '236', '5'),
+ ('2311', '237', '5'),
+ ('2312', '238', '5'),
+ ('2313', '239', '5'),
+ ('2314', '240', '5'),
+ ('2315', '241', '5'),
+ ('2316', '242', '5'),
+ ('2317', '243', '5'),
+ ('2318', '244', '5'),
+ ('2319', '245', '5'),
+ ('2320', '246', '5'),
+ ('2321', '247', '5'),
+ ('2322', '248', '5'),
+ ('2323', '249', '5'),
+ ('2324', '250', '5'),
+ ('2325', '251', '5'),
+ ('2326', '252', '5'),
+ ('2327', '253', '5'),
+ ('2328', '254', '5'),
+ ('2329', '255', '5'),
+ ('2330', '256', '5'),
+ ('2331', '257', '5'),
+ ('2332', '258', '5'),
+ ('2333', '259', '5'),
+ ('2334', '260', '5'),
+ ('2335', '261', '5'),
+ ('2336', '262', '5'),
+ ('2337', '263', '5'),
+ ('2338', '264', '5'),
+ ('2339', '265', '5'),
+ ('2340', '266', '5'),
+ ('2341', '267', '5'),
+ ('2342', '268', '5'),
+ ('2343', '269', '5'),
+ ('2344', '270', '5'),
+ ('2345', '271', '5'),
+ ('2346', '272', '5'),
+ ('2347', '273', '5'),
+ ('2348', '274', '5'),
+ ('2349', '275', '5'),
+ ('2350', '276', '5'),
+ ('2351', '277', '5'),
+ ('2352', '278', '5'),
+ ('2353', '279', '5'),
+ ('2354', '280', '5'),
+ ('2355', '281', '5'),
+ ('2356', '282', '5'),
+ ('2357', '283', '5'),
+ ('2358', '284', '5'),
+ ('2359', '285', '5'),
+ ('2360', '286', '5'),
+ ('2361', '287', '5'),
+ ('2362', '288', '5'),
+ ('2363', '289', '5'),
+ ('2364', '290', '5'),
+ ('2365', '291', '5'),
+ ('2366', '292', '5'),
+ ('2367', '293', '5'),
+ ('2368', '294', '5'),
+ ('2369', '295', '5'),
+ ('2370', '296', '5'),
+ ('2371', '297', '5'),
+ ('2372', '298', '5'),
+ ('2373', '299', '5'),
+ ('2374', '300', '5'),
+ ('2375', '301', '5'),
+ ('2376', '302', '5'),
+ ('2377', '303', '5'),
+ ('2378', '304', '5'),
+ ('2379', '305', '5'),
+ ('2380', '306', '5'),
+ ('2381', '307', '5'),
+ ('2382', '308', '5'),
+ ('2383', '309', '5'),
+ ('2384', '310', '5'),
+ ('2385', '311', '5'),
+ ('2386', '312', '5'),
+ ('2387', '313', '5'),
+ ('2388', '314', '5'),
+ ('2389', '315', '5'),
+ ('2390', '316', '5'),
+ ('2391', '317', '5'),
+ ('2392', '318', '5'),
+ ('2393', '319', '5'),
+ ('2394', '320', '5'),
+ ('2395', '321', '5'),
+ ('2396', '322', '5'),
+ ('2397', '323', '5'),
+ ('2398', '324', '5'),
+ ('2399', '325', '5'),
+ ('2400', '326', '5'),
+ ('2401', '327', '5'),
+ ('2402', '328', '5'),
+ ('2403', '329', '5'),
+ ('2404', '330', '5'),
+ ('2405', '331', '5'),
+ ('2406', '332', '5'),
+ ('2407', '333', '5'),
+ ('2408', '334', '5'),
+ ('2409', '335', '5'),
+ ('2410', '336', '5'),
+ ('2411', '337', '5'),
+ ('2412', '338', '5'),
+ ('2413', '339', '5'),
+ ('2414', '340', '5'),
+ ('2415', '341', '5'),
+ ('2416', '342', '5'),
+ ('2417', '343', '5'),
+ ('2418', '344', '5'),
+ ('2419', '345', '5'),
+ ('2420', '346', '5'),
+ ('2421', '347', '5'),
+ ('2422', '348', '5'),
+ ('2423', '349', '5'),
+ ('2424', '350', '5'),
+ ('2425', '351', '5'),
+ ('2426', '352', '5'),
+ ('2427', '353', '5'),
+ ('2428', '354', '5'),
+ ('2429', '355', '5'),
+ ('2430', '356', '5'),
+ ('2431', '357', '5'),
+ ('2432', '358', '5'),
+ ('2433', '359', '5'),
+ ('2434', '360', '5'),
+ ('2435', '361', '5'),
+ ('2436', '362', '5'),
+ ('2437', '363', '5'),
+ ('2438', '364', '5'),
+ ('2439', '365', '5'),
+ ('2440', '366', '5'),
+ ('2441', '367', '5'),
+ ('2442', '368', '5'),
+ ('2443', '369', '5'),
+ ('2444', '370', '5'),
+ ('2445', '371', '5'),
+ ('2446', '372', '5'),
+ ('2447', '373', '5'),
+ ('2448', '374', '5'),
+ ('2449', '375', '5'),
+ ('2450', '376', '5'),
+ ('2451', '377', '5'),
+ ('2452', '378', '5'),
+ ('2453', '379', '5'),
+ ('2454', '380', '5'),
+ ('2455', '381', '5'),
+ ('2456', '382', '5'),
+ ('2457', '383', '5'),
+ ('2458', '384', '5'),
+ ('2459', '385', '5'),
+ ('2460', '386', '5'),
+ ('2461', '387', '5'),
+ ('2462', '388', '5'),
+ ('2463', '389', '5'),
+ ('2464', '390', '5'),
+ ('2465', '391', '5'),
+ ('2466', '392', '5'),
+ ('2467', '393', '5'),
+ ('2468', '394', '5'),
+ ('2469', '395', '5'),
+ ('2470', '396', '5'),
+ ('2471', '397', '5'),
+ ('2472', '398', '5'),
+ ('2473', '399', '5'),
+ ('2474', '400', '5'),
+ ('2475', '401', '5'),
+ ('2476', '402', '5'),
+ ('2477', '403', '5'),
+ ('2478', '404', '5'),
+ ('2479', '405', '5'),
+ ('2480', '406', '5'),
+ ('2481', '407', '5'),
+ ('2482', '408', '5'),
+ ('2483', '409', '5'),
+ ('2484', '410', '5'),
+ ('2485', '411', '5'),
+ ('2486', '412', '5'),
+ ('2487', '413', '5'),
+ ('2488', '414', '5'),
+ ('2489', '415', '5'),
+ ('2490', '416', '5'),
+ ('2491', '417', '5'),
+ ('2492', '418', '5'),
+ ('2493', '419', '5'),
+ ('2494', '420', '5'),
+ ('2495', '421', '5'),
+ ('2496', '422', '5'),
+ ('2497', '423', '5'),
+ ('2498', '424', '5'),
+ ('2499', '425', '5'),
+ ('2500', '426', '5'),
+ ('2501', '427', '5');
 
 
 /*administrationlevel*/
@@ -2975,40 +2979,41 @@ INSERT INTO currency VALUES ('15', 'http://dd.eionet.europa.eu/vocabulary/common
 INSERT INTO currency VALUES ('16', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/TRY', 'Turkish Lira', 'Turkey', 'TRY');
 
 /*classification*/
-INSERT INTO classification VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/emissioncontrol', 'Emission control equipment', 'Emission control equipment for small and medium sized stationary combustion sources / replacement of combustion sources', 'emissioncontrol');
-INSERT INTO classification VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/LEF-other', 'Other', 'Low emission fuels for small, medium and large scale stationary sources and in mobile sources', 'LEF-other');
-INSERT INTO classification VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/LEF-regulations', 'Regulations for fuel quality', 'Low emission fuels for small, medium and large scale stationary sources and in mobile sources', 'LEF-regulations');
-INSERT INTO classification VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/LEF-shift', 'Shift to installations using low emission fuels', 'Low emission fuels for small, medium and large scale stationary sources and in mobile sources', 'LEF-shift');
-INSERT INTO classification VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-charges', 'Introduction/increase of environment charges', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-charges');
-INSERT INTO classification VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-funding', 'Introduction/increase of environmental funding', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-funding');
-INSERT INTO classification VALUES ('6', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-IPPC', 'IPPC permits beyond BAT","Measures to reduce pollution through permit systems and economic instruments', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-IPPC');
-INSERT INTO classification VALUES ('7', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-LCP', 'LCP permits and national plans going beyond BAT', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-LCP');
-INSERT INTO classification VALUES ('8', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-other', 'Other measures not specified in codelist', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-other');
-INSERT INTO classification VALUES ('9', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-permit', 'Tradable permit system', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-permit');
-INSERT INTO classification VALUES ('10', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-taxes', 'Introduction/increase of environment taxes', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-taxes');
-INSERT INTO classification VALUES ('11', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/other', 'Other, please specify', 'Other measure', 'other');
-INSERT INTO classification VALUES ('12', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-cleaner', 'Cleaner vehicle transport services', 'Public procurement', 'pproc-cleaner');
-INSERT INTO classification VALUES ('13', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-low1', 'Low emission stationary combustion sources', 'Public procurement', 'pproc-low1');
-INSERT INTO classification VALUES ('14', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-low2', 'Low emission fuels for stationary and mobile sources', 'Public procurement', 'pproc-low2');
-INSERT INTO classification VALUES ('15', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-new', 'New vehicles, including low emission vehicles', 'Public procurement', 'pproc-new');
-INSERT INTO classification VALUES ('16', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-other', 'Other (Public procurement)', 'Public procurement', 'pproc-other');
-INSERT INTO classification VALUES ('17', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/public-internet', 'INTERNET (Public information/Education)', '', 'public-internet');
-INSERT INTO classification VALUES ('18', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/public-leaflet', 'Leaflets (Public information/Education)', 'Public information/Education via leaflets', 'public-leaflet');
-INSERT INTO classification VALUES ('19', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/public-other', 'other (Public information/Education)', 'Public information/Education via other mechanisms', 'public-other');
-INSERT INTO classification VALUES ('20', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/public-radio', 'RADIO (Public information/Education)', 'Public information/Education via radio.', 'public-radio');
-INSERT INTO classification VALUES ('21', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/public-tv', 'Television (Public information/Education)', 'Public information/Education via television', 'public-tv');
-INSERT INTO classification VALUES ('22', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/retrofitting', 'Retrofitting emission control equipment', 'Retrofitting emission control equipment to vehicles', 'retrofitting');
-INSERT INTO classification VALUES ('23', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-congestion', 'Congestion pricing zones (Traffic planning and management)', '', 'traffic-congestion');
-INSERT INTO classification VALUES ('24', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-difpark', 'Differentiation of parking fees (Traffic planning and management)', '', 'traffic-difpark');
-INSERT INTO classification VALUES ('25', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-freight', 'Freight transport', 'Traffic planning and management', 'traffic-freight');
-INSERT INTO classification VALUES ('26', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-landuse', 'Land use planning to ensure sustainable transport facilities', 'Traffic planning and management', 'traffic-landuse');
-INSERT INTO classification VALUES ('27', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-LEZ', 'Low emission zones (Traffic planning and management)', '', 'traffic-LEZ');
-INSERT INTO classification VALUES ('28', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-managepark', 'Management of parking places (Traffic planning and management)', 'Traffic planning and management', 'traffic-managepark');
-INSERT INTO classification VALUES ('29', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-other', 'Other', 'Traffic planning and management', 'traffic-other');
-INSERT INTO classification VALUES ('30', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-public', 'Effective improvement of public transport', 'Traffic planning and management', 'traffic-public');
-INSERT INTO classification VALUES ('31', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-shift', 'Encouragement of shift of transport modes', 'Traffic planning and management', 'traffic-shift');
-INSERT INTO classification VALUES ('32', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-slow', 'Slow modes (e.g. expansion of bicycle and pedestrian infrastructure)', 'Traffic planning and management', 'traffic-slow');
-INSERT INTO classification VALUES ('33', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-speed', 'Effective reduction of speed limits and control', 'Traffic planning and management', 'traffic-speed');
+INSERT INTO classification VALUES
+ ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/emissioncontrol', 'Emission control equipment', 'Emission control equipment for small and medium sized stationary combustion sources / replacement of combustion sources', 'emissioncontrol'),
+ ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/LEF-other', 'Other', 'Low emission fuels for small, medium and large scale stationary sources and in mobile sources', 'LEF-other'),
+ ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/LEF-regulations', 'Regulations for fuel quality', 'Low emission fuels for small, medium and large scale stationary sources and in mobile sources', 'LEF-regulations'),
+ ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/LEF-shift', 'Shift to installations using low emission fuels', 'Low emission fuels for small, medium and large scale stationary sources and in mobile sources', 'LEF-shift'),
+ ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-charges', 'Introduction/increase of environment charges', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-charges'),
+ ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-funding', 'Introduction/increase of environmental funding', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-funding'),
+ ('6', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-IPPC', 'IPPC permits beyond BAT","Measures to reduce pollution through permit systems and economic instruments', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-IPPC'),
+ ('7', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-LCP', 'LCP permits and national plans going beyond BAT', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-LCP'),
+ ('8', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-other', 'Other measures not specified in codelist', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-other'),
+ ('9', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-permit', 'Tradable permit system', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-permit'),
+ ('10', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/measure-taxes', 'Introduction/increase of environment taxes', 'Measures to reduce pollution through permit systems and economic instruments', 'measure-taxes'),
+ ('11', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/other', 'Other, please specify', 'Other measure', 'other'),
+ ('12', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-cleaner', 'Cleaner vehicle transport services', 'Public procurement', 'pproc-cleaner'),
+ ('13', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-low1', 'Low emission stationary combustion sources', 'Public procurement', 'pproc-low1'),
+ ('14', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-low2', 'Low emission fuels for stationary and mobile sources', 'Public procurement', 'pproc-low2'),
+ ('15', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-new', 'New vehicles, including low emission vehicles', 'Public procurement', 'pproc-new'),
+ ('16', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/pproc-other', 'Other (Public procurement)', 'Public procurement', 'pproc-other'),
+ ('17', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/public-internet', 'INTERNET (Public information/Education)', '', 'public-internet'),
+ ('18', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/public-leaflet', 'Leaflets (Public information/Education)', 'Public information/Education via leaflets', 'public-leaflet'),
+ ('19', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/public-other', 'other (Public information/Education)', 'Public information/Education via other mechanisms', 'public-other'),
+ ('20', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/public-radio', 'RADIO (Public information/Education)', 'Public information/Education via radio.', 'public-radio'),
+ ('21', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/public-tv', 'Television (Public information/Education)', 'Public information/Education via television', 'public-tv'),
+ ('22', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/retrofitting', 'Retrofitting emission control equipment', 'Retrofitting emission control equipment to vehicles', 'retrofitting'),
+ ('23', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-congestion', 'Congestion pricing zones (Traffic planning and management)', '', 'traffic-congestion'),
+ ('24', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-difpark', 'Differentiation of parking fees (Traffic planning and management)', '', 'traffic-difpark'),
+ ('25', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-freight', 'Freight transport', 'Traffic planning and management', 'traffic-freight'),
+ ('26', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-landuse', 'Land use planning to ensure sustainable transport facilities', 'Traffic planning and management', 'traffic-landuse'),
+ ('27', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-LEZ', 'Low emission zones (Traffic planning and management)', '', 'traffic-LEZ'),
+ ('28', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-managepark', 'Management of parking places (Traffic planning and management)', 'Traffic planning and management', 'traffic-managepark'),
+ ('29', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-other', 'Other', 'Traffic planning and management', 'traffic-other'),
+ ('30', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-public', 'Effective improvement of public transport', 'Traffic planning and management', 'traffic-public'),
+ ('31', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-shift', 'Encouragement of shift of transport modes', 'Traffic planning and management', 'traffic-shift'),
+ ('32', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-slow', 'Slow modes (e.g. expansion of bicycle and pedestrian infrastructure)', 'Traffic planning and management', 'traffic-slow'),
+ ('33', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-speed', 'Effective reduction of speed limits and control', 'Traffic planning and management', 'traffic-speed');
 
 /*statusplannedimplementation*/
 INSERT INTO statusplannedimplementation VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/annulation', 'Annulation', '', 'annulation');
@@ -3170,74 +3175,77 @@ INSERT INTO userrole VALUES ('1', 'administrator', 'National Administrator');
 INSERT INTO userrole VALUES ('2', 'user', 'User');
 
 /*insert-user.sql*/
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('0', 'Lukasz Cyra', '', '', '', '', 'lukasz.cyra@ext.jrc.ec.europa.eu');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('1', 'Emanuela Epure', '', '', '', '', 'emanuela.epure@ext.jrc.ec.europa.eu');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('2', 'Alexander Kotsev', '', '', '', '', 'alexander.kotsev@jrc.ec.europa.eu');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('3', 'EEA', '', '', '', '', 'aqrsystem.demo.eea.admin@onet.pl');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('4', 'UK Admin', '', '', '', '', 'aqrsystem.demo.uk.national.admin@onet.pl');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('5', 'UK User 1', '', '', '', '', 'aqrsystem.demo.uk.user.1@onet.pl');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('6', 'UK User 2', '', '', '', '', 'aqrsystem.demo.uk.user.2@onet.pl');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('7', 'IT Admin', '', '', '', '', 'aqrsystem.demo.it.national.admin@onet.pl');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('8', 'IT User 1', '', '', '', '', 'aqrsystem.demo.it.user.1@onet.pl');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('9', 'IT User 2', '', '', '', '', 'aqrsystem.demo.it.user.2@onet.pl');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('906c641fd1eda46d1788781a29f3de0c', 'Belis Claudio', '', 'claudio.belis@jrc.ec.europa.eu', '', 'claudio.belis@jrc.ec.europa.eu', 'claudio.belis@jrc.ec.europa.eu');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('f0f418ee6068d027cdbf150a33f641a6', 'ES Admin', '', 'at_sgcamai6@magrama.es', '', 'at_sgcamai6@magrama.es', 'at_sgcamai6@magrama.es');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('e1afd63df7ad17441820f1044dfdd3de', 'Silvia Dalla costa', '', 'silvia.dalla-costa@jrc.ec.europa.eu', '', 'silvia.dalla-costa@jrc.ec.europa.eu', 'silvia.dalla-costa@jrc.ec.europa.eu');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('9e77ac4a9b50c97372d2997c8dc7c7db', 'María Pallarés', '', 'mpallares@magrama.es', '', 'mpallares@magrama.es', 'mpallares@magrama.es');
-INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES ('455bdc428a9ecb82675ea6e3ec7fc441', 'Radoslav Virgovč', '', 'radoslav.virgovic@sazp.sk', '', 'radoslav.virgovic@sazp.sk', 'radoslav.virgovic@sazp.sk');
+INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES
+ ('0', 'Lukasz Cyra', '', '', '', '', 'lukasz.cyra@ext.jrc.ec.europa.eu'),
+ ('1', 'Emanuela Epure', '', '', '', '', 'emanuela.epure@ext.jrc.ec.europa.eu'),
+ ('2', 'Alexander Kotsev', '', '', '', '', 'alexander.kotsev@jrc.ec.europa.eu'),
+ ('3', 'EEA', '', '', '', '', 'aqrsystem.demo.eea.admin@onet.pl'),
+ ('4', 'UK Admin', '', '', '', '', 'aqrsystem.demo.uk.national.admin@onet.pl'),
+ ('5', 'UK User 1', '', '', '', '', 'aqrsystem.demo.uk.user.1@onet.pl'),
+ ('6', 'UK User 2', '', '', '', '', 'aqrsystem.demo.uk.user.2@onet.pl'),
+ ('7', 'IT Admin', '', '', '', '', 'aqrsystem.demo.it.national.admin@onet.pl'),
+ ('8', 'IT User 1', '', '', '', '', 'aqrsystem.demo.it.user.1@onet.pl'),
+ ('9', 'IT User 2', '', '', '', '', 'aqrsystem.demo.it.user.2@onet.pl'),
+ ('906c641fd1eda46d1788781a29f3de0c', 'Belis Claudio', '', 'claudio.belis@jrc.ec.europa.eu', '', 'claudio.belis@jrc.ec.europa.eu', 'claudio.belis@jrc.ec.europa.eu'),
+ ('f0f418ee6068d027cdbf150a33f641a6', 'ES Admin', '', 'at_sgcamai6@magrama.es', '', 'at_sgcamai6@magrama.es', 'at_sgcamai6@magrama.es'),
+ ('e1afd63df7ad17441820f1044dfdd3de', 'Silvia Dalla costa', '', 'silvia.dalla-costa@jrc.ec.europa.eu', '', 'silvia.dalla-costa@jrc.ec.europa.eu', 'silvia.dalla-costa@jrc.ec.europa.eu'),
+ ('9e77ac4a9b50c97372d2997c8dc7c7db', 'María Pallarés', '', 'mpallares@magrama.es', '', 'mpallares@magrama.es', 'mpallares@magrama.es'),
+ ('455bdc428a9ecb82675ea6e3ec7fc441', 'Radoslav Virgovč', '', 'radoslav.virgovic@sazp.sk', '', 'radoslav.virgovic@sazp.sk', 'radoslav.virgovic@sazp.sk');
 
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('0', 'lukasz.cyra@ext.jrc.ec.europa.eu', 'Lukasz', 'Cyra', '36', '2', '0', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('1', 'emanuela.epure@ext.jrc.ec.europa.eu', 'Emanuela', 'Epure', '36', '1', '1', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('2', 'alexander.kotsev@jrc.ec.europa.eu', 'Alexander', 'Kotsev', '0', '0', '2', true, '2013-10-21 14:00:00', '2014-09-18 14:43:36.13');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('3', 'aqrsystem.demo.eea.admin@onet.pl', 'EEA', 'Admin', '0', '0', '3', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('4', 'aqrsystem.demo.uk.national.admin@onet.pl', 'UK', 'Admin', '36', '1', '4', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('5', 'aqrsystem.demo.uk.user.1@onet.pl', 'UK', 'User_1', '36', '2', '5', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('6', 'aqrsystem.demo.uk.user.2@onet.pl', 'UK', 'User_2', '36', '2', '6', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('7', 'aqrsystem.demo.it.national.admin@onet.pl', 'IT', 'Admin', '18', '1', '7', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('8', 'aqrsystem.demo.it.user.1@onet.pl', 'IT', 'User_1', '18', '2', '8', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('9', 'aqrsystem.demo.it.user.2@onet.pl', 'IT', 'User_2', '18', '2', '9', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('40251c5cc9ec4c0d97c8afcb3a02de31', 'at_sgcamai6@magrama.es', 'ES', 'Admin', '33', '1', 'f0f418ee6068d027cdbf150a33f641a6', true, NULL, '2014-07-18 14:21:27.239');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('2e539485413d496d504e8eb727fd28d8', 'mpallares@magrama.es', 'María', 'Pallarés', '33', '1', '9e77ac4a9b50c97372d2997c8dc7c7db', true, NULL, '2014-07-18 14:21:57.846');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('86fd420c8305264d35618d63a21a5d3b', 'silvia.dalla-costa@jrc.ec.europa.eu', 'Silvia', 'Dalla costa', '36', '1', 'e1afd63df7ad17441820f1044dfdd3de', true, NULL, '2014-08-19 11:41:27.344');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('ac3c163686359f8e857dd1853880f0b7', 'claudio.belis@jrc.ec.europa.eu', 'Belis', 'Claudio', '18', '1', '906c641fd1eda46d1788781a29f3de0c', true, NULL, '2014-08-20 16:43:11.837');
-INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES ('72474c162f8d778077f464f8a6623484', 'radoslav.virgovic@sazp.sk', 'Radoslav', 'Virgovč', '32', '1', '455bdc428a9ecb82675ea6e3ec7fc441', true, NULL, '2014-09-18 14:44:39.287');
+INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES
+ ('0', 'lukasz.cyra@ext.jrc.ec.europa.eu', 'Lukasz', 'Cyra', '36', '2', '0', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00'),
+ ('1', 'emanuela.epure@ext.jrc.ec.europa.eu', 'Emanuela', 'Epure', '36', '1', '1', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00'),
+ ('2', 'alexander.kotsev@jrc.ec.europa.eu', 'Alexander', 'Kotsev', '0', '0', '2', true, '2013-10-21 14:00:00', '2014-09-18 14:43:36.13'),
+ ('3', 'aqrsystem.demo.eea.admin@onet.pl', 'EEA', 'Admin', '0', '0', '3', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00'),
+ ('4', 'aqrsystem.demo.uk.national.admin@onet.pl', 'UK', 'Admin', '36', '1', '4', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00'),
+ ('5', 'aqrsystem.demo.uk.user.1@onet.pl', 'UK', 'User_1', '36', '2', '5', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00'),
+ ('6', 'aqrsystem.demo.uk.user.2@onet.pl', 'UK', 'User_2', '36', '2', '6', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00'),
+ ('7', 'aqrsystem.demo.it.national.admin@onet.pl', 'IT', 'Admin', '18', '1', '7', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00'),
+ ('8', 'aqrsystem.demo.it.user.1@onet.pl', 'IT', 'User_1', '18', '2', '8', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00'),
+ ('9', 'aqrsystem.demo.it.user.2@onet.pl', 'IT', 'User_2', '18', '2', '9', true, '2013-10-21 14:00:00', '2013-10-21 14:00:00'),
+ ('40251c5cc9ec4c0d97c8afcb3a02de31', 'at_sgcamai6@magrama.es', 'ES', 'Admin', '33', '1', 'f0f418ee6068d027cdbf150a33f641a6', true, NULL, '2014-07-18 14:21:27.239'),
+ ('2e539485413d496d504e8eb727fd28d8', 'mpallares@magrama.es', 'María', 'Pallarés', '33', '1', '9e77ac4a9b50c97372d2997c8dc7c7db', true, NULL, '2014-07-18 14:21:57.846'),
+ ('86fd420c8305264d35618d63a21a5d3b', 'silvia.dalla-costa@jrc.ec.europa.eu', 'Silvia', 'Dalla costa', '36', '1', 'e1afd63df7ad17441820f1044dfdd3de', true, NULL, '2014-08-19 11:41:27.344'),
+ ('ac3c163686359f8e857dd1853880f0b7', 'claudio.belis@jrc.ec.europa.eu', 'Belis', 'Claudio', '18', '1', '906c641fd1eda46d1788781a29f3de0c', true, NULL, '2014-08-20 16:43:11.837'),
+ ('72474c162f8d778077f464f8a6623484', 'radoslav.virgovic@sazp.sk', 'Radoslav', 'Virgovč', '32', '1', '455bdc428a9ecb82675ea6e3ec7fc441', true, NULL, '2014-09-18 14:44:39.287');
 
 
 /*systemconfiguration*/
-INSERT INTO systemconfiguration VALUES ('0', 'http://airqualityreporting.al/e-reporting/aq/', '1');
-INSERT INTO systemconfiguration VALUES ('1', 'http://airqualityreporting.au/e-reporting/aq/', '2');
-INSERT INTO systemconfiguration VALUES ('2', 'http://airqualityreporting.be/e-reporting/aq/', '3');
-INSERT INTO systemconfiguration VALUES ('3', 'http://airqualityreporting.ba/e-reporting/aq/', '4');
-INSERT INTO systemconfiguration VALUES ('4', 'http://airqualityreporting.bg/e-reporting/aq/', '5');
-INSERT INTO systemconfiguration VALUES ('5', 'http://airqualityreporting.hr/e-reporting/aq/', '6');
-INSERT INTO systemconfiguration VALUES ('6', 'http://airqualityreporting.cy/e-reporting/aq/', '7');
-INSERT INTO systemconfiguration VALUES ('7', 'http://airqualityreporting.cz/e-reporting/aq/', '8');
-INSERT INTO systemconfiguration VALUES ('8', 'http://airqualityreporting.dk/e-reporting/aq/', '9');
-INSERT INTO systemconfiguration VALUES ('9', 'http://airqualityreporting.ee/e-reporting/aq/', '10');
-INSERT INTO systemconfiguration VALUES ('10', 'http://airqualityreporting.fi/e-reporting/aq/', '11');
-INSERT INTO systemconfiguration VALUES ('11', 'http://airqualityreporting.fr/e-reporting/aq/', '12');
-INSERT INTO systemconfiguration VALUES ('12', 'http://airqualityreporting.de/e-reporting/aq/', '13');
-INSERT INTO systemconfiguration VALUES ('13', 'http://airqualityreporting.gr/e-reporting/aq/', '14');
-INSERT INTO systemconfiguration VALUES ('14', 'http://airqualityreporting.hu/e-reporting/aq/', '15');
-INSERT INTO systemconfiguration VALUES ('15', 'http://airqualityreporting.is/e-reporting/aq/', '16');
-INSERT INTO systemconfiguration VALUES ('16', 'http://airqualityreporting.ie/e-reporting/aq/', '17');
-INSERT INTO systemconfiguration VALUES ('17', 'http://airqualityreporting.it/e-reporting/aq/', '18');
-INSERT INTO systemconfiguration VALUES ('18', 'http://airqualityreporting.net/e-reporting/aq/', '19');
-INSERT INTO systemconfiguration VALUES ('19', 'http://airqualityreporting.lv/e-reporting/aq/', '20');
-INSERT INTO systemconfiguration VALUES ('20', 'http://airqualityreporting.li/e-reporting/aq/', '21');
-INSERT INTO systemconfiguration VALUES ('21', 'http://airqualityreporting.lu/e-reporting/aq/', '22');
-INSERT INTO systemconfiguration VALUES ('22', 'http://airqualityreporting.mt/e-reporting/aq/', '23');
-INSERT INTO systemconfiguration VALUES ('23', 'http://airqualityreporting.me/e-reporting/aq/', '24');
-INSERT INTO systemconfiguration VALUES ('24', 'http://airqualityreporting.nl/e-reporting/aq/', '25');
-INSERT INTO systemconfiguration VALUES ('25', 'http://airqualityreporting.pl/e-reporting/aq/', '26');
-INSERT INTO systemconfiguration VALUES ('26', 'http://airqualityreporting.pt/e-reporting/aq/', '27');
-INSERT INTO systemconfiguration VALUES ('27', 'http://airqualityreporting.mk/e-reporting/aq/', '28');
-INSERT INTO systemconfiguration VALUES ('28', 'http://airqualityreporting.ro/e-reporting/aq/', '29');
-INSERT INTO systemconfiguration VALUES ('29', 'http://airqualityreporting.rs/e-reporting/aq/', '30');
-INSERT INTO systemconfiguration VALUES ('30', 'http://airqualityreporting.sk/e-reporting/aq/', '31');
-INSERT INTO systemconfiguration VALUES ('31', 'http://airqualityreporting.si/e-reporting/aq/', '32');
-INSERT INTO systemconfiguration VALUES ('32', 'http://airqualityreporting.es/e-reporting/aq/', '33');
-INSERT INTO systemconfiguration VALUES ('33', 'http://airqualityreporting.se/e-reporting/aq/', '34');
-INSERT INTO systemconfiguration VALUES ('34', 'http://airqualityreporting.tr/e-reporting/aq/', '35');
-INSERT INTO systemconfiguration VALUES ('35', 'http://uk-air.defra.gov.uk/e-reporting/aq/', '36');
-INSERT INTO systemconfiguration VALUES ('36', 'http://uk-air.defra.gov.no/e-reporting/aq/', '37');
+INSERT INTO systemconfiguration VALUES
+ ('0', 'http://airqualityreporting.al/e-reporting/aq/', '1'),
+ ('1', 'http://airqualityreporting.au/e-reporting/aq/', '2'),
+ ('2', 'http://airqualityreporting.be/e-reporting/aq/', '3'),
+ ('3', 'http://airqualityreporting.ba/e-reporting/aq/', '4'),
+ ('4', 'http://airqualityreporting.bg/e-reporting/aq/', '5'),
+ ('5', 'http://airqualityreporting.hr/e-reporting/aq/', '6'),
+ ('6', 'http://airqualityreporting.cy/e-reporting/aq/', '7'),
+ ('7', 'http://airqualityreporting.cz/e-reporting/aq/', '8'),
+ ('8', 'http://airqualityreporting.dk/e-reporting/aq/', '9'),
+ ('9', 'http://airqualityreporting.ee/e-reporting/aq/', '10'),
+ ('10', 'http://airqualityreporting.fi/e-reporting/aq/', '11'),
+ ('11', 'http://airqualityreporting.fr/e-reporting/aq/', '12'),
+ ('12', 'http://airqualityreporting.de/e-reporting/aq/', '13'),
+ ('13', 'http://airqualityreporting.gr/e-reporting/aq/', '14'),
+ ('14', 'http://airqualityreporting.hu/e-reporting/aq/', '15'),
+ ('15', 'http://airqualityreporting.is/e-reporting/aq/', '16'),
+ ('16', 'http://airqualityreporting.ie/e-reporting/aq/', '17'),
+ ('17', 'http://airqualityreporting.it/e-reporting/aq/', '18'),
+ ('18', 'http://airqualityreporting.net/e-reporting/aq/', '19'),
+ ('19', 'http://airqualityreporting.lv/e-reporting/aq/', '20'),
+ ('20', 'http://airqualityreporting.li/e-reporting/aq/', '21'),
+ ('21', 'http://airqualityreporting.lu/e-reporting/aq/', '22'),
+ ('22', 'http://airqualityreporting.mt/e-reporting/aq/', '23'),
+ ('23', 'http://airqualityreporting.me/e-reporting/aq/', '24'),
+ ('24', 'http://airqualityreporting.nl/e-reporting/aq/', '25'),
+ ('25', 'http://airqualityreporting.pl/e-reporting/aq/', '26'),
+ ('26', 'http://airqualityreporting.pt/e-reporting/aq/', '27'),
+ ('27', 'http://airqualityreporting.mk/e-reporting/aq/', '28'),
+ ('28', 'http://airqualityreporting.ro/e-reporting/aq/', '29'),
+ ('29', 'http://airqualityreporting.rs/e-reporting/aq/', '30'),
+ ('30', 'http://airqualityreporting.sk/e-reporting/aq/', '31'),
+ ('31', 'http://airqualityreporting.si/e-reporting/aq/', '32'),
+ ('32', 'http://airqualityreporting.es/e-reporting/aq/', '33'),
+ ('33', 'http://airqualityreporting.se/e-reporting/aq/', '34'),
+ ('34', 'http://airqualityreporting.tr/e-reporting/aq/', '35'),
+ ('35', 'http://uk-air.defra.gov.uk/e-reporting/aq/', '36'),
+ ('36', 'http://uk-air.defra.gov.no/e-reporting/aq/', '37');

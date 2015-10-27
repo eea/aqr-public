@@ -404,7 +404,7 @@
 			</volumes>
                       -->
                         <ports>
-                          <port>5432:5432</port>
+                          <port>database.port:5432</port>
                         </ports>
                         <wait>
                           <log>PostgreSQL init process complete; ready for start up.</log>
@@ -447,7 +447,7 @@
                 <configuration>
                   <systemPropertyVariables>
                     <log.url>http://${docker.host.address}:${tomcat.port}/</log.url>
-                    <db.url>jdbc:postgresql://${docker.host.address}:5432/aqrsystem</db.url>
+                    <db.url>jdbc:postgresql://${docker.host.address}:${database.port}/aqrsystem</db.url>
                   </systemPropertyVariables>
                 </configuration>
                 <executions>
