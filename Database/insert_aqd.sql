@@ -2954,29 +2954,31 @@ INSERT INTO pollutant_protectiontarget VALUES
 
 
 /*administrationlevel*/
-INSERT INTO administrationlevel VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/administrativelevel/local', 'Local', 'tbd', 'local');
-INSERT INTO administrationlevel VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/administrativelevel/national', 'National', 'tbd', 'national');
-INSERT INTO administrationlevel VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/administrativelevel/regional', 'Regional', 'tbd', 'regional');
+INSERT INTO administrationlevel VALUES
+ ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/administrativelevel/local', 'Local', 'tbd', 'local'),
+ ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/administrativelevel/national', 'National', 'tbd', 'national'),
+ ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/administrativelevel/regional', 'Regional', 'tbd', 'regional');
 
 
 /*currency*/
-INSERT INTO currency VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/BGN', 'Bulgarian lev', 'Bulgaria', 'BGN');
-INSERT INTO currency VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/CHF', 'Swiss franc', 'Switzerland & Liechtenstein', 'CHF');
-INSERT INTO currency VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/CZK', 'Czech koruna', 'Czech Republic', 'CZK');
-INSERT INTO currency VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/DKK', 'Danish krone', 'Denmark', 'DKK');
-INSERT INTO currency VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/EUR', 'Euro', 'Eurozone', 'EUR');
-INSERT INTO currency VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/GBP', 'British pound sterling', 'United Kingdom', 'GBP');
-INSERT INTO currency VALUES ('6', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/GIP', 'Gibraltar Pound', 'Gibraltar', 'GIP');
-INSERT INTO currency VALUES ('7', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/HRK', 'Croatian kuna', 'Croatia', 'HRK');
-INSERT INTO currency VALUES ('8', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/HUF', 'Hungarian forint', 'Hungary', 'HUF');
-INSERT INTO currency VALUES ('9', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/ISK', 'Iceland Krona', 'Iceland', 'ISK');
-INSERT INTO currency VALUES ('10', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/LTL', 'Lithuanian litas', 'Lithuania', 'LTL');
-INSERT INTO currency VALUES ('11', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/NOK', 'Norwegian Krone', 'Norway', 'NOK');
-INSERT INTO currency VALUES ('12', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/PLN', 'Polish Zloty', 'Poland', 'PLN');
-INSERT INTO currency VALUES ('13', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/RON', 'Romanian leu', 'Romania', 'RON');
-INSERT INTO currency VALUES ('14', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/RSD', 'Serbian Dinar', 'Serbia', 'RSD');
-INSERT INTO currency VALUES ('15', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/SEK', 'Swedish krona', 'Sweden', 'SEK');
-INSERT INTO currency VALUES ('16', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/TRY', 'Turkish Lira', 'Turkey', 'TRY');
+INSERT INTO currency VALUES
+ ('0', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/BGN', 'Bulgarian lev', 'Bulgaria', 'BGN'),
+ ('1', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/CHF', 'Swiss franc', 'Switzerland & Liechtenstein', 'CHF'),
+ ('2', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/CZK', 'Czech koruna', 'Czech Republic', 'CZK'),
+ ('3', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/DKK', 'Danish krone', 'Denmark', 'DKK'),
+ ('4', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/EUR', 'Euro', 'Eurozone', 'EUR'),
+ ('5', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/GBP', 'British pound sterling', 'United Kingdom', 'GBP'),
+ ('6', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/GIP', 'Gibraltar Pound', 'Gibraltar', 'GIP'),
+ ('7', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/HRK', 'Croatian kuna', 'Croatia', 'HRK'),
+ ('8', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/HUF', 'Hungarian forint', 'Hungary', 'HUF'),
+ ('9', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/ISK', 'Iceland Krona', 'Iceland', 'ISK'),
+ ('10', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/LTL', 'Lithuanian litas', 'Lithuania', 'LTL'),
+ ('11', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/NOK', 'Norwegian Krone', 'Norway', 'NOK'),
+ ('12', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/PLN', 'Polish Zloty', 'Poland', 'PLN'),
+ ('13', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/RON', 'Romanian leu', 'Romania', 'RON'),
+ ('14', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/RSD', 'Serbian Dinar', 'Serbia', 'RSD'),
+ ('15', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/SEK', 'Swedish krona', 'Sweden', 'SEK'),
+ ('16', 'http://dd.eionet.europa.eu/vocabulary/common/currencies/TRY', 'Turkish Lira', 'Turkey', 'TRY');
 
 /*classification*/
 INSERT INTO classification VALUES
@@ -3016,163 +3018,177 @@ INSERT INTO classification VALUES
  ('33', 'http://dd.eionet.europa.eu/vocabulary/aq/measureclassification/traffic-speed', 'Effective reduction of speed limits and control', 'Traffic planning and management', 'traffic-speed');
 
 /*statusplannedimplementation*/
-INSERT INTO statusplannedimplementation VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/annulation', 'Annulation', '', 'annulation');
-INSERT INTO statusplannedimplementation VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/evaluation', 'Evaluation', '', 'evaluation');
-INSERT INTO statusplannedimplementation VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/implementation', 'Implementation', '', 'implementation');
-INSERT INTO statusplannedimplementation VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/other', 'Other', '', 'other');
-INSERT INTO statusplannedimplementation VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/planning', 'Planning', '', 'planning');
-INSERT INTO statusplannedimplementation VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/preparation', 'preparation', '', 'preparation');
+INSERT INTO statusplannedimplementation VALUES
+ ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/annulation', 'Annulation', '', 'annulation'),
+ ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/evaluation', 'Evaluation', '', 'evaluation'),
+ ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/implementation', 'Implementation', '', 'implementation'),
+ ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/other', 'Other', '', 'other'),
+ ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/planning', 'Planning', '', 'planning'),
+ ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/measureimplementationstatus/preparation', 'preparation', '', 'preparation');
 
 /*measureType*/
-INSERT INTO measureType VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/coordinated', 'Coordinated measure with other MS', '', 'coordinated');
-INSERT INTO measureType VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/integrated', 'Measure integrated in Air Quality Plan', '', 'integrated');
-INSERT INTO measureType VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/other', 'Other, please specify', '', 'other');
-INSERT INTO measureType VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/outside', 'Measure outside of Air quality or Short term Action Plan', '', 'outside');
-INSERT INTO measureType VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/sensitive', 'Measure geared at the protection of sensitive groups', '', 'sensitive');
-INSERT INTO measureType VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/short', 'Short term measure', '', 'short');
+INSERT INTO measureType VALUES
+ ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/coordinated', 'Coordinated measure with other MS', '', 'coordinated'),
+ ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/integrated', 'Measure integrated in Air Quality Plan', '', 'integrated'),
+ ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/other', 'Other, please specify', '', 'other'),
+ ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/outside', 'Measure outside of Air quality or Short term Action Plan', '', 'outside'),
+ ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/sensitive', 'Measure geared at the protection of sensitive groups', '', 'sensitive'),
+ ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/measuretype/short', 'Short term measure', '', 'short');
 
 
 /*sourcesector*/
-INSERT INTO sourcesector VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/agriculture', 'Agriculture', '', 'agriculture');
-INSERT INTO sourcesector VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/commercial-residential', 'Commercial and residential sources', '', 'commercial-residential');
-INSERT INTO sourcesector VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/industry', 'Industry including heat and power production', '', 'industry');
-INSERT INTO sourcesector VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/off-road', 'Off-road machinery', '', 'off-road');
-INSERT INTO sourcesector VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/other', 'Other, please specify', '', 'other');
-INSERT INTO sourcesector VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/shipping', 'Shipping', '', 'shipping');
-INSERT INTO sourcesector VALUES ('6', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/transport', 'Transport', '', 'transport');
+INSERT INTO sourcesector VALUES
+('0', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/agriculture', 'Agriculture', '', 'agriculture'),
+('1', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/commercial-residential', 'Commercial and residential sources', '', 'commercial-residential'),
+('2', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/industry', 'Industry including heat and power production', '', 'industry'),
+('3', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/off-road', 'Off-road machinery', '', 'off-road'),
+('4', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/other', 'Other, please specify', '', 'other'),
+('5', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/shipping', 'Shipping', '', 'shipping'),
+('6', 'http://dd.eionet.europa.eu/vocabulary/aq/sourcesectors/transport', 'Transport', '', 'transport');
 
 /*spatialscale*/
-INSERT INTO spatialscale VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/spatialscale/local', 'Local', '', 'local');
-INSERT INTO spatialscale VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/spatialscale/national', 'National', '', 'national');
-INSERT INTO spatialscale VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/spatialscale/town', 'Town as part of a zone', '', 'town');
-INSERT INTO spatialscale VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/spatialscale/zone_agg', 'Zone / Agglomeration', '', 'zone_agg');
+INSERT INTO spatialscale VALUES
+('0', 'http://dd.eionet.europa.eu/vocabulary/aq/spatialscale/local', 'Local', '', 'local'),
+('1', 'http://dd.eionet.europa.eu/vocabulary/aq/spatialscale/national', 'National', '', 'national'),
+('2', 'http://dd.eionet.europa.eu/vocabulary/aq/spatialscale/town', 'Town as part of a zone', '', 'town'),
+('3', 'http://dd.eionet.europa.eu/vocabulary/aq/spatialscale/zone_agg', 'Zone / Agglomeration', '', 'zone_agg');
 
 /*specificationOfHours*/
-INSERT INTO specificationOfHours VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/uom/time/continuous', 'Continuous', '', 'Continuous');
-INSERT INTO specificationOfHours VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/uom/time/day', 'Day', '1 day = 24 hours', 'd');
-INSERT INTO specificationOfHours VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/uom/time/hour', 'Hour', '1 hour = 60 minutes', 'h');
-INSERT INTO specificationOfHours VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/uom/time/minute', 'Minute', '1 minute = 60 seconds', 'm');
-INSERT INTO specificationOfHours VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/uom/time/month', 'Month', '1 month = 28-31 days', 'month');
-INSERT INTO specificationOfHours VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/uom/time/other', 'Other', '', 'other');
-INSERT INTO specificationOfHours VALUES ('6', 'http://dd.eionet.europa.eu/vocabulary/uom/time/random', 'Random', 'Sampling without a specific pattern.', 'random');
-INSERT INTO specificationOfHours VALUES ('7', 'http://dd.eionet.europa.eu/vocabulary/uom/time/second', 'Second', 'International System Base Unit', 's');
-INSERT INTO specificationOfHours VALUES ('8', 'http://dd.eionet.europa.eu/vocabulary/uom/time/variable', 'Variable', '', 'variable');
-INSERT INTO specificationOfHours VALUES ('9', 'http://dd.eionet.europa.eu/vocabulary/uom/time/week', 'Week', '1 week = 7 days', 'wk');
-INSERT INTO specificationOfHours VALUES ('10', 'http://dd.eionet.europa.eu/vocabulary/uom/time/year', 'Year', '1 year = 12 months', 'y or a');
+INSERT INTO specificationOfHours VALUES
+('0', 'http://dd.eionet.europa.eu/vocabulary/uom/time/continuous', 'Continuous', '', 'Continuous'),
+ ('1', 'http://dd.eionet.europa.eu/vocabulary/uom/time/day', 'Day', '1 day = 24 hours', 'd'),
+ ('2', 'http://dd.eionet.europa.eu/vocabulary/uom/time/hour', 'Hour', '1 hour = 60 minutes', 'h'),
+ ('3', 'http://dd.eionet.europa.eu/vocabulary/uom/time/minute', 'Minute', '1 minute = 60 seconds', 'm'),
+ ('4', 'http://dd.eionet.europa.eu/vocabulary/uom/time/month', 'Month', '1 month = 28-31 days', 'month'),
+ ('5', 'http://dd.eionet.europa.eu/vocabulary/uom/time/other', 'Other', '', 'other'),
+ ('6', 'http://dd.eionet.europa.eu/vocabulary/uom/time/random', 'Random', 'Sampling without a specific pattern.', 'random'),
+ ('7', 'http://dd.eionet.europa.eu/vocabulary/uom/time/second', 'Second', 'International System Base Unit', 's'),
+ ('8', 'http://dd.eionet.europa.eu/vocabulary/uom/time/variable', 'Variable', '', 'variable'),
+ ('9', 'http://dd.eionet.europa.eu/vocabulary/uom/time/week', 'Week', '1 week = 7 days', 'wk'),
+ ('10', 'http://dd.eionet.europa.eu/vocabulary/uom/time/year', 'Year', '1 year = 12 months', 'y or a');
 
 /*quantificationNumerical*/
-INSERT INTO quantificationNumerical VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/uom/emission/kt.year-1', 'kilotonne per year', 'mass over time', 'kt/year');
-INSERT INTO quantificationNumerical VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/uom/emission/t.km-1.year-1', 'Tonne per kilometer per year', 'mass over area over time', 't/km/year');
-INSERT INTO quantificationNumerical VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/uom/emission/t.km-2.year-1', 'Tonne per square kilometer per year', 'mass over area over time', 't/km2/year');
-INSERT INTO quantificationNumerical VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/uom/emission/t.year-1', 'Tonne per year', 'mass over time', 't/year');
+INSERT INTO quantificationNumerical VALUES
+('0', 'http://dd.eionet.europa.eu/vocabulary/uom/emission/kt.year-1', 'kilotonne per year', 'mass over time', 'kt/year'),
+('1', 'http://dd.eionet.europa.eu/vocabulary/uom/emission/t.km-1.year-1', 'Tonne per kilometer per year', 'mass over area over time', 't/km/year'),
+('2', 'http://dd.eionet.europa.eu/vocabulary/uom/emission/t.km-2.year-1', 'Tonne per square kilometer per year', 'mass over area over time', 't/km2/year'),
+('3', 'http://dd.eionet.europa.eu/vocabulary/uom/emission/t.year-1', 'Tonne per year', 'mass over time', 't/year');
 
 /*timeScale*/
-INSERT INTO timeScale VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/timescale/long', 'Long term (more than 1 year)', '', 'long');
-INSERT INTO timeScale VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/timescale/medium', 'Medium term (1 year)', '', 'medium');
-INSERT INTO timeScale VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/timescale/short', 'Short term (less than 1 year)', '', 'short');
-INSERT INTO timeScale VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/timescale/unknown', 'Unknown timescale', 'Timescale of the action is unknown or undetermined.', 'unknown');
+INSERT INTO timeScale VALUES
+('0', 'http://dd.eionet.europa.eu/vocabulary/aq/timescale/long', 'Long term (more than 1 year)', '', 'long'),
+('1', 'http://dd.eionet.europa.eu/vocabulary/aq/timescale/medium', 'Medium term (1 year)', '', 'medium'),
+('2', 'http://dd.eionet.europa.eu/vocabulary/aq/timescale/short', 'Short term (less than 1 year)', '', 'short'),
+('3', 'http://dd.eionet.europa.eu/vocabulary/aq/timescale/unknown', 'Unknown timescale', 'Timescale of the action is unknown or undetermined.', 'unknown');
 
 /*administrationlevel*/
-INSERT INTO assesmenttype VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/fixed', 'Fixed measurement', '"Fixed measurements" shall mean measurements taken at fixed sites; either continuously or by random sampling; to determine the levels in accordance with the relevant data quality objectives; Legal reference: Decision 2011/850/EU - ANNEX II - (D) Information on the assessment methods;  (ii) "Fixed measurement Information" describes the information to be made available by the Member States (mandatory or  voluntary).', 'fixed');
-INSERT INTO assesmenttype VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/indicative', 'Indicative measurement', '"Indicative measurements" shall mean measurements which meet data quality objectives that are less strict than those required for fixed measurements; Legal reference: Decision 2011/850/EU; Article 9; paragraph 4 and Annex II D (iii)', 'indicative');
-INSERT INTO assesmenttype VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/model', 'Modelling', 'Legal reference : Decision 2011/850/EU, Article 9, paragraph 5 and Annex II D (iv)', 'model');
-INSERT INTO assesmenttype VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/objective', 'Objective estimation', 'Legal reference: Decision 2011/850/EU, Article 9, paragraph 6 and Annex II D (v) Objective estimation techniques" will be interpreted as mathematical methods to calculate concentrations from values measured at other locations and/or times,  based on scientific knowledge of the concentration distribution. One example is linear interpolation based on a justified assumption that the concentration pattern is sufficiently smooth. Another example is a dispersion model that has been adjusted to reproduce concentrations measured within its domain. More information is available at: http://ec.europa.eu/environment/air/pdf/guidanceunderairquality.pdf"', 'objective');
+INSERT INTO assesmenttype VALUES
+('0', 'http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/fixed', 'Fixed measurement', '"Fixed measurements" shall mean measurements taken at fixed sites; either continuously or by random sampling; to determine the levels in accordance with the relevant data quality objectives; Legal reference: Decision 2011/850/EU - ANNEX II - (D) Information on the assessment methods;  (ii) "Fixed measurement Information" describes the information to be made available by the Member States (mandatory or  voluntary).', 'fixed'),
+('1', 'http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/indicative', 'Indicative measurement', '"Indicative measurements" shall mean measurements which meet data quality objectives that are less strict than those required for fixed measurements; Legal reference: Decision 2011/850/EU; Article 9; paragraph 4 and Annex II D (iii)', 'indicative'),
+('2', 'http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/model', 'Modelling', 'Legal reference : Decision 2011/850/EU, Article 9, paragraph 5 and Annex II D (iv)', 'model'),
+('3', 'http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/objective', 'Objective estimation', 'Legal reference: Decision 2011/850/EU, Article 9, paragraph 6 and Annex II D (v) Objective estimation techniques" will be interpreted as mathematical methods to calculate concentrations from values measured at other locations and/or times,  based on scientific knowledge of the concentration distribution. One example is linear interpolation based on a justified assumption that the concentration pattern is sufficiently smooth. Another example is a dispersion model that has been adjusted to reproduce concentrations measured within its domain. More information is available at: http://ec.europa.eu/environment/air/pdf/guidanceunderairquality.pdf"', 'objective');
 
 
 /*adjustmentSource*/
-INSERT INTO adjustmentSource VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/A1', 'Volcanic eruption inside the Member State', 'Volcanic eruption or volcanism inside the Member State. Applicable to PM & SO2.', 'A1');
-INSERT INTO adjustmentSource VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/A2', 'Volcanism outside the Member State', 'Volcanic eruption or volcanism outside the Member State. Applicable to PM & SO2.', 'A2');
-INSERT INTO adjustmentSource VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/B', 'Coastal wetlands', 'Coastal wetlands. Applicable to SO2.', 'B');
-INSERT INTO adjustmentSource VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/B1', 'Seismic activity inside the Member State', 'Seismic activity inside the Member State. Applicable to PM only.', 'B1');
-INSERT INTO adjustmentSource VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/B2', 'Seismic activity outside the Member State', 'Seismic activity outside the Member State. Applicable to PM only.', 'B2');
-INSERT INTO adjustmentSource VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/C1', 'Geothermal activity inside the Member State', 'Geothermal activity inside the Member State. Applicable to PM only.', 'C1');
-INSERT INTO adjustmentSource VALUES ('6', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/C2', 'Geothermal activity outside the Member State', 'Geothermal activity outside the Member State. Applicable to PM only.', 'C2');
-INSERT INTO adjustmentSource VALUES ('7', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/D1', 'Wild-land fire inside the Member State', 'Wild-land/natural fire inside the Member State. Applicable to PM & SO2.', 'D1');
-INSERT INTO adjustmentSource VALUES ('8', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/D2', 'Wild-land fire outside the Member State', 'Wild-land/natural fire outside the Member State. Applicable to PM & SO2.', 'D2');
-INSERT INTO adjustmentSource VALUES ('9', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/E1', 'High wind event inside the Member State', 'High wind event inside the Member State. Applicable to PM & SO2.', 'E1');
-INSERT INTO adjustmentSource VALUES ('10', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/E2', 'High wind event outside the Member State', 'High wind event outside the Member State. Applicable to PM & SO2.', 'E2');
-INSERT INTO adjustmentSource VALUES ('11', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/F1', 'Atmospheric resuspension inside the Member State', 'Atmospheric resuspension inside the Member State. Applicable to PM only.', 'F1');
-INSERT INTO adjustmentSource VALUES ('12', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/F2', 'Atmospheric resuspension outside the Member State', 'Atmospheric resuspension outside the Member State. Applicable to PM only.', 'F2');
-INSERT INTO adjustmentSource VALUES ('13', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/G1', 'Transport of natural particles from dry regions inside the Member State', 'Transport of natural particles from dry regions inside the Member State. Applicable to PM only.', 'G1');
-INSERT INTO adjustmentSource VALUES ('14', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/G2', 'Transport of natural particles from dry regions outside the Member State', 'Transport of natural particles from dry regions outside the Member State. Applicable to PM only.', 'G2');
-INSERT INTO adjustmentSource VALUES ('15', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/H', 'Sea spray', 'Sea spray. Applicable to PM only.', 'H');
+INSERT INTO adjustmentSource VALUES
+('0', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/A1', 'Volcanic eruption inside the Member State', 'Volcanic eruption or volcanism inside the Member State. Applicable to PM & SO2.', 'A1'),
+ ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/A2', 'Volcanism outside the Member State', 'Volcanic eruption or volcanism outside the Member State. Applicable to PM & SO2.', 'A2'),
+ ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/B', 'Coastal wetlands', 'Coastal wetlands. Applicable to SO2.', 'B'),
+ ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/B1', 'Seismic activity inside the Member State', 'Seismic activity inside the Member State. Applicable to PM only.', 'B1'),
+ ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/B2', 'Seismic activity outside the Member State', 'Seismic activity outside the Member State. Applicable to PM only.', 'B2'),
+ ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/C1', 'Geothermal activity inside the Member State', 'Geothermal activity inside the Member State. Applicable to PM only.', 'C1'),
+ ('6', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/C2', 'Geothermal activity outside the Member State', 'Geothermal activity outside the Member State. Applicable to PM only.', 'C2'),
+ ('7', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/D1', 'Wild-land fire inside the Member State', 'Wild-land/natural fire inside the Member State. Applicable to PM & SO2.', 'D1'),
+ ('8', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/D2', 'Wild-land fire outside the Member State', 'Wild-land/natural fire outside the Member State. Applicable to PM & SO2.', 'D2'),
+ ('9', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/E1', 'High wind event inside the Member State', 'High wind event inside the Member State. Applicable to PM & SO2.', 'E1'),
+ ('10', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/E2', 'High wind event outside the Member State', 'High wind event outside the Member State. Applicable to PM & SO2.', 'E2'),
+ ('11', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/F1', 'Atmospheric resuspension inside the Member State', 'Atmospheric resuspension inside the Member State. Applicable to PM only.', 'F1'),
+ ('12', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/F2', 'Atmospheric resuspension outside the Member State', 'Atmospheric resuspension outside the Member State. Applicable to PM only.', 'F2'),
+ ('13', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/G1', 'Transport of natural particles from dry regions inside the Member State', 'Transport of natural particles from dry regions inside the Member State. Applicable to PM only.', 'G1'),
+ ('14', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/G2', 'Transport of natural particles from dry regions outside the Member State', 'Transport of natural particles from dry regions outside the Member State. Applicable to PM only.', 'G2'),
+ ('15', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmentsourcetype/H', 'Sea spray', 'Sea spray. Applicable to PM only.', 'H');
 
 /*adjustmenttype*/
-INSERT INTO adjustmentType VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/fullyCorrected', 'Fully corrected', 'All corrections for natural source & winter sanding or salting applied', 'fullyCorrected');
-INSERT INTO adjustmentType VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/noneApplicable', 'No corrections applicable', 'No adjustment is due to NS or WSS have been applied or are applicable to the observed levels for this pollutant.', 'noneApplicable');
-INSERT INTO adjustmentType VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/noneApplied', 'None applied', 'No corrections have been applied to adjust for contributions from natural sources or winter sanding & salting.', 'noneApplied');
-INSERT INTO adjustmentType VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/nsCorrection', 'Natural source correction', 'An adjustment to corrected observed concentrations for contributions from natural sources has been applied.', 'nsCorrection');
-INSERT INTO adjustmentType VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/wssCorrection', 'Winter-sanding or -salting correction', 'An adjustment to corrected observed concentrations for contributions from winter sanding or salting has been applied.', 'wssCorrection');
+INSERT INTO adjustmentType VALUES
+('0', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/fullyCorrected', 'Fully corrected', 'All corrections for natural source & winter sanding or salting applied', 'fullyCorrected'),
+('1', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/noneApplicable', 'No corrections applicable', 'No adjustment is due to NS or WSS have been applied or are applicable to the observed levels for this pollutant.', 'noneApplicable'),
+('2', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/noneApplied', 'None applied', 'No corrections have been applied to adjust for contributions from natural sources or winter sanding & salting.', 'noneApplied'),
+('3', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/nsCorrection', 'Natural source correction', 'An adjustment to corrected observed concentrations for contributions from natural sources has been applied.', 'nsCorrection'),
+('4', 'http://dd.eionet.europa.eu/vocabulary/aq/adjustmenttype/wssCorrection', 'Winter-sanding or -salting correction', 'An adjustment to corrected observed concentrations for contributions from winter sanding or salting has been applied.', 'wssCorrection');
 
 /*areaclassification*/
-INSERT INTO areaclassification VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/rural', 'Rural', 'All areas, that do not fulfil the criteria for urban or suburban areas, are defined as "rural" areas. There are three subdivisions in this category to indicate the distance to the nearest built-up urban area:', 'rural');
-INSERT INTO areaclassification VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/rural-nearcity', 'Rural-Near_city', 'area within 10 km from the border of an urban or suburban area.', 'rural-nearcity');
-INSERT INTO areaclassification VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/rural-regional', 'Rural-Regional', '10-50 km from major sources/source areas.', 'rural-regional');
-INSERT INTO areaclassification VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/rural-remote', 'Rural-Remote', '> 50 km from major sources/source areas.', 'rural-remote');
-INSERT INTO areaclassification VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/suburban', 'Suburban', 'Largely built-up urban area. "Largely built-up" means contiguous settlement of detached buildings of any size with a building density less than for "continuously built-up" area. The built-up area is mixed with non-urbanised areas (e.g. agricultural, lakes, woods).It must also be noted that "suburban" as defined here has a different meaning than in every day English i.e. "an outlying part of a city or town" suggesting that a suburban area is always associated to an urban area.In our context, a suburban area can be suburban on its own without any urban part.', 'suburban');
-INSERT INTO areaclassification VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/urban', 'Urban', 'Continuously built-up urban area meaning complete (or at least highly predominant) building-up of the street front side by buildings with at least two floors or large detached buildings with at least two floors.With the exception of city parks, the built-up area is not mixed with non-urbanised areas.', 'urban');
+INSERT INTO areaclassification VALUES
+('0', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/rural', 'Rural', 'All areas, that do not fulfil the criteria for urban or suburban areas, are defined as "rural" areas. There are three subdivisions in this category to indicate the distance to the nearest built-up urban area:', 'rural'),
+('1', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/rural-nearcity', 'Rural-Near_city', 'area within 10 km from the border of an urban or suburban area.', 'rural-nearcity'),
+('2', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/rural-regional', 'Rural-Regional', '10-50 km from major sources/source areas.', 'rural-regional'),
+('3', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/rural-remote', 'Rural-Remote', '> 50 km from major sources/source areas.', 'rural-remote'),
+('4', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/suburban', 'Suburban', 'Largely built-up urban area. "Largely built-up" means contiguous settlement of detached buildings of any size with a building density less than for "continuously built-up" area. The built-up area is mixed with non-urbanised areas (e.g. agricultural, lakes, woods).It must also be noted that "suburban" as defined here has a different meaning than in every day English i.e. "an outlying part of a city or town" suggesting that a suburban area is always associated to an urban area.In our context, a suburban area can be suburban on its own without any urban part.', 'suburban'),
+('5', 'http://dd.eionet.europa.eu/vocabulary/aq/areaclassification/urban', 'Urban', 'Continuously built-up urban area meaning complete (or at least highly predominant) building-up of the street front side by buildings with at least two floors or large detached buildings with at least two floors.With the exception of city parks, the built-up area is not mixed with non-urbanised areas.', 'urban');
 
 /*reasonvalue*/
-INSERT INTO reasonvalue VALUES ('0', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/other', 'Other, please specify', 'Other, please specify', 'other');
-INSERT INTO reasonvalue VALUES ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S1', 'Heavily trafficked urban centre', 'Heavily trafficked urban centre', 'S1');
-INSERT INTO reasonvalue VALUES ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S10', 'Transport of air pollution originating from sources outside the Member State', 'Transport of air pollution originating from sources outside the Member State', 'S10');
-INSERT INTO reasonvalue VALUES ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S11', 'Local petrol station', 'Local petrol station', 'S11');
-INSERT INTO reasonvalue VALUES ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S12', 'Parking facility', 'Parking facility', 'S12');
-INSERT INTO reasonvalue VALUES ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S13', 'Benzene storage', 'Benzene storage', 'S13');
-INSERT INTO reasonvalue VALUES ('6', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S2', 'Proximity to a major road', 'Proximity to a major road', 'S2');
-INSERT INTO reasonvalue VALUES ('7', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S3', 'Local industry including power production', 'Local industry including power production', 'S3');
-INSERT INTO reasonvalue VALUES ('8', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S4', 'Quarrying or mining activities', 'Quarrying or mining activities', 'S4');
-INSERT INTO reasonvalue VALUES ('9', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S5', 'Domestic heating', 'Domestic heating', 'S5');
-INSERT INTO reasonvalue VALUES ('10', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S6', 'Accidental emission from industrial source', 'Accidental emission from industrial source', 'S6');
-INSERT INTO reasonvalue VALUES ('11', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S7', 'Accidental emission from non-industrial source', 'Accidental emission from non-industrial source', 'S7');
-INSERT INTO reasonvalue VALUES ('12', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S8', 'Natural source(s) or natural event(s)', 'Natural source(s) or natural event(s)', 'S8');
-INSERT INTO reasonvalue VALUES ('13', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S9', 'Winter sanding of roads', 'Winter sanding of roads', 'S9');
+INSERT INTO reasonvalue VALUES
+('0', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/other', 'Other, please specify', 'Other, please specify', 'other'),
+ ('1', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S1', 'Heavily trafficked urban centre', 'Heavily trafficked urban centre', 'S1'),
+ ('2', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S10', 'Transport of air pollution originating from sources outside the Member State', 'Transport of air pollution originating from sources outside the Member State', 'S10'),
+ ('3', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S11', 'Local petrol station', 'Local petrol station', 'S11'),
+ ('4', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S12', 'Parking facility', 'Parking facility', 'S12'),
+ ('5', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S13', 'Benzene storage', 'Benzene storage', 'S13'),
+ ('6', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S2', 'Proximity to a major road', 'Proximity to a major road', 'S2'),
+ ('7', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S3', 'Local industry including power production', 'Local industry including power production', 'S3'),
+ ('8', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S4', 'Quarrying or mining activities', 'Quarrying or mining activities', 'S4'),
+ ('9', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S5', 'Domestic heating', 'Domestic heating', 'S5'),
+ ('10', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S6', 'Accidental emission from industrial source', 'Accidental emission from industrial source', 'S6'),
+ ('11', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S7', 'Accidental emission from non-industrial source', 'Accidental emission from non-industrial source', 'S7'),
+ ('12', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S8', 'Natural source(s) or natural event(s)', 'Natural source(s) or natural event(s)', 'S8'),
+ ('13', 'http://dd.eionet.europa.eu/vocabulary/aq/exceedancereason/S9', 'Winter sanding of roads', 'Winter sanding of roads', 'S9');
 
 
 /*country*/
-INSERT INTO country VALUES ('0', 'EEA');
-INSERT INTO country VALUES ('1', 'Albania');
-INSERT INTO country VALUES ('2', 'Austria');
-INSERT INTO country VALUES ('3', 'Belgium');
-INSERT INTO country VALUES ('4', 'Bosnia and Herzegovina');
-INSERT INTO country VALUES ('5', 'Bulgaria');
-INSERT INTO country VALUES ('6', 'Croatia');
-INSERT INTO country VALUES ('7', 'Cyprus');
-INSERT INTO country VALUES ('8', 'Czech Republic');
-INSERT INTO country VALUES ('9', 'Denmark');
-INSERT INTO country VALUES ('10', 'Estonia');
-INSERT INTO country VALUES ('11', 'Finland');
-INSERT INTO country VALUES ('12', 'France');
-INSERT INTO country VALUES ('13', 'Germany');
-INSERT INTO country VALUES ('14', 'Greece');
-INSERT INTO country VALUES ('15', 'Hungary');
-INSERT INTO country VALUES ('16', 'Iceland');
-INSERT INTO country VALUES ('17', 'Ireland');
-INSERT INTO country VALUES ('18', 'Italy');
-INSERT INTO country VALUES ('19', 'Kosovo');
-INSERT INTO country VALUES ('20', 'Latvia');
-INSERT INTO country VALUES ('21', 'Lithuania');
-INSERT INTO country VALUES ('22', 'Luxembourg');
-INSERT INTO country VALUES ('23', 'Malta');
-INSERT INTO country VALUES ('24', 'Montenegro');
-INSERT INTO country VALUES ('25', 'Netherlands');
-INSERT INTO country VALUES ('26', 'Poland');
-INSERT INTO country VALUES ('27', 'Portugal');
-INSERT INTO country VALUES ('28', 'Republic of Macedonia');
-INSERT INTO country VALUES ('29', 'Romania');
-INSERT INTO country VALUES ('30', 'Serbia');
-INSERT INTO country VALUES ('31', 'Slovakia');
-INSERT INTO country VALUES ('32', 'Slovenia');
-INSERT INTO country VALUES ('33', 'Spain');
-INSERT INTO country VALUES ('34', 'Sweden');
-INSERT INTO country VALUES ('35', 'Turkey');
-INSERT INTO country VALUES ('36', 'United Kingdom');
-INSERT INTO country VALUES ('37', 'Norway');
+INSERT INTO country VALUES
+ ('0', 'EEA'),
+ ('1', 'Albania'),
+ ('2', 'Austria'),
+ ('3', 'Belgium'),
+ ('4', 'Bosnia and Herzegovina'),
+ ('5', 'Bulgaria'),
+ ('6', 'Croatia'),
+ ('7', 'Cyprus'),
+ ('8', 'Czech Republic'),
+ ('9', 'Denmark'),
+ ('10', 'Estonia'),
+ ('11', 'Finland'),
+ ('12', 'France'),
+ ('13', 'Germany'),
+ ('14', 'Greece'),
+ ('15', 'Hungary'),
+ ('16', 'Iceland'),
+ ('17', 'Ireland'),
+ ('18', 'Italy'),
+ ('19', 'Kosovo'),
+ ('20', 'Latvia'),
+ ('21', 'Lithuania'),
+ ('22', 'Luxembourg'),
+ ('23', 'Malta'),
+ ('24', 'Montenegro'),
+ ('25', 'Netherlands'),
+ ('26', 'Poland'),
+ ('27', 'Portugal'),
+ ('28', 'Republic of Macedonia'),
+ ('29', 'Romania'),
+ ('30', 'Serbia'),
+ ('31', 'Slovakia'),
+ ('32', 'Slovenia'),
+ ('33', 'Spain'),
+ ('34', 'Sweden'),
+ ('35', 'Turkey'),
+ ('36', 'United Kingdom'),
+ ('37', 'Norway');
 
 /*userrole*/
-INSERT INTO userrole VALUES ('0', 'superuser', 'EEA Administrator');
-INSERT INTO userrole VALUES ('1', 'administrator', 'National Administrator');
-INSERT INTO userrole VALUES ('2', 'user', 'User');
+INSERT INTO userrole VALUES
+('0', 'superuser', 'EEA Administrator'),
+('1', 'administrator', 'National Administrator'),
+('2', 'user', 'User');
 
 /*insert-user.sql*/
 INSERT INTO relatedparty (uuid, individualname, organisationname, website, address, telephonevoice, electronicmailaddress) VALUES
