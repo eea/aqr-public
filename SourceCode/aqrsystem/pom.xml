@@ -304,8 +304,8 @@
                   <images>
                     <image>
                       <alias>service</alias>
-                      <name>${project.artifactId}</name>
-                      <registry>dockerrepo.eionet.europa.eu:5000</registry>
+                      <name>dockerrepo.eionet.europa.eu:5000/${project.artifactId}</name>
+                      <!-- <registry>dockerrepo.eionet.europa.eu:5000</registry> -->
                       <build>
                         <from>tomcat:6</from>
                         <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
@@ -371,8 +371,8 @@
                     <!-- This image is rebuilt every time. It is not suitable for persistent data -->
                     <image>
                       <alias>database</alias>
-                      <name>${project.artifactId}-db</name>
-                      <registry>dockerrepo.eionet.europa.eu:5000</registry>
+                      <name>dockerrepo.eionet.europa.eu:5000/${project.artifactId}-db</name>
+                      <!-- <registry>dockerrepo.eionet.europa.eu:5000</registry> -->
                       <build>
                         <from>postgres:9.0</from>
                         <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
