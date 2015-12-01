@@ -62,13 +62,12 @@
                         <a id="ewlink" href="http://www.ewindows.eu.org/">EnviroWindows</a>
                     </div>
                     <div id="righttools">
-                        <!-- Temporarily removed language selection -->
-                        <div style="display:none;">
+                        <c:if test="${not empty actionBean.userEmail}">
                           <cust:include
                             beanclass="eu.europa.ec.aqrsystem.action.LocalisationActionBean"
                             event="showSelect"/>
-                         </div>
-                        <div>
+                        </c:if>
+                        <div style="display:inline-block">
                           <c:choose>
                               <c:when test="${empty actionBean.userEmail}">
                                   <!--<s:link class="ftm insert btn login" beanclass="eu.europa.ec.aqrsystem.action.HomeActionBean">${res['loginpage.button']}</s:link>-->
