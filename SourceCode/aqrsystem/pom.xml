@@ -46,6 +46,25 @@
             <plugin> <!-- without this warnings are generated during the build -->
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.4</version>
+                <configuration>
+                  <webResources>
+                    <resource>
+                      <directory>${basedir}/src/main/webapp/META-INF</directory>
+                      <filtering>true</filtering>
+                      <targetPath>META-INF</targetPath>
+                      <includes>
+                        <include>context.xml</include>
+                      </includes>
+                    </resource>
+                    <resource>
+                      <directory>${basedir}/db/changelog</directory>
+                      <targetPath>WEB-INF/classes/db/changelog</targetPath>
+                      <includes>
+                        <include>*</include>
+                      </includes>
+                    </resource>
+                  </webResources>
+                </configuration>
             </plugin>
             
             <plugin> <!-- enabling deployments to the staging server -->
@@ -93,6 +112,18 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+              <groupId>org.liquibase</groupId>
+              <artifactId>liquibase-maven-plugin</artifactId>
+              <version>3.4.2</version>
+              <configuration>
+                <changeLogFile>db/changelog/db.changelog-master.xml</changeLogFile>
+                <driver>${persistence.jdbc.driver}</driver>
+                <url>${persistence.jdbc.url}</url>
+                <username>${persistence.jdbc.username}</username>
+                <password>${persistence.jdbc.password}</password>
+              </configuration>
             </plugin>
         </plugins>
         
@@ -223,6 +254,11 @@
             <artifactId>jaxb-impl</artifactId>
             <version>2.2.5.1</version>
         </dependency>
+        <dependency>
+          <groupId>org.liquibase</groupId>
+          <artifactId>liquibase-core</artifactId>
+          <version>3.4.2</version>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -238,7 +274,7 @@
         <netbeans.hint.license>aq-license</netbeans.hint.license>
         <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
     </properties>
-    
+
     <profiles>
         
         <profile>
