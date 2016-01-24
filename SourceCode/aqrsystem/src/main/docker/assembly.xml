@@ -4,6 +4,12 @@
 
 <!-- This is the way to add files into the image -->
   <files>
+    <file> <!-- Startup script -->
+      <source>src/main/docker/startup.sh</source>
+      <outputDirectory>.</outputDirectory>
+      <fileMode>0755</fileMode>
+      <destName>startup.sh</destName>
+    </file>
     <file>
       <source>../../ServerConfiguration/ecas/certs/CommisSign.cer</source>
       <outputDirectory>certs</outputDirectory>
@@ -15,6 +21,16 @@
       <destName>EuropeanCommission.cer</destName>
     </file>
 
+    <file>
+      <source>src/main/docker/ecas-config.properties</source>
+      <outputDirectory>.</outputDirectory>
+      <destName>ecas-config.properties</destName>
+    </file>
+    <file>
+      <source>src/main/docker/persistence.xml</source>
+      <outputDirectory>.</outputDirectory>
+      <destName>persistence.xml</destName>
+    </file>
     <file>
       <source>src/main/docker/server.xml</source>
       <outputDirectory>tomcat/conf</outputDirectory>
@@ -63,7 +79,7 @@
     <dependencySet>
       <useProjectArtifact>true</useProjectArtifact>
       <includes>
-        <include>eu.europa.ec:aqrsystem</include>
+        <include>eionet:aqrsystem</include>
       </includes>
       <outputDirectory>tomcat/webapps</outputDirectory>
       <outputFileNameMapping>ROOT.war</outputFileNameMapping>

@@ -1,15 +1,12 @@
-# * Modify ecas-config.properties to contain the name of your website and port number.
-# * Modify persistence.xml and environment for postgres to have matching information.
-
+#
 # VOLUMEDIR=/var/local/aqrsystem
-# mkdir -p ${VOLUMEDIR}/config/WEB-INF/classes/META-INF
 # mkdir -p ${VOLUMEDIR}/postgresqldata
-# cp ecas-config.properties ${VOLUMEDIR}/config/WEB-INF/classes
-# cp persistence.xml ${VOLUMEDIR}/config/WEB-INF/classes/META-INF
 # 
 # Copy the database files to ${VOLUMEDIR}/postgresqldata
 
 # chcon -Rt svirt_sandbox_file_t ${VOLUMEDIR}
+
+# * Modify the environment variables to fit.
 
 #
 # Persistent files for Postgres
@@ -28,6 +25,9 @@ postgresqldata:
         - /etc/postgresql
         - /var/log/postgresql
         - /var/local/aqrsystem/postgresqldata:/var/lib/postgresql/data
+    labels:
+        io.rancher.container.start_once: "true"
+#       io.rancher.scheduler.affinity:host_label: hostname=swarm1-reportnet
 
 #
 # Start the Postgres Service
@@ -43,6 +43,8 @@ postgres:
         - postgresqldata
     volumes:
         - /etc/localtime:/etc/localtime:ro # Share timezone data with host
+    labels:
+        io.rancher.sidekicks: postgresqldata
 
 #
 # Persistent files for Tomcat
@@ -52,9 +54,13 @@ tomcatdata:
     volumes:
         - /var/log/aqrsystem
         - /var/local/aqrsystem/tomcat-logs:/usr/local/tomcat/logs
+    labels:
+        io.rancher.container.start_once: "true"
+#       io.rancher.scheduler.affinity:host_label: hostname=swarm1-reportnet
 
+#
 # Start the Tomcat application
-# Image is at https://hub.docker.com/r/eeacms/aqr-public/
+#
 tomcat:
     restart: always
     hostname: papers
@@ -67,5 +73,13 @@ tomcat:
         - tomcatdata
     volumes:
         - /etc/localtime:/etc/localtime:ro # Share timezone data with host
-        - /var/local/aqrsystem/config:/config:ro
+    labels:
+        io.rancher.sidekicks: tomcatdata
+    environment:
+        - SERVER_NAME=localhost
+        - SERVER_PORT=8080
+        - DB_URL=jdbc:postgresql://DB_HOST:5432/aqrsystem
+        - DB_USERNAME=aqraccount
+        - DB_PASSWORD=dbpassword
+        - DB_DRIVER=org.postgresql.Driver
 

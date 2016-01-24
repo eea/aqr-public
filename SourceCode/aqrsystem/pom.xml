@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>eu.europa.ec</groupId>
+    <groupId>eionet</groupId>
     <artifactId>aqrsystem</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <packaging>war</packaging>
     <name>aqrsystem</name>
 
@@ -267,6 +267,7 @@
             <activeByDefault>false</activeByDefault>
           </activation>
           <properties>
+            <!-- <tomcat.port>8780</tomcat.port> -->
             <!-- Database configurations -->
             <persistence.jdbc.url>jdbc:postgresql://database:5432/aqrsystem</persistence.jdbc.url>
             <persistence.jdbc.username>postgres</persistence.jdbc.username>
@@ -304,8 +305,7 @@
                   <images>
                     <image>
                       <alias>service</alias>
-                      <name>dockerrepo.eionet.europa.eu:5000/${project.artifactId}</name>
-                      <!-- <registry>dockerrepo.eionet.europa.eu:5000</registry> -->
+                      <name>dockerrepo.eionet.europa.eu:5000/${project.groupId}/${project.artifactId}</name>
                       <build>
                         <from>tomcat:6</from>
                         <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
@@ -336,17 +336,20 @@
                           <port>8080</port>
                           <port>8009</port>
                         </ports>
-                        <!-- Inject configuration -->
-                        <cmd>( cd /config ; zip -rg /usr/local/tomcat/webapps/ROOT.war WEB-INF ) &amp;&amp; catalina.sh run</cmd>
+                        <cmd>/maven/startup.sh</cmd>
                       </build>
 
                       <run>
                         <hostname>papers</hostname>
-			<volumes>
-			  <bind>
-			    <volume>${project.basedir}/config:/config:ro</volume>
-			  </bind>
-			</volumes>
+                        <env>
+                          <CATALINA_OPTS>-Djava.security.egd=file:/dev/./urandom</CATALINA_OPTS>
+                          <SERVER_NAME>localhost</SERVER_NAME>
+                          <SERVER_PORT>${tomcat.port}</SERVER_PORT>
+                          <DB_URL>jdbc:postgresql://database:5432/aqrsystem</DB_URL>
+                          <DB_USERNAME>postgres</DB_USERNAME>
+                          <DB_PASSWORD>testpassword</DB_PASSWORD>
+                          <DB_DRIVER>org.postgresql.Driver</DB_DRIVER>
+                        </env>
                         <ports>
                           <port>tomcat.port:8080</port>
                         </ports>
@@ -371,8 +374,7 @@
                     <!-- This image is rebuilt every time. It is not suitable for persistent data -->
                     <image>
                       <alias>database</alias>
-                      <name>dockerrepo.eionet.europa.eu:5000/${project.artifactId}-db</name>
-                      <!-- <registry>dockerrepo.eionet.europa.eu:5000</registry> -->
+                      <name>${project.artifactId}-db</name>
                       <build>
                         <from>postgres:9.0</from>
                         <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
@@ -408,7 +410,6 @@
                         </ports>
                         <wait>
                           <log>PostgreSQL init process complete; ready for start up.</log>
-                          <!-- <log>database system is ready to accept connections</log> -->
                           <time>60000</time>
                         </wait>
                         <log>
