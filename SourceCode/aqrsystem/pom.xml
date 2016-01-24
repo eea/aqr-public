@@ -267,7 +267,7 @@
             <activeByDefault>false</activeByDefault>
           </activation>
           <properties>
-            <!-- <tomcat.port>8780</tomcat.port> -->
+            <tomcat.port>8780</tomcat.port>
             <!-- Database configurations -->
             <persistence.jdbc.url>jdbc:postgresql://database:5432/aqrsystem</persistence.jdbc.url>
             <persistence.jdbc.username>postgres</persistence.jdbc.username>
@@ -297,7 +297,7 @@
               <plugin>
                 <groupId>org.jolokia</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.13.4</version>
+                <version>0.13.6</version>
                 <configuration>
                   <verbose>true</verbose>
                   <logDate>default</logDate>
@@ -320,9 +320,11 @@
                           <CATALINA_OPTS>-Djava.security.egd=file:/dev/./urandom</CATALINA_OPTS>
                           <KEYSTORE_PASS>changeit</KEYSTORE_PASS>
                         </env>
+                        <!--
 			<volumes>
                           <volume>/config</volume>
 			</volumes>
+                        -->
                         <runCmds>
                           <run>apt-get update &amp;&amp; apt-get install -y zip &amp;&amp; rm -rf /var/lib/apt/lists/*</run>
                           <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias EuropeanCommission -file /maven/certs/EuropeanCommission.cer</run>

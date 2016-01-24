@@ -946,9 +946,6 @@ CREATE TABLE sourceapportionment
 	CONSTRAINT fk_sourceapportionment_users FOREIGN KEY (users) 
 		REFERENCES users (uuid) MATCH SIMPLE 
 		ON UPDATE NO ACTION ON DELETE NO ACTION,
-	CONSTRAINT fk_sourceapportionmentlastupdate_users FOREIGN KEY (userlastupdate) 
-		REFERENCES users (uuid) MATCH SIMPLE 
-		ON UPDATE NO ACTION ON DELETE NO ACTION,
 	CONSTRAINT fk_sourceapportionment_provider FOREIGN KEY (provider) 
 		REFERENCES relatedparty (uuid) MATCH SIMPLE 
 		ON UPDATE NO ACTION ON DELETE NO ACTION,
