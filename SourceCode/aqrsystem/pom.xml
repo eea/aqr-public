@@ -317,7 +317,6 @@
                           <descriptor>assembly.xml</descriptor>
                         </assembly>
                         <env>
-                          <CATALINA_OPTS>-Djava.security.egd=file:/dev/./urandom</CATALINA_OPTS>
                           <KEYSTORE_PASS>changeit</KEYSTORE_PASS>
                         </env>
                         <!--
@@ -326,14 +325,17 @@
 			</volumes>
                         -->
                         <runCmds>
-                          <run>apt-get update &amp;&amp; apt-get install -y zip &amp;&amp; rm -rf /var/lib/apt/lists/*</run>
+                          <run>apt-get update</run>
+                          <run>apt-get install -y zip</run>
+                          <run>rm -rf /var/lib/apt/lists/*</run>
                           <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias EuropeanCommission -file /maven/certs/EuropeanCommission.cer</run>
                           <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias CommisSign -file /maven/certs/CommisSign.cer</run>
 
-                          <run>rm -rf /usr/local/tomcat/webapps/*</run>
+                          <run>rm -rf $CATALINA_HOME/webapps/*</run>
                           <run>cp -r /maven/tomcat /usr/local</run>
                           <run>rm -f $CATALINA_HOME/conf/logging.properties</run>
                         </runCmds>
+                        <optimise>true</optimise>
                         <ports>
                           <port>8080</port>
                           <port>8009</port>

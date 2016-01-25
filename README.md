@@ -27,3 +27,7 @@ To use `docker:push` you must have an account and add these lines to your `~/.m2
 </server>
 ```
 Note that occassionally the application is ready before the database is online. In that case use the docker:start goal.
+
+Deployment
+----------
+The application is configured with environment variables. If you run it in a Docker container, then there is an example configuration at Documentation/docker-compose-example.yml.
