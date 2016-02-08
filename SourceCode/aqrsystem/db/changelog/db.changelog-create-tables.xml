@@ -18,74 +18,8 @@
     </preConditions>
     <sql stripComments="false">
       <![CDATA[
-      /*drop-tables*/
-      DROP TABLE IF EXISTS measures_scenario CASCADE;
-      DROP TABLE IF EXISTS attainment_plan CASCADE;
-      DROP TABLE IF EXISTS attainment_plan CASCADE;
-      DROP TABLE IF EXISTS areaclassification CASCADE;
-      DROP TABLE IF EXISTS exceedencearea_areaclassification CASCADE;
-      DROP TABLE IF EXISTS reasonvalue CASCADE;
-      DROP TABLE IF EXISTS exceedancedescription_reasonvalue CASCADE;
-      DROP TABLE IF EXISTS deductionAssessmentMethod_assesmentmethods CASCADE;
-      DROP TABLE IF EXISTS deductionAssessmentMethod_adjustmentSource CASCADE;
-      DROP TABLE IF EXISTS sourceapportionment_measures CASCADE;
-      DROP TABLE IF EXISTS measures_expectedimpact CASCADE;
-      DROP TABLE IF EXISTS measures_evaluationscenario CASCADE;
-      DROP TABLE IF EXISTS measures_spatialscale CASCADE;
-      DROP TABLE IF EXISTS measures_sourcesector CASCADE;
-      DROP TABLE IF EXISTS measures_administrationlevel CASCADE;
-      DROP TABLE IF EXISTS measures_classification CASCADE;
-      DROP TABLE IF EXISTS evaluationscenario_publication CASCADE;
-      DROP TABLE IF EXISTS eveluationscenario_publication CASCADE;
-      DROP TABLE IF EXISTS measures_costs CASCADE;
-      DROP TABLE IF EXISTS plan_publication CASCADE;
-      DROP TABLE IF EXISTS plan_pollutant_protectiontarget CASCADE;
-      DROP TABLE IF EXISTS pollutant_protectiontarget CASCADE;
-      DROP TABLE IF EXISTS plan_statusplan CASCADE;
-      DROP TABLE IF EXISTS classification CASCADE;
-      DROP TABLE IF EXISTS exceedancearea CASCADE;
-      DROP TABLE IF EXISTS adjustmentType CASCADE;
-      DROP TABLE IF EXISTS assesmenttype CASCADE;
-      DROP TABLE IF EXISTS assesmentmethods CASCADE;
-      DROP TABLE IF EXISTS adjustmentSource CASCADE;
-      DROP TABLE IF EXISTS deductionAssessmentMethod CASCADE;
-      DROP TABLE IF EXISTS exceedanceexposure CASCADE;
-      DROP TABLE IF EXISTS environmentalobjective CASCADE;
-      DROP TABLE IF EXISTS attainment CASCADE;
-      DROP TABLE IF EXISTS exceedancedescription CASCADE;
-      DROP TABLE IF EXISTS protectiontarget CASCADE;
-      DROP TABLE IF EXISTS spatialscale CASCADE;
-      DROP TABLE IF EXISTS sourcesector CASCADE;
-      DROP TABLE IF EXISTS administrationlevel CASCADE;
-      DROP TABLE IF EXISTS expectedimpact CASCADE;
-      DROP TABLE IF EXISTS plannedimplementation CASCADE;
-      DROP TABLE IF EXISTS costs CASCADE;
-      DROP TABLE IF EXISTS measures CASCADE;
-      DROP TABLE IF EXISTS localincrement CASCADE;
-      DROP TABLE IF EXISTS urbanbackground CASCADE;
-      DROP TABLE IF EXISTS regionalbackground CASCADE;
-      DROP TABLE IF EXISTS sourceapportionment CASCADE;
-      DROP TABLE IF EXISTS scenario CASCADE;
-      DROP TABLE IF EXISTS evaluationscenario CASCADE;
-      DROP TABLE IF EXISTS publication CASCADE;
-      DROP TABLE IF EXISTS pollutant CASCADE;
-      DROP TABLE IF EXISTS relatedparty CASCADE;
-      DROP TABLE IF EXISTS plan CASCADE;
-      DROP TABLE IF EXISTS usergroup CASCADE;
-      DROP TABLE IF EXISTS country CASCADE;
-      DROP TABLE IF EXISTS userrole CASCADE;
-      DROP TABLE IF EXISTS users CASCADE;
-      DROP TABLE IF EXISTS statusplan CASCADE;
-      DROP TABLE IF EXISTS specificationOfHours CASCADE;
-      DROP TABLE IF EXISTS statusplannedimplementation CASCADE;
-      DROP TABLE IF EXISTS currency CASCADE;
-      DROP TABLE IF EXISTS measureType CASCADE;
-      DROP TABLE IF EXISTS timeScale CASCADE;
-      DROP TABLE IF EXISTS specificationOfHours CASCADE;
-      DROP TABLE IF EXISTS quantificationNumerical CASCADE;
-      DROP TABLE IF EXISTS systemconfiguration CASCADE;
-
-
+      
+      
       /*create-codelist-tables*/
       --Table: areaclassification
       CREATE TABLE areaclassification
