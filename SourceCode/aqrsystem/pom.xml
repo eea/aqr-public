@@ -237,6 +237,7 @@
         <dependency.postgres.version>9.3-1100-jdbc4</dependency.postgres.version>
         <netbeans.hint.license>aq-license</netbeans.hint.license>
         <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
+        <maven.build.timestamp.format>yyyy-MM-dd'T'HHmm</maven.build.timestamp.format>
     </properties>
     
     <profiles>
@@ -312,6 +313,7 @@
                         <tags>
                           <tag>latest</tag>
                           <tag>${project.version}</tag>
+                          <tag>${maven.build.timestamp}</tag>
                         </tags>
                         <assembly>
                           <descriptor>assembly.xml</descriptor>
