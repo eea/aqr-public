@@ -380,7 +380,7 @@
                     <!-- This image is rebuilt every time. It is not suitable for persistent data -->
                     <image>
                       <alias>database</alias>
-                      <name>${project.artifactId}-db</name>
+                      <name>dockerrepo.eionet.europa.eu:5000/${project.groupId}/${project.artifactId}-testdb</name>
                       <build>
                         <from>postgres:9.0</from>
                         <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
@@ -388,7 +388,6 @@
                           <tag>latest</tag>
                           <tag>${project.version}</tag>
                         </tags>
-                        <!-- Assembly descriptor holds the reference to the created artifact-->
                         <assembly>
                           <descriptor>assembly-db.xml</descriptor>
                         </assembly>
