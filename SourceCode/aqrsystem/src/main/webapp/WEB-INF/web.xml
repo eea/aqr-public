@@ -10,7 +10,37 @@
         <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
         <param-value>StripesResources</param-value>
     </context-param>
-    
+    <!-- configuration for liquibase database version control -->
+    <context-param>
+        <param-name>liquibase.changelog</param-name>
+        <param-value>db/changelog/db.changelog-master.xml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>liquibase.datasource</param-name>
+        <param-value>java:comp/env/jdbc/aqr-public</param-value>
+    </context-param>
+
+    <!--<context-param>
+        <param-name>liquibase.host.includes</param-name>
+        <param-value>production1.example.com, production2.example.com</param-value>
+    </context-param>-->
+
+    <context-param>
+        <param-name>liquibase.onerror.fail</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>liquibase.contexts</param-name>
+        <param-value>production</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>liquibase.integration.servlet.LiquibaseServletListener</listener-class>
+    </listener>
+
+
     <!-- Stripes configuration -->
     <filter>
         <filter-name>StripesFilter</filter-name>

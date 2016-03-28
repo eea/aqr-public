@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+  <changeSet id="local-users" author="sofiageo" dbms="postgresql" context="local">
+    <sql>
+      INSERT INTO users VALUES ('123sofiageo123', 'gso@eworx.gr', 'George', 'Sofianos', '18', '1', '7', true, '2016-01-05 14:00:00', '2016-01-04 14:00:00');
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

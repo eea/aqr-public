@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/aqrsystem"/>
+<Context antiJARLocking="true" path="/aqrsystem">
+
+  <Resource
+          name="jdbc/aqr-public"
+          auth="Container"
+          type="javax.sql.DataSource"
+          maxActive="100"
+          maxIdle="30"
+          maxWait="10000"
+          username="${persistence.jdbc.username}"
+          password="${persistence.jdbc.password}"
+          driverClassName="${persistence.jdbc.driver}"
+          url="${persistence.jdbc.url}"
+          validationQuery="SELECT 1"
+          testOnBorrow="true"
+  >
+  </Resource>
+</Context>
