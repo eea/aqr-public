@@ -431,9 +431,10 @@
                           <POSTGRES_PASSWORD>testpassword</POSTGRES_PASSWORD>
                           <POSTGRES_DB>aqrsystem</POSTGRES_DB>
                         </env>
+<!--                    Will be used to run in case database is created from sql files    
                         <runCmds>
                           <run>mv /maven/docker-entrypoint-initdb.d/* /docker-entrypoint-initdb.d</run>
-                        </runCmds>
+                        </runCmds>-->
                         <ports>
                           <port>5432</port>
                         </ports>

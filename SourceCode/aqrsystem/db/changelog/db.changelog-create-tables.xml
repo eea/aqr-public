@@ -5,8 +5,10 @@
         xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-  <changeSet id="create-tables" author="sofiageo">
-    <preConditions onFail="MARK_RAN">
+  
+    <changeSet id="create-tables" author="kopanalk">
+    
+      <preConditions onFail="MARK_RAN">
       <or>
         <sqlCheck expectedResult="0">
           select count(*) from information_schema.tables where table_schema = 'public';
@@ -16,1239 +18,1279 @@
         </sqlCheck>
       </or>
     </preConditions>
-    <sql stripComments="false">
-      <![CDATA[
-      
-      
-      /*create-codelist-tables*/
-      --Table: areaclassification
-      CREATE TABLE areaclassification
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(600),
-      notation character varying(50),
-      CONSTRAINT pk_areaclassification  PRIMARY KEY (uuid)
-      );
+    
+     <createTable tableName="adjustmentsource">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="adjustmenttype">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="administrationlevel">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="areaclassification">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(600)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="assesmentmethods">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="assesmenttype" type="VARCHAR(50)"/>
+            <column name="assesmenttypedescription" type="VARCHAR(300)"/>
+            <column name="metadata" type="TEXT"/>
+        </createTable>
+        
+        <createTable tableName="assesmenttype">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(650)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="attainment">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_localid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_namespace" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_versionid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="TEXT"/>
+            <column name="users" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="environmentalobject" type="VARCHAR(50)"/>
+            <column name="pollutant" type="VARCHAR(50)"/>
+            <column name="validityperiod_id" type="VARCHAR(50)"/>
+            <column name="validityperiod_beginposition" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="validityperiod_endposition" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column defaultValueComputed="now()" name="datecreation" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datelastupdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+        
+        <createTable tableName="attainment_plan">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="attainment" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plan" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="classification">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="costs">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="extimatedimplementationcosts" type="VARCHAR(50)"/>
+            <column defaultValueBoolean="false" name="extimatedimplementationcosts_nil" type="BOOL"/>
+            <column name="extimatedimplementationcosts_nilreason" type="VARCHAR(500)"/>
+            <column name="finalimplementationcosts" type="VARCHAR(50)"/>
+            <column name="currency" type="VARCHAR(250)"/>
+            <column name="comment" type="TEXT"/>
+        </createTable>
+        
+        <createTable tableName="country">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="countryname" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="currency">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="deductionassessmentmethod">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="adjustmenttype" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="deductionassessmentmethod_adjustmentsource">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deductionassessmentmethod" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="adjustmentsource" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="deductionassessmentmethod_assesmentmethods">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deductionassessmentmethod" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="assesmentmethods" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="environmentalobjective">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="objectivetypevalue" type="VARCHAR(250)"/>
+            <column name="protectiontarget" type="VARCHAR(50)"/>
+            <column name="reportingmetricvalue" type="VARCHAR(250)"/>
+        </createTable>
+        
+        <createTable tableName="evaluationscenario">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_localid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_namespace" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_versionid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="provider" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="users" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codeofscenario" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="attainmentyear_id" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="attainmentyear_periodtime" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="startyear_id" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="startyear_periodtime" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plan" type="VARCHAR(50)"/>
+            <column name="sourceapportionment" type="VARCHAR(50)"/>
+            <column name="baselinescenario" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="projectionscenario" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="completed" type="BOOL"/>
+            <column defaultValueBoolean="false" name="changes" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="descriptionofchanges" type="VARCHAR(250)"/>
+            <column name="reportingstartdate" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reportingenddate" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="now()" name="datecreation" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datelastupdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="userlastupdate" type="VARCHAR(250)"/>
+        </createTable>
+        
+        <createTable tableName="evaluationscenario_publication">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="evaluationscenario" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="publication" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="exceedancearea">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="area" type="VARCHAR(50)"/>
+            <column name="areaestimate" type="VARCHAR(50)"/>
+            <column name="roadlenghtestimate" type="VARCHAR(20)"/>
+            <column name="administrativeunits" type="VARCHAR(100)"/>
+            <column name="modelused" type="TEXT"/>
+            <column name="stationused" type="TEXT"/>
+        </createTable>
+        
+        <createTable tableName="exceedancedescription">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="exceedance" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numericalexceedance" type="VARCHAR(50)"/>
+            <column name="numberexceedances" type="VARCHAR(50)"/>
+            <column name="deductionassessmentmethod" type="VARCHAR(50)"/>
+            <column name="exceedancearea" type="VARCHAR(50)"/>
+            <column name="exceedanceexposure" type="VARCHAR(50)"/>
+            <column name="otherreason" type="VARCHAR(250)"/>
+            <column defaultValueComputed="now()" name="datecreation" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datelastupdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="comment" type="TEXT"/>
+        </createTable>
+        
+        <createTable tableName="exceedancedescription_reasonvalue">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="exceedancedescription" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reasonvalue" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="exceedanceexposure">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="exposedpopulation" type="VARCHAR(50)"/>
+            <column name="exposedarea" type="VARCHAR(20)"/>
+            <column name="sensitiveresidentpopulation" type="VARCHAR(50)"/>
+            <column name="relevantinfrastructure" type="VARCHAR(50)"/>
+            <column name="referenceyear" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="exceedencearea_areaclassification">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="exceedancearea" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="areaclassification" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="expectedimpact">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="levelofconcentration" type="VARCHAR(20)"/>
+            <column name="numberofexceedence" type="VARCHAR(250)"/>
+            <column name="specificationofhours" type="VARCHAR(250)"/>
+            <column name="comment" type="TEXT"/>
+        </createTable>
+        
+        <createTable tableName="localincrement">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="totalcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="total_nil" type="BOOL"/>
+            <column name="total_nilreason" type="VARCHAR(500)"/>
+            <column name="traffic" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trafficcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="traffic_nil" type="BOOL"/>
+            <column name="traffic_nilreason" type="VARCHAR(500)"/>
+            <column name="heatandpowerproduction" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="heatandpowerproductioncomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="heatandpowerproduction_nil" type="BOOL"/>
+            <column name="heatandpowerproduction_nilreason" type="VARCHAR(500)"/>
+            <column name="agriculture" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="agriculturecomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="agriculture_nil" type="BOOL"/>
+            <column name="agriculture_nilreason" type="VARCHAR(500)"/>
+            <column name="commercialandresidential" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="commercialandresidentialcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="commercialandresidential_nil" type="BOOL"/>
+            <column name="commercialandresidential_nilreason" type="VARCHAR(500)"/>
+            <column name="shipping" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shippingcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="shipping_nil" type="BOOL"/>
+            <column name="shipping_nilreason" type="VARCHAR(500)"/>
+            <column name="offroadmobilemachinery" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="offroadmobilemachinerycomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="offroadmobilemachinery_nil" type="BOOL"/>
+            <column name="offroadmobilemachinery_nilreason" type="VARCHAR(500)"/>
+            <column name="naturallocalincrement" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="naturallocalincrementcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="naturallocalincrement_nil" type="BOOL"/>
+            <column name="naturallocalincrement_nilreason" type="VARCHAR(500)"/>
+            <column name="transboundary" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="transboundarycomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="transboundary_nil" type="BOOL"/>
+            <column name="transboundary_nilreason" type="VARCHAR(500)"/>
+            <column name="other" type="VARCHAR(250)"/>
+            <column name="othercomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="other_nil" type="BOOL"/>
+            <column name="other_nilreason" type="VARCHAR(500)"/>
+            <column name="unitmisure" type="VARCHAR(30)"/>
+            <column name="unitmisurecomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="unitmisure_nil" type="BOOL"/>
+            <column name="unitmisure_nilreason" type="VARCHAR(500)"/>
+        </createTable>
+        
+        <createTable tableName="measures">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_localid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_namespace" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_versionid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="provider" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="users" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="measuretype" type="VARCHAR(250)"/>
+            <column name="timescale" type="VARCHAR(250)"/>
+            <column name="plannedimplementation" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="commentforclarification" type="TEXT"/>
+            <column defaultValueBoolean="false" name="completed" type="BOOL"/>
+            <column name="costs" type="VARCHAR(250)"/>
+            <column name="reductionofemission" type="VARCHAR(50)"/>
+            <column defaultValueBoolean="false" name="reductionofemission_nil" type="BOOL"/>
+            <column name="reductionofemission_nilreason" type="VARCHAR(500)"/>
+            <column name="quantificationnumerical" type="VARCHAR(250)"/>
+            <column name="comment" type="TEXT"/>
+            <column name="expectedimpact" type="VARCHAR(250)"/>
+            <column defaultValueBoolean="false" name="changes" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="descriptionofchanges" type="VARCHAR(250)"/>
+            <column name="reportingstartdate" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reportingenddate" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="now()" name="datecreation" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datelastupdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="userlastupdate" type="VARCHAR(250)"/>
+        </createTable>
+        
+        <createTable tableName="measures_administrationlevel">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="measures" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="administractionlevel" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="measures_classification">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="measures" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="classification" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="measures_evaluationscenario">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="measures" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="evaluationscenario" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="measures_scenario">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="measures" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="scenario" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="measures_sourcesector">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="measures" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sourcesector" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="measures_spatialscale">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="measures" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="spatialscale" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="measuretype">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="plan">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_localid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_namespace" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_versionid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="provider" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="competentauthority" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="users" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstexceedanceyear_id" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstexceedanceyear_timeposition" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="adoptiondate_id" type="VARCHAR(50)"/>
+            <column name="adoptiondate_timeposition" type="VARCHAR(50)"/>
+            <column name="timetable" type="VARCHAR(300)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="referenceaqplan" type="VARCHAR(300)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="referenceimplementation" type="VARCHAR(300)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="TEXT"/>
+            <column name="statusplan" type="VARCHAR(250)"/>
+            <column defaultValueBoolean="false" name="completed" type="BOOL"/>
+            <column defaultValueBoolean="false" name="changes" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="descriptionofchanges" type="VARCHAR(250)"/>
+            <column name="reportingstartdate" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reportingenddate" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="now()" name="datecreation" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datelastupdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="userlastupdate" type="VARCHAR(250)"/>
+        </createTable>
+        
+        <createTable tableName="plan_pollutant_protectiontarget">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plan" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pollutant" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="protectiontarget" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="plan_publication">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plan" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="publication" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="plannedimplementation">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="statusplannedimplementation" type="VARCHAR(250)"/>
+            <column name="implementationplannedtimeperiod_id" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="implementationplannedtimeperiod_beginposition" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="implementationplannedtimeperiod_endposition" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="implementationactualtimeperiod_id" type="VARCHAR(50)"/>
+            <column name="implementationactualtimeperiod_beginposition" type="VARCHAR(50)"/>
+            <column name="implementationactualtimeperiod_endposition" type="VARCHAR(50)"/>
+            <column name="plannedfulleffectdate_id" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plannedfulleffectdate_timeposition" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="plannedfulleffectdate_timeposition_nil" type="BOOL"/>
+            <column name="plannedfulleffectdate_timeposition_nilreason" type="VARCHAR(500)"/>
+            <column name="otherdate" type="VARCHAR(250)"/>
+            <column name="monitoringprogressindicators" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="monitoringprogressindicators_nil" type="BOOL"/>
+            <column name="monitoringprogressindicators_nilreason" type="VARCHAR(500)"/>
+            <column name="comment" type="TEXT"/>
+        </createTable>
+        
+        <createTable tableName="pollutant">
+            <column name="uuid" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="pollutant_protectiontarget">
+            <column name="uuid" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pollutant" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="protectiontarget" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="protectiontarget">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="publication">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(300)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author" type="VARCHAR(100)"/>
+            <column name="publicationdate_id" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="publicationdate_timeposition" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="publisher" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="weblink" type="VARCHAR(250)"/>
+        </createTable>
+        
+        <createTable tableName="quantificationnumerical">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="reasonvalue">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+        
+        <createTable tableName="regionalbackground">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="totalcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="total_nil" type="BOOL"/>
+            <column name="total_nilreason" type="VARCHAR(500)"/>
+            <column name="fromwithinms" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fromwithinmscomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="fromwithinms_nil" type="BOOL"/>
+            <column name="fromwithinms_nilreason" type="VARCHAR(500)"/>
+            <column name="transboundary" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="transboundarycomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="transboundary_nil" type="BOOL"/>
+            <column name="transboundary_nilreason" type="VARCHAR(500)"/>
+            <column name="naturalregionalbackground" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="naturalregionalbackgroundcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="naturalregionalbackground_nil" type="BOOL"/>
+            <column name="naturalregionalbackground_nilreason" type="VARCHAR(500)"/>
+            <column name="other" type="VARCHAR(250)"/>
+            <column name="othercomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="other_nil" type="BOOL"/>
+            <column name="other_nilreason" type="VARCHAR(500)"/>
+            <column name="unitmisure" type="VARCHAR(30)"/>
+            <column name="unitmisurecomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="unitmisure_nil" type="BOOL"/>
+            <column name="unitmisure_nilreason" type="VARCHAR(500)"/>
+        </createTable>
+        
+        <createTable tableName="relatedparty">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="individualname" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="organisationname" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="website" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephonevoice" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="electronicmailaddress" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="scenario">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_localid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_namespace" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_versionid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="totalemissions" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expectedconcentration" type="VARCHAR(50)"/>
+            <column name="expectedexceedence" type="VARCHAR(50)"/>
+            <column name="comment" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="sourceapportionment">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_localid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_namespace" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="inspireid_versionid" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="provider" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="users" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="false" name="changes" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="descriptionofchanges" type="VARCHAR(250)"/>
+            <column name="reportingstartdate" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reportingenddate" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="referenceyear_id" type="VARCHAR(50)"/>
+            <column name="referenceyear_timeperiod" type="VARCHAR(50)"/>
+            <column name="regionalbackground" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="urbanbackground" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="localincrement" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="exceedancedescription" type="VARCHAR(50)"/>
+            <column name="comment" type="TEXT"/>
+            <column defaultValueBoolean="false" name="completed" type="BOOL"/>
+            <column name="attainment" type="VARCHAR(50)"/>
+            <column name="plan" type="VARCHAR(50)"/>
+            <column defaultValueComputed="now()" name="datecreation" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datelastupdate" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="userlastupdate" type="VARCHAR(250)"/>
+        </createTable>
+        
+        <createTable tableName="sourceapportionment_measures">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sourceapportionment" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="measures" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <createTable tableName="sourcesector">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+   
+        <createTable tableName="spatialscale">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+    
+        <createTable tableName="specificationofhours">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+    
+        <createTable tableName="statusplan">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="preferred_label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="link" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    
+        <createTable tableName="statusplannedimplementation">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+  
+        <createTable tableName="systemconfiguration">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="namespace" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+   
+        <createTable tableName="timescale">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uri" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="definition" type="VARCHAR(250)"/>
+            <column name="notation" type="VARCHAR(50)"/>
+        </createTable>
+    
+        <createTable tableName="urbanbackground">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="totalcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="total_nil" type="BOOL"/>
+            <column name="total_nilreason" type="VARCHAR(500)"/>
+            <column name="traffic" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="trafficcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="traffic_nil" type="BOOL"/>
+            <column name="traffic_nilreason" type="VARCHAR(500)"/>
+            <column name="heatandpowerproduction" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="heatandpowerproductioncomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="heatandpowerproduction_nil" type="BOOL"/>
+            <column name="heatandpowerproduction_nilreason" type="VARCHAR(500)"/>
+            <column name="agriculture" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="agriculturecomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="agriculture_nil" type="BOOL"/>
+            <column name="agriculture_nilreason" type="VARCHAR(500)"/>
+            <column name="commercialandresidential" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="commercialandresidentialcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="commercialandresidential_nil" type="BOOL"/>
+            <column name="commercialandresidential_nilreason" type="VARCHAR(500)"/>
+            <column name="shipping" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shippingcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="shipping_nil" type="BOOL"/>
+            <column name="shipping_nilreason" type="VARCHAR(500)"/>
+            <column name="offroadmobilemachinery" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="offroadmobilemachinerycomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="offroadmobilemachinery_nil" type="BOOL"/>
+            <column name="offroadmobilemachinery_nilreason" type="VARCHAR(500)"/>
+            <column name="naturalurbanbackground" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="naturalurbanbackgroundcomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="naturalurbanbackground_nil" type="BOOL"/>
+            <column name="naturalurbanbackground_nilreason" type="VARCHAR(500)"/>
+            <column name="transboundary" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="transboundarycomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="transboundary_nil" type="BOOL"/>
+            <column name="transboundary_nilreason" type="VARCHAR(500)"/>
+            <column name="other" type="VARCHAR(250)"/>
+            <column name="othercomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="other_nil" type="BOOL"/>
+            <column name="other_nilreason" type="VARCHAR(500)"/>
+            <column name="unitmisure" type="VARCHAR(30)"/>
+            <column name="unitmisurecomment" type="VARCHAR(500)"/>
+            <column defaultValueBoolean="false" name="unitmisure_nil" type="BOOL"/>
+            <column name="unitmisure_nilreason" type="VARCHAR(500)"/>
+        </createTable>
+  
+        <createTable tableName="userrole">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rolename" type="VARCHAR(250)"/>
+            <column name="label" type="VARCHAR(50)"/>
+        </createTable>
+   
+        <createTable tableName="users">
+            <column name="uuid" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="surname" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(50)"/>
+            <column name="userrole" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="provider" type="VARCHAR(250)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueBoolean="true" name="enable" type="BOOL"/>
+            <column name="datecreation" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="lastmodified" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+   
+        <addPrimaryKey columnNames="uuid" constraintName="pk_adjustmentsource" tableName="adjustmentsource"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_adjustmenttype" tableName="adjustmenttype"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_administrationlevel" tableName="administrationlevel"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_areaclassification" tableName="areaclassification"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_assesmentmethods" tableName="assesmentmethods"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_assesmenttype" tableName="assesmenttype"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_attainment" tableName="attainment"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_attainment_plan" tableName="attainment_plan"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_classification" tableName="classification"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_costs" tableName="costs"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_currency" tableName="currency"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_deductionassessmentmethod" tableName="deductionassessmentmethod"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_deductionassessmentmethod_adjustmentsource" tableName="deductionassessmentmethod_adjustmentsource"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_deductionassessmentmethod_assesmentmethods" tableName="deductionassessmentmethod_assesmentmethods"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_environmentalobjective" tableName="environmentalobjective"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_evaluationscenario" tableName="evaluationscenario"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_evaluationscenario_publication" tableName="evaluationscenario_publication"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_exceedancearea" tableName="exceedancearea"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_exceedancedescription" tableName="exceedancedescription"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_exceedancedescription_reasonvalue" tableName="exceedancedescription_reasonvalue"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_exceedanceexposure" tableName="exceedanceexposure"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_exceedencearea_areaclassification" tableName="exceedencearea_areaclassification"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_expectedimpact" tableName="expectedimpact"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_localincrement" tableName="localincrement"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_measures" tableName="measures"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_measures_administrationlevel" tableName="measures_administrationlevel"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_measures_classification" tableName="measures_classification"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_measures_evaluationscenario" tableName="measures_evaluationscenario"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_measures_scenario" tableName="measures_scenario"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_measures_sourcesector" tableName="measures_sourcesector"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_measures_spatialscale" tableName="measures_spatialscale"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_measuretype" tableName="measuretype"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_plan" tableName="plan"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_plan_pollutant_protectiontarget" tableName="plan_pollutant_protectiontarget"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_plan_publication" tableName="plan_publication"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_plannedimplementation" tableName="plannedimplementation"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_pollutant" tableName="pollutant"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_pollutant_protectiontarget" tableName="pollutant_protectiontarget"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_protectiontarget" tableName="protectiontarget"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_publication" tableName="publication"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_quantificationnumerical" tableName="quantificationnumerical"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_reasonvalue" tableName="reasonvalue"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_regionalbackground" tableName="regionalbackground"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_relatedparty" tableName="relatedparty"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_scenario" tableName="scenario"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_sourceapportionment" tableName="sourceapportionment"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_sourceapportionment_measures" tableName="sourceapportionment_measures"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_sourcesector" tableName="sourcesector"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_spatialscale" tableName="spatialscale"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_specificationofhours" tableName="specificationofhours"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_statusplannedimplementation" tableName="statusplannedimplementation"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_timescale" tableName="timescale"/>
+        <addPrimaryKey columnNames="uuid" constraintName="pk_urbanbackground" tableName="urbanbackground"/>
+        <addPrimaryKey columnNames="uuid" constraintName="statusplan_pkey" tableName="statusplan"/>
+        <addPrimaryKey columnNames="uuid" constraintName="systemconfiguration_pkey" tableName="systemconfiguration"/>
+        <addPrimaryKey columnNames="uuid" constraintName="user_pkey" tableName="users"/>
+        <addPrimaryKey columnNames="uuid" constraintName="usergroup_pkey" tableName="country"/>
+        <addPrimaryKey columnNames="uuid" constraintName="userrole_pkey" tableName="userrole"/>
+        
+        <addForeignKeyConstraint baseColumnNames="assesmenttype" baseTableName="assesmentmethods" constraintName="fk_assesmentmethods_assesmenttype" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="assesmenttype"/>
+        <addForeignKeyConstraint baseColumnNames="environmentalobject" baseTableName="attainment" constraintName="fk_attainment_environmentalobjective" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="environmentalobjective"/>
+        <addForeignKeyConstraint baseColumnNames="attainment" baseTableName="attainment_plan" constraintName="fk_attainment_plan_attainment" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="attainment"/>
+        <addForeignKeyConstraint baseColumnNames="plan" baseTableName="attainment_plan" constraintName="fk_attainment_plan_plan" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="plan"/>
+        <addForeignKeyConstraint baseColumnNames="pollutant" baseTableName="attainment" constraintName="fk_attainment_pollutant" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="pollutant"/>
+        <addForeignKeyConstraint baseColumnNames="users" baseTableName="attainment" constraintName="fk_attainment_users" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="users"/>
+        <addForeignKeyConstraint baseColumnNames="currency" baseTableName="costs" constraintName="fk_cost_currency" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="currency"/>
+        <addForeignKeyConstraint baseColumnNames="adjustmentsource" baseTableName="deductionassessmentmethod_adjustmentsource" constraintName="fk_deductionassessmentmethod_adjustmentsource_adjustmentsource" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="adjustmentsource"/>
+        <addForeignKeyConstraint baseColumnNames="deductionassessmentmethod" baseTableName="deductionassessmentmethod_adjustmentsource" constraintName="fk_deductionassessmentmethod_adjustmentsource_deductionassessme" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="deductionassessmentmethod"/>
+        <addForeignKeyConstraint baseColumnNames="assesmentmethods" baseTableName="deductionassessmentmethod_assesmentmethods" constraintName="fk_deductionassessmentmethod_assesmentmethods_assesmentmethods" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="assesmentmethods"/>
+        <addForeignKeyConstraint baseColumnNames="deductionassessmentmethod" baseTableName="deductionassessmentmethod_assesmentmethods" constraintName="fk_deductionassessmentmethod_assesmentmethods_deductionassessme" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="deductionassessmentmethod"/>
+        <addForeignKeyConstraint baseColumnNames="protectiontarget" baseTableName="environmentalobjective" constraintName="fk_environmentalobjective_protectiontarget" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="protectiontarget"/>
+        <addForeignKeyConstraint baseColumnNames="baselinescenario" baseTableName="evaluationscenario" constraintName="fk_evaluationscenario_baselinescenario" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="scenario"/>
+        <addForeignKeyConstraint baseColumnNames="plan" baseTableName="evaluationscenario" constraintName="fk_evaluationscenario_plan" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="plan"/>
+        <addForeignKeyConstraint baseColumnNames="projectionscenario" baseTableName="evaluationscenario" constraintName="fk_evaluationscenario_projectionscenario" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="scenario"/>
+        <addForeignKeyConstraint baseColumnNames="provider" baseTableName="evaluationscenario" constraintName="fk_evaluationscenario_provider" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="relatedparty"/>
+        <addForeignKeyConstraint baseColumnNames="evaluationscenario" baseTableName="evaluationscenario_publication" constraintName="fk_evaluationscenario_publication_evaluationscenario" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="evaluationscenario"/>
+        <addForeignKeyConstraint baseColumnNames="sourceapportionment" baseTableName="evaluationscenario" constraintName="fk_evaluationscenario_sourceapportionment" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="sourceapportionment"/>
+        <addForeignKeyConstraint baseColumnNames="users" baseTableName="evaluationscenario" constraintName="fk_evaluationscenario_users" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="users"/>
+        <addForeignKeyConstraint baseColumnNames="userlastupdate" baseTableName="evaluationscenario" constraintName="fk_evaluationscenariolastupdate_users" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="users"/>
+        <addForeignKeyConstraint baseColumnNames="publication" baseTableName="evaluationscenario_publication" constraintName="fk_eveluationscenario_publication_publication" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="publication"/>
+        <addForeignKeyConstraint baseColumnNames="adjustmenttype" baseTableName="deductionassessmentmethod" constraintName="fk_exceedancedescription_assesmentmethods_adjustmenttype" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="adjustmenttype"/>
+        <addForeignKeyConstraint baseColumnNames="deductionassessmentmethod" baseTableName="exceedancedescription" constraintName="fk_exceedancedescription_deductionassessmentmethod" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="deductionassessmentmethod"/>
+        <addForeignKeyConstraint baseColumnNames="exceedancearea" baseTableName="exceedancedescription" constraintName="fk_exceedancedescription_exceedancearea" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="exceedancearea"/>
+        <addForeignKeyConstraint baseColumnNames="exceedanceexposure" baseTableName="exceedancedescription" constraintName="fk_exceedancedescription_exceedanceexposure" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="exceedanceexposure"/>
+        <addForeignKeyConstraint baseColumnNames="exceedancedescription" baseTableName="exceedancedescription_reasonvalue" constraintName="fk_exceedancedescription_reasonvalue_exceedancedescription" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="exceedancedescription"/>
+        <addForeignKeyConstraint baseColumnNames="reasonvalue" baseTableName="exceedancedescription_reasonvalue" constraintName="fk_exceedancedescription_reasonvalue_reasonvalue" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="reasonvalue"/>
+        <addForeignKeyConstraint baseColumnNames="areaclassification" baseTableName="exceedencearea_areaclassification" constraintName="fk_exceedencearea_areaclassification_areaclassification" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="areaclassification"/>
+        <addForeignKeyConstraint baseColumnNames="exceedancearea" baseTableName="exceedencearea_areaclassification" constraintName="fk_exceedencearea_areaclassification_exceedancearea" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="exceedancearea"/>
+        <addForeignKeyConstraint baseColumnNames="specificationofhours" baseTableName="expectedimpact" constraintName="fk_expectedimpact_specificationofhours" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="specificationofhours"/>
+        <addForeignKeyConstraint baseColumnNames="administractionlevel" baseTableName="measures_administrationlevel" constraintName="fk_measures_administrationlevel_administrationlevel" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="administrationlevel"/>
+        <addForeignKeyConstraint baseColumnNames="measures" baseTableName="measures_administrationlevel" constraintName="fk_measures_administrationlevel_measures" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="measures"/>
+        <addForeignKeyConstraint baseColumnNames="classification" baseTableName="measures_classification" constraintName="fk_measures_classification_classification" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="classification"/>
+        <addForeignKeyConstraint baseColumnNames="measures" baseTableName="measures_classification" constraintName="fk_measures_classification_measures" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="measures"/>
+        <addForeignKeyConstraint baseColumnNames="costs" baseTableName="measures" constraintName="fk_measures_costs" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="costs"/>
+        <addForeignKeyConstraint baseColumnNames="evaluationscenario" baseTableName="measures_evaluationscenario" constraintName="fk_measures_evaluationscenario_evaluationscenario" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="evaluationscenario"/>
+        <addForeignKeyConstraint baseColumnNames="measures" baseTableName="measures_evaluationscenario" constraintName="fk_measures_evaluationscenario_measures" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="measures"/>
+        <addForeignKeyConstraint baseColumnNames="expectedimpact" baseTableName="measures" constraintName="fk_measures_expectedimpact" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="expectedimpact"/>
+        <addForeignKeyConstraint baseColumnNames="measuretype" baseTableName="measures" constraintName="fk_measures_measuretype" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="measuretype"/>
+        <addForeignKeyConstraint baseColumnNames="plannedimplementation" baseTableName="measures" constraintName="fk_measures_plannedimplementation" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="plannedimplementation"/>
+        <addForeignKeyConstraint baseColumnNames="provider" baseTableName="measures" constraintName="fk_measures_provider" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="relatedparty"/>
+        <addForeignKeyConstraint baseColumnNames="quantificationnumerical" baseTableName="measures" constraintName="fk_measures_quantificationnumerical" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="quantificationnumerical"/>
+        <addForeignKeyConstraint baseColumnNames="measures" baseTableName="measures_scenario" constraintName="fk_measures_scenario_measures" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="measures"/>
+        <addForeignKeyConstraint baseColumnNames="scenario" baseTableName="measures_scenario" constraintName="fk_measures_scenario_scenario" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="scenario"/>
+        <addForeignKeyConstraint baseColumnNames="measures" baseTableName="measures_sourcesector" constraintName="fk_measures_sourcesector_measures" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="measures"/>
+        <addForeignKeyConstraint baseColumnNames="sourcesector" baseTableName="measures_sourcesector" constraintName="fk_measures_sourcesector_sourcesector" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="sourcesector"/>
+        <addForeignKeyConstraint baseColumnNames="measures" baseTableName="measures_spatialscale" constraintName="fk_measures_spatialscale_measures" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="measures"/>
+        <addForeignKeyConstraint baseColumnNames="spatialscale" baseTableName="measures_spatialscale" constraintName="fk_measures_spatialscale_spatialscale" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="spatialscale"/>
+        <addForeignKeyConstraint baseColumnNames="timescale" baseTableName="measures" constraintName="fk_measures_timescale" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="timescale"/>
+        <addForeignKeyConstraint baseColumnNames="users" baseTableName="measures" constraintName="fk_measures_users" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="users"/>
+        <addForeignKeyConstraint baseColumnNames="userlastupdate" baseTableName="measures" constraintName="fk_measureslastupdate_users" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="users"/>
+        <addForeignKeyConstraint baseColumnNames="plan" baseTableName="plan_pollutant_protectiontarget" constraintName="fk_plan_pollutant_protectiontarget_plan" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="plan"/>
+        <addForeignKeyConstraint baseColumnNames="pollutant" baseTableName="plan_pollutant_protectiontarget" constraintName="fk_plan_pollutant_protectiontarget_pollutant" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="pollutant"/>
+        <addForeignKeyConstraint baseColumnNames="protectiontarget" baseTableName="plan_pollutant_protectiontarget" constraintName="fk_plan_pollutant_protectiontarget_protectiontarget" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="protectiontarget"/>
+        <addForeignKeyConstraint baseColumnNames="provider" baseTableName="plan" constraintName="fk_plan_provider" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="relatedparty"/>
+        <addForeignKeyConstraint baseColumnNames="plan" baseTableName="plan_publication" constraintName="fk_plan_publication_plan" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="plan"/>
+        <addForeignKeyConstraint baseColumnNames="publication" baseTableName="plan_publication" constraintName="fk_plan_publication_publication" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="publication"/>
+        <addForeignKeyConstraint baseColumnNames="competentauthority" baseTableName="plan" constraintName="fk_plan_relatedparty" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="relatedparty"/>
+        <addForeignKeyConstraint baseColumnNames="statusplan" baseTableName="plan" constraintName="fk_plan_statusplan" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="statusplan"/>
+        <addForeignKeyConstraint baseColumnNames="users" baseTableName="plan" constraintName="fk_plan_users" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="users"/>
+        <addForeignKeyConstraint baseColumnNames="userlastupdate" baseTableName="plan" constraintName="fk_planlastupdate_users" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="users"/>
+        <addForeignKeyConstraint baseColumnNames="statusplannedimplementation" baseTableName="plannedimplementation" constraintName="fk_plannedimplementation_statusplannedimplementation" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="statusplannedimplementation"/>
+        <addForeignKeyConstraint baseColumnNames="pollutant" baseTableName="pollutant_protectiontarget" constraintName="fk_pollutant_protectiontarget_pollutant" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="pollutant"/>
+        <addForeignKeyConstraint baseColumnNames="protectiontarget" baseTableName="pollutant_protectiontarget" constraintName="fk_pollutant_protectiontarget_protectiontarget" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="protectiontarget"/>
+        <addForeignKeyConstraint baseColumnNames="attainment" baseTableName="sourceapportionment" constraintName="fk_sourceapportionment_attainment" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="attainment"/>
+        <addForeignKeyConstraint baseColumnNames="exceedancedescription" baseTableName="sourceapportionment" constraintName="fk_sourceapportionment_exceedancedescription" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="exceedancedescription"/>
+        <addForeignKeyConstraint baseColumnNames="localincrement" baseTableName="sourceapportionment" constraintName="fk_sourceapportionment_localincrement" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="localincrement"/>
+        <addForeignKeyConstraint baseColumnNames="measures" baseTableName="sourceapportionment_measures" constraintName="fk_sourceapportionment_measures_measures" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="measures"/>
+        <addForeignKeyConstraint baseColumnNames="sourceapportionment" baseTableName="sourceapportionment_measures" constraintName="fk_sourceapportionment_measures_sourceapportionment" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="sourceapportionment"/>
+        <addForeignKeyConstraint baseColumnNames="plan" baseTableName="sourceapportionment" constraintName="fk_sourceapportionment_plan" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="plan"/>
+        <addForeignKeyConstraint baseColumnNames="provider" baseTableName="sourceapportionment" constraintName="fk_sourceapportionment_provider" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="relatedparty"/>
+        <addForeignKeyConstraint baseColumnNames="regionalbackground" baseTableName="sourceapportionment" constraintName="fk_sourceapportionment_regionalbackground" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="regionalbackground"/>
+        <addForeignKeyConstraint baseColumnNames="urbanbackground" baseTableName="sourceapportionment" constraintName="fk_sourceapportionment_urbanbackground" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="urbanbackground"/>
+        <addForeignKeyConstraint baseColumnNames="users" baseTableName="sourceapportionment" constraintName="fk_sourceapportionment_users" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="users"/>
+        <addForeignKeyConstraint baseColumnNames="userlastupdate" baseTableName="sourceapportionment" constraintName="fk_sourceapportionmentlastupdate_users" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="users"/>
+        <addForeignKeyConstraint baseColumnNames="country" baseTableName="systemconfiguration" constraintName="fk_systemconfiguration_country" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="country"/>
+        <addForeignKeyConstraint baseColumnNames="provider" baseTableName="users" constraintName="fk_users_provider" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="relatedparty"/>
+        <addForeignKeyConstraint baseColumnNames="country" baseTableName="users" constraintName="users_usergroup_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="country"/>
+        <addForeignKeyConstraint baseColumnNames="userrole" baseTableName="users" constraintName="users_userrole_id_fkey" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="uuid" referencedTableName="userrole"/>
+    </changeSet>
 
-
-      --Table: reasonvalue
-      CREATE TABLE reasonvalue
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_reasonvalue  PRIMARY KEY (uuid)
-      );
-
-
-      --Table: spatialscale
-      CREATE TABLE spatialscale
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_spatialscale  PRIMARY KEY (uuid)
-      );
-
-
-      --Table: sourcesector
-      CREATE TABLE sourcesector
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_sourcesector PRIMARY KEY (uuid)
-      );
-
-
-      --Table: administrationlevel
-      CREATE TABLE administrationlevel
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_administrationlevel PRIMARY KEY (uuid)
-      );
-
-
-      --Table: classification
-      CREATE TABLE classification
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_classification PRIMARY KEY (uuid)
-      );
-
-
-      --Table: specificationOfHours
-      CREATE TABLE specificationOfHours
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_specificationOfHours PRIMARY KEY (uuid)
-      );
-
-
-      --Table: statusplannedimplementation
-      CREATE TABLE statusplannedimplementation
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_statusplannedimplementation PRIMARY KEY (uuid)
-      );
-
-
-      --Table: currency
-      CREATE TABLE currency
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_currency PRIMARY KEY (uuid)
-      );
-
-
-      --Table: measureType
-      CREATE TABLE measureType
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_measureType PRIMARY KEY (uuid)
-      );
-
-
-      --Table: timeScale
-      CREATE TABLE timeScale
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_timeScale PRIMARY KEY (uuid)
-      );
-
-
-      --Table: quantificationNumerical
-      CREATE TABLE quantificationNumerical
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_quantificationNumerical PRIMARY KEY (uuid)
-      );
-
-
-      --Table: adjustmentType
-      CREATE TABLE adjustmentType
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_adjustmentType  PRIMARY KEY (uuid)
-      );
-
-      --Table: assesmenttype
-      CREATE TABLE assesmenttype
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(650),
-      notation character varying(50),
-      CONSTRAINT pk_assesmenttype  PRIMARY KEY (uuid)
-      );
-
-
-      --Table: assesmentmethods
-      CREATE TABLE assesmentmethods
-      (
-      uuid character varying(250) NOT NULL,
-      assesmenttype character varying(50),
-      assesmentTypeDescription character varying(300),
-      metadata TEXT,
-      CONSTRAINT pk_assesmentmethods  PRIMARY KEY (uuid),
-      CONSTRAINT fk_assesmentmethods_assesmenttype FOREIGN KEY (assesmenttype)
-      REFERENCES assesmenttype (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: adjustmentSource
-      CREATE TABLE adjustmentSource
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_adjustmentSource PRIMARY KEY (uuid)
-      );
-
-
-      -- Table: statusplan
-      CREATE TABLE statusplan
-      (
-      uuid character varying(250) NOT NULL,
-      preferred_label character varying(250) NOT NULL,
-      link character varying(250) NOT NULL,
-      CONSTRAINT statusplan_pkey PRIMARY KEY (uuid)
-      )
-      WITH (
-      OIDS=FALSE
-      );
-
-      --Table: protectiontarget
-      CREATE TABLE protectiontarget
-      (
-      uuid character varying(250) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_protectiontarget PRIMARY KEY (uuid)
-      );
-
-
-      --Table: pollutant
-      CREATE TABLE pollutant
-      (
-      uuid character varying(50) NOT NULL,
-      uri character varying(250) NOT NULL,
-      label character varying(250) NOT NULL,
-      definition character varying(250),
-      notation character varying(50),
-      CONSTRAINT pk_pollutant  PRIMARY KEY (uuid)
-      );
-
-
-
-
-      /*create-annex-tables*/
-      --Table: relatedparty
-      CREATE TABLE relatedparty
-      (
-      uuid character varying(250) NOT NULL,
-
-      individualName character varying(250) NOT NULL,
-      organisationName character varying(200) NOT NULL,
-
-      website character varying(250) NOT NULL,
-      address character varying(200) NOT NULL,
-
-      telephoneVoice character varying(50) NOT NULL,
-      electronicMailAddress character varying(250) NOT NULL,
-      CONSTRAINT pk_relatedparty  PRIMARY KEY (uuid)
-      );
-
-
-      -- Table: country
-      CREATE TABLE country
-      (
-      uuid character varying(250) NOT NULL,
-      countryName character varying(250) NOT NULL,
-      CONSTRAINT usergroup_pkey PRIMARY KEY (uuid)
-      )
-      WITH (
-      OIDS=FALSE
-      );
-
-
-      -- Table: userrole
-      CREATE TABLE userrole
-      (
-      uuid character varying(250) NOT NULL,
-      rolename character varying(250),
-      label character varying (50),
-      CONSTRAINT userrole_pkey PRIMARY KEY (uuid)
-      )
-      WITH (
-      OIDS=FALSE
-      );
-
-
-      --Table: publication
-      CREATE TABLE publication
-      (
-      uuid character varying(250) NOT NULL,
-      title character varying(200) NOT NULL,
-      description character varying(300) NOT NULL,
-      author character varying(100),
-      publicationDate_id character varying(50) NOT NULL,
-      publicationDate_timePosition character varying(50) NOT NULL,
-      publisher character varying(50) NOT NULL,
-      webLink character varying(250),
-      CONSTRAINT pk_publication  PRIMARY KEY (uuid)
-      );
-
-
-      --Table: exceedancearea
-      CREATE TABLE exceedancearea
-      (
-      uuid character varying(250) NOT NULL,
-      area character varying(50),
-      areaEstimate character varying(50),
-      roadLenghtEstimate character varying(20),
-      administrativeUnits character varying(100),
-      modelUsed TEXT,
-      stationUsed TEXT,
-      CONSTRAINT pk_exceedancearea  PRIMARY KEY (uuid)
-      );
-
-
-      --Table: exceedanceexposure
-      CREATE TABLE exceedanceexposure
-      (
-      uuid character varying(250) NOT NULL,
-      exposedPopulation character varying(50),
-      exposedArea character varying(20),
-      sensitiveResidentPopulation character varying(50),
-      relevantInfrastructure character varying(50),
-      referenceYear character varying(50),
-      CONSTRAINT pk_exceedanceexposure  PRIMARY KEY (uuid)
-      );
-
-
-      --Table: scenario
-      CREATE TABLE scenario
-      (
-      uuid character varying(250) NOT NULL,
-
-      inspireId_localId character varying(100) NOT NULL,
-      inspireId_namespace character varying(100) NOT NULL,
-      inspireId_versionId character varying(100) NOT NULL,
-
-      description character varying(1000) NOT NULL,
-      totalEmissions character varying(50) NOT NULL,
-
-      expectedConcentration character varying(50),
-      expectedExceedence character varying(50),
-      comment TEXT NOT NULL,
-      CONSTRAINT pk_scenario  PRIMARY KEY (uuid)
-      );
-
-
-      -- Table: systemconfiguration
-      CREATE TABLE systemconfiguration
-      (
-      uuid character varying(250) NOT NULL,
-      namespace character varying(250) NOT NULL,
-      country character varying(250) NOT NULL,
-      CONSTRAINT systemconfiguration_pkey PRIMARY KEY (uuid),
-      CONSTRAINT fk_systemconfiguration_country FOREIGN KEY (country)
-      REFERENCES country (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      )
-      WITH (
-      OIDS=FALSE
-      );
-
-      --Table: expectedimpact
-      CREATE TABLE expectedimpact
-      (
-      uuid character varying(250) NOT NULL,
-      levelOfConcentration character varying(20),
-      numberOfExceedence character varying(250),
-      specificationOfHours character varying(250),
-      comment TEXT,
-      CONSTRAINT pk_expectedimpact  PRIMARY KEY (uuid),
-      CONSTRAINT fk_expectedimpact_specificationOfHours FOREIGN KEY (specificationOfHours)
-      REFERENCES specificationOfHours (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table:  plannedimplementation
-      CREATE TABLE plannedimplementation
-      (
-      uuid character varying(250) NOT NULL,
-      statusplannedimplementation character varying(250),
-
-      implementationPlannedTimePeriod_id character varying(50) NOT NULL,
-      implementationPlannedTimePeriod_beginPosition character varying(50) NOT NULL,
-      implementationPlannedTimePeriod_endPosition character varying(50) NOT NULL,
-
-      implementationActualTimePeriod_id character varying(50),
-      implementationActualTimePeriod_beginPosition character varying(50),
-      implementationActualTimePeriod_endPosition character varying(50),
-
-      plannedfulleffectDate_id character varying(50) NOT NULL,
-      plannedfulleffectDate_timePosition character varying(50) NOT NULL,
-      plannedfulleffectDate_timePosition_nil boolean default true,
-      plannedfulleffectDate_timePosition_nilreason character varying(500),
-
-      otherDate character varying(250),
-
-      monitoringProgressIndicators character varying(250) NOT NULL,
-      monitoringProgressIndicators_nil boolean default false,
-      monitoringProgressIndicators_nilreason character varying(500),
-
-      comment TEXT,
-      CONSTRAINT pk_plannedimplementation  PRIMARY KEY (uuid),
-      CONSTRAINT fk_plannedimplementation_statusplannedimplementation FOREIGN KEY (statusplannedimplementation)
-      REFERENCES statusplannedimplementation (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: costs
-      CREATE TABLE costs
-      (
-      uuid character varying(250) NOT NULL,
-
-      extimatedImplementationCosts character varying(50),
-      extimatedImplementationCosts_nil boolean default false,
-      extimatedImplementationCosts_nilreason character varying(500),
-
-      finalImplementationCosts character varying(50),
-      currency character varying(250),
-      comment TEXT,
-      CONSTRAINT pk_costs PRIMARY KEY (uuid),
-      CONSTRAINT fk_cost_currency FOREIGN KEY (currency)
-      REFERENCES currency (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-      --Table: localincrement
-      CREATE TABLE localincrement
-      (
-      uuid character varying(250) NOT NULL,
-
-      total character varying(250) NOT NULL,
-      totalcomment character varying(500),
-      total_nil boolean default false,
-      total_nilreason character varying(500),
-
-      traffic character varying(250) NOT NULL,
-      trafficcomment character varying(500),
-      traffic_nil boolean default false,
-      traffic_nilreason character varying(500),
-
-      heatAndPowerProduction character varying(250) NOT NULL,
-      heatAndPowerProductioncomment character varying(500),
-      heatAndPowerProduction_nil boolean default false,
-      heatAndPowerProduction_nilreason character varying(500),
-
-      agriculture character varying(250) NOT NULL,
-      agriculturecomment character varying(500),
-      agriculture_nil boolean default false,
-      agriculture_nilreason character varying(500),
-
-      commercialAndResidential character varying(250) NOT NULL,
-      commercialAndResidentialcomment character varying(500),
-      commercialAndResidential_nil boolean default false,
-      commercialAndResidential_nilreason character varying(500),
-
-      shipping character varying(250) NOT NULL,
-      shippingcomment character varying(500),
-      shipping_nil boolean default false,
-      shipping_nilreason character varying(500),
-
-      offRoadMobileMachinery character varying(250) NOT NULL,
-      offRoadMobileMachinerycomment character varying(500),
-      offRoadMobileMachinery_nil boolean default false,
-      offRoadMobileMachinery_nilreason character varying(500),
-
-      naturallocalincrement character varying(250) NOT NULL,
-      naturallocalincrementcomment character varying(500),
-      naturallocalincrement_nil boolean default false,
-      naturallocalincrement_nilreason character varying(500),
-
-      transboundary character varying(250) NOT NULL,
-      transboundarycomment character varying(500),
-      transboundary_nil boolean default false,
-      transboundary_nilreason character varying(500),
-
-      other character varying(250),
-      othercomment character varying(500),
-      other_nil boolean default false,
-      other_nilreason character varying(500),
-
-      unitMisure character varying(30),
-      unitMisurecomment character varying(500),
-      unitMisure_nil boolean default false,
-      unitMisure_nilreason character varying(500),
-
-      CONSTRAINT pk_localincrement  PRIMARY KEY (uuid)
-      );
-
-
-      --Table: urbanbackground
-      CREATE TABLE urbanbackground
-      (
-      uuid character varying(250) NOT NULL,
-
-      total character varying(250) NOT NULL,
-      totalcomment character varying(500),
-      total_nil boolean default false,
-      total_nilreason character varying(500),
-
-      traffic character varying(250) NOT NULL,
-      trafficcomment character varying(500),
-      traffic_nil boolean default false,
-      traffic_nilreason character varying(500),
-
-      heatAndPowerProduction character varying(250) NOT NULL,
-      heatAndPowerProductioncomment character varying(500),
-      heatAndPowerProduction_nil boolean default false,
-      heatAndPowerProduction_nilreason character varying(500),
-
-      agriculture character varying(250) NOT NULL,
-      agriculturecomment character varying(500),
-      agriculture_nil boolean default false,
-      agriculture_nilreason character varying(500),
-
-      commercialAndResidential character varying(250) NOT NULL,
-      commercialAndResidentialcomment character varying(500),
-      commercialAndResidential_nil boolean default false,
-      commercialAndResidential_nilreason character varying(500),
-
-      shipping character varying(250) NOT NULL,
-      shippingcomment character varying(500),
-      shipping_nil boolean default false,
-      shipping_nilreason character varying(500),
-
-      offRoadMobileMachinery character varying(250) NOT NULL,
-      offRoadMobileMachinerycomment character varying(500),
-      offRoadMobileMachinery_nil boolean default false,
-      offRoadMobileMachinery_nilreason character varying(500),
-
-      naturalurbanbackground character varying(250) NOT NULL,
-      naturalurbanbackgroundcomment character varying(500),
-      naturalurbanbackground_nil boolean default false,
-      naturalurbanbackground_nilreason character varying(500),
-
-      transboundary character varying(250) NOT NULL,
-      transboundarycomment character varying(500),
-      transboundary_nil boolean default false,
-      transboundary_nilreason character varying(500),
-
-      other character varying(250),
-      othercomment character varying(500),
-      other_nil boolean default false,
-      other_nilreason character varying(500),
-
-      unitMisure character varying(30),
-      unitMisurecomment character varying(500),
-      unitMisure_nil boolean default false,
-      unitMisure_nilreason character varying(500),
-
-      CONSTRAINT pk_urbanbackground PRIMARY KEY (uuid)
-      );
-
-
-      --Table: regionalbackground
-      CREATE TABLE regionalbackground
-      (
-      uuid character varying(250) NOT NULL,
-
-      total character varying(250) NOT NULL,
-      totalcomment character varying(500),
-      total_nil boolean default false,
-      total_nilreason character varying(500),
-
-      fromWithinMS character varying(250) NOT NULL,
-      fromWithinMScomment character varying(500),
-      fromWithinMS_nil boolean default false,
-      fromWithinMS_nilreason character varying(500),
-
-      transboundary character varying(250) NOT NULL,
-      transboundarycomment character varying(500),
-      transboundary_nil boolean default false,
-      transboundary_nilreason character varying(500),
-
-      naturalregionalbackground character varying(250) NOT NULL,
-      naturalregionalbackgroundcomment character varying(500),
-      naturalregionalbackground_nil boolean default false,
-      naturalregionalbackground_nilreason character varying(500),
-
-      other character varying(250),
-      othercomment character varying(500),
-      other_nil boolean default false,
-      other_nilreason character varying(500),
-
-      unitMisure character varying(30),
-      unitMisurecomment character varying(500),
-      unitMisure_nil boolean default false,
-      unitMisure_nilreason character varying(500),
-
-      CONSTRAINT pk_regionalbackground PRIMARY KEY (uuid)
-      );
-
-
-      --Table: environmentalobjective
-      CREATE TABLE environmentalobjective
-      (
-      uuid character varying(250) NOT NULL,
-      objectiveTypeValue character varying(250),
-      protectionTarget character varying(50),
-      reportingMetricValue character varying(250),
-      CONSTRAINT pk_environmentalobjective  PRIMARY KEY (uuid),
-      CONSTRAINT fk_environmentalobjective_protectiontarget FOREIGN KEY (protectionTarget)
-      REFERENCES protectiontarget (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-      --Table: deductionAssessmentMethod
-      CREATE TABLE deductionAssessmentMethod
-      (
-      uuid character varying(250) NOT NULL,
-      adjustmentType character varying(50),
-      CONSTRAINT pk_deductionAssessmentMethod  PRIMARY KEY (uuid),
-      CONSTRAINT fk_exceedancedescription_assesmentmethods_adjustmentType FOREIGN KEY (adjustmentType)
-      REFERENCES adjustmentType (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: exceedancedescription
-      CREATE TABLE exceedancedescription
-      (
-      uuid character varying(250) NOT NULL,
-
-      exceedance boolean NOT NULL,
-      numericalExceedance character varying(50),
-      numberExceedances character varying(50),
-
-      deductionAssessmentMethod character varying(50),
-      exceedanceArea character varying(50),
-      exceedanceexposure character varying(50),
-
-      otherReason character varying(250),
-
-      datecreation timestamp without time zone NOT NULL DEFAULT now(),
-      datelastupdate timestamp without time zone,
-      comment TEXT,
-      CONSTRAINT pk_exceedancedescription  PRIMARY KEY (uuid),
-      CONSTRAINT fk_exceedancedescription_exceedanceexposure FOREIGN KEY (exceedanceexposure)
-      REFERENCES exceedanceexposure (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_exceedancedescription_deductionAssessmentMethod FOREIGN KEY (deductionAssessmentMethod)
-      REFERENCES deductionAssessmentMethod (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_exceedancedescription_exceedancearea FOREIGN KEY (exceedanceArea)
-      REFERENCES exceedancearea (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      /*create-main-tables*/
-      -- Table: users
-      CREATE TABLE users
-      (
-      uuid character varying(250) NOT NULL,
-      email character varying(250) NOT NULL,
-      name character varying(250) NOT NULL,
-      surname character varying(250) NOT NULL,
-      country character varying(50),
-      userrole character varying(50) NOT NULL,
-      provider character varying(250) NOT NULL,
-      enable boolean default true,
-      datecreation timestamp without time zone,
-      lastmodified timestamp without time zone,
-      CONSTRAINT user_pkey PRIMARY KEY (uuid),
-      CONSTRAINT fk_users_provider FOREIGN KEY (provider)
-      REFERENCES relatedparty (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT users_usergroup_id_fkey FOREIGN KEY (country)
-      REFERENCES country (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT users_userrole_id_fkey FOREIGN KEY (userrole)
-      REFERENCES userrole (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      )
-      WITH (
-      OIDS=FALSE
-      );
-
-
-      --Table: measures
-      CREATE TABLE measures
-      (
-      uuid character varying(250) NOT NULL,
-
-      inspireId_localId character varying(100) NOT NULL,
-      inspireId_namespace character varying(100) NOT NULL,
-      inspireId_versionId character varying(100) NOT NULL,
-
-      provider character varying(250) NOT NULL,
-
-      users character varying(250) NOT NULL,
-      userlastupdate character varying(250),
-
-      code character varying(200) NOT NULL,
-      name character varying(200) NOT NULL,
-
-      description TEXT NOT NULL,
-
-      measureType character varying(250),
-      timeScale character varying(250),
-
-      plannedImplementation character varying(50) NOT NULL,
-
-      commentForClarification TEXT,
-      completed boolean default false,
-
-      costs character varying(250),
-
-      reductionOfEmission character varying(50),
-      reductionOfEmission_nil boolean default false,
-      reductionOfEmission_nilreason character varying(500),
-
-      quantificationNumerical character varying(250),
-
-      comment TEXT,
-
-      expectedimpact character varying(250),
-
-      changes boolean default false NOT NULL,
-      descriptionOfChanges character varying(250),
-      reportingStartDate character varying(50) NOT NULL,
-      reportingEndDate character varying(50) NOT NULL,
-
-      datecreation timestamp without time zone NOT NULL DEFAULT now(),
-      datelastupdate timestamp without time zone,
-
-      CONSTRAINT pk_measures PRIMARY KEY (uuid),
-      CONSTRAINT fk_measures_users FOREIGN KEY (users)
-      REFERENCES users (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measureslastupdate_users FOREIGN KEY (userlastupdate)
-      REFERENCES users (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_provider FOREIGN KEY (provider)
-      REFERENCES relatedparty (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_measureType FOREIGN KEY (measureType)
-      REFERENCES measureType (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_timeScale FOREIGN KEY (timeScale)
-      REFERENCES timeScale (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_plannedImplementation FOREIGN KEY (plannedImplementation)
-      REFERENCES plannedImplementation (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_costs FOREIGN KEY (costs)
-      REFERENCES costs (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_quantificationNumerical FOREIGN KEY (quantificationNumerical)
-      REFERENCES quantificationNumerical (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_expectedimpact FOREIGN KEY (expectedimpact)
-      REFERENCES expectedimpact (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: attainment
-      CREATE TABLE attainment
-      (
-      uuid character varying(250) NOT NULL,
-
-      inspireId_localId character varying(100) NOT NULL,
-      inspireId_namespace character varying(100) NOT NULL,
-      inspireId_versionId character varying(100) NOT NULL,
-
-      comment TEXT,
-
-      users character varying(250) NOT NULL,
-
-      environmentalObject character varying(50),
-      pollutant character varying(50),
-
-      validityPeriod_id character varying(50),
-      validityPeriod_beginPosition timestamp without time zone,
-      validityPeriod_endPosition timestamp without time zone,
-
-      datecreation timestamp without time zone NOT NULL DEFAULT now(),
-      datelastupdate timestamp without time zone,
-      CONSTRAINT pk_attainment  PRIMARY KEY (uuid),
-      CONSTRAINT fk_attainment_users FOREIGN KEY (users)
-      REFERENCES users (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_attainment_environmentalobjective FOREIGN KEY (environmentalObject)
-      REFERENCES environmentalobjective (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_attainment_pollutant FOREIGN KEY (pollutant)
-      REFERENCES pollutant (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: plan
-      CREATE TABLE plan
-      (
-      uuid character varying(250) NOT NULL,
-
-      inspireid_localId character varying(100) NOT NULL,
-      inspireid_namespace character varying(100) NOT NULL,
-      inspireid_versionId character varying(100) NOT NULL,
-
-      code character varying(200) NOT NULL,
-      name character varying(200) NOT NULL,
-
-      provider character varying(250) NOT NULL,
-      competentauthority character varying(250) NOT NULL,
-      users character varying(250) NOT NULL,
-      userlastupdate character varying(250),
-
-      firstExceedanceYear_id character varying(50) NOT NULL,
-      firstExceedanceYear_timePosition character varying(4) NOT NULL,
-
-      adoptionDate_id character varying(50),
-      adoptionDate_timePosition character varying(50),
-
-      timeTable character varying(300) NOT NULL,
-      referenceAQPlan character varying(300) NOT NULL,
-      referenceImplementation character varying(300) NOT NULL,
-
-      comment TEXT,
-      statusplan character varying(250),
-      completed boolean default false,
-
-      changes boolean default false NOT NULL,
-      descriptionOfChanges character varying(250),
-      reportingStartDate character varying(50) NOT NULL,
-      reportingEndDate character varying(50) NOT NULL,
-
-      datecreation timestamp without time zone NOT NULL DEFAULT now(),
-      datelastupdate timestamp without time zone,
-
-      CONSTRAINT pk_plan  PRIMARY KEY (uuid),
-      CONSTRAINT fk_plan_users FOREIGN KEY (users)
-      REFERENCES users (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_planlastupdate_users FOREIGN KEY (userlastupdate)
-      REFERENCES users (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_plan_provider FOREIGN KEY (provider)
-      REFERENCES relatedparty (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_plan_relatedparty FOREIGN KEY (competentauthority)
-      REFERENCES relatedparty (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_plan_statusplan FOREIGN KEY (statusplan)
-      REFERENCES statusplan (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: sourceapportionment
-      CREATE TABLE sourceapportionment
-      (
-      uuid character varying(250) NOT NULL,
-
-      inspireid_localId character varying(100) NOT NULL,
-      inspireid_namespace character varying(100) NOT NULL,
-      inspireid_versionId character varying(100) NOT NULL,
-
-      provider character varying(250) NOT NULL,
-
-      users character varying(250) NOT NULL,
-      userlastupdate character varying(250),
-
-      changes boolean default false NOT NULL,
-      descriptionOfChanges character varying(250),
-      reportingStartDate character varying(50) NOT NULL,
-      reportingEndDate character varying(50) NOT NULL,
-
-      referenceYear_id character varying(50),
-      referenceYear_timePeriod character varying(50),
-
-      regionalBackground character varying(50) NOT NULL,
-      urbanBackground character varying(50) NOT NULL,
-      localIncrement character varying(50) NOT NULL,
-
-      exceedancedescription character varying(50),
-
-      comment TEXT,
-      completed boolean default false,
-
-      attainment character varying(50),
-      plan character varying(50),
-
-      datecreation timestamp without time zone NOT NULL DEFAULT now(),
-      datelastupdate timestamp without time zone,
-      CONSTRAINT pk_sourceapportionment  PRIMARY KEY (uuid),
-      CONSTRAINT fk_sourceapportionment_users FOREIGN KEY (users)
-      REFERENCES users (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_sourceapportionmentlastupdate_users FOREIGN KEY (userlastupdate)
-      REFERENCES users (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_sourceapportionment_provider FOREIGN KEY (provider)
-      REFERENCES relatedparty (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_sourceapportionment_attainment FOREIGN KEY (attainment)
-      REFERENCES attainment (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_sourceapportionment_exceedancedescription FOREIGN KEY (exceedancedescription)
-      REFERENCES exceedancedescription (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_sourceapportionment_plan FOREIGN KEY (plan)
-      REFERENCES plan (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_sourceapportionment_urbanbackground FOREIGN KEY (urbanBackground)
-      REFERENCES urbanbackground (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_sourceapportionment_regionalbackground FOREIGN KEY (regionalBackground)
-      REFERENCES regionalbackground (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_sourceapportionment_localincrement FOREIGN KEY (localIncrement)
-      REFERENCES localincrement (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: evaluationscenario
-      CREATE TABLE evaluationscenario
-      (
-      uuid character varying(250) NOT NULL,
-
-      inspireid_localId character varying(100) NOT NULL,
-      inspireid_namespace character varying(100) NOT NULL,
-      inspireid_versionId character varying(100) NOT NULL,
-
-      provider character varying(250) NOT NULL,
-      users character varying(250) NOT NULL,
-      userlastupdate character varying(250),
-
-      codeOfScenario character varying(250) NOT NULL,
-
-      attainmentYear_id character varying(50) NOT NULL,
-      attainmentYear_periodTime character varying(4) NOT NULL,
-
-      startYear_id character varying(50) NOT NULL,
-      startYear_periodTime character varying(50) NOT NULL,
-
-      plan character varying(50),
-      sourceapportionment character varying(50),
-
-      baselinescenario character varying(50) NOT NULL,
-      projectionscenario character varying(50) NOT NULL,
-
-      completed boolean default false,
-
-      changes boolean default false NOT NULL,
-      descriptionOfChanges character varying(250),
-      reportingStartDate character varying(50) NOT NULL,
-      reportingEndDate character varying(50) NOT NULL,
-
-      datecreation timestamp without time zone NOT NULL DEFAULT now(),
-      datelastupdate timestamp without time zone,
-      CONSTRAINT pk_evaluationscenario  PRIMARY KEY (uuid),
-      CONSTRAINT fk_evaluationscenario_users FOREIGN KEY (users)
-      REFERENCES users (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_pk_evaluationscenariolastupdate_users FOREIGN KEY (userlastupdate)
-      REFERENCES users (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_evaluationscenario_provider FOREIGN KEY (provider)
-      REFERENCES relatedparty (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_evaluationscenario_plan FOREIGN KEY (plan)
-      REFERENCES plan (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_evaluationscenario_sourceapportionment FOREIGN KEY (sourceapportionment)
-      REFERENCES sourceapportionment (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_evaluationscenario_baselinescenario FOREIGN KEY (baselinescenario)
-      REFERENCES scenario (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_evaluationscenario_projectionscenario FOREIGN KEY (projectionscenario)
-      REFERENCES scenario (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      /*create-crossreference-tables*/
-      --Table: pollutant_protectiontarget
-      CREATE TABLE pollutant_protectiontarget
-      (
-      uuid character varying(50) NOT NULL,
-      pollutant character varying(50) NOT NULL,
-      protectiontarget character varying(50) NOT NULL,
-      CONSTRAINT pk_pollutant_protectiontarget PRIMARY KEY (uuid),
-      CONSTRAINT fk_pollutant_protectiontarget_pollutant FOREIGN KEY (pollutant)
-      REFERENCES pollutant (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_pollutant_protectiontarget_protectiontarget FOREIGN KEY (protectiontarget)
-      REFERENCES protectiontarget (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: exceedencearea_areaclassification
-      CREATE TABLE exceedencearea_areaclassification
-      (
-      uuid character varying(250) NOT NULL,
-      exceedancearea character varying(50) NOT NULL,
-      areaclassification character varying(50) NOT NULL,
-      CONSTRAINT pk_exceedencearea_areaclassification  PRIMARY KEY (uuid),
-      CONSTRAINT fk_exceedencearea_areaclassification_areaclassification 	FOREIGN KEY (areaclassification)
-      REFERENCES areaclassification (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_exceedencearea_areaclassification_exceedancearea FOREIGN KEY (exceedancearea)
-      REFERENCES exceedancearea (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: deductionAssessmentMethod_adjustmentSource
-      CREATE TABLE deductionAssessmentMethod_adjustmentSource
-      (
-      uuid character varying(250) NOT NULL,
-      deductionAssessmentMethod character varying(50) NOT NULL,
-      adjustmentSource character varying(50) NOT NULL,
-      CONSTRAINT pk_deductionAssessmentMethod_adjustmentSource PRIMARY KEY (uuid),
-      CONSTRAINT fk_deductionAssessmentMethod_adjustmentSource_deductionAssessmentMethod FOREIGN KEY (deductionAssessmentMethod)
-      REFERENCES deductionAssessmentMethod (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_deductionAssessmentMethod_adjustmentSource_adjustmentSource FOREIGN KEY (adjustmentSource)
-      REFERENCES adjustmentSource (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: deductionAssessmentMethod_assesmentmethods
-      CREATE TABLE deductionAssessmentMethod_assesmentmethods
-      (
-      uuid character varying(250) NOT NULL,
-      deductionAssessmentMethod character varying(50) NOT NULL,
-      assesmentmethods character varying(50) NOT NULL,
-      CONSTRAINT pk_deductionAssessmentMethod_assesmentmethods PRIMARY KEY (uuid),
-      CONSTRAINT fk_deductionAssessmentMethod_assesmentmethods_deductionAssessmentMethod FOREIGN KEY (deductionAssessmentMethod)
-      REFERENCES deductionAssessmentMethod (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_deductionAssessmentMethod_assesmentmethods_assesmentmethods FOREIGN KEY (assesmentmethods)
-      REFERENCES assesmentmethods (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: exceedancedescription_reasonvalue
-      CREATE TABLE exceedancedescription_reasonvalue
-      (
-      uuid character varying(250) NOT NULL,
-      exceedancedescription character varying(50) NOT NULL,
-      reasonvalue character varying(50) NOT NULL,
-      CONSTRAINT pk_exceedancedescription_reasonvalue  PRIMARY KEY (uuid),
-      CONSTRAINT fk_exceedancedescription_reasonvalue_exceedancedescription FOREIGN KEY (exceedancedescription)
-      REFERENCES exceedancedescription (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_exceedancedescription_reasonvalue_reasonvalue FOREIGN KEY (reasonvalue)
-      REFERENCES reasonvalue (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: measures_spatialscale
-      CREATE TABLE measures_spatialscale
-      (
-      uuid character varying(250) NOT NULL,
-      measures character varying(50) NOT NULL,
-      spatialscale character varying(50) NOT NULL,
-      CONSTRAINT pk_measures_spatialscale PRIMARY KEY (uuid),
-      CONSTRAINT fk_measures_spatialscale_measures FOREIGN KEY (measures)
-      REFERENCES measures (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_spatialscale_spatialscale FOREIGN KEY (spatialscale)
-      REFERENCES spatialscale (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: measures_sourcesector
-      CREATE TABLE measures_sourcesector
-      (
-      uuid character varying(250) NOT NULL,
-      measures character varying(50) NOT NULL,
-      sourcesector character varying(50) NOT NULL,
-      CONSTRAINT pk_measures_sourcesector PRIMARY KEY (uuid),
-      CONSTRAINT fk_measures_sourcesector_measures FOREIGN KEY (measures)
-      REFERENCES measures (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_sourcesector_sourcesector FOREIGN KEY (sourcesector)
-      REFERENCES sourcesector (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: measures_administrationlevel
-      CREATE TABLE measures_administrationlevel
-      (
-      uuid character varying(250) NOT NULL,
-      measures character varying(50) NOT NULL,
-      administractionlevel character varying(50) NOT NULL,
-      CONSTRAINT pk_measures_administrationlevel  PRIMARY KEY (uuid),
-      CONSTRAINT fk_measures_administrationlevel_administrationlevel FOREIGN KEY (administractionlevel)
-      REFERENCES administrationlevel (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_administrationlevel_measures FOREIGN KEY (measures)
-      REFERENCES measures (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: measures_classification
-      CREATE TABLE measures_classification
-      (
-      uuid character varying(250) NOT NULL,
-      measures character varying(50) NOT NULL,
-      classification character varying(50) NOT NULL,
-      CONSTRAINT pk_measures_classification  PRIMARY KEY (uuid),
-      CONSTRAINT fk_measures_classification_classification FOREIGN KEY (classification)
-      REFERENCES classification (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_classification_measures FOREIGN KEY (measures)
-      REFERENCES measures (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: attainment_plan
-      CREATE TABLE attainment_plan
-      (
-      uuid character varying(250) NOT NULL,
-      attainment character varying(50) NOT NULL,
-      plan character varying(50) NOT NULL,
-      CONSTRAINT pk_attainment_plan  PRIMARY KEY (uuid),
-      CONSTRAINT fk_attainment_plan_plan FOREIGN KEY (plan)
-      REFERENCES plan (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_attainment_plan_attainment FOREIGN KEY (attainment)
-      REFERENCES attainment (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: measures_evaluationscenario
-      CREATE TABLE measures_evaluationscenario
-      (
-      uuid character varying(250) NOT NULL,
-      measures character varying(50) NOT NULL,
-      evaluationscenario character varying(50) NOT NULL,
-      CONSTRAINT pk_measures_evaluationscenario  PRIMARY KEY (uuid),
-      CONSTRAINT fk_measures_evaluationscenario_evaluationscenario FOREIGN KEY (evaluationscenario)
-      REFERENCES evaluationscenario (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_evaluationscenario_measures FOREIGN KEY (measures)
-      REFERENCES measures (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: evaluationscenario_publication
-      CREATE TABLE evaluationscenario_publication
-      (
-      uuid character varying(250) NOT NULL,
-      evaluationscenario character varying(50) NOT NULL,
-      publication character varying(50) NOT NULL,
-      CONSTRAINT pk_evaluationscenario_publication  PRIMARY KEY (uuid),
-      CONSTRAINT fk_evaluationscenario_publication_evaluationscenario	FOREIGN KEY (evaluationscenario)
-      REFERENCES evaluationscenario (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_eveluationscenario_publication_publication FOREIGN KEY (publication)
-      REFERENCES publication (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: plan_publication
-      CREATE TABLE plan_publication
-      (
-      uuid character varying(250) NOT NULL,
-      plan character varying(50) NOT NULL,
-      publication character varying(50) NOT NULL,
-      CONSTRAINT pk_plan_publication  PRIMARY KEY (uuid),
-      CONSTRAINT fk_plan_publication_plan FOREIGN KEY (plan)
-      REFERENCES plan (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_plan_publication_publication FOREIGN KEY (publication)
-      REFERENCES publication (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: measures_scenario
-      CREATE TABLE measures_scenario
-      (
-      uuid character varying(250) NOT NULL,
-      measures character varying(50) NOT NULL,
-      scenario character varying(50) NOT NULL,
-      CONSTRAINT pk_measures_scenario  PRIMARY KEY (uuid),
-      CONSTRAINT fk_measures_scenario_measures FOREIGN KEY (measures)
-      REFERENCES measures (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_measures_scenario_scenario FOREIGN KEY (scenario)
-      REFERENCES scenario (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: sourceapportionment_measures
-      CREATE TABLE sourceapportionment_measures
-      (
-      uuid character varying(250) NOT NULL,
-      sourceapportionment character varying(50) NOT NULL,
-      measures character varying(50) NOT NULL,
-      CONSTRAINT pk_sourceapportionment_measures  PRIMARY KEY (uuid),
-      CONSTRAINT fk_sourceapportionment_measures_measures FOREIGN KEY (measures)
-      REFERENCES measures (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_sourceapportionment_measures_sourceapportionment FOREIGN KEY (sourceapportionment)
-      REFERENCES sourceapportionment (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-
-
-      --Table: plan_pollutant_protectiontarget
-      CREATE TABLE plan_pollutant_protectiontarget
-      (
-      uuid character varying(250) NOT NULL,
-      plan character varying(50) NOT NULL,
-      pollutant character varying(50) NOT NULL,
-      protectiontarget character varying(50) NOT NULL,
-      CONSTRAINT pk_plan_pollutant_protectiontarget  PRIMARY KEY (uuid),
-      CONSTRAINT fk_plan_pollutant_protectiontarget_plan FOREIGN KEY (plan)
-      REFERENCES plan (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_plan_pollutant_protectiontarget_pollutant FOREIGN KEY (pollutant)
-      REFERENCES pollutant (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
-      CONSTRAINT fk_plan_pollutant_protectiontarget_protectiontarget FOREIGN KEY (protectiontarget)
-      REFERENCES protectiontarget (uuid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-      );
-      ]]>
-    </sql>
-  </changeSet>
 </databaseChangeLog>

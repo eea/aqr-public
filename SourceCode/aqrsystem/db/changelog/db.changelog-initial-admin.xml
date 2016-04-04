@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    
+    <property name="provider" value="0"/>
+    <property name="country" value="0"/>
+    <property name="userrole" value="0"/>
+    
+    <changeSet id="init-admin-fk-precondition" author="kopanalk" runAlways="true">
+        <preConditions onFail="CONTINUE" onFailMessage="Init.admins fk precondition (Failure is not a problem)">
+            <customPrecondition className="eu.europa.ec.aqrsystem.liquibase.DBInitialAdminPrecondition">
+                <param name="admin" value="${init.admins}"/>
+            </customPrecondition>
+            <sqlCheck expectedResult="0">
+                select count(*) from users where name='${init.admins}'
+            </sqlCheck>
+            <sqlCheck expectedResult="1">
+                select count(*) from country where uuid='${country}'
+            </sqlCheck>
+            <sqlCheck expectedResult="1">
+                select count(*) from userrole where uuid='${userrole}'
+            </sqlCheck>
+            <not>
+                <sqlCheck expectedResult="1">
+                    select count(*) from relatedparty where uuid='${provider}'
+                </sqlCheck>
+            </not>
+        </preConditions>
+        <comment>
+            Foreign key constraint will be violated when trying to insert user 
+            with non-existent provider reference. If referenced "${provider}" 
+            does not exist, a demo EEA provider is inserted.
+        </comment>
+        <sql>
+            INSERT INTO relatedparty VALUES ('${provider}', 'EEA', '', '', '', '', 'aqrsystem.demo.eea.admin@onet.pl');
+        </sql>
+    </changeSet>
+    
+    <changeSet id="init-admin" author="kopanalk" runAlways="true">
+        <preConditions onFail="CONTINUE" onFailMessage="Did not insert initial admin(which is ok if you didn't ask for it)! Preconditions failed!">
+            <customPrecondition className="eu.europa.ec.aqrsystem.liquibase.DBInitialAdminPrecondition">
+                <param name="admin" value="${init.admins}"/>
+            </customPrecondition>
+            <sqlCheck expectedResult="0">
+                select count(*) from users where name='${init.admins}'
+            </sqlCheck>
+            <sqlCheck expectedResult="1">
+                select count(*) from country where uuid='${country}'
+            </sqlCheck>
+            <sqlCheck expectedResult="1">
+                select count(*) from userrole where uuid='${userrole}'
+            </sqlCheck>
+        </preConditions>
+        <comment>
+            In order for the init-admin changeset to run, a java system property
+            should be set as for instance: -Dinit.admins=admin@mail. The init.admins
+            property should contain the email of the admin user. If this property
+            is not set, then both changesets will be ignored.
+        </comment>
+        <sql stripComments="false">
+            INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES
+            (md5('${init.admins}'), '${init.admins}', '${init.admins}', 'surname', '${country}', '${userrole}', '${provider}', true, now(), now());
+        </sql>
+    </changeSet>
+</databaseChangeLog>
