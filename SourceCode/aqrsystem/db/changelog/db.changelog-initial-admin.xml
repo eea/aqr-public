@@ -42,7 +42,7 @@
     </changeSet>
     
     <changeSet id="init-admin" author="kopanalk" runAlways="true">
-        <preConditions onFail="CONTINUE" onFailMessage="Did not insert initial admin(which is ok if you didn't ask for it)! Preconditions failed!">
+        <preConditions onFail="CONTINUE" onFailMessage="Did not insert initial admin">
             <customPrecondition className="eu.europa.ec.aqrsystem.liquibase.DBInitialAdminPrecondition">
                 <param name="admin" value="${init.admins}"/>
             </customPrecondition>

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
   
     <changeSet id="create-tables" author="kopanalk">
     
-      <preConditions onFail="MARK_RAN">
-      <or>
-        <sqlCheck expectedResult="0">
-          select count(*) from information_schema.tables where table_schema = 'public';
-        </sqlCheck>
-        <sqlCheck expectedResult="2">
-          select count(*) from information_schema.tables where table_schema = 'public';
-        </sqlCheck>
-      </or>
-    </preConditions>
+        <preConditions onFail="MARK_RAN">
+            <or>
+                <sqlCheck expectedResult="0">
+                    select count(*) from information_schema.tables where table_schema = 'public';
+                </sqlCheck>
+                <sqlCheck expectedResult="2">
+                    select count(*) from information_schema.tables where table_schema = 'public';
+                </sqlCheck>
+            </or>
+        </preConditions>
     
-     <createTable tableName="adjustmentsource">
+        <createTable tableName="adjustmentsource">
             <column name="uuid" type="VARCHAR(250)">
                 <constraints nullable="false"/>
             </column>

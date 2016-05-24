@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-<changeSet id="insert" author="kopanalk">
-  <preConditions onFail="MARK_RAN">
-    <sqlCheck expectedResult="0">
-      select case when (select count(*) from country) > 0 and 
-        (select count(*) from statusplan) > 0 and 
-        (select count(*) from pollutant) > 0 and 
-        (select count(*) from protectiontarget) > 0 and 
-        (select count(*) from pollutant_protectiontarget) > 0 and 
-        (select count(*) from administrationlevel) > 0 and
-        (select count(*) from currency) > 0 and 
-        (select count(*) from classification) > 0 and 
-        (select count(*) from statusplannedimplementation) > 0 and 
-        (select count(*) from measuretype) > 0 and 
-        (select count(*) from sourcesector) > 0 and
-        (select count(*) from spatialscale) > 0 and 
-        (select count(*) from specificationofhours) > 0 and 
-        (select count(*) from quantificationnumerical) > 0 and 
-        (select count(*) from timescale) > 0 and 
-        (select count(*) from assesmenttype) > 0 and 
-        (select count(*) from adjustmentsource) > 0 and
-        (select count(*) from adjustmenttype) > 0 and
-        (select count(*) from areaclassification) > 0 and
-        (select count(*) from reasonvalue) > 0 and
-        (select count(*) from country) > 0 and
-        (select count(*) from userrole) > 0 and
-        (select count(*) from systemconfiguration) > 0 then '1' else '0' end
-    </sqlCheck>
-  </preConditions>
-  <sql stripComments="false">
+    <changeSet id="insert" author="kopanalk">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select case when (select count(*) from country) > 0 or 
+                (select count(*) from statusplan) > 0 or 
+                (select count(*) from pollutant) > 0 or 
+                (select count(*) from protectiontarget) > 0 or 
+                (select count(*) from pollutant_protectiontarget) > 0 or 
+                (select count(*) from administrationlevel) > 0 or
+                (select count(*) from currency) > 0 or
+                (select count(*) from classification) > 0 or 
+                (select count(*) from statusplannedimplementation) > 0 or
+                (select count(*) from measuretype) > 0 or
+                (select count(*) from sourcesector) > 0 or
+                (select count(*) from spatialscale) > 0 or 
+                (select count(*) from specificationofhours) > 0 or 
+                (select count(*) from quantificationnumerical) > 0 or
+                (select count(*) from timescale) > 0 or 
+                (select count(*) from assesmenttype) > 0 or 
+                (select count(*) from adjustmentsource) > 0 or
+                (select count(*) from adjustmenttype) > 0 or
+                (select count(*) from areaclassification) > 0 or
+                (select count(*) from reasonvalue) > 0 or
+                (select count(*) from country) > 0 or
+                (select count(*) from userrole) > 0 or
+                (select count(*) from systemconfiguration) > 0 then '1' else '0' end
+            </sqlCheck>
+        </preConditions>
+        <sql stripComments="false">
     <![CDATA[
     /*statusplan*/
     INSERT INTO statusplan VALUES ('0', 'In preparation', 'http://dd.eionet.europa.eu/vocabulary/aq/statusaqplan/preparation');
@@ -3259,6 +3259,6 @@
     INSERT INTO systemconfiguration VALUES ('1', 'AT.0008.20.AQ', '2');
     INSERT INTO systemconfiguration VALUES ('37', 'http://airqualityreporting.gi/e-reporting/aq/', '38');
     ]]>
-  </sql>
-</changeSet>
+        </sql>
+    </changeSet>
 </databaseChangeLog>
