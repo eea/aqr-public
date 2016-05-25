@@ -277,27 +277,6 @@
     </properties>
 
     <profiles>
-        
-        <profile>
-          <id>distribution-profile</id>
-          <activation>
-            <property>
-              <name>env</name>
-              <value>deveepure</value>
-            </property>
-            <activeByDefault>true</activeByDefault>
-          </activation>
-          <properties>
-            <!-- Database configurations -->
-            <persistence.jdbc.url>jdbc:postgresql://your_server_url:your_port_number/your_database_name</persistence.jdbc.url>
-            <persistence.jdbc.username>your_username</persistence.jdbc.username>
-            <persistence.jdbc.password>your_password</persistence.jdbc.password>
-
-            <!-- Loggers configurations -->
-            <log.file.name>your_path_to_log_file/aqrsystem.log</log.file.name>
-          </properties>
-        </profile>
-
         <profile>
           <id>docker</id>
           <activation>
@@ -342,7 +321,7 @@
                   <images>
                     <image>
                       <alias>service</alias>
-                      <name>dockerrepo.eionet.europa.eu:5000/${project.groupId}/${project.artifactId}</name>
+                      <name>eeacms/${project.artifactId}</name>
                       <build>
                         <from>tomcat:6</from>
                         <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
@@ -416,30 +395,12 @@
                     <!-- This image is rebuilt every time. It is not suitable for persistent data -->
                     <image>
                       <alias>database</alias>
-                      <name>dockerrepo.eionet.europa.eu:5000/${project.groupId}/${project.artifactId}-testdb</name>
-                      <build>
-                        <from>postgres:9.0</from>
-                        <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
-                        <tags>
-                          <tag>latest</tag>
-                          <tag>${project.version}</tag>
-                        </tags>
-                        <assembly>
-                          <descriptor>assembly-db.xml</descriptor>
-                        </assembly>
+                      <name>postgres:9.0</name>
+                      <run>
                         <env>
                           <POSTGRES_PASSWORD>testpassword</POSTGRES_PASSWORD>
                           <POSTGRES_DB>aqrsystem</POSTGRES_DB>
                         </env>
-<!--                    Will be used to run in case database is created from sql files    
-                        <runCmds>
-                          <run>mv /maven/docker-entrypoint-initdb.d/* /docker-entrypoint-initdb.d</run>
-                        </runCmds>-->
-                        <ports>
-                          <port>5432</port>
-                        </ports>
-                      </build>
-                      <run>
                       <!--
 			<volumes>
 			  <bind>
