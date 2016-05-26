@@ -12,7 +12,7 @@
     <property name="userrole" value="0"/>
     
     <changeSet id="init-admin-fk-precondition" author="kopanalk" runOnChange="true">
-        <preConditions onFail="CONTINUE" onFailMessage="Init.admins fk precondition (Failure is not a problem)">
+        <preConditions onFail="CONTINUE" onFailMessage="No action required for creation of init admin">
             <customPrecondition className="eu.europa.ec.aqrsystem.liquibase.DBInitialAdminPrecondition">
                 <param name="admin" value="${init.admins}"/>
             </customPrecondition>
@@ -42,7 +42,7 @@
     </changeSet>
     
     <changeSet id="init-admin" author="kopanalk" runOnChange="true">
-        <preConditions onFail="CONTINUE" onFailMessage="Did not insert initial admin">
+        <preConditions onFail="CONTINUE" onFailMessage="Init admin was not inserted">
             <customPrecondition className="eu.europa.ec.aqrsystem.liquibase.DBInitialAdminPrecondition">
                 <param name="admin" value="${init.admins}"/>
             </customPrecondition>
