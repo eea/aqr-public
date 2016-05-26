@@ -81,51 +81,12 @@
                 </configuration>
             </plugin>
             
-            <plugin> <!-- configuration of a plugin to execute SQL scripts -->
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>sql-maven-plugin</artifactId>
-                <version>1.5</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>${dependency.postgres.group.id}</groupId>
-                        <artifactId>${dependency.postgres.artifact.id}</artifactId>
-                        <version>${dependency.postgres.version}</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <driver>${persistence.jdbc.driver}</driver>
-                    <url>${persistence.jdbc.url}</url>
-                    <username>${persistence.jdbc.username}</username>
-                    <password>${persistence.jdbc.password}</password>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>default-cli</id>
-                        <configuration>
-                            <autocommit>true</autocommit>
-                            <srcFiles>
-                                <!-- drop existing tables and create the database -->
-                                <srcFile>../aqrsql/create_aqd.sql</srcFile>
-                                <!-- insert the codelist and additional informations about the user and system -->
-                                <srcFile>../aqrsql/insert_aqd.sql</srcFile>
-                                
-                                <!--optional--> 
-                                <srcFile>../aqrsql/UK_demos.sql</srcFile>
-                            </srcFiles>                        
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>3.4.2</version>
                 <configuration>
                     <changeLogFile>db/changelog/db.changelog-master.xml</changeLogFile>
-                    <driver>${persistence.jdbc.driver}</driver>
-                    <url>${persistence.jdbc.url}</url>
-                    <username>${persistence.jdbc.username}</username>
-                    <password>${persistence.jdbc.password}</password>
                 </configuration>
             </plugin>
         </plugins>
@@ -265,7 +226,7 @@
     </dependencies>
 
     <properties>
-        <env>local</env>
+        <env>default</env>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <persistence.unitname>Aqrsystem</persistence.unitname>
@@ -288,10 +249,6 @@
             </activation>
             <properties>
                 <tomcat.port>8780</tomcat.port>
-                <!-- Database configurations -->
-                <persistence.jdbc.url>jdbc:postgresql://database:5432/aqrsystem</persistence.jdbc.url>
-                <persistence.jdbc.username>postgres</persistence.jdbc.username>
-                <persistence.jdbc.password>testpassword</persistence.jdbc.password>
                 <!-- Loggers configurations -->
                 <log.file.name>aqrsystem.log</log.file.name>
             </properties>
