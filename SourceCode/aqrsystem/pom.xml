@@ -87,10 +87,14 @@
                 <version>3.4.2</version>
                 <configuration>
                     <changeLogFile>db/changelog/db.changelog-master.xml</changeLogFile>
+                    <propertyFile>target/classes/liquibase.properties</propertyFile>
                 </configuration>
             </plugin>
         </plugins>
         
+        <filters>
+            <filter>${basedir}/${env}.properties</filter>
+        </filters>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
