@@ -47,23 +47,26 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                  <webResources>
-                    <resource>
-                      <directory>${basedir}/src/main/webapp/META-INF</directory>
-                      <filtering>true</filtering>
-                      <targetPath>META-INF</targetPath>
-                      <includes>
-                        <include>context.xml</include>
-                      </includes>
-                    </resource>
-                    <resource>
-                      <directory>${basedir}/db/changelog</directory>
-                      <targetPath>WEB-INF/classes/db/changelog</targetPath>
-                      <includes>
-                        <include>*</include>
-                      </includes>
-                    </resource>
-                  </webResources>
+                    <filters>
+                        <filter>${basedir}/${env}.properties</filter>
+                    </filters>
+                    <webResources>
+                        <resource>
+                            <directory>${basedir}/src/main/webapp/META-INF</directory>
+                            <filtering>true</filtering>
+                            <targetPath>META-INF</targetPath>
+                            <includes>
+                                <include>context.xml</include>
+                            </includes>
+                        </resource>
+                        <resource>
+                            <directory>${basedir}/db/changelog</directory>
+                            <targetPath>WEB-INF/classes/db/changelog</targetPath>
+                            <includes>
+                                <include>*</include>
+                            </includes>
+                        </resource>
+                    </webResources>
                 </configuration>
             </plugin>
             
@@ -114,16 +117,16 @@
                 </executions>
             </plugin>
             <plugin>
-              <groupId>org.liquibase</groupId>
-              <artifactId>liquibase-maven-plugin</artifactId>
-              <version>3.4.2</version>
-              <configuration>
-                <changeLogFile>db/changelog/db.changelog-master.xml</changeLogFile>
-                <driver>${persistence.jdbc.driver}</driver>
-                <url>${persistence.jdbc.url}</url>
-                <username>${persistence.jdbc.username}</username>
-                <password>${persistence.jdbc.password}</password>
-              </configuration>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <changeLogFile>db/changelog/db.changelog-master.xml</changeLogFile>
+                    <driver>${persistence.jdbc.driver}</driver>
+                    <url>${persistence.jdbc.url}</url>
+                    <username>${persistence.jdbc.username}</username>
+                    <password>${persistence.jdbc.password}</password>
+                </configuration>
             </plugin>
         </plugins>
         
@@ -146,12 +149,12 @@
             </snapshots>
         </repository>
 
-<!--
-        <repository>
-            <id>CITnet-nexus</id>  
-            <url>https://webgate.ec.europa.eu/CITnet/nexus/content/repositories/ecas</url>
-        </repository>
--->
+        <!--
+                <repository>
+                    <id>CITnet-nexus</id>  
+                    <url>https://webgate.ec.europa.eu/CITnet/nexus/content/repositories/ecas</url>
+                </repository>
+        -->
         <repository>
             <id>eea</id>
             <name>EEA Release Repository</name>
@@ -208,12 +211,12 @@
             <scope>provided</scope> 
         </dependency>
         <!--cas-->
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>org.jasig.cas</groupId>
             <artifactId>cas-client-core</artifactId>
             <version>3.1.10</version>
         </dependency>-->
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>org.jasig.cas</groupId>
             <artifactId>cas-server</artifactId>
             <version>3.5.2.1</version>
@@ -255,13 +258,14 @@
             <version>2.2.5.1</version>
         </dependency>
         <dependency>
-          <groupId>org.liquibase</groupId>
-          <artifactId>liquibase-core</artifactId>
-          <version>3.4.2</version>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.4.2</version>
         </dependency>
     </dependencies>
 
     <properties>
+        <env>local</env>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <persistence.unitname>Aqrsystem</persistence.unitname>
@@ -278,194 +282,194 @@
 
     <profiles>
         <profile>
-          <id>docker</id>
-          <activation>
-            <activeByDefault>false</activeByDefault>
-          </activation>
-          <properties>
-            <tomcat.port>8780</tomcat.port>
-            <!-- Database configurations -->
-            <persistence.jdbc.url>jdbc:postgresql://database:5432/aqrsystem</persistence.jdbc.url>
-            <persistence.jdbc.username>postgres</persistence.jdbc.username>
-            <persistence.jdbc.password>testpassword</persistence.jdbc.password>
-            <!-- Loggers configurations -->
-            <log.file.name>aqrsystem.log</log.file.name>
-          </properties>
+            <id>docker</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <tomcat.port>8780</tomcat.port>
+                <!-- Database configurations -->
+                <persistence.jdbc.url>jdbc:postgresql://database:5432/aqrsystem</persistence.jdbc.url>
+                <persistence.jdbc.username>postgres</persistence.jdbc.username>
+                <persistence.jdbc.password>testpassword</persistence.jdbc.password>
+                <!-- Loggers configurations -->
+                <log.file.name>aqrsystem.log</log.file.name>
+            </properties>
 
-          <dependencies>
-            <dependency>
-                <groupId>eionet</groupId>
-                <artifactId>jolokia</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <type>war</type>
-                <scope>runtime</scope> 
-            </dependency>
+            <dependencies>
+                <dependency>
+                    <groupId>eionet</groupId>
+                    <artifactId>jolokia</artifactId>
+                    <version>1.0-SNAPSHOT</version>
+                    <type>war</type>
+                    <scope>runtime</scope> 
+                </dependency>
 
-            <dependency>
-              <groupId>log4j</groupId>
-              <artifactId>log4j</artifactId>
-              <version>1.2.17</version>
-            </dependency>
-          </dependencies>
+                <dependency>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                    <version>1.2.17</version>
+                </dependency>
+            </dependencies>
 
-          <build>
-            <plugins>
-              <plugin>
-                <groupId>org.jolokia</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.13.6</version>
-                <configuration>
-                  <verbose>true</verbose>
-                  <logDate>default</logDate>
-                  <autoPull>true</autoPull>
-                  <images>
-                    <image>
-                      <alias>service</alias>
-                      <name>eeacms/${project.artifactId}</name>
-                      <build>
-                        <from>tomcat:6</from>
-                        <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
-                        <tags>
-                          <tag>latest</tag>
-                          <tag>${project.version}</tag>
-                          <tag>${maven.build.timestamp}</tag>
-                        </tags>
-                        <assembly>
-                          <descriptor>assembly.xml</descriptor>
-                        </assembly>
-                        <env>
-                          <KEYSTORE_PASS>changeit</KEYSTORE_PASS>
-                        </env>
-                        <!--
-			<volumes>
-                          <volume>/config</volume>
-			</volumes>
-                        -->
-                        <runCmds>
-                          <run>apt-get update</run>
-                          <run>apt-get install -y zip</run>
-                          <run>rm -rf /var/lib/apt/lists/*</run>
-                          <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias EuropeanCommission -file /maven/certs/EuropeanCommission.cer</run>
-                          <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias CommisSign -file /maven/certs/CommisSign.cer</run>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jolokia</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>0.13.6</version>
+                        <configuration>
+                            <verbose>true</verbose>
+                            <logDate>default</logDate>
+                            <autoPull>true</autoPull>
+                            <images>
+                                <image>
+                                    <alias>service</alias>
+                                    <name>eeacms/${project.artifactId}</name>
+                                    <build>
+                                        <from>tomcat:6</from>
+                                        <maintainer>Søren Roug &lt;soren.roug@eea.europa.eu&gt;</maintainer>
+                                        <tags>
+                                            <tag>latest</tag>
+                                            <tag>${project.version}</tag>
+                                            <tag>${maven.build.timestamp}</tag>
+                                        </tags>
+                                        <assembly>
+                                            <descriptor>assembly.xml</descriptor>
+                                        </assembly>
+                                        <env>
+                                            <KEYSTORE_PASS>changeit</KEYSTORE_PASS>
+                                        </env>
+                                        <!--
+                                        <volumes>
+                                          <volume>/config</volume>
+                                        </volumes>
+                                        -->
+                                        <runCmds>
+                                            <run>apt-get update</run>
+                                            <run>apt-get install -y zip</run>
+                                            <run>rm -rf /var/lib/apt/lists/*</run>
+                                            <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias EuropeanCommission -file /maven/certs/EuropeanCommission.cer</run>
+                                            <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias CommisSign -file /maven/certs/CommisSign.cer</run>
 
-                          <run>rm -rf $CATALINA_HOME/webapps/*</run>
-                          <run>cp -r /maven/tomcat /usr/local</run>
-                          <run>rm -f $CATALINA_HOME/conf/logging.properties</run>
-                        </runCmds>
-                        <optimise>true</optimise>
-                        <ports>
-                          <port>8080</port>
-                          <port>8009</port>
-                        </ports>
-                        <cmd>/maven/startup.sh</cmd>
-                      </build>
+                                            <run>rm -rf $CATALINA_HOME/webapps/*</run>
+                                            <run>cp -r /maven/tomcat /usr/local</run>
+                                            <run>rm -f $CATALINA_HOME/conf/logging.properties</run>
+                                        </runCmds>
+                                        <optimise>true</optimise>
+                                        <ports>
+                                            <port>8080</port>
+                                            <port>8009</port>
+                                        </ports>
+                                        <cmd>/maven/startup.sh</cmd>
+                                    </build>
 
-                      <run>
-                        <hostname>papers</hostname>
-                        <env>
-                          <CATALINA_OPTS>-Djava.security.egd=file:/dev/./urandom</CATALINA_OPTS>
-                          <SERVER_NAME>localhost</SERVER_NAME>
-                          <SERVER_PORT>${tomcat.port}</SERVER_PORT>
-                          <DB_URL>jdbc:postgresql://database:5432/aqrsystem</DB_URL>
-                          <DB_USERNAME>postgres</DB_USERNAME>
-                          <DB_PASSWORD>testpassword</DB_PASSWORD>
-                          <DB_DRIVER>org.postgresql.Driver</DB_DRIVER>
-                        </env>
-                        <ports>
-                          <port>tomcat.port:8080</port>
-                        </ports>
-                        <links>
-                          <link>database:database</link>
-                        </links>
-                        <wait>
-                          <http>
-                            <!-- Check for this URL to return a 200 return code .... -->
-                            <url>http://${docker.host.address}:${tomcat.port}/</url>
-                          </http>
-                          <!-- ... but at max 20 seconds -->
-                          <time>20000</time>
-                        </wait>
-                        <log>
-                          <prefix>TC</prefix>
-                          <color>cyan</color>
-                        </log>
-                      </run>
-                    </image>
+                                    <run>
+                                        <hostname>papers</hostname>
+                                        <env>
+                                            <CATALINA_OPTS>-Djava.security.egd=file:/dev/./urandom</CATALINA_OPTS>
+                                            <SERVER_NAME>localhost</SERVER_NAME>
+                                            <SERVER_PORT>${tomcat.port}</SERVER_PORT>
+                                            <DB_URL>jdbc:postgresql://database:5432/aqrsystem</DB_URL>
+                                            <DB_USERNAME>postgres</DB_USERNAME>
+                                            <DB_PASSWORD>testpassword</DB_PASSWORD>
+                                            <DB_DRIVER>org.postgresql.Driver</DB_DRIVER>
+                                        </env>
+                                        <ports>
+                                            <port>tomcat.port:8080</port>
+                                        </ports>
+                                        <links>
+                                            <link>database:database</link>
+                                        </links>
+                                        <wait>
+                                            <http>
+                                                <!-- Check for this URL to return a 200 return code .... -->
+                                                <url>http://${docker.host.address}:${tomcat.port}/</url>
+                                            </http>
+                                            <!-- ... but at max 20 seconds -->
+                                            <time>20000</time>
+                                        </wait>
+                                        <log>
+                                            <prefix>TC</prefix>
+                                            <color>cyan</color>
+                                        </log>
+                                    </run>
+                                </image>
 
-                    <!-- This image is rebuilt every time. It is not suitable for persistent data -->
-                    <image>
-                      <alias>database</alias>
-                      <name>postgres:9.0</name>
-                      <run>
-                        <env>
-                          <POSTGRES_PASSWORD>testpassword</POSTGRES_PASSWORD>
-                          <POSTGRES_DB>aqrsystem</POSTGRES_DB>
-                        </env>
-                      <!--
-			<volumes>
-			  <bind>
-			    <volume>${project.basedir}/data:/var/lib/postgresql/data</volume>
-			  </bind>
-			</volumes>
-                      -->
-                        <ports>
-                          <port>database.port:5432</port>
-                        </ports>
-                        <wait>
-                          <log>PostgreSQL init process complete; ready for start up.</log>
-                          <time>60000</time>
-                        </wait>
-                        <log>
-                          <prefix>DB</prefix>
-                          <color>blue</color>
-                        </log>
-                      </run>
-                    </image>
-                  </images>
-                </configuration>
+                                <!-- This image is rebuilt every time. It is not suitable for persistent data -->
+                                <image>
+                                    <alias>database</alias>
+                                    <name>postgres:9.0</name>
+                                    <run>
+                                        <env>
+                                            <POSTGRES_PASSWORD>testpassword</POSTGRES_PASSWORD>
+                                            <POSTGRES_DB>aqrsystem</POSTGRES_DB>
+                                        </env>
+                                        <!--
+                                          <volumes>
+                                            <bind>
+                                              <volume>${project.basedir}/data:/var/lib/postgresql/data</volume>
+                                            </bind>
+                                          </volumes>
+                                        -->
+                                        <ports>
+                                            <port>database.port:5432</port>
+                                        </ports>
+                                        <wait>
+                                            <log>PostgreSQL init process complete; ready for start up.</log>
+                                            <time>60000</time>
+                                        </wait>
+                                        <log>
+                                            <prefix>DB</prefix>
+                                            <color>blue</color>
+                                        </log>
+                                    </run>
+                                </image>
+                            </images>
+                        </configuration>
 
-                <!-- Hooking into the lifecycle -->
-                <executions>
-                  <execution>
-                    <id>start</id>
-                    <phase>pre-integration-test</phase>
-                    <goals>
-                      <goal>build</goal>
-                      <goal>start</goal>
-                    </goals>
-                  </execution>
-                  <execution>
-                    <id>stop</id>
-                    <phase>post-integration-test</phase>
-                    <goals>
-                      <goal>stop</goal>
-                    </goals>
-                  </execution>
-                </executions>
-              </plugin>
+                        <!-- Hooking into the lifecycle -->
+                        <executions>
+                            <execution>
+                                <id>start</id>
+                                <phase>pre-integration-test</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                    <goal>start</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>stop</id>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                    <goal>stop</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
 
-              <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.18.1</version>
-                <configuration>
-                  <systemPropertyVariables>
-                    <log.url>http://${docker.host.address}:${tomcat.port}/</log.url>
-                    <db.url>jdbc:postgresql://${docker.host.address}:${database.port}/aqrsystem</db.url>
-                  </systemPropertyVariables>
-                </configuration>
-                <executions>
-                  <execution>
-                    <goals>
-                      <goal>integration-test</goal>
-                      <goal>verify</goal>
-                    </goals>
-                  </execution>
-                </executions>
-              </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>2.18.1</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <log.url>http://${docker.host.address}:${tomcat.port}/</log.url>
+                                <db.url>jdbc:postgresql://${docker.host.address}:${database.port}/aqrsystem</db.url>
+                            </systemPropertyVariables>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
 
-            </plugins>
-          </build>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
