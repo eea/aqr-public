@@ -11,7 +11,7 @@
     <property name="country" value="0"/>
     <property name="userrole" value="0"/>
     
-    <changeSet id="init-admin-fk-precondition" author="kopanalk" runAlways="true">
+    <changeSet id="init-admin-fk-precondition" author="kopanalk" runOnChange="true">
         <preConditions onFail="CONTINUE" onFailMessage="Init.admins fk precondition (Failure is not a problem)">
             <customPrecondition className="eu.europa.ec.aqrsystem.liquibase.DBInitialAdminPrecondition">
                 <param name="admin" value="${init.admins}"/>
@@ -37,11 +37,11 @@
             does not exist, a demo EEA provider is inserted.
         </comment>
         <sql>
-            INSERT INTO relatedparty VALUES ('${provider}', 'EEA', '', '', '', '', 'aqrsystem.demo.eea.admin@onet.pl');
+            INSERT INTO relatedparty VALUES ('${provider}', 'EEA', '', '', '', '', 'aqrsystem.demo.eea.admin@eionet.pl');
         </sql>
     </changeSet>
     
-    <changeSet id="init-admin" author="kopanalk" runAlways="true">
+    <changeSet id="init-admin" author="kopanalk" runOnChange="true">
         <preConditions onFail="CONTINUE" onFailMessage="Did not insert initial admin">
             <customPrecondition className="eu.europa.ec.aqrsystem.liquibase.DBInitialAdminPrecondition">
                 <param name="admin" value="${init.admins}"/>
@@ -62,9 +62,17 @@
             property should contain the email of the admin user. If this property
             is not set, then both changesets will be ignored.
         </comment>
-        <sql stripComments="false">
-            INSERT INTO users (uuid, email, name, surname, country, userrole, provider, enable, datecreation, lastmodified) VALUES
-            (md5('${init.admins}'), '${init.admins}', '${init.admins}', 'surname', '${country}', '${userrole}', '${provider}', true, now(), now());
-        </sql>
+        <insert tableName="users">
+            <column name="uuid" value="md5('${init.admins}')"/>
+            <column name="email" value="${init.admins}"/>
+            <column name="name" value="${init.admins}"/>
+            <column name="surname" value="surname"/>
+            <column name="country" value="${country}"/>
+            <column name="userrole" value="${userrole}"/>
+            <column name="provider" value="${provider}"/>
+            <column name="enable" value="true"/>
+            <column name="datecreation" value="now()"/>
+            <column name="lastmodified" value="now()"/>
+        </insert>
     </changeSet>
 </databaseChangeLog>
