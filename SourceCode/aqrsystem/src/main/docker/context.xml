@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/aqrsystem">
+
+  <Resource
+          name="jdbc/aqr-public"
+          auth="Container"
+          type="javax.sql.DataSource"
+          maxActive="100"
+          maxIdle="30"
+          maxWait="10000"
+          username="__DB_USERNAME__"
+          password="__DB_PASSWORD__"
+          driverClassName="__DB_DRIVER__"
+          url="__DB_URL__"
+          validationQuery="SELECT 1"
+          testOnBorrow="true"
+  >
+  </Resource>
+</Context>

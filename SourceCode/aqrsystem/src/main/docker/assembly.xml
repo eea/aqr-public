@@ -32,6 +32,11 @@
       <destName>persistence.xml</destName>
     </file>
     <file>
+      <source>src/main/docker/context.xml</source>
+      <outputDirectory>.</outputDirectory>
+      <destName>context.xml</destName>
+    </file>
+    <file>
       <source>src/main/docker/server.xml</source>
       <outputDirectory>tomcat/conf</outputDirectory>
       <destName>server.xml</destName>
