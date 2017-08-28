@@ -83,7 +83,7 @@
                     </div>
                 </div><!-- toolribbon -->
               <div id="pagehead">
-                  <a href="/"><img src="images/eea-print-logo.gif" alt="Logo" id="logo" /></a>
+                  <a href="/"><img src="img/main/eea-print-logo.gif" alt="Logo" id="logo" /></a>
                   <div id="networktitle">Eionet</div>
                   <div id="sitetitle">${res['common.title']}</div>
                   <div id="sitetagline">${res['common.subtitle']}</div>
