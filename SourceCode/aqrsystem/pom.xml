@@ -312,6 +312,7 @@
                                             <run>rm -rf /var/lib/apt/lists/*</run>
                                             <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias EuropeanCommission -file /maven/certs/EuropeanCommission.cer</run>
                                             <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias CommisSign -file /maven/certs/CommisSign.cer</run>
+                                            <run>keytool -import -noprompt -v -keystore cacerts -storepass ${KEYSTORE_PASS} -alias GlobalSign -file /maven/certs/GlobalSign.cer</run>
 
                                             <run>rm -rf $CATALINA_HOME/webapps/*</run>
                                             <run>cp -r /maven/tomcat /usr/local</run>
