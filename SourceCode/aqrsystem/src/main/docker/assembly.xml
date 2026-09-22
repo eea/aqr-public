@@ -20,6 +20,11 @@
       <outputDirectory>certs</outputDirectory>
       <destName>EuropeanCommission.cer</destName>
     </file>
+    <file>
+      <source>../../ServerConfiguration/ecas/certs/GlobalSign.cer</source>
+      <outputDirectory>certs</outputDirectory>
+      <destName>GlobalSign.cer</destName>
+    </file>
 
     <file>
       <source>src/main/docker/ecas-config.properties</source>
