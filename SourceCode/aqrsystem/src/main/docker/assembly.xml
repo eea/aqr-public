@@ -11,22 +11,6 @@
       <destName>startup.sh</destName>
     </file>
     <file>
-      <source>../../ServerConfiguration/ecas/certs/CommisSign.cer</source>
-      <outputDirectory>certs</outputDirectory>
-      <destName>CommisSign.cer</destName>
-    </file>
-    <file>
-      <source>../../ServerConfiguration/ecas/certs/EuropeanCommission.cer</source>
-      <outputDirectory>certs</outputDirectory>
-      <destName>EuropeanCommission.cer</destName>
-    </file>
-    <file>
-      <source>../../ServerConfiguration/ecas/certs/GlobalSign.cer</source>
-      <outputDirectory>certs</outputDirectory>
-      <destName>GlobalSign.cer</destName>
-    </file>
-
-    <file>
       <source>src/main/docker/ecas-config.properties</source>
       <outputDirectory>.</outputDirectory>
       <destName>ecas-config.properties</destName>
