@@ -9,25 +9,38 @@ Modules
 * aqrmodel - java library; contains the model; is responsible for the communication with the database; compiles to a JAR that is included in the aqrsystem module
 * aqrsystem - webapp; containing the views and controllers
 
+Build the application
+---------------------
+```
+cd SourceCode/aqrsystem
+mvn -Dmaven.test.skip=true clean install
+```
+
+Run the unit tests
+------------------
+```
+cd SourceCode/aqrsystem
+mvn test
+```
+
 Building a Docker image
 -----------------------
 
-It is possible to build, test and push a Docker image of the Web DEM to Docker Hub. The image includes Jolokia for integration into the monitoring system. To do so you activate the `docker` profile. The `install` goal will do a test start up of the container. The `docker:push` will push the Docker image to Docker Hub.
+It is possible to build and push a Docker image of the Web DEM to Docker Hub.
+Build the application as already described and then create a docker image by executing the docker build command in the root directory containing the Dockerfile. 
+If no tag is provided then the image will be tagged as "latest".
 ```
-cd SourceCode/aqrsystem
-mvn -Pdocker clean install
-mvn -Pdocker -Ddocker.image=service docker:push
+docker build -t eeacms/aqrsystem:image-tag .
 ```
-To use `docker:push` you must have an account and add these lines to your `~/.m2/settings.xml`:
+In order to push the image you have created to DockerHub run:
 ```
-<server>
-  <id>docker.io</id>
-  <username>{account}</username>
-  <password>{password}</password>
-</server>
+docker push eeacms/aqrsystem:image-tag
 ```
-Note that occassionally the application is ready before the database is online. In that case use the docker:start goal.
 
-Deployment
-----------
-The application is configured with environment variables. If you run it in a Docker container, then there is an example configuration at Documentation/docker-compose-example.yml.
+Run locally
+----------------
+
+You can use docker-compose to run the application locally:
+```
+docker compose -f docker-compose-local.yml up
+```
